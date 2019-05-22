@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'java-library'
     id 'com.github.johnrengelman.shadow' version '5.0.0'
@@ -19,13 +21,30 @@ dependencies {
     
     
     compile group: 'io.vertx', name: 'vertx-web', version: '3.7.0'
+    compile group: 'com.j2html', name: 'j2html', version: '1.4.0'    
 }
 
 
 shadowJar {
-	baseName = 'web'
+	ext.getDateTimeStr = { param1 ->
+   		def date = new Date()
+		def sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss")
+		return sdf.format(date)
+	}
+
+	def jarName = "web-" + ext.getDateTimeStr()
+	
+	minimize()	
+	baseName = jarName
    	classifier = null
    	version = null
+   	doLast {
+        copy {
+            from "build/libs/${jarName}.jar"
+            into "build/"
+        }
+        delete("build/libs/${jarName}.jar")
+    }
 }
 
 jar {
