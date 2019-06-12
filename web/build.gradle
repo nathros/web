@@ -10,20 +10,19 @@ repositories {
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:26.0-jre'
-
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    //compile group: 'io.vertx', name: 'vertx-web', version: '3.7.0'
+    //compile group: 'com.j2html', name: 'j2html', version: '1.4.0'
+    //compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.562'
+    //compile group: 'com.amazonaws', name: 'aws-java-sdk-lambda', version: '1.11.562'
+    compile group: 'org.json', name: 'json', version: '20180813'
     
-    
-    compile group: 'io.vertx', name: 'vertx-web', version: '3.7.0'
-    compile group: 'com.j2html', name: 'j2html', version: '1.4.0'    
 }
 
+compileJava { // AWS Lamdba currently June-2019 only supports Java 8
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  //options.bootClasspath = "${System.getProperty('java6.home')}/jre/lib/rt.jar"
+}
 
 shadowJar {
 	ext.getDateTimeStr = { param1 ->
@@ -34,11 +33,12 @@ shadowJar {
 
 	def jarName = "web-" + ext.getDateTimeStr()
 	
-	minimize()	
+	//minimize()	
 	baseName = jarName
    	classifier = null
    	version = null
-   	doLast {
+   	
+   	doLast { // Move jar file to root of build dir
         copy {
             from "build/libs/${jarName}.jar"
             into "build/"
