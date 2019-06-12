@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     //compile group: 'io.vertx', name: 'vertx-web', version: '3.7.0'
-    //compile group: 'com.j2html', name: 'j2html', version: '1.4.0'
+    compile group: 'com.j2html', name: 'j2html', version: '1.4.0'
     //compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.562'
     //compile group: 'com.amazonaws', name: 'aws-java-sdk-lambda', version: '1.11.562'
     compile group: 'org.json', name: 'json', version: '20180813'
