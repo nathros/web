@@ -10,12 +10,8 @@ repositories {
 }
 
 dependencies {
-    //compile group: 'io.vertx', name: 'vertx-web', version: '3.7.0'
     compile group: 'com.j2html', name: 'j2html', version: '1.4.0'
-    //compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.562'
-    //compile group: 'com.amazonaws', name: 'aws-java-sdk-lambda', version: '1.11.562'
     compile group: 'org.json', name: 'json', version: '20180813'
-    
 }
 
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8
@@ -23,6 +19,15 @@ compileJava { // AWS Lamdba currently June-2019 only supports Java 8
   targetCompatibility = 1.8
   //options.bootClasspath = "${System.getProperty('java6.home')}/jre/lib/rt.jar"
 }
+
+//sourceSets {
+//    main {
+//        resources {
+//            srcDirs = ["src/main/java"]
+//            includes = ["**/*.*"]
+//        }
+//    }
+//}
 
 shadowJar {
 	ext.getDateTimeStr = { param1 ->
