@@ -6,6 +6,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import web.pages.PageMapping;
 import web.pages.home.PageHome;
 
 public class RequestInfo {
@@ -42,11 +43,10 @@ public class RequestInfo {
 		try {
 			String ret = queryMap.get("path");
 			if ((ret == null) || (ret == ""))
-				return PageHome.class.getName(); // TODO 404 page
+				return PageHome.class.getName();
 			else {
-				String classPath = PageHome.class.getPackageName() + ".";
-				classPath = classPath.concat(ret.replaceAll("/", "."));
-				return classPath;
+				String classRef = PageMapping.map.get(ret);
+				return classRef;
 			}
 		} catch (JSONException e) {
 			return PageHome.class.getName();
