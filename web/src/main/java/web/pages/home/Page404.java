@@ -1,8 +1,9 @@
 package web.pages.home;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
+import web.Debug;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 
@@ -17,13 +18,27 @@ public class Page404 extends BasePage {
 		return "404";
 	}
 
-	public String getResponse(Exception e) {
+	public String getResponse(Exception e, Object request) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Request:<br>");
+		sb.append(request.toString());
+		sb.append("=======================<br>");
+		sb.append("=======================<br>");
 
-		String response = e.getMessage() + "\n";
-		StringWriter sw = new StringWriter();
-		e.printStackTrace(new PrintWriter(sw));
-		response += sw.toString();
+		if (e != null) {
+			sb.append(e.getMessage() + "<br>");
 
-		return response;
+			StringWriter sw = new StringWriter();
+			e.printStackTrace(new PrintWriter(sw));
+			sb.append(sw.toString());
+		}
+		sb.append("....");
+		try {
+			sb.append(Debug.serialise(request));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		sb.append("....");
+		return sb.toString();
 	}
 }

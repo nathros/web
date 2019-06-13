@@ -1,56 +1,35 @@
 package web.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.LinkedHashMap;
+import java.util.Objects;
 
 import web.pages.PageMapping;
 import web.pages.home.PageHome;
 
 public class RequestInfo {
-	private JSONObject requestJSON;
-	private Map<String, String> queryMap;
+	private LinkedHashMap<String, Objects> requestMap;
 
-	public RequestInfo(Object requestJSON) {
-		if (requestJSON == null)
-			this.requestJSON = new JSONObject("{}");
-		else
-			this.requestJSON = new JSONObject(requestJSON.toString());
-		queryMap = populateQueries(getQuery());
-	}
-
-	private Map<String, String> populateQueries(String query) {
-		Map<String, String> map = new HashMap<String, String>();
-		String[] split = query.split("&");
-		for (String i : split) {
-			String[] keyValue = i.split("=");
-			map.put(keyValue[0], keyValue[1]);
+	@SuppressWarnings("unchecked") // TODO better solution
+	public RequestInfo(Object request) {
+		if (request instanceof LinkedHashMap<?, ?>) {
+			requestMap = (LinkedHashMap<String, Objects>) request;
 		}
-		return map;
-	}
-
-	public String getQuery() {
-		return requestJSON.getString("query");
-	}
-
-	public String getRefererURL() {
-		return requestJSON.getString("referer");
 	}
 
 	public String getPageClass() {
 		try {
-			String ret = queryMap.get("path");
+			Object o = requestMap.get("path");
+			String ret = o.toString();
 			if ((ret == null) || (ret == ""))
 				return PageHome.class.getName();
 			else {
-				String classRef = PageMapping.map.get(ret);
+				String classRef = PageMapping.getPageClassMap(ret, true);
 				return classRef;
 			}
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			return PageHome.class.getName();
 		}
 
 	}
+
 }

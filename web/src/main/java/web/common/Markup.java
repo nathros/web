@@ -4,8 +4,6 @@ import static j2html.TagCreator.*;
 
 import java.util.List;
 
-import web.Lambda;
-
 public class Markup {
 	public static StringBuffer page = new StringBuffer();
 	
