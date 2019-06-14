@@ -1,4 +1,4 @@
-package web;
+package web.common;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

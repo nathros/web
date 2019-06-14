@@ -3,7 +3,7 @@ package web;
 import java.lang.reflect.Constructor;
 import web.common.RequestInfo;
 import web.pages.BasePage;
-import web.pages.home.Page404;
+import web.pages.root.Page404;
 
 public class Lambda {
 

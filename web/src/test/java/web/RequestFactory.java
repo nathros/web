@@ -2,6 +2,8 @@ package web;
 
 import java.util.LinkedHashMap;
 
+import web.common.Debug;
+
 public class RequestFactory {
 
 	public static Object getStandard2Param() {
@@ -45,7 +47,7 @@ public class RequestFactory {
 			paramsStr = request.substring(request.indexOf("/"), index);
 			queryStr = request.substring(index + 1, request.lastIndexOf(" HTT"));
 		} else {
-			paramsStr = request.substring(request.indexOf(" /") + 2, request.lastIndexOf(" HTT"));
+			paramsStr = request.substring(request.indexOf(" /") + 1, request.lastIndexOf(" HTT"));
 		}
 
 		LinkedHashMap<String, String> query = new LinkedHashMap<String, String>();

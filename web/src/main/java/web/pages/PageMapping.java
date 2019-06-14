@@ -3,8 +3,8 @@ package web.pages;
 import java.util.HashMap;
 import java.util.Map;
 
-import web.pages.home.*;
-import web.pages.home.projects.PageProjects;
+import web.pages.root.*;
+import web.pages.root.projects.PageProjects;
 
 public class PageMapping {
 	private static Map<String, String> map = createMap();
@@ -12,8 +12,8 @@ public class PageMapping {
 	private static Map<String, String> createMap() {
 		Map<String, String> m = new HashMap<String, String>();
 		m.put("/404", Page404.class.getName());
-		m.put("/home", PageHome.class.getName());
-		m.put("/home/projects", PageProjects.class.getName());
+		m.put("/root", PageHome.class.getName());
+		m.put("/root/projects", PageProjects.class.getName());
 		return m;
 	}
 
@@ -25,7 +25,8 @@ public class PageMapping {
 				if (path.charAt(path.length() - 1) == '/')
 					last--;
 				path = path.substring(index, last);
-			}
+			} else
+				return PageHome.class.getName();
 		}
 		return map.get(path);
 	}

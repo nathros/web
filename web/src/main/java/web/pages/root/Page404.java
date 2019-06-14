@@ -1,9 +1,10 @@
-package web.pages.home;
+package web.pages.root;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import web.Debug;
+
+import web.common.Debug;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 

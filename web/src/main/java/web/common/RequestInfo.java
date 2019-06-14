@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 
 import web.pages.PageMapping;
-import web.pages.home.PageHome;
+import web.pages.root.PageHome;
 
 public class RequestInfo {
 	private LinkedHashMap<String, Objects> requestMap;

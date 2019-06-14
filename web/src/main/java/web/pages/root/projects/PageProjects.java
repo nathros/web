@@ -1,4 +1,4 @@
-package web.pages.home.projects;
+package web.pages.root.projects;
 
 import web.common.RequestInfo;
 import web.pages.BasePage;
