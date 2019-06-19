@@ -28,7 +28,10 @@ public class PageMapping {
 			} else
 				return PageHome.class.getName();
 		}
-		return map.get(path);
+		if (path.equals(""))
+			return PageHome.class.getName();
+		else
+			return map.get(path);
 	}
 
 }

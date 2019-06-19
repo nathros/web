@@ -1,21 +1,30 @@
 package web.common;
 
-import static j2html.TagCreator.*;
-
-import java.util.List;
+import web.pages.resources.Resource;
 
 public class Markup {
-	public StringBuffer page = new StringBuffer();
+	public StringBuffer p = new StringBuffer(1024 * 4);
 
-	public void addHeader(List<String> styles) {
+	public Markup() {
+		ln("<!DOCTYPE html>");
+	}
 
-		//
-		page.append("<!DOCTYPE html>\n");
-		page.append(head(style()));
+	public void ln(String line) {
+		p.append(line + "\n");
+	}
 
-		/*
-		 * page.append( body( h1("Hello, World!"), img().withSrc("/img/hello.png")
-		 * ).renderFormatted());
-		 */
+	public void addHeader() {
+		ln("<head>");
+		ln("<link rel=\"icon\" type=\"image/png\" href=\"https://img.icons8.com/cute-clipart/64/000000/sun.png\">");
+
+		ln("<div class=\"navbar\">");
+
+		ln("</head>");
+	}
+
+	public void addCSS() {
+		ln("<style>");
+		ln(Resource.readResource(Resource.CSS));
+		ln("</style>");
 	}
 }

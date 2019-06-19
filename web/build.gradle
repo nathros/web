@@ -10,7 +10,6 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.j2html', name: 'j2html', version: '1.4.0' 
 }
 
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8
