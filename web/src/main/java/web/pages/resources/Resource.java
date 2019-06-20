@@ -5,8 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Resource {
+	public static final String CSS_COMMON = "web/css/common.css";
+	public static final String CSS_HEADER = "web/css/header.css";
 
-	public static final String CSS = "web/css/t.css";
+	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 
 	public static String readResource(String path) {
 		try {

@@ -13,7 +13,7 @@ public class TestPage {
 	private static final Executor threadPool = Executors.newFixedThreadPool(3);
 	public static boolean stopServer = false;
 
-	private static void handleRequest(Socket socket) {
+	private static void handleRequest(Socket socket, String[] args) {
 		BufferedReader in;
 		PrintWriter out;
 
@@ -28,8 +28,13 @@ public class TestPage {
 
 			// ==============================================================//
 			Lambda ret = new Lambda();
-			// String response = ret.handleRequest(RequestFactory.getStandard2Param());
-			String response = ret.handleRequest(RequestFactory.getRequestParam(request));
+			String response = "NULL missing startup param";
+			if (args.length > 1) {
+				if ("fixed".equals(args[1]))
+					response = ret.handleRequest(RequestFactory.getStandard2Param());
+				else if ("dynamic".equals(args[1]))
+					response = ret.handleRequest(RequestFactory.getRequestParam(request));
+			}
 			// ==============================================================//
 
 			out.println("Content-length: " + response.length());
@@ -55,7 +60,7 @@ public class TestPage {
 			Runnable task = new Runnable() {
 				@Override
 				public void run() {
-					handleRequest(connection);
+					handleRequest(connection, args);
 				}
 			};
 			threadPool.execute(task);

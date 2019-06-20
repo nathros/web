@@ -15,17 +15,17 @@ dependencies {
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8
   sourceCompatibility = 1.8
   targetCompatibility = 1.8
-  //options.bootClasspath = "${System.getProperty('java6.home')}/jre/lib/rt.jar"
 }
 
-//sourceSets {
-//    main {
-//        resources {
-//            srcDirs = ["src/main/java"]
-//            includes = ["**/*.*"]
-//        }
-//    }
-//}
+sourceSets {
+	main {
+		resources {
+			//srcDirs = ["src/main/java"]
+			//includes = ["**/*.*"]
+			exclude 'web/js/snake.js'
+		}
+	}
+}
 
 shadowJar {
 	ext.getDateTimeStr = { param1 ->

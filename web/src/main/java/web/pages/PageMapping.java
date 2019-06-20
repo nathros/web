@@ -14,6 +14,7 @@ public class PageMapping {
 		m.put("/404", Page404.class.getName());
 		m.put("/root", PageHome.class.getName());
 		m.put("/root/projects", PageProjects.class.getName());
+		m.put("/admin", PageAdmin.class.getName());
 		return m;
 	}
 

@@ -2,25 +2,24 @@ package web.pages.root;
 
 import web.common.RequestInfo;
 import web.pages.BasePage;
+import web.pages.resources.Resource;
 
-public class PageHome extends BasePage {
+public class PageAdmin extends BasePage {
 
-	public PageHome(RequestInfo request) {
+	public PageAdmin(RequestInfo request) {
 		super(request);
 	}
 
 	@Override
 	public String getResponse() {
 		m.ln("<html>");
-		m.addHead();
-		m.addCSS();
+		m.addHead(Resource.CSS_COMMON, Resource.CSS_HEADER);
 
 		m.ln("<body>");
-		m.ln("<h2>root page</h2>");
+		m.addNavbar();
 		m.ln("</body>");
 
 		m.ln("</html>");
-
 		return m.p.toString();
 	}
 
