@@ -7,3 +7,8 @@ body {
 	
 	--std-padding: 1em;
 }
+
+.common-content {
+	padding-left: 8%;
+	padding-right: 8%;
+}

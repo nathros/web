@@ -20,8 +20,12 @@ public class PageAdmin extends BasePage {
 
 		m.ln("<body>");
 		m.addNavbar();
+
+		m.ln("<div class=\"common-content\">");
+
 		m.addCard("<h2>card</h2>");
 		m.ln("</body>");
+		m.ln("</div>");
 
 		m.ln("</html>");
 		return m.p.toString();
