@@ -21,25 +21,27 @@ public class Page404 extends BasePage {
 
 	public String getResponse(Exception e, Object request) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Request:<br>");
-		sb.append(request.toString());
-		sb.append("=======================<br>");
-		sb.append("=======================<br>");
+		sb.append("<h2>404</h2>");
 
 		if (e != null) {
+			sb.append("<p>Stack Trace</p>");
 			sb.append(e.getMessage() + "<br>");
-
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			sb.append(sw.toString());
+			sb.append(sw.toString().replaceAll("\n", "<br>"));
 		}
-		sb.append("....");
+
 		try {
+			sb.append("<p>Request Base64</p>");
+			sb.append("<div style=\"width: 16em; word-wrap: break-word\">");
 			sb.append(Debug.serialise(request));
+			sb.append("</div>");
+			sb.append("<br>");
+			sb.append("<p>Request</p>");
+			sb.append(request.toString().replaceAll(", ", "<br>"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		sb.append("....");
 		return sb.toString();
 	}
 }

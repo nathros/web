@@ -12,7 +12,7 @@ public class PageHome extends BasePage {
 	@Override
 	public String getResponse() {
 		m.ln("<html>");
-		m.addHead();
+		m.addHead(null, null);
 		m.addCSS();
 
 		m.ln("<body>");

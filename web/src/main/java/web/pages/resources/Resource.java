@@ -5,10 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Resource {
-	public static final String CSS_COMMON = "web/css/common.css";
+	public static final String CSS_COMMON = "web/css/common.css"; // includes global css varibles
 	public static final String CSS_HEADER = "web/css/header.css";
+	public static final String CSS_CARD = "web/css/card.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
+
+	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
 
 	public static String readResource(String path) {
 		try {

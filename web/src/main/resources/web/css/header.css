@@ -1,7 +1,6 @@
 body {
 	--navbar-background-colour: #333;
 	--navbar-font-idle-colour: #999;
-	--std-padding: 1em;
 }
 
 .navbar {
@@ -44,7 +43,7 @@ body {
 .navbar-dropdown-content {
 	display: none;
 	position: absolute;
-	background-color: #333;
+	background-color: var(--navbar-background-colour);
 	color: white;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);

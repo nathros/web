@@ -12,11 +12,15 @@ public class PageAdmin extends BasePage {
 
 	@Override
 	public String getResponse() {
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD };
+		String[] js = { Resource.JS_SNAKE_HOOK };
+
 		m.ln("<html>");
-		m.addHead(Resource.CSS_COMMON, Resource.CSS_HEADER);
+		m.addHead(css, js);
 
 		m.ln("<body>");
 		m.addNavbar();
+		m.addCard("<h2>card</h2>");
 		m.ln("</body>");
 
 		m.ln("</html>");

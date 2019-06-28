@@ -20,7 +20,7 @@ public class Lambda {
 			return response.getResponse();
 
 		} catch (Exception e) { // return exception as response
-			Page404 page = new Page404(new RequestInfo(input)); // TODO null
+			Page404 page = new Page404(new RequestInfo(input));
 			return page.getResponse(e, input);
 		}
 	}
