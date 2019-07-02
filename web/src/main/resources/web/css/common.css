@@ -4,6 +4,7 @@
 body {
 	margin: 0;
 	background-color: #f4f4f4;
+	#background-color: white;
 	
 	--std-padding: 1em;
 }
@@ -11,4 +12,16 @@ body {
 .common-content {
 	padding-left: 8%;
 	padding-right: 8%;
+	#animation: 1s ease-out 0s 1 fadeup;
+}
+
+@keyframes fadeup {
+	0% {
+		transform: translateY(1em);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }

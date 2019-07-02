@@ -8,6 +8,8 @@ public class Resource {
 	public static final String CSS_COMMON = "web/css/common.css"; // includes global css varibles
 	public static final String CSS_HEADER = "web/css/header.css";
 	public static final String CSS_CARD = "web/css/card.css";
+	public static final String CSS_TIMELINE = "web/css/timeline.css";
+	public static final String CSS_SIDENAV = "web/css/sidenav.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 
