@@ -5,6 +5,9 @@ import java.util.Map;
 
 import web.pages.root.*;
 import web.pages.root.projects.PageProjects;
+import web.pages.root.sandpit.PageSandpit;
+import web.pages.root.sandpit.xhttp.PageXHTTPInner;
+import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
 public class PageMapping {
 	private static Map<String, String> map = createMap();
@@ -15,6 +18,12 @@ public class PageMapping {
 		m.put("/root", PageHome.class.getName());
 		m.put("/root/projects", PageProjects.class.getName());
 		m.put("/admin", PageAdmin.class.getName());
+		m.put("/debug", PageDebug.class.getName());
+
+		// Testing pages
+		m.put("/sandpit", PageSandpit.class.getName());
+		m.put("/sandpit/xhttpinner", PageXHTTPInner.class.getName());
+		m.put("/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
 		return m;
 	}
 

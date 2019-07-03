@@ -4,10 +4,13 @@ body {
 }
 
 .navbar {
-	overflow: hidden;
+	/*overflow: hidden; /*Add back for none-fixed*/
 	background-color: var(--navbar-background-colour);
 	box-shadow: 0em 0.1em 0.5em 0.2em rgba(0,0,0,0.3);
 	z-index: 100;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
 .navbar a {

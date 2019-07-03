@@ -14,7 +14,7 @@ public class PageAdmin extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TIMELINE,
 				Resource.CSS_SIDENAV };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
 
 		m.ln("<html>");
 		m.addHead(css, js);
@@ -29,14 +29,12 @@ public class PageAdmin extends BasePage {
 		m.ln("	<a href=\"#a\">test</a>");
 		m.ln("	<a href=\"#a\">test</a>");
 		m.ln("	<a href=\"#a\">test</a>");
-
 		m.ln("</div>"); // sidenav
 
 		////
 
 		m.ln("<div class=\"common-content\">");
 		m.addCard("	<h2><a href=\"/test/admin\"> link</a></h2>");
-
 		////
 
 		m.ln("	<div class=\"timeline-container\">");
