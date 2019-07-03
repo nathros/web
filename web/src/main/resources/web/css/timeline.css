@@ -14,7 +14,7 @@
 }
 
 .timeline-item::before {
-	content: attr(date-is);
+	content: attr(data-date-is);
 	position: absolute;
 	left: 2em;
 	font-weight: bold;

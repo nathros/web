@@ -38,31 +38,31 @@ public class PageAdmin extends BasePage {
 		////
 
 		m.ln("	<div class=\"timeline-container\">");
-		m.ln("		<div class=\"timeline-item\" date-is=\"test date\">");
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h1>sample heading</h1>");
 		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" date-is=\"test date\">");
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h1>sample heading</h1>");
 		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" date-is=\"test date\">");
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h1>sample heading</h1>");
 		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" date-is=\"test date\">");
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h1>sample heading</h1>");
 		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" date-is=\"test date\">");
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
 		m.ln("			<h1>sample heading</h1>");
 		m.ln("			<p>qas we grd dd gg dgjf fn fl</p>");
 		m.ln("		</div>");

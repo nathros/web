@@ -64,7 +64,7 @@ body {
 }
 
 .navbar-dropdown-content a:hover {
-	background-color: #gray;
+	background-color: grey;
 }
 
 .navbar-dropdown:hover .navbar-dropdown-content {

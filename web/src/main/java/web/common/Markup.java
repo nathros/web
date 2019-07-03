@@ -12,7 +12,7 @@ public class Markup {
 	public void addNavbar() {
 		ln("<div class=\"navbar\">");
 		ln("	<a href=\"#home\">Home</a>");
-		ln("	<a href=\"#news\">News</a>");
+		ln("	<a href=\"sandpit\">Sandpit</a>");
 		ln("	<div class=\"navbar-dropdown\">");
 		ln("		<button class=\"dropbtn\">Dropdown</button>");
 		ln("		<div class=\"navbar-dropdown-content\">");
@@ -36,6 +36,7 @@ public class Markup {
 
 	public void addHead(String[] cssImport, String[] jsImport) {
 		ln("<head>");
+		ln("<title>title message</title>");
 		ln("<link rel=\"icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
 
 		if (cssImport != null) {
@@ -48,7 +49,7 @@ public class Markup {
 		}
 
 		if (jsImport != null) {
-			ln("<script type=\"text/javascript\">");
+			ln("<script>");
 			for (String i : jsImport) {
 				ln("/* ".concat(i).concat(" */"));
 				ln(Resource.readResource(i));
