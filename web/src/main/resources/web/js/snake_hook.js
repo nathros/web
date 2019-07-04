@@ -8,12 +8,10 @@ function snak(e) {
 		charArray = charArray.slice(1, 6);
 		if (charArray.join("").search("snake") != -1) {
 			if (!loadSnakeJS) { // Load script, only once through.
-				loadJS = true;
+				loadSnakeJS = true;
 				document.head.appendChild(document.createElement("script")).src = "res/snake.js";
-			}
-			try {
+			} else {
 				createSnake();
-			} catch (e) {
 			}
 		}
 	}

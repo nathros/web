@@ -67,23 +67,25 @@ function init() {
 	});
 }
 
-function mouse(e) {
+function mouse(e) { // Change mouse on cross
 	var yPos = e.pageY - window.pageYOffset;
 	var xPos = e.pageX - window.pageXOffset;
 	var cellSize = getCellSize();
-	if (cellSize < 24) cellSize = 24;
-	if ((xPos > (window.innerWidth - cellSize)) && (yPos < cellSize))
+	cellSize = cellSize > 24 ? cellSize : 24;
+	cellSize = (cellSize * 1.5) * 1.25;
+	if ((xPos > (window.innerWidth - cellSize)) && ((yPos - (cellSize / 4)) < cellSize))
 		canvas.style.cursor = "pointer";
 	else
 		canvas.style.cursor = "default";
 }
 
-function click(e) {
+function click(e) { // Click cross to close snake
 	var yPos = e.pageY - window.pageYOffset;
-	var xPos = e.pageX - window.pageXOffset
+	var xPos = e.pageX - window.pageXOffset;
 	var cellSize = getCellSize();
-	if (cellSize < 24) cellSize = 24;
-	if ((xPos > (window.innerWidth - cellSize)) && (yPos < cellSize)) destroySnake();
+	cellSize = cellSize > 24 ? cellSize : 24;
+	cellSize = (cellSize * 1.5) * 1.25;
+	if ((xPos > (window.innerWidth - cellSize)) && ((yPos - (cellSize / 4)) < cellSize)) destroySnake();
 }
 
 function newFood() {
@@ -332,8 +334,10 @@ function draw() {
 
 	// Draw exit cross
 	var crossSize = cellSize > 24 ? cellSize : 24;
+	crossSize = crossSize * 1.5;
 	ctx.save();
-	ctx.lineWidth = 3;
+	ctx.lineWidth = 4;
+	//ctx.strokeStyle = "red";
 	ctx.shadowColor = "white";
 	ctx.shadowBlur = 3;
 	ctx.beginPath();
@@ -343,7 +347,7 @@ function draw() {
 	ctx.lineTo(window.innerWidth - crossSize, crossSize);
 	ctx.stroke();
 	ctx.font = Math.floor(crossSize / 2.5) + "px Lucida Sans Unicode";
-	ctx.fillText("close", window.innerWidth - crossSize + 1, crossSize + Math.floor(crossSize / 2.5));
+	ctx.fillText("close", window.innerWidth - crossSize, crossSize + Math.floor(crossSize / 2.5));
 	ctx.restore();
 
 	if (showGrid) drawGrid(cellSize, xStart, yStart);
@@ -365,12 +369,12 @@ function draw() {
 		x = xStart + (food.x * cellSize);
 		y = yStart + (food.y * cellSize);
 		ctx.fillStyle = "red";
-		// ctx.shadowColor = "yellow";
-		// ctx.shadowBlur = 3;
-		// var grd=ctx.createRadialGradient(75,50,5,90,60,100);
-		// grd.addColorStop(0,"red");
-		// grd.addColorStop(1,"black");
-		// ctx.fillStyle=grd;
+		//ctx.shadowColor = "yellow";
+		//ctx.shadowBlur = 3;
+		//var grd=ctx.createRadialGradient(75,50,5,90,60,100);
+		//grd.addColorStop(0,"red");
+		//grd.addColorStop(1,"black");
+		//ctx.fillStyle=grd;
 		drawRoundRect(x + 1, y + 1, cellSize - 1, Math.floor(cellSize / 4));
 		ctx.restore();
 	}
