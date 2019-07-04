@@ -1,13 +1,4 @@
-/**
- * @author Nathan Bartram
- * @since 2016-11-16
- * @version 2016-12-01
- *					<p>
- *					A game of snake easter egg.
- *					While at EnAppSys.
- */
-
-var showGrid = false;
+var showGrid = false; // Debug
 
 var direction = {
 	"LEFT": "LEFT",
@@ -33,11 +24,11 @@ var score = 0;
 var canvas;
 var ctx;
 var drawInterval;
+var bodyOverflowOriginal;
 
 createSnake();
 
-function createSnake() {
-	// Create canvas, is exists then replace.
+function createSnake() { // Create canvas, is exists then replace.
 	canvas = document.getElementById("snake-canvas");
 	if (canvas != null) {
 		destroySnake();
@@ -52,9 +43,10 @@ function createSnake() {
 	canvas.style.width = "100%";
 	canvas.style.height = "100%";
 	canvas.style.position = "fixed";
+	bodyOverflowOriginal = document.body.style.overflow;
 	document.body.style.overflow = "hidden";
+	canvas.style.zIndex = "1000";
 	document.body.appendChild(canvas);
-
 	window.addEventListener("keydown", snakeKeyDown);
 	window.addEventListener("resize", draw);
 	canvas.addEventListener("click", click, false);
@@ -73,8 +65,6 @@ function init() {
 		x: Math.floor(cellsXNum / 4),
 		y: Math.floor(cellsYNum / 4)
 	});
-	// snake.push({x:2,y:2});
-	// snake.push({x:1,y:2});
 }
 
 function mouse(e) {
@@ -119,14 +109,14 @@ function newFood() {
 
 function destroySnake() {
 	var c = document.getElementById("snake-canvas");
-	if (c != null) c.parentElement.removeChild(c); // Better: c.remove(); But IE stikes again.
+	if (c != null) c.parentElement.removeChild(c); // Better: c.remove(); But IE strikes again.
 	window.removeEventListener("keypress", snakeKeyDown);
 	window.removeEventListener("resize", draw);
 	window.clearInterval(drawInterval);
 	gameActive = false;
 	gameEnd = false;
 	showSplash = true;
-	document.body.style.overflow = "scroll";
+	document.body.style.overflow = bodyOverflowOriginal;
 }
 
 function restartSnake() {
@@ -144,9 +134,9 @@ function drawSplash() {
 	ctx.font = "bold " + cellSize + "px Lucida Sans Unicode";
 	var yPos = Math.floor(window.innerHeight / 2);
 	
-	var t1 = "You have stumbled upon..."; //"The energy market has gone long...";
+	var t1 = "You have stumbled upon...";
 	var t1w = ctx.measureText(t1).width;	
-	var t2 = "...a hidden game of snake"; //"...eat up the excess power";
+	var t2 = "...a hidden game of snake";
 	var t2w = ctx.measureText(t2).width;
 	
 	ctx.fillText(t1, Math.floor((window.innerWidth - t1w) / 2), yPos - (cellSize * 2));
@@ -155,15 +145,12 @@ function drawSplash() {
 	ctx.fillText(t2, Math.floor((window.innerWidth - t2w) / 2), yPos - cellSize + 5);
 	
 	ctx.font = cellSize + "px Lucida Sans Unicode";
-	var t3 = "Press	Space	to start";
+	var t3 = "Press [Space] to start";
 	var t3w = ctx.measureText(t3).width;
 	ctx.fillText(t3, Math.floor((window.innerWidth - t3w) / 2), yPos + (cellSize * 2));
 	ctx.fillText(t3, Math.floor((window.innerWidth - t3w) / 2), yPos + (cellSize * 2));
 	
-	var t3BoxStart = Math.floor((window.innerWidth - t3w) / 2) + ctx.measureText("Press ").width - 0.5;
-	ctx.rect(t3BoxStart, yPos + cellSize + 0.5, ctx.measureText(" Space ").width, cellSize + Math.floor(cellSize / 3));
-	ctx.stroke();
-	var t4 = "Controls: Arrow keys or WASD";
+	var t4 = "Controls: Arrow keys [\u2190][\u2192][\u2191][\u2193] or [W][A][S][D]";
 	var t4w = ctx.measureText(t4).width;
 	var y = Math.floor(((window.innerHeight - (cellsYNum * cellSize)) / 2) + (cellSize * cellsYNum) - (cellSize / 2));
 	ctx.fillText(t4, Math.floor((window.innerWidth - t4w) / 2), y);
@@ -182,21 +169,18 @@ function gameOver() {
 	ctx.font = "bold " + cellSize + "px Lucida Sans Unicode";
 	var yPos = Math.floor(window.innerHeight / 2);
  
-	var t2 = "GAME OVER"; //"The energy market crashed!";
+	var t2 = "GAME OVER";
 	var t2w = ctx.measureText(t2).width;
 	ctx.fillText(t2, Math.floor((window.innerWidth - t2w) / 2), yPos - cellSize + 5);
 	ctx.fillText(t2, Math.floor((window.innerWidth - t2w) / 2), yPos - cellSize + 5);
 	ctx.beginPath();
 	
 	ctx.font = cellSize + "px Lucida Sans Unicode";
-	var t3 = "Press	Space	to restart";
+	var t3 = "[Space] restart, [Esc] exit";
 	var t3w = ctx.measureText(t3).width;
 	ctx.fillText(t3, Math.floor((window.innerWidth - t3w) / 2), yPos + (cellSize * 2));
 	ctx.fillText(t3, Math.floor((window.innerWidth - t3w) / 2), yPos + (cellSize * 2));
-	
-	var t3BoxStart = Math.floor((window.innerWidth - t3w) / 2) + ctx.measureText("Press ").width - 0.5;
-	ctx.rect(t3BoxStart, yPos + cellSize + 0.5, ctx.measureText(" Space ").width, cellSize + Math.floor(cellSize / 3));
-	ctx.stroke();
+
 	
 	var t4 = "Score: " + score;
 	var t4w = ctx.measureText(t4).width;
@@ -294,7 +278,7 @@ function updateGameState() {
 		if ((cellsXNum * cellsYNum) == snake.length)
 			gameOver();
 		else
-			newFood(); // It is possible for new food to spawn on last segment.
+			newFood(); // TODO It is possible for new food to spawn on last segment.
 	} else
 		snake = snake.slice(0, snake.length - 1);
 	acceptInput = true;

@@ -19,10 +19,13 @@ compileJava { // AWS Lamdba currently June-2019 only supports Java 8
 
 sourceSets {
 	main {
+		java {
+			//exclude 'web/pages/root/sandpit/*'
+		}
 		resources {
 			//srcDirs = ["src/main/java"]
 			//includes = ["**/*.*"]
-			exclude 'web/js/snake.js'
+			//exclude 'web/js/snake.js'
 		}
 	}
 }

@@ -11,8 +11,8 @@ public class PageHome extends BasePage {
 
 	@Override
 	public String getResponse() {
-		m.ln("<html>");
-		m.addHead(null, null);
+		m.ln("<html lang=\"en\">");
+		m.addHead(null, null, null);
 		m.addCSS();
 
 		m.ln("<body>");

@@ -34,9 +34,11 @@ public class Markup {
 		p.append(line + "\n");
 	}
 
-	public void addHead(String[] cssImport, String[] jsImport) {
+	public void addHead(String[] cssImport, String[] jsImport, String title) {
 		ln("<head>");
-		ln("<title>title message</title>");
+		if (null == title)
+			title = "";
+		ln("<title>".concat(title).concat("</title>"));
 		ln("<link rel=\"icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
 
 		if (cssImport != null) {

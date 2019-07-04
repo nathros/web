@@ -12,10 +12,16 @@ public class PageSandpit extends BasePage {
 
 	@Override
 	public String getResponse() {
-		m.ln("<html>");
+		m.ln("<html lang=\"en\">");
+		m.ln("<head>");
+		m.ln("<title>Sandpit</title>");
+		m.ln("<style>a { color: black; }</style>");
+		m.ln("</head>");
 
 		m.ln("<body>");
-		m.ln("	<a href=\"xhttpouter\">xhttpouter</a><br>");
+		m.ln("	<div style=\"text-align: center;\">");
+		m.ln("		<a href=\"sandpit/xhttpouter\">xhttpouter</a><br>");
+		m.ln("	</div>");
 		m.ln("</body>");
 		m.ln("</html>");
 		return m.p.toString();

@@ -1,5 +1,5 @@
 var charArray = ['-','-','-','-','-'];
-var loadJS = false;
+var loadSnakeJS = false;
 
 window.addEventListener("keydown", snak);
 function snak(e) {
@@ -7,9 +7,9 @@ function snak(e) {
 		charArray.push(e.key);
 		charArray = charArray.slice(1, 6);
 		if (charArray.join("").search("snake") != -1) {
-			if (!loadJS) { // Load script, only once through.
+			if (!loadSnakeJS) { // Load script, only once through.
 				loadJS = true;
-				document.head.appendChild(document.createElement("script")).src = "http://yourjavascript.com/9560579192/snake.js";
+				document.head.appendChild(document.createElement("script")).src = "res/snake.js";
 			}
 			try {
 				createSnake();

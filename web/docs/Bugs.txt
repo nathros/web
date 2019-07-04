@@ -1,0 +1,1 @@
+When serving snake.js var t3 = "Press	Space	to start"; tabs in string is been replaced with strings

@@ -3,6 +3,7 @@ package web.pages;
 import java.util.HashMap;
 import java.util.Map;
 
+import web.pages.resources.JSSnakeRes;
 import web.pages.root.*;
 import web.pages.root.projects.PageProjects;
 import web.pages.root.sandpit.PageSandpit;
@@ -24,6 +25,9 @@ public class PageMapping {
 		m.put("/sandpit", PageSandpit.class.getName());
 		m.put("/sandpit/xhttpinner", PageXHTTPInner.class.getName());
 		m.put("/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
+
+		//
+		m.put("/res/snake.js", JSSnakeRes.class.getName());
 		return m;
 	}
 

@@ -16,8 +16,8 @@ public class PageAdmin extends BasePage {
 				Resource.CSS_SIDENAV };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
 
-		m.ln("<html>");
-		m.addHead(css, js);
+		m.ln("<html lang=\"en\">");
+		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");
 		m.addNavbar();

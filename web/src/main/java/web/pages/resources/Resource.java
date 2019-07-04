@@ -12,6 +12,7 @@ public class Resource {
 	public static final String CSS_SIDENAV = "web/css/sidenav.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
+	public static final String JS_SNAKE = "web/js/snake.js";
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
 
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";

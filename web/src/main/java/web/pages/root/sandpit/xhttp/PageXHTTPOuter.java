@@ -15,11 +15,11 @@ public class PageXHTTPOuter extends BasePage {
 		String[] css = {};
 		String[] js = { Resource.JS_LOAD_DOC };
 
-		m.ln("<html>");
-		m.addHead(css, js);
+		m.ln("<html lang=\"en\">");
+		m.addHead(css, js, "XHTTP Test");
 
 		m.ln("<body>");
-		m.ln("	<button type=\"button\" onclick=\"loadDoc('../sandpit/xhttpinner')\">Request server time</button>\n");
+		m.ln("	<button type=\"button\" onclick=\"loadDoc('../sandpit/xhttpinner')\">Request server time</button>");
 		m.ln("	<p id=\"demo\"></p>");
 		m.ln("</body>");
 		m.ln("</html>");
