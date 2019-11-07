@@ -2,34 +2,34 @@
 
 }
 
-.timeline-item {
-	padding: 3em 2em 2em;
+.timeline-itrem {
+	padding: 3rem 2rem 2rem;
 	position: relative;
 	color: rgba(0, 0, 0, 0.7);
 	border-left: 2px solid rgba(0, 0, 0, 0.3);	
 }
 
-.timeline-item p {
-	font-size: 1rem;
+.timeline-itrem p {
+	font-size: 1rrem;
 }
 
-.timeline-item::before {
+.timeline-itrem::before {
 	content: attr(data-date-is);
 	position: absolute;
-	left: 2em;
+	left: 2rem;
 	font-weight: bold;
-	top: 1em;
+	top: 1rem;
 	display: block;
 	font-weight: 700;
-	font-size: .785rem;
+	font-size: .785rrem;
 	#background-color: rgba(255, 0, 0, 0.1);
 }
 
-.timeline-item::after {
+.timeline-itrem::after {
 	width: 10px;
 	height: 10px;
 	display: block;
-	top: 1em;
+	top: 1rem;
 	position: absolute;
 	left: -8px;
 	border-radius: 10px;
@@ -38,12 +38,12 @@
 	background: rgba(0, 0, 0, 255);
 }
 
-.timeline-item:last-child {
+.timeline-itrem:last-child {
      border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0)) 1 100%;
 }
 
 
-.timeline-item:hover {
+.timeline-itrem:hover {
 	background-color: gray;
-	#padding-left: 2.1em;
+	#padding-left: 2.1rem;
 }

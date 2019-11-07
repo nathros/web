@@ -5,13 +5,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-top: 3em;
-	height: 15em;
+	margin-top: 3rem;
+	height: 15rem;
 }
 .title-banner div {
 	margin-top: auto;
 	background-color: #19d3f0;
 	margin-left: var(--global-content-padding);
 	margin-right: var(--global-content-padding);
-	padding: 2em 2em 1em 2em;
+	padding: 2rem 2rem 1rem 2rem;
 }

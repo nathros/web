@@ -28,7 +28,14 @@ public class PageAdmin extends BasePage {
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
-
+		m.ln("		<form method=\"post\" action=javascript:action>");
+		m.ln("			<label for=\"page-select\"><strong>Page:</strong></label>");
+		m.ln("				<select name=\"page-select\" id=\"page-select\" onChange=\"this.form.action=this.options[this.selectedIndex].value;this.form.submit()\">");
+		m.ln("					<option value=\"page1\">Option 1</option>");
+		m.ln("					<option value=\"page2\">Option 3</option>");
+		m.ln("					<option value=\"page3\">Option 3</option>");
+		m.ln("				</select>"); // select
+		m.ln("		</form>"); // form
 		m.ln("	</div>"); // card
 
 		// m.addCard(" <h2><a href=\"/test/admin\"> link</a></h2>");
