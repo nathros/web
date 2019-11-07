@@ -12,9 +12,8 @@ public class PageAdmin extends BasePage {
 
 	@Override
 	public String getResponse() {
-		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TIMELINE,
-				Resource.CSS_SIDENAV };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER };
+		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Admin");
@@ -23,53 +22,22 @@ public class PageAdmin extends BasePage {
 		m.addNavbar();
 
 		////
-		m.ln("<div class=\"sidenav\">");
-		m.ln("	<a href=\"#a\">test</a>");
-		m.ln("	<a href=\"#a\">test</a>");
-		m.ln("	<a href=\"#a\">test</a>");
-		m.ln("	<a href=\"#a\">test</a>");
-		m.ln("	<a href=\"#a\">test</a>");
-		m.ln("</div>"); // sidenav
-
-		////
+		m.ln("<div class=\"title-banner\">");
+		m.ln("	<div>Admin Page</div>");
+		m.ln("</div>"); // title-banner
 
 		m.ln("<div class=\"common-content\">");
-		m.addCard("	<h2><a href=\"/test/admin\"> link</a></h2>");
+		m.ln("	<div class=\"card\">");
+
+		m.ln("	</div>"); // card
+
+		// m.addCard(" <h2><a href=\"/test/admin\"> link</a></h2>");
 		////
 
-		m.ln("	<div class=\"timeline-container\">");
-		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
-		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h1>sample heading</h1>");
-		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
-		m.ln("			</div>"); // timeline-item-content
-		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
-		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h1>sample heading</h1>");
-		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
-		m.ln("			</div>"); // timeline-item-content
-		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
-		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h1>sample heading</h1>");
-		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
-		m.ln("			</div>"); // timeline-item-content
-		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
-		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h1>sample heading</h1>");
-		m.ln("				<p>qas we grd dd gg dgjf fn fl</p>");
-		m.ln("			</div>"); // timeline-item-content
-		m.ln("		</div>"); // timeline-item
-		m.ln("		<div class=\"timeline-item\" data-date-is=\"test date\">");
-		m.ln("			<h1>sample heading</h1>");
-		m.ln("			<p>qas we grd dd gg dgjf fn fl</p>");
-		m.ln("		</div>");
-		m.ln("	</div>"); // timeline-container
 		////
 
 		m.ln("</div>"); // common-content
+
 		m.ln("</body>");
 		m.ln("</html>");
 		return m.p.toString();
