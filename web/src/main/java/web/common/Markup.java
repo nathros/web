@@ -1,5 +1,8 @@
 package web.common;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import web.pages.resources.Resource;
 
 public class Markup {
@@ -22,6 +25,27 @@ public class Markup {
 		ln("		</div>");
 		ln("	</div>");
 		ln("</div>");
+	}
+
+	public void addPageSelector(LinkedHashMap<String, String> items, int selectedIndex) {
+		ln("<form method=\"get\" action=javascript:action>");
+		ln("	<label for=\"page-select\"><strong>Page:</strong></label>");
+		ln("	<select id=\"page-select\" onChange=\"self.location=this.options[this.selectedIndex].value;\">");
+		if (items != null) {
+			for (Map.Entry<String, String> entry : items.entrySet()) {
+				selectedIndex--;
+				String key = entry.getKey();
+				String value = entry.getValue();
+				if (0 == selectedIndex) {
+					ln("		<option selected value=\"".concat(value).concat("\">").concat(key).concat("</option>"));
+				} else {
+					ln("		<option value=\"".concat(value).concat("\">").concat(key).concat("</option>"));
+				}
+			}
+
+		}
+		ln("	</select>"); // select
+		ln("</form>"); // form
 	}
 
 	public void addCard(String content) {
