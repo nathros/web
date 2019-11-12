@@ -1,0 +1,57 @@
+.ripple {
+	position: relative;
+	overflow: hidden;
+	transform: translate3d(0, 0, 0)
+}
+
+.ripple:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	transform: scale(10, 10);
+	opacity: 0;
+	transition: transform .5s, opacity 1s
+}
+
+.ripple:active:after {
+	transform: scale(0, 0);
+	opacity: .2;
+	transition: 0s
+}
+
+.btn-blue {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-blue:hover {
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.btn-blue:active {
+    background-color: #269abc;
+    border-color: #1b6d85;
+}
+
+.btn {
+	color: #fff;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}

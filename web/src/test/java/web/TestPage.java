@@ -27,6 +27,7 @@ public class TestPage {
 			out.println("Server-name: myserver");
 
 			// ==============================================================//
+			long startTime = System.currentTimeMillis();
 			Lambda ret = new Lambda();
 			String response = "NULL missing startup param";
 			if (args.length > 1) {
@@ -43,6 +44,8 @@ public class TestPage {
 			out.flush();
 			out.close();
 			socket.close();
+
+			System.out.println("Server response time: " + (System.currentTimeMillis() - startTime) + "ms");
 		} catch (IOException e) {
 			System.out.println("Failed respond to client request: " + e.getMessage());
 			try {

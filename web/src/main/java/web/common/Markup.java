@@ -49,6 +49,19 @@ public class Markup {
 		ln("</form>"); // form
 	}
 
+	int modalCount = 0;
+
+	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile
+		ln("<a href=\"#img" + modalCount + "\">");
+		ln("	<img src=\"" + thumbnailURL + "\" class=\"image ripple\" style=\"" + thumbnailStyle + "\">");
+		ln("</a>"); // #img1
+
+		ln("<a href=\"#\" class=\"modal-image\" id=\"img" + modalCount + "\">");
+		ln(" <img src=\"" + imageURL + "\">");
+		ln("</a>"); // modal-image
+		modalCount++;
+	}
+
 	public void addCard(String content) {
 		ln("<div class=\"card\">");
 		ln(content);

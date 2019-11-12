@@ -12,6 +12,7 @@ public class Resource {
 	public static final String CSS_SIDENAV = "web/css/sidenav.css";
 	public static final String CSS_TITLE_BANNER = "web/css/title-banner.css";
 	public static final String CSS_MODAL_IMAGE = "web/css/modal-image.css";
+	public static final String CSS_BUTTON = "web/css/button.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";

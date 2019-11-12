@@ -13,7 +13,7 @@ public class RohloffPage1 extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
@@ -31,14 +31,15 @@ public class RohloffPage1 extends BasePage {
 		RohloffUtils.addRohloffPageSelector(m, 1);
 
 		////
-		m.ln("<a href=\"#img1\">");
-		m.ln("	<img src=\"http://insomnia.rest/images/screens/main.png\" class=\"image\" style=\"width: 100px;\">");
-		m.ln("</a>"); // #img1
+		m.addModalImage("http://insomnia.rest/images/screens/main.png", "http://insomnia.rest/images/screens/main.png",
+				"width: 256px");
+		m.ln("<br>");
 
-		m.ln("<a href=\"#_\" class=\"modal-image\" id=\"img1\">");
-		m.ln("	<img src=\"http://insomnia.rest/images/screens/main.png\">");
-		m.ln("</a>"); // modal-image
+		m.addModalImage("https://mladenplavsic.github.io/css-ripple-effect/images/logo_browserstack.svg",
+				"https://mladenplavsic.github.io/css-ripple-effect/images/logo_browserstack.svg", "width: 256px");
+		m.ln("<br>");
 
+		m.ln("<a class=\"btn btn-blue ripple\">Link</a>");
 		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content

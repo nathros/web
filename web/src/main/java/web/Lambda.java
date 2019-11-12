@@ -17,7 +17,8 @@ public class Lambda {
 			Object object = cons.newInstance(request);
 
 			BasePage response = (BasePage) object;
-			return response.getResponse();
+			String result = response.getResponse();
+			return result;
 
 		} catch (Exception e) { // return exception as response
 			Page404 page = new Page404(new RequestInfo(input));
