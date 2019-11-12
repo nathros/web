@@ -3,6 +3,7 @@ package web.common;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class Markup {
@@ -14,12 +15,12 @@ public class Markup {
 
 	public void addNavbar() {
 		ln("<div class=\"navbar\">");
-		ln("	<a href=\"#home\">Home</a>");
+		ln("	<a href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
 		ln("	<a href=\"sandpit\">Sandpit</a>");
 		ln("	<div class=\"navbar-dropdown\">");
-		ln("		<button class=\"dropbtn\">Dropdown</button>");
+		ln("		<button class=\"dropbtn\">Projects</button>");
 		ln("		<div class=\"navbar-dropdown-content\">");
-		ln("			<a href=\"#\">Link 1</a>");
+		ln("			<a href=\"".concat(PageMapping.ROHLOFF_PG0).concat("\">Rohloff Bike</a>"));
 		ln("			<a href=\"#\">Link 2</a>");
 		ln("			<a href=\"#\">Link 3</a>");
 		ln("		</div>");

@@ -30,13 +30,14 @@ public class Page404 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar();
 
-		m.ln("<div class=\"title-banner\">");
-		m.ln("	<div>404</div>");
-		m.ln("</div>"); // title-banner
+		// m.ln("<div class=\"title-banner\">");
+		// m.ln(" <div>404</div>");
+		// m.ln("</div>"); // title-banner
 
 		m.ln("<div class=\"common-content\">");
-		m.ln("	<div class=\"card\">");
-
+		m.ln("<div class=\"card-single\">");
+		m.ln("<h1>404</h1>");
+		m.ln("<button onclick=\"window.history.back()\">Go Back</button>");
 		if (e != null) {
 			m.ln("<p><b>Stack Trace</b></p>");
 			m.ln(e.getMessage() + "<br>");

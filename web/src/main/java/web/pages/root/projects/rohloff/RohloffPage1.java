@@ -12,7 +12,8 @@ public class RohloffPage1 extends BasePage {
 
 	@Override
 	public String getResponse() {
-		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER };
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
+				Resource.CSS_MODAL_IMAGE };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
@@ -28,6 +29,17 @@ public class RohloffPage1 extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 		RohloffUtils.addRohloffPageSelector(m, 1);
+
+		////
+		m.ln("<a href=\"#img1\">");
+		m.ln("	<img src=\"http://insomnia.rest/images/screens/main.png\" class=\"image\" style=\"width: 100px;\">");
+		m.ln("</a>"); // #img1
+
+		m.ln("<a href=\"#_\" class=\"modal-image\" id=\"img1\">");
+		m.ln("	<img src=\"http://insomnia.rest/images/screens/main.png\">");
+		m.ln("</a>"); // modal-image
+
+		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 

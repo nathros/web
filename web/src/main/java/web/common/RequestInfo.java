@@ -23,7 +23,7 @@ public class RequestInfo {
 			if ((ret == null) || (ret == ""))
 				return PageHome.class.getName();
 			else {
-				String classRef = PageMapping.getPageClassMap(ret, true);
+				String classRef = PageMapping.getPageClassMap(ret);
 				return classRef;
 			}
 		} catch (Exception e) {

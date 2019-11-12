@@ -15,6 +15,7 @@ import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
 public class PageMapping {
+	public static final String HOME_PG = "";
 	public static final String ROHLOFF_PG0 = "/projects/rohloff";
 	public static final String ROHLOFF_PG1 = "/projects/rohloff-1";
 	public static final String ROHLOFF_PG2 = "/projects/rohloff-2";
@@ -25,7 +26,9 @@ public class PageMapping {
 
 	private static Map<String, String> createMap() {
 		Map<String, String> m = new HashMap<String, String>();
+		m.put(HOME_PG, PageHome.class.getName());
 		m.put("/404", Page404.class.getName());
+		m.put("/admin", PageAdmin.class.getName());
 		m.put("/root", PageHome.class.getName());
 		m.put("/root/projects", PageProjects.class.getName());
 
@@ -35,34 +38,33 @@ public class PageMapping {
 		m.put(ROHLOFF_PG3, RohloffPage3.class.getName());
 		m.put(ROHLOFF_PG4, RohloffPage4.class.getName());
 
-		m.put("/admin", PageAdmin.class.getName());
-		m.put("/debug", PageDebug.class.getName());
+		// Resources
+		m.put("/res/snake.js", JSSnakeRes.class.getName());
 
 		// Testing pages
+		m.put("/debug", PageDebug.class.getName());
 		m.put("/sandpit", PageSandpit.class.getName());
 		m.put("/sandpit/xhttpinner", PageXHTTPInner.class.getName());
 		m.put("/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
-
-		//
-		m.put("/res/snake.js", JSSnakeRes.class.getName());
 		return m;
 	}
 
-	public static String getPageClassMap(String path, boolean removefirst) {
-		if (removefirst) {
+	public static String getPageClassMap(String path) {
+		if (map.containsKey(path)) {
+			return map.get(path);
+		} else {
 			int index = path.indexOf("/", 1);
 			int last = path.length();
 			if (index != -1) {
-				if (path.charAt(path.length() - 1) == '/')
+				if (path.charAt(path.length() - 1) == '/') {
 					last--;
+				}
 				path = path.substring(index, last);
-			} else
+			} else {
 				return PageHome.class.getName();
-		}
-		if (path.equals(""))
-			return PageHome.class.getName();
-		else
+			}
 			return map.get(path);
+		}
 	}
 
 }
