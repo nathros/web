@@ -49,6 +49,12 @@ public class Markup {
 		ln("</form>"); // form
 	}
 
+	public void addBanner(String title, String background) {
+		ln("<div class=\"title-banner\" style=\"background-image: url(".concat(background).concat(")\">"));
+		ln("	<div>".concat(title).concat("</div>"));
+		ln("</div>"); // title-banner
+	}
+
 	int modalCount = 0;
 
 	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile
@@ -57,7 +63,7 @@ public class Markup {
 		ln("</a>"); // #img1
 
 		ln("<a href=\"#\" class=\"modal-image\" id=\"img" + modalCount + "\">");
-		ln(" <img src=\"" + imageURL + "\">");
+		ln("	<img src=\"" + imageURL + "\">");
 		ln("</a>"); // modal-image
 		modalCount++;
 	}

@@ -22,9 +22,7 @@ public class RohloffPage1 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar();
 
-		m.ln("<div class=\"title-banner\">"); // common-content
-		m.ln("	<div>Rohloff 1</div>");
-		m.ln("</div>"); // title-banner
+		m.addBanner("Rohloff 1", "https://www.jonkensy.com/wp-content/uploads/IMG_0166-2.jpg");
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");

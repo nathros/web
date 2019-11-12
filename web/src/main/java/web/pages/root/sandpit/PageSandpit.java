@@ -2,7 +2,6 @@ package web.pages.root.sandpit;
 
 import web.common.RequestInfo;
 import web.pages.BasePage;
-import web.pages.resources.Resource;
 
 public class PageSandpit extends BasePage {
 

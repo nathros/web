@@ -15,7 +15,7 @@ import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
 public class PageMapping {
-	public static final String HOME_PG = "";
+	public static final String HOME_PG = "/";
 	public static final String ROHLOFF_PG0 = "/projects/rohloff";
 	public static final String ROHLOFF_PG1 = "/projects/rohloff-1";
 	public static final String ROHLOFF_PG2 = "/projects/rohloff-2";
