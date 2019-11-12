@@ -6,6 +6,8 @@ import java.util.Map;
 import web.pages.resources.JSSnakeRes;
 import web.pages.root.*;
 import web.pages.root.projects.PageProjects;
+import web.pages.root.projects.connect4.Connect4Page;
+import web.pages.root.projects.fileserver1.FileServerPage1;
 import web.pages.root.projects.rohloff.RohloffPage1;
 import web.pages.root.projects.rohloff.RohloffPage2;
 import web.pages.root.projects.rohloff.RohloffPage3;
@@ -21,6 +23,10 @@ public class PageMapping {
 	public static final String ROHLOFF_PG2 = "/projects/rohloff-2";
 	public static final String ROHLOFF_PG3 = "/projects/rohloff-3";
 	public static final String ROHLOFF_PG4 = "/projects/rohloff-4";
+	public static final String FILESERVER1_PG0 = "/projects/fileserver";
+	public static final String FILESERVER1_PG1 = "/projects/fileserver-1";
+	public static final String FILESERVER1_PG2 = "/projects/fileserver-2";
+	public static final String CONNECT4 = "/projects/connect4";
 
 	private static Map<String, String> map = createMap();
 
@@ -37,6 +43,12 @@ public class PageMapping {
 		m.put(ROHLOFF_PG2, RohloffPage2.class.getName());
 		m.put(ROHLOFF_PG3, RohloffPage3.class.getName());
 		m.put(ROHLOFF_PG4, RohloffPage4.class.getName());
+
+		m.put(FILESERVER1_PG0, FileServerPage1.class.getName());
+		m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
+		m.put(FILESERVER1_PG2, FileServerPage1.class.getName());
+
+		m.put(CONNECT4, Connect4Page.class.getName());
 
 		// Resources
 		m.put("/res/snake.js", JSSnakeRes.class.getName());

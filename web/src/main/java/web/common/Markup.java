@@ -21,8 +21,8 @@ public class Markup {
 		ln("		<button class=\"dropbtn\">Projects</button>");
 		ln("		<div class=\"navbar-dropdown-content\">");
 		ln("			<a href=\"".concat(PageMapping.ROHLOFF_PG0).concat("\">Rohloff Bike</a>"));
-		ln("			<a href=\"#\">Link 2</a>");
-		ln("			<a href=\"#\">Link 3</a>");
+		ln("			<a href=\"".concat(PageMapping.FILESERVER1_PG0).concat("\">45TB File Server</a>"));
+		ln("			<a href=\"".concat(PageMapping.CONNECT4).concat("\">Connect 4</a>"));
 		ln("		</div>");
 		ln("	</div>");
 		ln("</div>");

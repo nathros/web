@@ -22,7 +22,8 @@ public class RohloffPage1 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar();
 
-		m.addBanner("Rohloff 1", "https://www.jonkensy.com/wp-content/uploads/IMG_0166-2.jpg");
+		m.addBanner("Rohloff 1",
+				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
