@@ -67,9 +67,11 @@ public class Markup {
 	int modalCount = 0;
 
 	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile
-		ln("<a href=\"#img" + modalCount + "\">");
-		ln("	<img src=\"" + thumbnailURL + "\" class=\"image ripple\" style=\"" + thumbnailStyle + "\">");
-		ln("</a>"); // #img1
+		ln("<div class=\"modal-container\" style=\"" + thumbnailStyle + "\">");
+		ln("	<a href=\"#img" + modalCount + "\">");
+		ln("		<img src=\"" + thumbnailURL + "\" class=\"modal-thumbnail\" style=\"" + thumbnailStyle + "\">");
+		ln("	</a>"); // #img1
+		ln("</div>"); // modal-container
 
 		ln("<a href=\"#\" class=\"modal-image\" id=\"img" + modalCount + "\">");
 		ln("	<img src=\"" + imageURL + "\">");
