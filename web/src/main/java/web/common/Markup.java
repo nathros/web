@@ -49,6 +49,15 @@ public class Markup {
 		ln("</form>"); // form
 	}
 
+	public void addToolTip(String visibleContent, String tooltipContent) {
+		ln("<div class=\"tooltip\">");
+		ln(visibleContent);
+		ln("	<div class=\"tooltip-inner\">");
+		ln(tooltipContent);
+		ln("	</div>"); // tooltip-inner
+		ln("</div>"); // tooltip
+	}
+
 	public void addBanner(String title, String background) {
 		ln("<div class=\"title-banner\" style=\"background-image: url(".concat(background).concat(")\">"));
 		ln("	<div>".concat(title).concat("</div>"));
@@ -75,7 +84,12 @@ public class Markup {
 	}
 
 	public void ln(String line) {
-		p.append(line + "\n");
+		p.append(line);
+		p.append("\n");
+	}
+
+	public void l(String line) {
+		p.append(line);
 	}
 
 	public void addHead(String[] cssImport, String[] jsImport, String title) {
