@@ -1,0 +1,25 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-inner {
+	visibility: hidden;
+	position: relative;
+	float: right;
+	background-color: #00000055;
+	padding: 0.25rem;
+	position: absolute;
+}
+
+.tooltip-inner {
+	left: calc(100% + 0.5rem);
+	top: 0%;
+	transition:visibility 0s linear,opacity 0.2s linear;
+	opacity: 0;
+}
+
+.tooltip:hover .tooltip-inner {
+	visibility: visible;
+	opacity: 1;
+}
