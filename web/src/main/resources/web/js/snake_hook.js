@@ -13,6 +13,8 @@ function snak(e) {
 			} else {
 				createSnake();
 			}
+		} else if (charArray.join("").search("admin") != -1) {
+			window.location.href = "/admin";
 		}
 	}
 }
