@@ -49,6 +49,21 @@ public class Markup {
 		ln("</form>"); // form
 	}
 
+	int toggleCount = 0;
+
+	public void addContentToggle(String title, String content) {
+		ln("<div class=\"toggle-container\">");
+		ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount
+				+ "\">".concat(title).concat("</label>"));
+		ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\">");
+		ln("	<div class=\"toggle-content\">");
+		ln(content);
+		ln("	</div>"); // toggle-content
+		ln("	<i class=\"toggle-arrow\"></i>");
+		ln("</div>"); // toggle-container
+		toggleCount++;
+	}
+
 	public void addToolTip(String visibleContent, String tooltipContent) {
 		ln("<div class=\"tooltip\">");
 		ln(visibleContent);

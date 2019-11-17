@@ -1,0 +1,47 @@
+.toggle-arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(45deg);
+	transition: all 0.5s ease;
+	position: absolute;
+	top: 0.3rem;
+	right: 0.1rem;
+}
+
+.toggle-label {
+	display: block;
+	padding: 0.25rem;
+}
+
+.toggle-label:hover {
+	background-color: WhiteSmoke;
+}
+
+.toggle-input {
+	position: absolute;
+	visibility: hidden;
+}
+
+.toggle-container {
+	position: relative;	
+}
+
+.toggle-container .toggle-content {
+	width: 100%;
+	display: table;
+	overflow: hidden;
+	transition: all 0.5s ease;
+	height: 50px; /* used for move animation */
+}
+
+.toggle-container input[type="checkbox"]:checked + .toggle-content {
+	height: 0; /* used for move animation */
+	opacity: 0; /* used for fade animation */
+	display: block;
+}
+
+.toggle-container input[type="checkbox"]:checked ~ .toggle-arrow {
+  transform: rotate(225deg);
+}
