@@ -1,4 +1,5 @@
 var showGrid = false; // Debug
+var frameTime = 50; // How long a frame lasts in milliseconds, adjust game speed.
 
 var direction = {
 	"LEFT": "LEFT",
@@ -67,7 +68,7 @@ function init() {
 	});
 }
 
-function mouse(e) { // Change mouse on cross
+function mouse(e) { // Change mouse on cross top right corner.
 	var yPos = e.pageY - window.pageYOffset;
 	var xPos = e.pageX - window.pageXOffset;
 	var cellSize = getCellSize();
@@ -79,7 +80,7 @@ function mouse(e) { // Change mouse on cross
 		canvas.style.cursor = "default";
 }
 
-function click(e) { // Click cross to close snake
+function click(e) { // Click cross to close snake.
 	var yPos = e.pageY - window.pageYOffset;
 	var xPos = e.pageX - window.pageXOffset;
 	var cellSize = getCellSize();
@@ -88,7 +89,7 @@ function click(e) { // Click cross to close snake
 	if ((xPos > (window.innerWidth - cellSize)) && ((yPos - (cellSize / 4)) < cellSize)) destroySnake();
 }
 
-function newFood() {
+function newFood() { // TODO It is possible for new food to spawn on last snake segment.
 	var xf = Math.floor(Math.random() * cellsXNum);
 	var yf = Math.floor(Math.random() * cellsYNum);
 
@@ -112,8 +113,10 @@ function newFood() {
 function destroySnake() {
 	var c = document.getElementById("snake-canvas");
 	if (c != null) c.parentElement.removeChild(c); // Better: c.remove(); But IE strikes again.
-	window.removeEventListener("keypress", snakeKeyDown);
+	window.removeEventListener("keydown", snakeKeyDown);
 	window.removeEventListener("resize", draw);
+	window.removeEventListener("click", click);
+	window.removeEventListener("mousemove", mouse);
 	window.clearInterval(drawInterval);
 	gameActive = false;
 	gameEnd = false;
@@ -125,7 +128,7 @@ function restartSnake() {
 	window.clearInterval(drawInterval);
 	init();
 	newFood();	
-	drawInterval = window.setInterval(draw, 40);	
+	drawInterval = window.setInterval(draw, frameTime); // Start game, draw calls update game state.
 }
 
 function drawSplash() {
@@ -277,10 +280,11 @@ function updateGameState() {
 	if ((head.x == food.x) && (head.y == food.y)) {
 		score += 10;
 		snake = snake.slice(0, snake.length);
-		if ((cellsXNum * cellsYNum) == snake.length)
+		if ((cellsXNum * cellsYNum) == snake.length) {
 			gameOver();
-		else
-			newFood(); // TODO It is possible for new food to spawn on last segment.
+		} else {
+			newFood();
+		}
 	} else
 		snake = snake.slice(0, snake.length - 1);
 	acceptInput = true;
