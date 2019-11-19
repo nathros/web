@@ -31,11 +31,12 @@ public class RohloffPage1 extends BasePage {
 
 		////
 		m.addModalImage("http://insomnia.rest/images/screens/main.png", "http://insomnia.rest/images/screens/main.png",
-				"width: 256px");
+				"width:200px;height:100px;");
 		m.ln("<br>");
 
 		m.addModalImage("https://mladenplavsic.github.io/css-ripple-effect/images/logo_browserstack.svg",
-				"https://mladenplavsic.github.io/css-ripple-effect/images/logo_browserstack.svg", "width: 256px");
+				"https://mladenplavsic.github.io/css-ripple-effect/images/logo_browserstack.svg",
+				"width:200px;height:100px;");
 		m.ln("<br>");
 
 		m.ln("<a class=\"btn btn-blue ripple\">Link</a>");

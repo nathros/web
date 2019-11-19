@@ -51,17 +51,19 @@ public class Markup {
 
 	int toggleCount = 0;
 
-	public void addContentToggle(String title, String content) {
-		ln("<div class=\"toggle-container\">");
-		ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount
+	public String getContentToggle(String title, String content) {
+		LocalStringBuffer buffer = new LocalStringBuffer(512);
+		buffer.ln("<div class=\"toggle-container\">");
+		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount
 				+ "\">".concat(title).concat("</label>"));
-		ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\">");
-		ln("	<div class=\"toggle-content\">");
-		ln(content);
-		ln("	</div>"); // toggle-content
-		ln("	<i class=\"toggle-arrow\"></i>");
-		ln("</div>"); // toggle-container
+		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\">");
+		buffer.ln("	<div class=\"toggle-content\">");
+		buffer.ln(content);
+		buffer.ln("	</div>"); // toggle-content
+		buffer.ln("	<i class=\"toggle-arrow\"></i>");
+		buffer.ln("</div>"); // toggle-container
 		toggleCount++;
+		return buffer.toString();
 	}
 
 	public void addToolTip(String visibleContent, String tooltipContent) {
