@@ -15,6 +15,7 @@ public class Resource {
 	public static final String CSS_BUTTON = "web/css/button.css";
 	public static final String CSS_TOOLTIP = "web/css/tooltip.css";
 	public static final String CSS_TOGGLE_DIV = "web/css/toggle-div.css";
+	public static final String CSS_CAROUSEL = "web/css/carousel.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";
