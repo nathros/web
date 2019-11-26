@@ -13,10 +13,20 @@
 }
 
 .tooltip-inner {
+	border-radius: 0.25rem;
 	left: calc(100% + 0.5rem);
 	top: 0%;
-	transition:visibility 0s linear,opacity 0.2s linear;
+	transition: visibility 0s linear, opacity 0.2s linear;
 	opacity: 0;
+}
+
+.tooltip-inner img {
+	width: 25vw;
+}
+
+.tooltip-inner p {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .tooltip:hover .tooltip-inner {
