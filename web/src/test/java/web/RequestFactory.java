@@ -37,7 +37,7 @@ public class RequestFactory {
 	}
 
 	// gets client query from request
-	public static Object getRequestParam(String request) {
+	public static Object getRequestParam(String request) { // TODO null request
 		LinkedHashMap<String, Object> map = new LinkedHashMap<>();
 
 		String paramsStr = "";

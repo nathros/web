@@ -15,6 +15,8 @@ function snak(e) {
 			}
 		} else if (charArray.join("").search("admin") != -1) {
 			window.location.href = "/admin";
+		} else if (charArray.join("").search("sand") != -1) {
+			window.location.href = "/sandpit";
 		}
 	}
 }
