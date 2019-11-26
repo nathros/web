@@ -21,6 +21,9 @@ public class Resource {
 	public static final String JS_SNAKE = "web/js/snake.js";
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
 
+	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL_TN = "https://i.imgur.com/1jUoTVG.jpg";
+	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL = "https://i.imgur.com/agFrpUp.jpg";
+
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
 
 	public static String readResource(String path) {

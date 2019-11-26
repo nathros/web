@@ -34,6 +34,7 @@ public class RequestInfo {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public String getPrettyHTML() { // TODO make simpler
 		StringBuffer str = new StringBuffer(256);
 		List<Object> rootKeys = new ArrayList<Object>(requestMap.keySet());

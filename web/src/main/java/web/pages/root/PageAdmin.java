@@ -12,7 +12,8 @@ public class PageAdmin extends BasePage {
 
 	@Override
 	public String getResponse() {
-		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER };
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
+				Resource.CSS_TOGGLE_DIV };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
@@ -36,13 +37,17 @@ public class PageAdmin extends BasePage {
 		m.ln("					<option value=\"page3\">Option 3</option>");
 		m.ln("				</select>"); // select
 		m.ln("		</form>"); // form
-		m.ln("	</div>"); // card
+
+		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
+		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
+		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
+		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
 
 		// m.addCard(" <h2><a href=\"/test/admin\"> link</a></h2>");
 		////
 
 		////
-
+		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 
 		m.ln("</body>");
