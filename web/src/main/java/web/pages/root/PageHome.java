@@ -22,13 +22,6 @@ public class PageHome extends BasePage {
 		m.ln("<body>");
 		m.addNavbar();
 
-		m.ln("<div class=\"title-banner\">"); // common-content
-		m.ln("	<div>Home Page</div>");
-		m.ln("</div>"); // title-banner
-
-		m.ln("<div class=\"common-content\">");
-		m.ln("	<div class=\"card\">");
-
 		////
 		m.ln("	<div class=\"carousel\">");
 		m.ln("		<input checked type=radio name=\"slider\" id=\"slide1\"/>");
@@ -95,9 +88,6 @@ public class PageHome extends BasePage {
 		/// ....
 		m.ln("	</div>"); // carousel
 		////
-
-		m.ln("	</div>"); // card
-		m.ln("</div>"); // common-content
 
 		m.ln("</body>");
 		m.ln("</html>");
