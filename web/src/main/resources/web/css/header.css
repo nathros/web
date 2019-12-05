@@ -30,8 +30,7 @@ body {
 }
 
 .navbar-selected {
-	#border-bottom: 5px solid #0076d7;
-	box-shadow: inset 0 -5px 0 #0076d7;
+	box-shadow: inset 0 -5px 0 var(--highlight-colour);
 	background-color: var(--navbar-background-colour-selected);
 	box-sizing: border-box;
 }

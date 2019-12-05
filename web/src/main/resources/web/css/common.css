@@ -3,10 +3,11 @@
 }
 body {
 	margin: 0;
-	background-color: #f4f4f4;
-	#background-color: white;
+	background-color: #f4f4f4;	
 	
 	--std-padding: 1rem;
+	
+	--highlight-colour: #0076d7;
 	
 	/* Used for side to side padding of main content*/
 	--global-content-padding: 10%;
