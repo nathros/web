@@ -17,24 +17,28 @@ import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
 public class PageMapping {
-	public static final String HOME_PG = "/";
-	public static final String ROHLOFF_PG0 = "/projects/rohloff";
-	public static final String ROHLOFF_PG1 = "/projects/rohloff-1";
-	public static final String ROHLOFF_PG2 = "/projects/rohloff-2";
-	public static final String ROHLOFF_PG3 = "/projects/rohloff-3";
-	public static final String ROHLOFF_PG4 = "/projects/rohloff-4";
-	public static final String FILESERVER1_PG0 = "/projects/fileserver";
-	public static final String FILESERVER1_PG1 = "/projects/fileserver-1";
-	public static final String FILESERVER1_PG2 = "/projects/fileserver-2";
-	public static final String CONNECT4 = "/projects/connect4";
+	public static final String STAGE = "/stage"; // Name of AWS API stage name, don't forget to update JavaScript links
+	public static final String HOME_PG = STAGE + "/";
+	public static final String _404_PG = STAGE + "/404";
+	public static final String ADMIN_PG = STAGE + "/admin";
+
+	public static final String ROHLOFF_PG0 = STAGE + "/projects/rohloff";
+	public static final String ROHLOFF_PG1 = STAGE + "/projects/rohloff-1";
+	public static final String ROHLOFF_PG2 = STAGE + "/projects/rohloff-2";
+	public static final String ROHLOFF_PG3 = STAGE + "/projects/rohloff-3";
+	public static final String ROHLOFF_PG4 = STAGE + "/projects/rohloff-4";
+	public static final String FILESERVER1_PG0 = STAGE + "/projects/fileserver";
+	public static final String FILESERVER1_PG1 = STAGE + "/projects/fileserver-1";
+	public static final String FILESERVER1_PG2 = STAGE + "/projects/fileserver-2";
+	public static final String CONNECT4 = STAGE + "/projects/connect4";
 
 	private static Map<String, String> map = createMap();
 
 	private static Map<String, String> createMap() {
 		Map<String, String> m = new HashMap<String, String>();
 		m.put(HOME_PG, PageHome.class.getName());
-		m.put("/404", Page404.class.getName());
-		m.put("/admin", PageAdmin.class.getName());
+		m.put(_404_PG, Page404.class.getName());
+		m.put(ADMIN_PG, PageAdmin.class.getName());
 		m.put("/root", PageHome.class.getName());
 		m.put("/root/projects", PageProjects.class.getName());
 
@@ -51,7 +55,7 @@ public class PageMapping {
 		m.put(CONNECT4, Connect4Page.class.getName());
 
 		// Resources
-		m.put("/res/snake.js", JSSnakeRes.class.getName());
+		m.put(STAGE + "/res/snake.js", JSSnakeRes.class.getName());
 
 		// Testing pages
 		m.put("/debug", PageDebug.class.getName());

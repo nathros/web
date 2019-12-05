@@ -9,14 +9,14 @@ function snak(e) {
 		if (charArray.join("").search("snake") != -1) {
 			if (!loadSnakeJS) { // Load script, only once through.
 				loadSnakeJS = true;
-				document.head.appendChild(document.createElement("script")).src = "res/snake.js";
+				document.head.appendChild(document.createElement("script")).src = "/stage/res/snake.js";
 			} else {
 				createSnake();
 			}
 		} else if (charArray.join("").search("admin") != -1) {
-			window.location.href = "/admin";
+			window.location.href = "/stage/admin";
 		} else if (charArray.join("").search("sand") != -1) {
-			window.location.href = "/sandpit";
+			window.location.href = "/stage/sandpit";
 		}
 	}
 }
