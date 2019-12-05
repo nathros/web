@@ -1,5 +1,6 @@
 package web.pages.root.projects.rohloff;
 
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -20,7 +21,7 @@ public class RohloffPage1 extends BasePage {
 		m.addHead(css, js, "Rohloff 1");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Projects);
 
 		m.addBanner("Rohloff 1",
 				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");

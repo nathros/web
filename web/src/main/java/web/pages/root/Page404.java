@@ -6,6 +6,7 @@ import java.io.StringWriter;
 
 import web.common.Debug;
 import web.common.LocalStringBuffer;
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -30,7 +31,7 @@ public class Page404 extends BasePage {
 		m.addHead(css, js, "404");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Home);
 
 		// m.ln("<div class=\"title-banner\">");
 		// m.ln(" <div>404</div>");

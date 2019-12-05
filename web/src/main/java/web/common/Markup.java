@@ -13,19 +13,31 @@ public class Markup {
 		ln("<!DOCTYPE html>");
 	}
 
-	public void addNavbar() {
+	public void addNavbar(NavbarItem item) {
 		ln("<div class=\"navbar\">");
-		ln("	<a href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
+
+		if (NavbarItem.Home == item) {
+			ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
+		} else {
+			ln("	<a href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
+		}
+
 		ln("	<a href=\"sandpit\">Sandpit</a>");
-		ln("	<div class=\"navbar-dropdown\">");
-		ln("		<button class=\"dropbtn\">Projects</button>");
+
+		if (NavbarItem.Projects == item) {
+			ln("	<div class=\"navbar-dropdown navbar-selected\">");
+			ln("		<button class=\"dropbtn navbar-selected\">Projects</button>");
+		} else {
+			ln("	<div class=\"navbar-dropdown\">");
+			ln("		<button class=\"dropbtn\">Projects</button>");
+		}
 		ln("		<div class=\"navbar-dropdown-content\">");
 		ln("			<a href=\"".concat(PageMapping.ROHLOFF_PG0).concat("\">Rohloff Bike</a>"));
 		ln("			<a href=\"".concat(PageMapping.FILESERVER1_PG0).concat("\">45TB File Server</a>"));
 		ln("			<a href=\"".concat(PageMapping.CONNECT4).concat("\">Connect 4</a>"));
-		ln("		</div>");
-		ln("	</div>");
-		ln("</div>");
+		ln("		</div>"); // navbar-dropdown-content
+		ln("	</div>"); // navbar-dropdown
+		ln("</div>"); // navbar
 	}
 
 	public void addPageSelector(LinkedHashMap<String, String> items, int selectedIndex) {

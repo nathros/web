@@ -1,5 +1,6 @@
 body {
 	--navbar-background-colour: #333;
+	--navbar-background-colour-selected: #666;
 	--navbar-font-idle-colour: #999;
 }
 
@@ -26,6 +27,13 @@ body {
 .navbar-dropdown {
 	float: left;
 	overflow: hidden;
+}
+
+.navbar-selected {
+	#border-bottom: 5px solid #0076d7;
+	box-shadow: inset 0 -5px 0 #0076d7;
+	background-color: var(--navbar-background-colour-selected);
+	box-sizing: border-box;
 }
 
 .navbar-dropdown .dropbtn {

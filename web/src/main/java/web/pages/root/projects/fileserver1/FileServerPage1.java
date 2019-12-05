@@ -1,5 +1,6 @@
 package web.pages.root.projects.fileserver1;
 
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -20,7 +21,7 @@ public class FileServerPage1 extends BasePage {
 		m.addHead(css, js, "File Server 1");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Projects);
 
 		m.addBanner("File Server 1", "https://www.jonkensy.com/wp-content/uploads/IMG_0166-2.jpg");
 

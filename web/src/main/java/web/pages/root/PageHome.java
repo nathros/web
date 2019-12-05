@@ -1,5 +1,6 @@
 package web.pages.root;
 
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -20,7 +21,7 @@ public class PageHome extends BasePage {
 		m.addHead(css, js, "Home Page");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Home);
 
 		////
 		m.ln("	<div class=\"carousel\">");

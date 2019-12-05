@@ -1,5 +1,6 @@
 package web.pages.root.projects.rohloff;
 
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -19,7 +20,7 @@ public class RohloffPage2 extends BasePage {
 		m.addHead(css, js, "Rohloff 2");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Projects);
 
 		m.ln("<div class=\"title-banner\">"); // common-content
 		m.ln("	<div>Rohloff 2</div>");

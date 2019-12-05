@@ -1,5 +1,6 @@
 package web.pages.root.projects.connect4;
 
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -20,7 +21,7 @@ public class Connect4Page extends BasePage {
 		m.addHead(css, js, "Connect 4");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Projects);
 
 		m.addBanner("Connect 4",
 				"https://d1e4pidl3fu268.cloudfront.net/484a5987-b3df-4b5e-a715-1805c1c8c3ee/connectfour.png");

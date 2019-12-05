@@ -1,5 +1,6 @@
 package web.pages.root.projects.rohloff;
 
+import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
@@ -20,7 +21,7 @@ public class PageRohloff0 extends BasePage {
 		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");
-		m.addNavbar();
+		m.addNavbar(NavbarItem.Projects);
 
 		m.ln("<div class=\"common-content\">");
 		m.addCard("	<h2><a href=\"/test/admin\"> link</a></h2>");
