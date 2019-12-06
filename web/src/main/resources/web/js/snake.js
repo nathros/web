@@ -320,7 +320,7 @@ function draw() {
 
 	// Dark background.
 	ctx.save();
-	ctx.fillStyle = "rgba(0, 0, 0, 0.35)";
+	ctx.fillStyle = "rgba(0, 0, 0, 0.9)";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.restore();
 	
@@ -332,7 +332,7 @@ function draw() {
 	ctx.clearRect(xStart, yStart, cellsXNum * cellSize, cellsYNum * cellSize);
 	ctx.restore();
 	ctx.save();
-	ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+	ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
 	ctx.fillRect(xStart, yStart, cellsXNum * cellSize, cellsYNum * cellSize);
 	ctx.restore();
 
@@ -341,17 +341,18 @@ function draw() {
 	crossSize = crossSize * 1.5;
 	ctx.save();
 	ctx.lineWidth = 4;
-	//ctx.strokeStyle = "red";
-	ctx.shadowColor = "white";
-	ctx.shadowBlur = 3;
+	ctx.strokeStyle = "white";
+	ctx.fillStyle = "white";
+	//ctx.shadowColor = "white"; // Shadow for cross and text
+	//ctx.shadowBlur = 2;
 	ctx.beginPath();
 	ctx.moveTo(window.innerWidth - crossSize, 0);
 	ctx.lineTo(window.innerWidth, crossSize);
 	ctx.moveTo(window.innerWidth, 0);
 	ctx.lineTo(window.innerWidth - crossSize, crossSize);
 	ctx.stroke();
-	ctx.font = Math.floor(crossSize / 2.5) + "px Lucida Sans Unicode";
-	ctx.fillText("close", window.innerWidth - crossSize, crossSize + Math.floor(crossSize / 2.5));
+	ctx.font = " " + Math.floor(crossSize / 2.5) + "px Lucida Sans Unicode";
+	ctx.fillText("close", window.innerWidth - crossSize, crossSize + Math.floor(crossSize / 2.5));	
 	ctx.restore();
 
 	if (showGrid) drawGrid(cellSize, xStart, yStart);
