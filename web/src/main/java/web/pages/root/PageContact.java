@@ -23,9 +23,8 @@ public class PageContact extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Contact);
 
-		m.ln("<div class=\"title-banner\">");
-		m.ln("	<div>Contact</div>");
-		m.ln("</div>"); // title-banner
+		m.addBanner("Contact",
+				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
 
 		m.ln("</body>");
 		m.ln("</html>");

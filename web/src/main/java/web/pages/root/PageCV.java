@@ -23,9 +23,8 @@ public class PageCV extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.CV);
 
-		m.ln("<div class=\"title-banner\">");
-		m.ln("	<div>CV</div>");
-		m.ln("</div>"); // title-banner
+		m.addBanner("CV",
+				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
 
 		m.ln("</body>");
 		m.ln("</html>");
