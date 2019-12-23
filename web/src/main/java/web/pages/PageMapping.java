@@ -21,6 +21,8 @@ public class PageMapping {
 	public static final String HOME_PG = STAGE + "/";
 	public static final String _404_PG = STAGE + "/404";
 	public static final String ADMIN_PG = STAGE + "/admin";
+	public static final String CV_PG = STAGE + "/cv";
+	public static final String CONTACT_PG = STAGE + "/contact";
 
 	public static final String ROHLOFF_PG0 = STAGE + "/projects/rohloff";
 	public static final String ROHLOFF_PG1 = STAGE + "/projects/rohloff-1";
@@ -41,6 +43,8 @@ public class PageMapping {
 		m.put(ADMIN_PG, PageAdmin.class.getName());
 		m.put("/root", PageHome.class.getName());
 		m.put("/root/projects", PageProjects.class.getName());
+		m.put(CV_PG, PageCV.class.getName());
+		m.put(CONTACT_PG, PageContact.class.getName());
 
 		m.put(ROHLOFF_PG0, RohloffPage1.class.getName());
 		m.put(ROHLOFF_PG1, RohloffPage1.class.getName());

@@ -37,6 +37,19 @@ public class Markup {
 		ln("			<a href=\"".concat(PageMapping.CONNECT4).concat("\">Connect 4</a>"));
 		ln("		</div>"); // navbar-dropdown-content
 		ln("	</div>"); // navbar-dropdown
+
+		if (NavbarItem.CV == item) {
+			ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.CV_PG).concat("\">CV</a>"));
+		} else {
+			ln("	<a href=\"".concat(PageMapping.CV_PG).concat("\">CV</a>"));
+		}
+
+		if (NavbarItem.Contact == item) {
+			ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.CONTACT_PG).concat("\">Contact</a>"));
+		} else {
+			ln("	<a href=\"".concat(PageMapping.CONTACT_PG).concat("\">Contact</a>"));
+		}
+
 		ln("</div>"); // navbar
 	}
 
@@ -95,7 +108,8 @@ public class Markup {
 
 	int modalCount = 0;
 
-	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile
+	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile,
+																								// alt text
 		ln("<div class=\"modal-container\" style=\"" + thumbnailStyle + "\">");
 		ln("	<a href=\"#img" + modalCount + "\">");
 		ln("		<img class=\"modal-thumbnail\" src=\"" + thumbnailURL + "\" style=\"" + thumbnailStyle

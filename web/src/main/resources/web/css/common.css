@@ -21,7 +21,7 @@ input:focus, textarea:focus, select:focus {
 	#padding-top: 5rem;
 	padding-left: var(--global-content-padding);
 	padding-right: var(--global-content-padding);
-	animation: 1s ease-out 0s 1 fadeup;
+	#animation: 1s ease-out 0s 1 fadeup;
 }
 
 @keyframes fadeup {
