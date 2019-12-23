@@ -13,9 +13,9 @@ public class RohloffUtils {
 		items.put("Specifications", PageMapping.ROHLOFF_PG2);
 		items.put("Belt Transmittion", PageMapping.ROHLOFF_PG3);
 		items.put("Flat-mount Adapter", PageMapping.ROHLOFF_PG4);
-		items.put("Wheel Build", PageMapping.ROHLOFF_PG4);
-		items.put("Headset Spacers", PageMapping.ROHLOFF_PG4);
-		items.put("STI Shifting", PageMapping.ROHLOFF_PG4);
+		items.put("Wheel Build", PageMapping.ROHLOFF_PG5);
+		items.put("Headset Spacers", PageMapping.ROHLOFF_PG6);
+		items.put("STI Shifting", PageMapping.ROHLOFF_PG7);
 		m.addPageSelector(items, selectedIndex);
 	}
 

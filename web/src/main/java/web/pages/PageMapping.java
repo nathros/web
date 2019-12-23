@@ -12,6 +12,9 @@ import web.pages.root.projects.rohloff.RohloffPage1;
 import web.pages.root.projects.rohloff.RohloffPage2;
 import web.pages.root.projects.rohloff.RohloffPage3;
 import web.pages.root.projects.rohloff.RohloffPage4;
+import web.pages.root.projects.rohloff.RohloffPage5;
+import web.pages.root.projects.rohloff.RohloffPage6;
+import web.pages.root.projects.rohloff.RohloffPage7;
 import web.pages.root.sandpit.PageSandpit;
 import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
@@ -29,6 +32,9 @@ public class PageMapping {
 	public static final String ROHLOFF_PG2 = STAGE + "/projects/rohloff-2";
 	public static final String ROHLOFF_PG3 = STAGE + "/projects/rohloff-3";
 	public static final String ROHLOFF_PG4 = STAGE + "/projects/rohloff-4";
+	public static final String ROHLOFF_PG5 = STAGE + "/projects/rohloff-5";
+	public static final String ROHLOFF_PG6 = STAGE + "/projects/rohloff-6";
+	public static final String ROHLOFF_PG7 = STAGE + "/projects/rohloff-7";
 	public static final String FILESERVER1_PG0 = STAGE + "/projects/fileserver";
 	public static final String FILESERVER1_PG1 = STAGE + "/projects/fileserver-1";
 	public static final String FILESERVER1_PG2 = STAGE + "/projects/fileserver-2";
@@ -51,6 +57,9 @@ public class PageMapping {
 		m.put(ROHLOFF_PG2, RohloffPage2.class.getName());
 		m.put(ROHLOFF_PG3, RohloffPage3.class.getName());
 		m.put(ROHLOFF_PG4, RohloffPage4.class.getName());
+		m.put(ROHLOFF_PG5, RohloffPage5.class.getName());
+		m.put(ROHLOFF_PG6, RohloffPage6.class.getName());
+		m.put(ROHLOFF_PG7, RohloffPage7.class.getName());
 
 		m.put(FILESERVER1_PG0, FileServerPage1.class.getName());
 		m.put(FILESERVER1_PG1, FileServerPage1.class.getName());

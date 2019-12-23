@@ -18,12 +18,12 @@ public class RohloffPage4 extends BasePage {
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
-		m.addHead(css, js, "Rohloff 4");
+		m.addHead(css, js, "Flat-Mount Adapter");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
 
-		m.addBanner("Flat-mount Adapter",
+		m.addBanner("Flat-Mount Adapter",
 				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
 
 		m.ln("<div class=\"common-content\">");
