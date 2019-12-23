@@ -102,7 +102,7 @@ public class Markup {
 
 	public void addBanner(String title, String background) {
 		ln("<div class=\"title-banner\" style=\"background-image: url(".concat(background).concat(")\">"));
-		ln("	<div>".concat(title).concat("</div>"));
+		ln("	<div><p>".concat(title).concat("</p></div>"));
 		ln("</div>"); // title-banner
 	}
 
