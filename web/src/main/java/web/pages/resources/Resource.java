@@ -21,8 +21,20 @@ public class Resource {
 	public static final String JS_SNAKE = "web/js/snake.js";
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
 
+	// Thumbnails w:640
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL_TN = "https://i.imgur.com/1jUoTVG.jpg";
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL = "https://i.imgur.com/agFrpUp.jpg";
+
+	public static final String IMG_ROHLOFF_GEAR_BELT = "https://i.imgur.com/yrghhYU.png";
+	public static final String IMG_ROHLOFF_GEAR_COMPACT = "https://i.imgur.com/MdtxT0o.png";
+	public static final String IMG_ROHLOFF_GEAR_MTB = "https://i.imgur.com/ZJ2e4YP.png";
+	public static final String IMG_ROHLOFF_FSA_CRANK_TN = "https://i.imgur.com/tyFeOR7.jpg";
+	public static final String IMG_ROHLOFF_FSA_CRANK = "https://i.imgur.com/0qYstqY.jpg";
+	public static final String IMG_ROHLOFF_BITEX_HUB = "https://i.imgur.com/06MWHaQ.jpg";
+	public static final String IMG_ROHLOFF_RFORCE_TI_TN = "https://i.imgur.com/tSihQl3.jpg";
+	public static final String IMG_ROHLOFF_RFORCE_TI = "https://i.imgur.com/bOVrxJQ.jpg";
+	public static final String IMG_ROHLOFF_OKO_TN = "https://i.imgur.com/ScrdfYf.jpg";
+	public static final String IMG_ROHLOFF_OKO = "https://i.imgur.com/8MHWJB5.jpg";
 
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
 

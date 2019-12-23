@@ -13,7 +13,8 @@ public class RohloffPage2 extends BasePage {
 
 	@Override
 	public String getResponse() {
-		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER };
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
+				Resource.CSS_MODAL_IMAGE };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
@@ -51,6 +52,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h2>Pedals</h2>");
+		m.addModalImage(Resource.IMG_ROHLOFF_RFORCE_TI_TN, Resource.IMG_ROHLOFF_RFORCE_TI, "max-width:50%");
 		m.ln("<p>");
 		m.ln("Xpedo R-Force Ti (SPD)\r\n" + "\r\n"
 				+ "I chose a SPD based pedal as they have the most walkable shoes of all system. SPD-SL and Speedplay are lighter systems good for road use, but the shoes are not very practical. Finding road specific or light SPD pedals was difficult, the only options available are Crank Brothers Eggbeater 11 Ti or the Xpedo R-Force Ti with the latter being cheaper and better suited to a road bike. There is also the Ritchey WCS Micro Road but these require special proprietary cleat which will work in a SPD pedal but a SPD cleat will not work in the WCS. It uses bushings rather than the bearing around the axle which has questionable lifespan.");
@@ -69,6 +71,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Tubeless Sealant</h3>");
+		m.addModalImage(Resource.IMG_ROHLOFF_OKO_TN, Resource.IMG_ROHLOFF_OKO, "max-width:25%");
 		m.ln("<p>");
 		m.ln("OKO Magic Milk Hi-Fibre Tyre Sealant\r\n" + "\r\n"
 				+ "Previously used Orange Endurance Seal with good success but it is expensive. OKO has slightly worse sealing performance but is less than half of the price. OKO is a latex based sealant which does not contain ammonia. https://www.planetx.co.uk/i/q/WSOKOMMHF/oko-magic-milk-hi-fibre-tyre-sealant");
@@ -83,6 +86,9 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Front Hub</h3>");
+		m.addModalImage(Resource.IMG_ROHLOFF_BITEX_HUB, Resource.IMG_ROHLOFF_BITEX_HUB, "max-width:50%");
+		m.ln("<a target=\"_blank\" href=\"http://www.bitexhubs.com/htm/pd_detail.php?no=BX306F\">link</a>");
+		m.ln("The Quick release endcaps have been swapped for 12mm thru-axle.");
 
 		m.ln("<h3>Spokes and Nipples</h3>");
 		m.ln("<p>");
@@ -100,9 +106,10 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Crank</h3>");
+		m.addModalImage(Resource.IMG_ROHLOFF_FSA_CRANK_TN, Resource.IMG_ROHLOFF_FSA_CRANK, "max-width:50%");
 		m.ln("<p>");
-		m.ln("FSA Team Carbon Crankset BB386 EVO 130BCD\r\n" + "\r\n"
-				+ "Originally I was set for 24mm Hollowtech II crank and bottom bracket. However I came across an almost new FSA BB386 Carbon Crankset on eBay, the auction was poorly advertised by the seller and I won it for a very good price. I later sold the chainrings and included pressfit bottom bracket which covered about 3/4 of the initial cost. I would be happy with a 24mm spindle crank, they are no gains in performance only a small reduction in mass, 24 to 30 inner race is just the next standard bearing size up. FSA do sell BB386 bottom brackets for threaded frames but they have been reported to wear out quickly, so I am using a 3rd party BSA 30 with spacer on the drive side. See: https://mybikeshop.com/products/fsa-team-carbon-crankset-bb386-evo.html ");
+		m.ln("FSA Team Carbon Crankset BB386 EVO 130BCD<br>");
+		m.ln("Originally I was set for 24mm Hollowtech II crank and bottom bracket. However I came across an almost new FSA BB386 Carbon Crankset on eBay, the auction was poorly advertised by the seller and I won it for a very good price. I later sold the chainrings and included pressfit bottom bracket which covered about 3/4 of the initial cost. I would be happy with a 24mm spindle crank, they are no gains in performance only a small reduction in mass, 24 to 30 inner race is just the next standard bearing size up. FSA do sell BB386 bottom brackets for threaded frames but they have been reported to wear out quickly, so I am using a 3rd party BSA 30 with spacer on the drive side. See: https://mybikeshop.com/products/fsa-team-carbon-crankset-bb386-evo.html ");
 		m.ln("</p>");
 
 		m.ln("<h3>Shifters</h3>");
@@ -112,6 +119,17 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Gear Ratios</h3>");
+		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_BELT + "\">");
+		m.ln("<br>Rohloff: 40T front 15T rear sprocket, equivalent to 80T/30T @90RPM<br><br>");
+
+		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_COMPACT
+				+ "\">");
+		m.ln("<br>Compact: 50/34 chainring with 11-32 Shimano cassette @90RPM<br><br>");
+
+		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_MTB + "\">");
+		m.ln("<br>MTB: 32T chainring 11-46 cassette @90RPM<br><br>");
+		m.ln("The Rohloff is like a an MTB with extra range, max speed is less than the compact. I'm not in the 50/11 gear often.");
+		m.ln("<a href=\"http://www.gear-calculator.com/?GR=RLSH&KB=40&RZ=15&UF=2135&TF=90&SL=2.6&UN=KMH&DV=speed&GR2=DERS&KB2=34,50&RZ2=11,12,13,14,16,18,20,22,25,28,32&UF2=2135\">Link to Set-up</a>");
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
