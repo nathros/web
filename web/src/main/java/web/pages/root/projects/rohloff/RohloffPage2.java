@@ -55,8 +55,9 @@ public class RohloffPage2 extends BasePage {
 		m.ln("<h2>Pedals</h2>");
 		m.addModalImage(Resource.IMG_ROHLOFF_RFORCE_TI_TN, Resource.IMG_ROHLOFF_RFORCE_TI, "max-width:50%");
 		m.ln("<p>");
-		m.ln("Xpedo R-Force Ti (SPD)\r\n" + "\r\n"
-				+ "I chose a SPD based pedal as they have the most walkable shoes of all system. SPD-SL and Speedplay are lighter systems good for road use, but the shoes are not very practical. Finding road specific or light SPD pedals was difficult, the only options available are Crank Brothers Eggbeater 11 Ti or the Xpedo R-Force Ti with the latter being cheaper and better suited to a road bike. There is also the Ritchey WCS Micro Road but these require special proprietary cleat which will work in a SPD pedal but a SPD cleat will not work in the WCS. It uses bushings rather than the bearing around the axle which has questionable lifespan.");
+		m.ln("Xpedo R-Force Ti (SPD)<br>");
+		m.ln("I chose a SPD based pedal as they have the most walkable shoes of all system. SPD-SL and Speedplay are lighter systems good for road use, but the shoes are not very practical. Finding road specific or light SPD pedals was difficult, the only options available are Crank Brothers Eggbeater 11 Ti or the Xpedo R-Force Ti with the latter being cheaper and better suited to a road bike. There is also the Ritchey WCS Micro Road but these require special proprietary cleat which will work in a SPD pedal but a SPD cleat will not work in the WCS. It uses bushings rather than the bearing around the axle which has questionable lifespan.");
+		m.ln("</p>");
 		m.ln("<table class=\"common-table\">");
 		m.ln("	<tr>");
 		m.ln("		<th></th>");
@@ -66,24 +67,23 @@ public class RohloffPage2 extends BasePage {
 		m.ln("	</tr>");
 		m.ln("	<tr>");
 		m.ln("		<td>Shoe Selection</td>");
-		m.ln("		<td bgcolor=\"green\">Wide</td>");
-		m.ln("		<td bgcolor=\"green\">Wide</td>");
-		m.ln("		<td bgcolor=\"red\">Narrow</td>");
+		m.ln("		<td style=\"background-color:green\">Wide</td>");
+		m.ln("		<td style=\"background-color:green\">Wide</td>");
+		m.ln("		<td style=\"background-color:red\">Narrow</td>");
 		m.ln("	</tr>");
 		m.ln("	<tr>");
 		m.ln("		<td>Cleat Cost</td>");
-		m.ln("		<td bgcolor=\"green\">Low</td>");
-		m.ln("		<td bgcolor=\"orange\">Moderate</td>");
-		m.ln("		<td bgcolor=\"red\">High</td>");
+		m.ln("		<td style=\"background-color:green\">Low</td>");
+		m.ln("		<td style=\"background-color:orange\">Moderate</td>");
+		m.ln("		<td style=\"background-color:red\">High</td>");
 		m.ln("	</tr>");
 		m.ln("	<tr>");
 		m.ln("		<td>Walk-ability</td>");
-		m.ln("		<td bgcolor=\"orange\">Medium</td>");
-		m.ln("		<td bgcolor=\"red\">Poor</td>");
-		m.ln("		<td bgcolor=\"orange\">Short</td>");
+		m.ln("		<td style=\"background-color:orange\">Medium</td>");
+		m.ln("		<td style=\"background-color:red\">Poor</td>");
+		m.ln("		<td style=\"background-color:orange\">Short</td>");
 		m.ln("	</tr>");
 		m.ln("</table>");
-		m.ln("</p>");
 
 		m.ln("<h2>Wheels</h2>");
 
@@ -147,14 +147,12 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Gear Ratios</h3>");
-		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_BELT + "\">");
+		m.addStaticImage(Resource.IMG_ROHLOFF_GEAR_BELT);
 		m.ln("<br>Rohloff: 40T front 15T rear sprocket, equivalent to 80T/30T @90RPM<br><br>");
-
-		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_COMPACT
-				+ "\">");
+		m.addStaticImage(Resource.IMG_ROHLOFF_GEAR_COMPACT);
 		m.ln("<br>Compact: 50/34 chainring with 11-32 Shimano cassette @90RPM<br><br>");
 
-		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_MTB + "\">");
+		m.addStaticImage(Resource.IMG_ROHLOFF_GEAR_MTB);
 		m.ln("<br>MTB: 32T chainring 11-46 cassette @90RPM<br><br>");
 		m.ln("The Rohloff is like a an MTB with extra range, max speed is less than the compact. I'm not in the 50/11 gear often.");
 		m.ln("<a target=\"_blank\" href=\"http://www.gear-calculator.com/?GR=RLSH&KB=40&RZ=15&UF=2135&TF=90&SL=2.6&UN=KMH&DV=speed&GR2=DERS&KB2=34,50&RZ2=11,12,13,14,16,18,20,22,25,28,32&UF2=2135\">Link to Set-up</a>");

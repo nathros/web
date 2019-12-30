@@ -25,6 +25,11 @@ input:focus, textarea:focus, select:focus {
 	#animation: 1s ease-out 0s 1 fadeup;
 }
 
+.common-static-image {
+	object-fit: scale-down;
+	max-width: 100%;
+}
+
 @keyframes fadeup {
 	0% {
 		transform: translateY(1rem);

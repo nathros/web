@@ -129,6 +129,10 @@ public class Markup {
 		modalCount++;
 	}
 
+	public void addStaticImage(String thumbnailURL) {
+		ln("<img class=\"common-static-image\" src=\"" + thumbnailURL + "\" alt=\"\">");
+	}
+
 	public void addCard(String content) {
 		ln("<div class=\"card\">");
 		ln(content);
