@@ -15,9 +15,8 @@ public class RohloffPage4 extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_TOOLTIP, Resource.CSS_MODAL_IMAGE };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Flat-Mount Adapter");
 
 		m.ln("<body>");

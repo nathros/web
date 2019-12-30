@@ -17,7 +17,6 @@ public class PageAdmin extends BasePage {
 				Resource.CSS_TOGGLE_DIV };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");

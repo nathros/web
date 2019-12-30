@@ -26,6 +26,11 @@ public class Resource {
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL_TN = "https://i.imgur.com/1jUoTVG.jpg";
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL = "https://i.imgur.com/agFrpUp.jpg";
 
+	// pg 1
+	public static final String IMG_ROHLOFF_FINAL_COMPLETE_TN = "https://i.imgur.com/8R4I2rP.jpg";
+	public static final String IMG_ROHLOFF_FINAL_COMPLETE = "https://i.imgur.com/VcIacQh.jpg";
+
+	// pg 2
 	public static final String IMG_ROHLOFF_GEAR_BELT = "https://i.imgur.com/yrghhYU.png";
 	public static final String IMG_ROHLOFF_GEAR_COMPACT = "https://i.imgur.com/MdtxT0o.png";
 	public static final String IMG_ROHLOFF_GEAR_MTB = "https://i.imgur.com/ZJ2e4YP.png";
@@ -41,6 +46,13 @@ public class Resource {
 	public static final String IMG_ROHLOFF_MRD524_SIZE_TN = "https://i.imgur.com/FTWYSWA.png";
 	public static final String IMG_ROHLOFF_MRD524_SIZE = "https://i.imgur.com/4guxLvk.png";
 	public static final String IMG_ROHLOFF_HANDLEBAR = "https://i.imgur.com/w1lxLfq.jpg";
+	public static final String IMG_ROHLOFF_SPOKE = "https://i.imgur.com/Mjb6mp3.png";
+	public static final String IMG_ROHLOFF_SPOKE_STAT_1 = "https://i.imgur.com/Bqg9dbd.png";
+	public static final String IMG_ROHLOFF_SPOKE_STAT_2 = "https://i.imgur.com/kRzGXTN.png";
+	public static final String IMG_ROHLOFF_SPOKE_NIPPLE = "https://i.imgur.com/9zPMer1.png";
+	public static final String IMG_ROHLOFF_ERD = "https://i.imgur.com/oDZU9cM.png";
+	public static final String IMG_ROHLOFF_ERD_CALC = "https://i.imgur.com/MHdfM0S.png";
+	public static final String IMG_ROHLOFF_RIM_PROFILE = "https://i.imgur.com/Rp0mRvx.png";
 
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
 

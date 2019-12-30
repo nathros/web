@@ -44,8 +44,18 @@ select {
 select:hover {
 	border-color: #6FC6F5;
 }
+
 select:focus {
 	border-color: #129EE9;
+}
+
+.common-table {
+	border-collapse: collapse;
+}
+
+.common-table td, .common-table tr, .common-table th {
+  border: 1px solid black;
+  padding: 8px;
 }
 
 

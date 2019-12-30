@@ -17,7 +17,6 @@ public class RohloffPage7 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "STI Shifting");
 
 		m.ln("<body>");

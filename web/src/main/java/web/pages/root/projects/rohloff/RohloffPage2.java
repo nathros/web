@@ -15,10 +15,9 @@ public class RohloffPage2 extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
 
-		m.ln("<html lang=\"en\">");
-		m.addHead(css, js, "Rohloff 2");
+		m.addHead(css, js, "Specifications");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
@@ -29,8 +28,9 @@ public class RohloffPage2 extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 		RohloffUtils.addRohloffPageSelector(m, 2);
-
 		m.ln("<h2>Frame</h2>");
+		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_TN, Resource.IMG_ROHLOFF_MRD524, "max-width:50%");
+		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_SIZE_TN, Resource.IMG_ROHLOFF_MRD524_SIZE, "max-width:50%");
 		m.ln("<p>");
 		m.ln("I have reservations about press-fit bottom brackets, creaking and fit issues which can cause premature bearing failure and also be annoying. I understand that professional athletes who a high turnover of bikes might not report these issues but I intended my build to last a long time. So I am willing to accept a 100g increase around the bottom bracket area to meet this goal. I have little experience with press fit bottom brackets but issues that can occur such as bearing or cup seat wear can cause difficult to fix problems. A fix is to use an epoxy filler but this is at best temporary and the fit of the frame may degrade until it is unusable. https://www.youtube.com/watch?v=RFa5HBfRhnET. There is the issue of cross threading in threaded frames, the drive side is reverse threaded. If it the cup isn’t screwing in don’t force it, a user error. I have taken the cautious approach to get a frame with a BSA86 threaded bottom bracket.");
 		m.ln("</p>");
@@ -46,6 +46,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h2>Handlebar</h2>");
+		m.addModalImage(Resource.IMG_ROHLOFF_HANDLEBAR, Resource.IMG_ROHLOFF_HANDLEBAR, "max-width:50%");
 		m.ln("<p>");
 		m.ln("WILIER TRIESTINA ALABARDA Integrated Handlebar 42-110\r\n" + "\r\n"
 				+ "This was a good deal found on eBay, one issue is that it is tailored to Wilier frames. The headset spacers do no fit well with the RD525, so I 3D printed some replacements see: Engineering Challenges – Headset Spacers Poor Fit. I am using Fabric Hex Duo Bar Tape in black.");
@@ -56,6 +57,32 @@ public class RohloffPage2 extends BasePage {
 		m.ln("<p>");
 		m.ln("Xpedo R-Force Ti (SPD)\r\n" + "\r\n"
 				+ "I chose a SPD based pedal as they have the most walkable shoes of all system. SPD-SL and Speedplay are lighter systems good for road use, but the shoes are not very practical. Finding road specific or light SPD pedals was difficult, the only options available are Crank Brothers Eggbeater 11 Ti or the Xpedo R-Force Ti with the latter being cheaper and better suited to a road bike. There is also the Ritchey WCS Micro Road but these require special proprietary cleat which will work in a SPD pedal but a SPD cleat will not work in the WCS. It uses bushings rather than the bearing around the axle which has questionable lifespan.");
+		m.ln("<table class=\"common-table\">");
+		m.ln("	<tr>");
+		m.ln("		<th></th>");
+		m.ln("		<th>SPD</th>");
+		m.ln("		<th>SPD-SL</th>");
+		m.ln("		<th>Speedplay</th>");
+		m.ln("	</tr>");
+		m.ln("	<tr>");
+		m.ln("		<td>Shoe Selection</td>");
+		m.ln("		<td bgcolor=\"green\">Wide</td>");
+		m.ln("		<td bgcolor=\"green\">Wide</td>");
+		m.ln("		<td bgcolor=\"red\">Narrow</td>");
+		m.ln("	</tr>");
+		m.ln("	<tr>");
+		m.ln("		<td>Cleat Cost</td>");
+		m.ln("		<td bgcolor=\"green\">Low</td>");
+		m.ln("		<td bgcolor=\"orange\">Moderate</td>");
+		m.ln("		<td bgcolor=\"red\">High</td>");
+		m.ln("	</tr>");
+		m.ln("	<tr>");
+		m.ln("		<td>Walk-ability</td>");
+		m.ln("		<td bgcolor=\"orange\">Medium</td>");
+		m.ln("		<td bgcolor=\"red\">Poor</td>");
+		m.ln("		<td bgcolor=\"orange\">Short</td>");
+		m.ln("	</tr>");
+		m.ln("</table>");
 		m.ln("</p>");
 
 		m.ln("<h2>Wheels</h2>");
@@ -74,7 +101,8 @@ public class RohloffPage2 extends BasePage {
 		m.addModalImage(Resource.IMG_ROHLOFF_OKO_TN, Resource.IMG_ROHLOFF_OKO, "max-width:25%");
 		m.ln("<p>");
 		m.ln("OKO Magic Milk Hi-Fibre Tyre Sealant\r\n" + "\r\n"
-				+ "Previously used Orange Endurance Seal with good success but it is expensive. OKO has slightly worse sealing performance but is less than half of the price. OKO is a latex based sealant which does not contain ammonia. https://www.planetx.co.uk/i/q/WSOKOMMHF/oko-magic-milk-hi-fibre-tyre-sealant");
+				+ "Previously used Orange Endurance Seal with good success but it is expensive. OKO has slightly worse sealing performance but is less than half of the price. OKO is a latex based sealant which does not contain ammonia.");
+		m.ln("<a target=\"_blank\" href=\"https://www.planetx.co.uk/i/q/WSOKOMMHF/oko-magic-milk-hi-fibre-tyre-sealant\">Link</a>");
 		m.ln("</p>");
 
 		m.ln("<h3>Tyres</h3>");
@@ -129,7 +157,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("<img style=\"object-fit: scale-down; max-width: 100%\" src=\"" + Resource.IMG_ROHLOFF_GEAR_MTB + "\">");
 		m.ln("<br>MTB: 32T chainring 11-46 cassette @90RPM<br><br>");
 		m.ln("The Rohloff is like a an MTB with extra range, max speed is less than the compact. I'm not in the 50/11 gear often.");
-		m.ln("<a href=\"http://www.gear-calculator.com/?GR=RLSH&KB=40&RZ=15&UF=2135&TF=90&SL=2.6&UN=KMH&DV=speed&GR2=DERS&KB2=34,50&RZ2=11,12,13,14,16,18,20,22,25,28,32&UF2=2135\">Link to Set-up</a>");
+		m.ln("<a target=\"_blank\" href=\"http://www.gear-calculator.com/?GR=RLSH&KB=40&RZ=15&UF=2135&TF=90&SL=2.6&UN=KMH&DV=speed&GR2=DERS&KB2=34,50&RZ2=11,12,13,14,16,18,20,22,25,28,32&UF2=2135\">Link to Set-up</a>");
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content

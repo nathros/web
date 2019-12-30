@@ -17,7 +17,6 @@ public class FileServerPage1 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "File Server 1");
 
 		m.ln("<body>");
@@ -30,7 +29,7 @@ public class FileServerPage1 extends BasePage {
 
 		////
 
-		m.ln("<a class=\"btn btn-blue ripple\">Link</a>");
+		m.ln("<a class=\"btn btn-blue ripple\">Work in Progress</a>");
 		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content

@@ -17,7 +17,6 @@ public class PageHome extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_CAROUSEL };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Home Page");
 
 		m.ln("<body>");

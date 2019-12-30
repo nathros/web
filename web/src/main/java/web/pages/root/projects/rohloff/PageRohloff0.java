@@ -17,7 +17,6 @@ public class PageRohloff0 extends BasePage {
 				Resource.CSS_SIDENAV };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");

@@ -17,7 +17,6 @@ public class RohloffPage5 extends BasePage {
 				Resource.CSS_TOOLTIP, Resource.CSS_MODAL_IMAGE };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Wheel Build");
 
 		m.ln("<body>");

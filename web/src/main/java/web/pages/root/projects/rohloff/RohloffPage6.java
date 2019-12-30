@@ -17,7 +17,6 @@ public class RohloffPage6 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Headset Spacers");
 
 		m.ln("<body>");

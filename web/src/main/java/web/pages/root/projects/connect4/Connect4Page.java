@@ -17,7 +17,6 @@ public class Connect4Page extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "Connect 4");
 
 		m.ln("<body>");
@@ -31,7 +30,7 @@ public class Connect4Page extends BasePage {
 
 		////
 
-		m.ln("<a class=\"btn btn-blue ripple\">Link</a>");
+		m.ln("<a target=\"_blank\" href=\"https://github.com/nathros/connect4\" class=\"btn btn-blue ripple\">Page Work In Progress, click for Connect 4 code on Github</a>");
 		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content

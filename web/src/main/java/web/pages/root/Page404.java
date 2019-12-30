@@ -42,40 +42,38 @@ public class Page404 extends BasePage {
 		m.ln("<h1>404</h1>");
 		m.ln("<button onclick=\"window.history.back()\">Go Back</button>");
 
-		LocalStringBuffer stackTrace = new LocalStringBuffer(1024);
-		LocalStringBuffer requestJSON = new LocalStringBuffer(1024);
-		LocalStringBuffer requestB64 = new LocalStringBuffer(1024);
+		LocalStringBuffer ErrorMsg = new LocalStringBuffer(1024);
 
 		if (e != null) {
-			// stackTrace.ln("<p><b>Stack Trace</b></p>");
-			stackTrace.ln(e.getMessage() + "<br>");
+			ErrorMsg.ln("<p><b>Stack Trace</b></p>");
+			ErrorMsg.ln(e.getMessage() + "<br>");
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			stackTrace.ln(sw.toString().replaceAll("\n", "<br>"));
+			ErrorMsg.ln(sw.toString().replaceAll("\n", "<br>"));
+			ErrorMsg.ln("<br>");
 		}
 
 		if (request != null) {
 			try {
-				// requestB64.ln("<br><p><b>Request Base64</b></p>");
-				requestB64.ln("<div style=\"width: 32rem; word-wrap: break-word\">");
-				requestB64.ln(Debug.serialise(request));
-				requestB64.ln("</div>");
-				requestB64.ln("<br>");
-				// requestB64.ln("<p><b>Request JSON</b></p>");
-				requestB64.ln(request.toString().replaceAll(", ", "<br>"));
+				ErrorMsg.ln("<p>");
+				ErrorMsg.ln("<p><b>Request</b></p>");
+				ErrorMsg.ln(new RequestInfo(request).getPrettyHTML());
+				ErrorMsg.ln("</p><br>");
+
+				ErrorMsg.ln("<p><b>Request Base64</b></p>");
+				ErrorMsg.ln("<div style=\"width: 32rem; word-wrap: break-word\">");
+				ErrorMsg.ln(Debug.serialise(request));
+				ErrorMsg.ln("</div>");
+				ErrorMsg.ln("<br>");
+				// ErrorMsg.ln("<p><b>Request JSON</b></p>");
+				// ErrorMsg.ln(request.toString().replaceAll(", ", "<br>"));
 			} catch (IOException e1) {
+				ErrorMsg.ln(e1.getMessage());
 				e1.printStackTrace();
 			}
 		}
 
-		requestJSON.ln("<p>");
-		requestJSON.ln(requestInfo.getPrettyHTML());
-		requestJSON.ln("</p>");
-
-		String stackTraceString = m.getContentToggle("<b>Strack Trace</b>", stackTrace.toString());
-		String requestJSONString = m.getContentToggle("<b>Request</b>", requestJSON.toString());
-		String requestB64String = m.getContentToggle("<b>Request Base64</b>", requestB64.toString());
-		m.ln(m.getContentToggle("<b>Show More Info</b>", stackTraceString + requestJSONString + requestB64String));
+		m.ln(m.getContentToggle("<b>Show More Info</b>", ErrorMsg.toString()));
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 		m.ln("</body>");

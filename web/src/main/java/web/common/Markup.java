@@ -123,8 +123,7 @@ public class Markup {
 		ln("	</a>"); // #img
 		ln("</div>"); // modal-container
 
-		ln("<a href=\"javascript: history.go(-1);enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount
-				+ "\">");
+		ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\">");
 		ln("	<img src=\"" + imageURL + "\" alt=\"\">");
 		ln("</a>"); // modal-image
 		modalCount++;
