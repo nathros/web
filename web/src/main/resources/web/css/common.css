@@ -8,6 +8,7 @@ body {
 	--std-padding: 1rem;
 	
 	--highlight-colour: #00be8d;
+	--highlight-colour-banner: #00be8dee;
 	
 	/* Used for side to side padding of main content*/
 	--global-content-padding: 10%;

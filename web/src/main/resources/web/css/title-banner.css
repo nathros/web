@@ -9,11 +9,10 @@
 }
 .title-banner div {
 	margin-top: auto;
-	background-color: var(--highlight-colour);
+	background-color: var(--highlight-colour-banner);
 	margin-left: var(--global-content-padding);
 	margin-right: var(--global-content-padding);
 	padding: 2rem 2rem 1rem 2rem;
-	opacity: 0.95;
 }
 
 .title-banner div p {
