@@ -20,6 +20,7 @@ public class Resource {
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
+	public static final String JS_MODAL_IMAGE = "web/js/modal-image.js";
 
 	// Thumbnails w:640
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL_TN = "https://i.imgur.com/1jUoTVG.jpg";
@@ -35,6 +36,11 @@ public class Resource {
 	public static final String IMG_ROHLOFF_RFORCE_TI = "https://i.imgur.com/bOVrxJQ.jpg";
 	public static final String IMG_ROHLOFF_OKO_TN = "https://i.imgur.com/ScrdfYf.jpg";
 	public static final String IMG_ROHLOFF_OKO = "https://i.imgur.com/8MHWJB5.jpg";
+	public static final String IMG_ROHLOFF_MRD524_TN = "https://i.imgur.com/9ov3VLi.jpg";
+	public static final String IMG_ROHLOFF_MRD524 = "https://i.imgur.com/dwXPA5E.jpg";
+	public static final String IMG_ROHLOFF_MRD524_SIZE_TN = "https://i.imgur.com/FTWYSWA.png";
+	public static final String IMG_ROHLOFF_MRD524_SIZE = "https://i.imgur.com/4guxLvk.png";
+	public static final String IMG_ROHLOFF_HANDLEBAR = "https://i.imgur.com/w1lxLfq.jpg";
 
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
 

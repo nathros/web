@@ -117,13 +117,14 @@ public class Markup {
 	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile,
 																								// alt text
 		ln("<div class=\"modal-container\" style=\"" + thumbnailStyle + "\">");
-		ln("	<a href=\"#img" + modalCount + "\">");
+		ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" >"); //
 		ln("		<img class=\"modal-thumbnail\" src=\"" + thumbnailURL + "\" style=\"" + thumbnailStyle
 				+ "\" alt=\"\">");
-		ln("	</a>"); // #img1
+		ln("	</a>"); // #img
 		ln("</div>"); // modal-container
 
-		ln("<a href=\"javascript: history.go(-1)\" class=\"modal-image\" id=\"img" + modalCount + "\">");
+		ln("<a href=\"javascript: history.go(-1);enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount
+				+ "\">");
 		ln("	<img src=\"" + imageURL + "\" alt=\"\">");
 		ln("</a>"); // modal-image
 		modalCount++;
@@ -145,6 +146,7 @@ public class Markup {
 	}
 
 	public void addHead(String[] cssImport, String[] jsImport, String title) {
+		ln("<html lang=\"en\">");
 		ln("<head>");
 		if (null == title)
 			title = "";
