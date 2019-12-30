@@ -24,7 +24,7 @@ public class TestPage {
 			out = new PrintWriter(socket.getOutputStream(), true);
 			out.println("HTTP/1.0 200");
 			out.println("Content-type: text/html");
-			out.println("Server-name: myserver");
+			out.println("Server-name: server");
 
 			// ==============================================================//
 			long startTime = System.currentTimeMillis();

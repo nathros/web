@@ -3,6 +3,10 @@ function disableBodyScroll() {
 }
 
 function enableBodyScroll() {
-	history.go(-1);
+	if (history.length > 2) {
+		history.go(-1);
+	} else {
+		location.hash = '';  // First visit of page cannot go back
+	}
 	document.getElementsByTagName('BODY')[0].classList.remove('no-scroll');
 }
