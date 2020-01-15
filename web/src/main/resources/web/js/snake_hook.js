@@ -6,17 +6,18 @@ function snak(e) {
 	if (document.activeElement instanceof HTMLBodyElement) {
 		charArray.push(e.key);
 		charArray = charArray.slice(1, 6);
+		var loc = location.protocol + "//" + location.host
 		if (charArray.join("").search("snake") != -1) {
 			if (!loadSnakeJS) { // Load script, only once through.
 				loadSnakeJS = true;
-				document.head.appendChild(document.createElement("script")).src = "/stage/res/snake.js";
+				document.head.appendChild(document.createElement("script")).src = loc + "/stage/res/snake.js";
 			} else {
 				createSnake();
 			}
 		} else if (charArray.join("").search("admin") != -1) {
-			window.location.href = "/stage/admin";
+			window.location.href = loc + "/stage/admin";
 		} else if (charArray.join("").search("sand") != -1) {
-			window.location.href = "/stage/sandpit";
+			window.location.href = loc + "/stage/sandpit";
 		}
 	}
 }
