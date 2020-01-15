@@ -154,7 +154,8 @@ public class Markup {
 		if (null == title)
 			title = "";
 		ln("<title>".concat(title).concat("</title>"));
-		ln("<link rel=\"icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
+		ln("<link rel=\"shortcut icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
+		ln("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 
 		if (cssImport != null) {
 			ln("<style>");
