@@ -1,5 +1,8 @@
 package web;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
@@ -15,7 +18,14 @@ import web.common.RequestInfo;
 
 public class Analytics {
 
-	public static void logRequestRequest(RequestInfo request) {
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy:MM:dd:HH:mm:ss:A");
+	String nowStr = null;
+
+	public Analytics() {
+		nowStr = dtf.format(LocalDateTime.now());
+	}
+
+	public void logRequestRequest(RequestInfo request) {
 		// ProfilesConfigFile a = new ProfilesConfigFile("");
 
 		BasicAWSCredentials creds = new BasicAWSCredentials("", "");
@@ -26,19 +36,9 @@ public class Analytics {
 		DynamoDB dynamoDB = new DynamoDB(client);
 		Table table = dynamoDB.getTable("web");
 
-		// final Map<String, Object> infoMap = new HashMap<String, Object>();
-		// final Map<String, Object> innerMap = new HashMap<String, Object>();
-		// innerMap.put("inner", "testmap2");
-		// infoMap.put("plot", "aaa");
-		// infoMap.put("plot2", innerMap);
-
 		try {
-			System.out.println("Adding a new item...");
 			PutItemOutcome outcome = table
-					.putItem(new Item().withPrimaryKey("access", "access").withMap("info", request.requestMap));
-
-			System.out.println("PutItem succeeded:\n" + outcome.getPutItemResult());
-
+					.putItem(new Item().withPrimaryKey("access", nowStr).withMap("info", request.requestMap));
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
@@ -47,9 +47,10 @@ public class Analytics {
 
 		// https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/dynamodb/src/main/java/com/example/dynamodb
 		// https://stackoverflow.com/questions/47763573/aws-credentials-for-lambda-when-working-with-scala-not-working
+		// https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Java.04.html
 	}
 
-	public static RequestInfo getRequestFromDB() {
+	public RequestInfo getRequestFromDB() {
 
 		BasicAWSCredentials creds = new BasicAWSCredentials("", "");
 
@@ -62,17 +63,18 @@ public class Analytics {
 		GetItemSpec spec = new GetItemSpec().withPrimaryKey("access", "access");
 
 		try {
-			System.out.println("Attempting to read the item...");
 			Item outcome = table.getItem(spec);
-
 			RequestInfo req = new RequestInfo(outcome.asMap());
-			System.out.println("GetItem succeeded:  " + outcome);
-			System.out.println(req.getPrettyHTML());
-
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
 
 		return null;
 	}
+
+	// final Map<String, Object> infoMap = new HashMap<String, Object>();
+	// final Map<String, Object> innerMap = new HashMap<String, Object>();
+	// innerMap.put("inner", "testmap2");
+	// infoMap.put("plot", "aaa");
+	// infoMap.put("plot2", innerMap);
 }

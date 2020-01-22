@@ -18,6 +18,9 @@ public class Lambda {
 
 			BasePage response = (BasePage) object;
 			String result = response.getResponse();
+
+			Scheduled.log(request);
+
 			return result;
 
 		} catch (Exception e) { // return exception as response
