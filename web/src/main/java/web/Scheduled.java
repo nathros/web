@@ -22,7 +22,6 @@ public class Scheduled {
 					analytics.logRequestRequest(request);
 					System.out.println("...finished in " + (System.currentTimeMillis() - startLog) + "ms");
 				}
-
 			}, 10, TimeUnit.MILLISECONDS);
 		}
 	}
