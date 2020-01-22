@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+	compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.710'
 }
 
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8
