@@ -1,5 +1,9 @@
 package web.pages.root;
 
+import java.io.IOException;
+
+import web.common.Debug;
+import web.common.LocalStringBuffer;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
@@ -20,33 +24,32 @@ public class PageAdmin extends BasePage {
 		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Home);
+		m.addNavbar(NavbarItem.Admin);
 
-		////
-		m.ln("<div class=\"title-banner\">");
-		m.ln("	<div>Admin Page</div>");
-		m.ln("</div>"); // title-banner
+		m.addBanner("Admin", "https://wallpaperplay.com/walls/full/0/b/2/96811.jpg");
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
-		m.ln("		<form method=\"get\" action=javascript:action>");
-		m.ln("			<label for=\"page-select\"><strong>Page:</strong></label>");
-		m.ln("				<select id=\"page-select\" onChange=\"self.location=this.options[this.selectedIndex].value;\">");
-		m.ln("					<option value=\"page1\">Option 1</option>");
-		m.ln("					<option value=\"page2\">Option 2</option>");
-		m.ln("					<option value=\"page3\">Option 3</option>");
-		m.ln("				</select>"); // select
-		m.ln("		</form>"); // form
 
-		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
-		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
-		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
-		// m.addContentToggle("title", "<p>test<br>fsfdff<br>sfsff<br></p>");
+		LocalStringBuffer ErrorMsg = new LocalStringBuffer(1024);
+		ErrorMsg.ln("<p>");
+		ErrorMsg.ln("<p><b>Request</b></p>");
+		ErrorMsg.ln(requestInfo.getPrettyHTML());
+		ErrorMsg.ln("</p><br>");
 
-		// m.addCard(" <h2><a href=\"/test/admin\"> link</a></h2>");
-		////
+		try {
+			ErrorMsg.ln("<p><b>Request Base64</b></p>");
+			ErrorMsg.ln("<div style=\"width: 32rem; word-wrap: break-word\">");
+			ErrorMsg.ln(Debug.serialise(requestInfo.requestMap));
+			ErrorMsg.ln("</div>");
+			ErrorMsg.ln("<br>");
+		} catch (IOException e) {
 
-		////
+			e.printStackTrace();
+		}
+
+		m.ln(m.getContentToggle("<b>Current Request</b>", ErrorMsg.toString()));
+
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 

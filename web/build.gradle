@@ -14,8 +14,8 @@ dependencies {
 }
 
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8
-  sourceCompatibility = 1.8
-  targetCompatibility = 1.8
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
 }
 
 sourceSets {
@@ -55,7 +55,7 @@ shadowJar {
 }
 
 jar {
-   manifest {
-       attributes 'Main-Class': 'web.Main'
-   }
+	manifest {
+		attributes 'Main-Class': 'web.Main'
+	}
 }

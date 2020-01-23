@@ -4,5 +4,6 @@ public enum NavbarItem {
 	Home,
 	Projects,
 	CV,
-	Contact
+	Contact,
+	Admin
 }

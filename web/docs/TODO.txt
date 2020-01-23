@@ -1,3 +1,3 @@
 Projects->github logo hover
-Not mobile friendly
 modal-image no scroll on click does not work when refresh page on show bigger image
+DynamoDB log request errors are missed
