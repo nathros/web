@@ -13,8 +13,7 @@ public class PageRohloff0 extends BasePage {
 
 	@Override
 	public String getResponse() {
-		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TIMELINE,
-				Resource.CSS_SIDENAV };
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_SIDENAV };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
 
 		m.addHead(css, js, "Admin");

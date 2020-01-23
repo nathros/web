@@ -26,7 +26,7 @@ public class PageContact extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
-		m.ln("<form action=\"stage/contact\" onSubmit=\"return alert('WARNING: not currently implemented');\">");
+		m.ln("<form action=\"contact\" onSubmit=\"return alert('WARNING: not currently implemented');\">");
 		m.ln("	Name<br>");
 		m.ln("	<input type=\"text\" name=\"firstname\" value=\"\">");
 		m.ln("	<br><br>");
@@ -35,9 +35,9 @@ public class PageContact extends BasePage {
 		m.ln("	<br><br>");
 		m.ln("	Subject:<br>");
 		m.ln("	<input type=\"text\" name=\"subject\" value=\"\"><br><br>");
-		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\"></textarea>");
+		m.ln("	<textarea style=\"width:100%;\" rows=\"12\" cols=\"100\" name=\"comment\"></textarea>");
 		m.ln("	<br><br>");
-		m.ln("	<input type=\"submit\" value=\"Submit\">");
+		m.ln("	<input type=\"submit\" value=\"Submit\"><p style=\"color:red\">WARNING: submit not currently implemented</p>");
 		m.ln("</form>");
 
 		m.ln("	</div>"); // card
