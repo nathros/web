@@ -1,9 +1,5 @@
 package web.common;
 
 public enum NavbarItem {
-	Home,
-	Projects,
-	CV,
-	Contact,
-	Admin
+	Home, Projects, CV, Contact, BadPage, Admin
 }

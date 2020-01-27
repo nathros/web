@@ -22,7 +22,7 @@ public class FileServerPage1 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
 
-		m.addBanner("File Server 1", "https://www.jonkensy.com/wp-content/uploads/IMG_0166-2.jpg");
+		m.addBanner("File Server 1", Resource.IMG_BANNER_FILESERVER1);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");

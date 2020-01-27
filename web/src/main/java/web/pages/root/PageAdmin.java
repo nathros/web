@@ -26,7 +26,7 @@ public class PageAdmin extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Admin);
 
-		m.addBanner("Admin", "https://wallpaperplay.com/walls/full/0/b/2/96811.jpg");
+		m.addBanner("Admin", Resource.IMG_BANNER_ADMIN);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");

@@ -24,23 +24,21 @@ public class Page404 extends BasePage {
 
 	public String getResponse(Exception e, Object request) {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_TOGGLE_DIV };
+				Resource.CSS_TOGGLE_DIV, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "404");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Home);
+		m.addNavbar(NavbarItem.BadPage);
 
-		// m.ln("<div class=\"title-banner\">");
-		// m.ln(" <div>404</div>");
-		// m.ln("</div>"); // title-banner
+		m.addBanner("404 Page Not Found", Resource.IMG_BANNER_1);
 
 		m.ln("<div class=\"common-content\">");
-		m.ln("<div class=\"card-single\">");
-		m.ln("<h1>404</h1>");
-		m.ln("<button onclick=\"window.history.back()\">Go Back</button>");
+		// m.ln("<div class=\"card-single\">");
+		m.ln("<div class=\"card\">");
+		m.ln("<button class=\"btn btn-blue ripple\" onclick=\"window.history.back()\">Go Back</button>");
 
 		LocalStringBuffer ErrorMsg = new LocalStringBuffer(1024);
 
@@ -73,7 +71,8 @@ public class Page404 extends BasePage {
 			}
 		}
 
-		m.ln(m.getContentToggle("<b>Show More Info</b>", ErrorMsg.toString()));
+		m.ln("<br><br>");
+		m.ln(m.getContentToggle("<b>Show Detailed Info</b>", ErrorMsg.toString()));
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 		m.ln("</body>");

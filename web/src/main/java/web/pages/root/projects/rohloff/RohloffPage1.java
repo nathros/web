@@ -22,7 +22,7 @@ public class RohloffPage1 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
 
-		m.addBanner("Background", "https://i.imgur.com/hcwvNZv.jpg");
+		m.addBanner("Background", Resource.IMG_BANNER_ROHLOFF);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");

@@ -22,8 +22,7 @@ public class Connect4Page extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
 
-		m.addBanner("Connect 4",
-				"https://d1e4pidl3fu268.cloudfront.net/484a5987-b3df-4b5e-a715-1805c1c8c3ee/connectfour.png");
+		m.addBanner("Connect 4", Resource.IMG_BANNER_CONNECT4);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");

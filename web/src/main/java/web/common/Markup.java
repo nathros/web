@@ -57,6 +57,8 @@ public class Markup {
 
 		if (NavbarItem.Admin == item) {
 			ln("	<a class=\"navbar-selected\" >Admin</a>");
+		} else if (NavbarItem.BadPage == item) {
+			ln("	<a class=\"navbar-selected\" >Missing Page</a>");
 		}
 
 		ln("</div>"); // navbar

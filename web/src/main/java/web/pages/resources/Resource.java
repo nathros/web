@@ -22,6 +22,13 @@ public class Resource {
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
 	public static final String JS_MODAL_IMAGE = "web/js/modal-image.js";
 
+	public static final String IMG_BANNER_1 = "https://i.imgur.com/dtgWhuG.jpg"; // https://wallpaperplay.com/walls/full/1/b/e/366897.jpg
+	public static final String IMG_BANNER_2 = "https://i.imgur.com/9p0HPN7.jpg";
+	public static final String IMG_BANNER_FILESERVER1 = "https://i.imgur.com/yWHI2Wi.jpg";
+	public static final String IMG_BANNER_ADMIN = "https://i.imgur.com/acO3yV1.jpg";
+	public static final String IMG_BANNER_CONNECT4 = "https://i.imgur.com/DVdR2SS.jpg";
+	public static final String IMG_BANNER_ROHLOFF = "https://i.imgur.com/VKIHXq8.jpg";
+
 	// Thumbnails w:640
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL_TN = "https://i.imgur.com/1jUoTVG.jpg";
 	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL = "https://i.imgur.com/agFrpUp.jpg";

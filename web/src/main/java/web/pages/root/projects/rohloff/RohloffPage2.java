@@ -22,8 +22,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
 
-		m.addBanner("Specifications",
-				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
+		m.addBanner("Specifications", Resource.IMG_BANNER_ROHLOFF);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");

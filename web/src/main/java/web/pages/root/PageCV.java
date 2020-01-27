@@ -23,7 +23,7 @@ public class PageCV extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.CV);
 
-		m.addBanner("CV", "https://wallpaperplay.com/walls/full/1/b/e/366897.jpg");
+		m.addBanner("CV", Resource.IMG_BANNER_1);
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 

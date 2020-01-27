@@ -22,12 +22,12 @@ public class PageContact extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Contact);
 
-		m.addBanner("Contact", "https://wallpaperplay.com/walls/full/1/b/e/366897.jpg");
+		m.addBanner("Contact", Resource.IMG_BANNER_1);
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
 		m.ln("<form action=\"contact\" onSubmit=\"return alert('WARNING: not currently implemented');\">");
-		m.ln("	Name<br>");
+		m.ln("	Name:<br>");
 		m.ln("	<input type=\"text\" name=\"firstname\" value=\"\">");
 		m.ln("	<br><br>");
 		m.ln("	Email-address:<br>");
@@ -35,9 +35,10 @@ public class PageContact extends BasePage {
 		m.ln("	<br><br>");
 		m.ln("	Subject:<br>");
 		m.ln("	<input type=\"text\" name=\"subject\" value=\"\"><br><br>");
+		m.ln("	Message:<br>");
 		m.ln("	<textarea style=\"width:100%;\" rows=\"12\" cols=\"100\" name=\"comment\"></textarea>");
 		m.ln("	<br><br>");
-		m.ln("	<input type=\"submit\" value=\"Submit\"><p style=\"color:red\">WARNING: submit not currently implemented</p>");
+		m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\"><p style=\"color:red\">WARNING: submit not currently implemented</p>");
 		m.ln("</form>");
 
 		m.ln("	</div>"); // card
