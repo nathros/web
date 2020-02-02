@@ -26,19 +26,48 @@ public class PageContact extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
-		m.ln("<form action=\"contact\" onSubmit=\"return alert('WARNING: not currently implemented');\">");
+		String firstname = requestInfo.getBodyParam("firstname");
+		String email = requestInfo.getBodyParam("email");
+		String subject = requestInfo.getBodyParam("subject");
+		String comment = requestInfo.getBodyParam("comment");
+		boolean gotPostData = false;
+		m.ln("<form action=\"contact\" method=\"post\">");
 		m.ln("	Name:<br>");
-		m.ln("	<input type=\"text\" name=\"firstname\" value=\"\">");
+		if (null == firstname) {
+			m.ln("	<input type=\"text\" name=\"firstname\" value=\"\">");
+		} else {
+			gotPostData = true;
+			m.ln("	<input type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
+		}
 		m.ln("	<br><br>");
 		m.ln("	Email-address:<br>");
-		m.ln("	<input type=\"text\" name=\"email\" value=\"\">");
+		if (null == email) {
+			m.ln("	<input type=\"text\" name=\"email\" value=\"\">");
+		} else {
+			gotPostData = true;
+			m.ln("	<input type=\"text\" name=\"email\" value=\"" + email + "\">");
+		}
 		m.ln("	<br><br>");
 		m.ln("	Subject:<br>");
-		m.ln("	<input type=\"text\" name=\"subject\" value=\"\"><br><br>");
+		if (null == subject) {
+			m.ln("	<input type=\"text\" name=\"subject\" value=\"\"><br><br>");
+		} else {
+			gotPostData = true;
+			m.ln("	<input type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
+		}
 		m.ln("	Message:<br>");
-		m.ln("	<textarea style=\"width:100%;\" rows=\"12\" cols=\"100\" name=\"comment\"></textarea>");
+		m.ln("	<textarea style=\"width:100%;\" rows=\"12\" cols=\"100\" name=\"comment\">");
+		if (null != comment) {
+			gotPostData = true;
+			m.ln(comment);
+		}
+		m.ln("</textarea>");
+
 		m.ln("	<br><br>");
-		m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\"><p style=\"color:red\">WARNING: submit not currently implemented</p>");
+		m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\">");
+		if (gotPostData) {
+			m.ln("	<p style=\"color:red\">WARNING: form POST success, but email submission not currently implemented</p>");
+		}
 		m.ln("</form>");
 
 		m.ln("	</div>"); // card

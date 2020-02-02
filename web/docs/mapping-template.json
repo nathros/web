@@ -2,19 +2,37 @@
   "body" : $input.json('$'),
   "path" : "$context.path",
   "method": "$context.httpMethod",
-  "params": {
+  "headers": {
+    #foreach($param in $input.params().header.keySet())
+    "$param": "$util.escapeJavaScript($input.params().header.get($param))" #if($foreach.hasNext),#end
+
+    #end
+  },
+  "queryParams": {
+    #foreach($param in $input.params().querystring.keySet())
+    "$param": "$util.escapeJavaScript($input.params().querystring.get($param))" #if($foreach.hasNext),#end
+
+    #end
+  },
+  "pathParams": {
     #foreach($param in $input.params().path.keySet())
     "$param": "$util.escapeJavaScript($input.params().path.get($param))" #if($foreach.hasNext),#end
+
     #end
   },
-  "query": {
-    #foreach($queryParam in $input.params().querystring.keySet())
-    "$queryParam": "$util.escapeJavaScript($input.params().querystring.get($queryParam))" #if($foreach.hasNext),#end
-    #end
-  },
-  "headers": {
-    #foreach($header in $input.params().header.keySet())
-    "$header": "$util.escapeJavaScript($input.params().header.get($header))" #if($foreach.hasNext),#end
-    #end
-  }
+  "bodyParams": {
+        #foreach( $token in $input.path('$').split('&') )
+            #set( $keyVal = $token.split('=') )
+            #set( $keyValSize = $keyVal.size() )
+            #if( $keyValSize >= 1 )
+                #set( $key = $util.urlDecode($keyVal[0]) )
+                #if( $keyValSize >= 2 )
+                    #set( $val = $util.urlDecode($keyVal[1]) )
+                #else
+                    #set( $val = '' )
+                #end
+                "$key": "$val"#if($foreach.hasNext),#end
+            #end
+        #end
+    }
 }

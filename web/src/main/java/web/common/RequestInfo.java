@@ -18,6 +18,26 @@ public class RequestInfo {
 		}
 	}
 
+	public HttpMethod getMethod() {
+		try {
+			Object o = requestMap.get("method");
+			if ((null != o) && (o instanceof String)) {
+				String method = (String) o;
+				switch (method) {
+				case "GET":
+					return HttpMethod.GET;
+				case "POST":
+					return HttpMethod.POST;
+				default:
+					return HttpMethod.UNKNOWN;
+				}
+			}
+		} catch (Exception e) {
+			return HttpMethod.UNKNOWN;
+		}
+		return HttpMethod.UNKNOWN;
+	}
+
 	public String getPageClass() {
 		try {
 			Object o = requestMap.get("path");
@@ -41,7 +61,9 @@ public class RequestInfo {
 				LinkedHashMap<String, Objects> list = (LinkedHashMap<String, Objects>) o;
 				o = list.get(key);
 				if ((null != o) && (o instanceof String)) {
-					return (String) o;
+					String ret = (String) o;
+					ret = ret.replaceAll("%", ""); // TODO decode properly
+					return ret;
 				}
 			}
 		} catch (Exception e) {
@@ -58,7 +80,9 @@ public class RequestInfo {
 				LinkedHashMap<String, Objects> list = (LinkedHashMap<String, Objects>) o;
 				o = list.get(key);
 				if ((null != o) && (o instanceof String)) {
-					return (String) o;
+					String ret = (String) o;
+					ret = ret.replaceAll("%", ""); // TODO decode properly
+					return ret;
 				}
 			}
 		} catch (Exception e) {
