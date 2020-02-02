@@ -31,7 +31,40 @@ public class RequestInfo {
 		} catch (Exception e) {
 			return PageHome.class.getName();
 		}
+	}
 
+	public String getQueryParam(String key) {
+		try {
+			Object o = requestMap.get("queryParams");
+			if ((null != o) && (o instanceof LinkedHashMap)) {
+				@SuppressWarnings("unchecked")
+				LinkedHashMap<String, Objects> list = (LinkedHashMap<String, Objects>) o;
+				o = list.get(key);
+				if ((null != o) && (o instanceof String)) {
+					return (String) o;
+				}
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return null;
+	}
+
+	public String getBodyParam(String key) {
+		try {
+			Object o = requestMap.get("bodyParams");
+			if ((null != o) && (o instanceof LinkedHashMap)) {
+				@SuppressWarnings("unchecked")
+				LinkedHashMap<String, Objects> list = (LinkedHashMap<String, Objects>) o;
+				o = list.get(key);
+				if ((null != o) && (o instanceof String)) {
+					return (String) o;
+				}
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -61,7 +94,6 @@ public class RequestInfo {
 					} else {
 						str.append(",&nbsp;&nbsp;<br>;");
 					}
-
 				}
 				if (childKeys.size() == 0) {
 					str.append("}<br>");

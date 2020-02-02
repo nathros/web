@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -19,24 +21,39 @@ public class TestPage {
 
 		try {
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			String request = in.readLine();
-			System.out.println("Client request: " + request);
+			List<String> headers = new ArrayList<String>();
+			String line;
+			while (((line = in.readLine()) != null) && (line.length() != 0)) {
+				headers.add(line);
+				if (Config.printVerboseRequest) {
+					System.out.println(line);
+				}
+			}
+
+			StringBuilder payload = new StringBuilder();
+			while (in.ready()) {
+				payload.append((char) in.read());
+			}
+			headers.add(payload.toString());
+
+			System.out.println("Client request: " + headers.get(0) + " Body:" + payload.toString());
 			out = new PrintWriter(socket.getOutputStream(), true);
 			out.println("HTTP/1.0 200");
 			out.println("Content-type: text/html");
 			out.println("Server-name: server");
 
-			// ==============================================================//
+			// ============================================================== //
 			long startTime = System.currentTimeMillis();
 			Lambda ret = new Lambda();
 			String response = "NULL missing startup param";
 			if (args.length > 1) {
-				if ("fixed".equals(args[1]))
-					response = ret.handleRequest(RequestFactory.getStandard2Param());
-				else if ("dynamic".equals(args[1]))
-					response = ret.handleRequest(RequestFactory.getRequestParam(request));
+				if ("fixed".equals(args[1])) {
+					response = ret.handleRequest(RequestFactory.getPremadeRequestObject());
+				} else if ("dynamic".equals(args[1])) {
+					response = ret.handleRequest(RequestFactory.generateRequestObject(headers));
+				}
 			}
-			// ==============================================================//
+			// ============================================================== //
 
 			out.println("Content-length: " + response.length());
 			out.println("");
@@ -46,6 +63,9 @@ public class TestPage {
 			socket.close();
 
 			System.out.println("Server response time: " + (System.currentTimeMillis() - startTime) + "ms");
+			if (Config.printVerboseRequest) {
+				System.out.println("==================================");
+			}
 		} catch (IOException e) {
 			System.out.println("Failed respond to client request: " + e.getMessage());
 			try {
