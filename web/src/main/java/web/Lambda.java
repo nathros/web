@@ -11,7 +11,7 @@ public class Lambda {
 		try {
 			RequestInfo request = new RequestInfo(input);
 
-			// Reflect to get page from "path" query parameter
+			// Reflect to get page from URL "path" parameter
 			Class<?> c = Class.forName(request.getPageClass());
 			Constructor<?> cons = c.getConstructor(RequestInfo.class);
 			Object object = cons.newInstance(request);
@@ -19,7 +19,7 @@ public class Lambda {
 			BasePage response = (BasePage) object;
 			String result = response.getResponse();
 
-			Scheduled.log(request);
+			Scheduled.run(request);
 
 			return result;
 

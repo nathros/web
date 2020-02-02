@@ -2,4 +2,3 @@ Projects->github logo hover not highlighted
 modal-image no scroll on click does not work when refresh page on show bigger image
 DynamoDB log request errors are missed
 Java 11 now supported officially by AWS Lambda, need to update
-POST mapping-template does not support special characters, see contact page and repeatedly submit in message box

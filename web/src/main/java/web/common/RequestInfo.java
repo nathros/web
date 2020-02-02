@@ -1,5 +1,7 @@
 package web.common;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -62,14 +64,14 @@ public class RequestInfo {
 				o = list.get(key);
 				if ((null != o) && (o instanceof String)) {
 					String ret = (String) o;
-					ret = ret.replaceAll("%", ""); // TODO decode properly
+					ret = URLDecoder.decode(ret, StandardCharsets.UTF_8.name());
 					return ret;
 				}
 			}
 		} catch (Exception e) {
-			return null;
+			return "";
 		}
-		return null;
+		return "";
 	}
 
 	public String getBodyParam(String key) {
@@ -81,14 +83,14 @@ public class RequestInfo {
 				o = list.get(key);
 				if ((null != o) && (o instanceof String)) {
 					String ret = (String) o;
-					ret = ret.replaceAll("%", ""); // TODO decode properly
+					ret = URLDecoder.decode(ret, StandardCharsets.UTF_8.name());
 					return ret;
 				}
 			}
 		} catch (Exception e) {
-			return null;
+			return "";
 		}
-		return null;
+		return "";
 	}
 
 	@SuppressWarnings("unchecked")
