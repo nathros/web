@@ -161,7 +161,7 @@ public class Markup {
 		ln("<title>".concat(title).concat("</title>"));
 		ln("	<link rel=\"shortcut icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
 		ln("	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-
+		ln("	<meta name=\"theme-color\" content=\"00be8dee\">"); // Mobile tab colour
 		if (cssImport != null) {
 			ln("<style>");
 			for (String i : cssImport) {
