@@ -20,6 +20,19 @@ public class RequestInfo {
 		}
 	}
 
+	public String getUserIP() {
+		try {
+			Object o = requestMap.get("sourceIP");
+			if ((null != o) && (o instanceof String)) {
+				String method = (String) o;
+				return method;
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return null;
+	}
+
 	public HttpMethod getMethod() {
 		try {
 			Object o = requestMap.get("method");
