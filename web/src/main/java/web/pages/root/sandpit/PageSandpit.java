@@ -20,6 +20,7 @@ public class PageSandpit extends BasePage {
 		m.ln("<body>");
 		m.ln("	<div style=\"text-align: center;\">");
 		m.ln("		<a href=\"sandpit/xhttpouter\">xhttpouter</a><br>");
+		m.ln("		<a href=\"sandpit/carousel\">carousel</a><br>");
 		m.ln("	</div>");
 		m.ln("</body>");
 		m.ln("</html>");

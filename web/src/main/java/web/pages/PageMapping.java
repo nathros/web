@@ -16,6 +16,7 @@ import web.pages.root.projects.rohloff.RohloffPage5;
 import web.pages.root.projects.rohloff.RohloffPage6;
 import web.pages.root.projects.rohloff.RohloffPage7;
 import web.pages.root.sandpit.PageSandpit;
+import web.pages.root.sandpit.carousel.PageCarousel;
 import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
@@ -75,6 +76,7 @@ public class PageMapping {
 		m.put("/sandpit", PageSandpit.class.getName());
 		m.put("/sandpit/xhttpinner", PageXHTTPInner.class.getName());
 		m.put("/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
+		m.put("/sandpit/carousel", PageCarousel.class.getName());
 		return m;
 	}
 

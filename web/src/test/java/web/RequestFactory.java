@@ -66,7 +66,12 @@ public class RequestFactory {
 				paramsStr = request.substring(request.indexOf("/"), index);
 				queryStr = request.substring(index + 1, request.lastIndexOf(" HTT"));
 			} else {
-				paramsStr = request.substring(request.indexOf(" /") + 1, request.lastIndexOf(" HTT"));
+				try {
+					paramsStr = request.substring(request.indexOf(" /") + 1, request.lastIndexOf(" HTT"));
+				} catch (Exception e) {
+					// Do nothing. Firefox can send request which only contains "Body:" method is
+					// missing
+				}
 			}
 
 			LinkedHashMap<String, String> queryParams = new LinkedHashMap<String, String>();

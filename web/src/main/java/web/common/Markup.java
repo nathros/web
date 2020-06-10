@@ -79,7 +79,6 @@ public class Markup {
 					ln("		<option value=\"".concat(value).concat("\">").concat(key).concat("</option>"));
 				}
 			}
-
 		}
 		ln("	</select>"); // select
 		ln("</form>"); // form
@@ -115,6 +114,13 @@ public class Markup {
 		ln("<div class=\"title-banner\" style=\"background-image: url(".concat(background).concat(")\">"));
 		ln("	<div><p>".concat(title).concat("</p></div>"));
 		ln("</div>"); // title-banner
+	}
+
+	public void addBannerHome(String title, String background) {
+		ln("<div class=\"title-banner-home\" style=\"background-image: url(".concat(background).concat(")\">"));
+		ln("	<canvas id=\"banner-canvas\" height=\"100%\"></canvas>");
+		// ln(" <div><p>".concat(title).concat("</p></div>"));
+		ln("</div>"); // title-banner-home
 	}
 
 	int modalCount = 0;
@@ -158,10 +164,12 @@ public class Markup {
 		ln("<head>");
 		if (null == title)
 			title = "";
-		ln("<title>".concat(title).concat("</title>"));
+		ln("	<title>".concat(title).concat("</title>"));
 		ln("	<link rel=\"shortcut icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
 		ln("	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 		ln("	<meta name=\"theme-color\" content=\"00be8dee\">"); // Mobile tab colour
+		ln("	<meta charset=\"UTF-8\">"); // Firefox complains about missing encoding
+
 		if (cssImport != null) {
 			ln("<style>");
 			for (String i : cssImport) {
@@ -182,9 +190,4 @@ public class Markup {
 		ln("</head>");
 	}
 
-	public void addCSS() {
-		ln("<style>");
-		ln(Resource.readResource(Resource.CSS_COMMON));
-		ln("</style>");
-	}
 }
