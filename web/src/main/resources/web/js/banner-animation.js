@@ -1,3 +1,5 @@
+var bannerAnimationIsolate = new function() { // Isolates this code from other JavaScript
+
 var stepFrame = 0;
 var canvas = document.getElementById("banner-canvas");
 var ctx = canvas.getContext("2d");
@@ -111,3 +113,5 @@ function mouseOut() {
 window.setInterval(bannerAnimate, 1000 / stepFPS);
 canvas.addEventListener('mousemove', mouseMove, false);
 canvas.addEventListener('mouseout', mouseOut, false);
+
+};

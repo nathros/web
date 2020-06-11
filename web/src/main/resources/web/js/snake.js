@@ -1,3 +1,5 @@
+var snake = new function() { // Isolates this code from other JavaScript
+
 var showGrid = false; // Debug
 var frameTime = 50; // How long a frame lasts in milliseconds, adjust game speed.
 
@@ -27,9 +29,9 @@ var ctx;
 var drawInterval;
 var bodyOverflowOriginal;
 
-createSnake();
+createSnakeGame();
 
-function createSnake() { // Create canvas, is exists then replace.
+function createSnakeGame() { // Create canvas, is exists then replace.
 	canvas = document.getElementById("snake-canvas");
 	if (canvas != null) {
 		destroySnake();
@@ -404,3 +406,11 @@ function drawGrid(cellSize, xStart, yStart) {
 		ctx.stroke();
 	}
 }
+
+return {
+	createSnake: function()  {
+		createSnakeGame();
+	}
+}
+
+};

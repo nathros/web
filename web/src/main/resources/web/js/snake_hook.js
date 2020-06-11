@@ -12,7 +12,7 @@ function snak(e) {
 				loadSnakeJS = true;
 				document.head.appendChild(document.createElement("script")).src = loc + "/stage/res/snake.js";
 			} else {
-				createSnake();
+				snake.createSnake();
 			}
 		} else if (charArray.join("").search("admin") != -1) {
 			window.location.href = loc + "/stage/admin";
