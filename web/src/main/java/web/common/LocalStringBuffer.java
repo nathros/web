@@ -2,7 +2,7 @@ package web.common;
 
 public class LocalStringBuffer {
 
-	private StringBuffer buffer;
+	public StringBuffer buffer;
 
 	public LocalStringBuffer(int startSize) {
 		buffer = new StringBuffer(startSize);
