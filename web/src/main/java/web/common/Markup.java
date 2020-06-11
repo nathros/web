@@ -116,10 +116,16 @@ public class Markup {
 		ln("</div>"); // title-banner
 	}
 
-	public void addBannerHome(String title, String background) {
+	public void addBannerHomeAnimated(String background) {
 		ln("<div class=\"title-banner-home\" style=\"background-image: url(".concat(background).concat(")\">"));
-		ln("	<canvas id=\"banner-canvas\" height=\"100%\"></canvas>");
-		// ln(" <div><p>".concat(title).concat("</p></div>"));
+		ln("	<canvas id=\"banner-canvas\"></canvas>");
+		ln("</div>"); // title-banner-home
+	}
+
+	public void addBannerAnimated(String title, String background) {
+		ln("<div class=\"title-banner\" style=\"background-image: url(".concat(background).concat(")\">"));
+		ln("	<canvas id=\"banner-canvas\" style=\"position: absolute\"></canvas>");
+		ln("	<div><p>".concat(title).concat("</p></div>"));
 		ln("</div>"); // title-banner-home
 	}
 

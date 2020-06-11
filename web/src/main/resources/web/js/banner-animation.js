@@ -12,8 +12,8 @@ var lineWidth = 4;
 var stepSize = 0.25;
 var stepFPS = 20;
 
-var fade = 0;
 var fadeDirection = true;
+var fade = 0.1; // Start mid fade
 var fadeMax = 0.2;
 var fadeStep = 0.005;
 

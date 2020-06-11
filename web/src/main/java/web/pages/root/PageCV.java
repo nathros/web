@@ -15,15 +15,15 @@ public class PageCV extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_TOGGLE_DIV, Resource.CSS_TIMELINE };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_TOGGLE_DIV, Resource.CSS_TIMELINE,
+				Resource.CSS_TITLE_BANNER };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.addHead(css, js, "CV");
-
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.CV);
+		m.addBannerAnimated("CV", Resource.IMG_BANNER_1);
 
-		m.addBanner("CV", Resource.IMG_BANNER_1);
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
@@ -148,6 +148,11 @@ public class PageCV extends BasePage {
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+
+		m.ln("<script>");
+		m.ln(Resource.readResource(Resource.JS_BANNER));
+		m.ln("</script>");
+
 		m.ln("</body>");
 		m.ln("</html>");
 

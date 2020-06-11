@@ -6,6 +6,7 @@
 	justify-content: space-between;
 	margin-top: 3rem;
 	height: 15rem;
+	position: relative;
 }
 .title-banner div {
 	margin-top: auto;
@@ -13,6 +14,7 @@
 	margin-left: var(--global-content-padding);
 	margin-right: var(--global-content-padding);
 	padding: 2rem 2rem 1rem 2rem;
+	position: relative;
 }
 
 .title-banner div p {

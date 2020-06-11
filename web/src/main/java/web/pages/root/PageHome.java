@@ -21,7 +21,7 @@ public class PageHome extends BasePage {
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Home);
-		m.addBannerHome("Home", Resource.IMG_BANNER_1);
+		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
 
 		////
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");

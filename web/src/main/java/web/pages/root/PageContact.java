@@ -23,7 +23,8 @@ public class PageContact extends BasePage {
 		m.addHead(css, js, "Contact");
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Contact);
-		m.addBanner("Contact", Resource.IMG_BANNER_1);
+		m.addBannerAnimated("Contact", Resource.IMG_BANNER_1);
+
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
@@ -120,6 +121,10 @@ public class PageContact extends BasePage {
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+
+		m.ln("<script>");
+		m.ln(Resource.readResource(Resource.JS_BANNER));
+		m.ln("</script>");
 
 		m.ln("</body>");
 		m.ln("</html>");
