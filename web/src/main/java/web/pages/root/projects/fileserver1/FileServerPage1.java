@@ -15,7 +15,7 @@ public class FileServerPage1 extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
 
 		m.addHead(css, js, "File Server 1");
 
@@ -28,7 +28,7 @@ public class FileServerPage1 extends BasePage {
 		m.ln("	<div class=\"card\">");
 
 		////
-
+		m.addModalImage("https://i.imgur.com/h7fRzRG.jpg", "https://i.imgur.com/bq6Nm5v.jpg", "max-width:60%");
 		m.ln("<a class=\"btn btn-blue ripple\">Work in Progress</a>");
 		////
 		m.ln("	</div>"); // card

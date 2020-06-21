@@ -77,7 +77,8 @@ function bannerAnimate() {
 
 	// Draw lines
 	var start = stepFrame;
-	while (start < canvas.height) {
+	var vHeight = canvas.height + (lineWidth * 2);
+	while (start < vHeight) {
 		drawLine(start);
 		start += lineWidth * 2;
 	}

@@ -17,7 +17,7 @@ public class PageContact extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FORMS };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.addHead(css, js, "Contact");
@@ -52,7 +52,7 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Name: * " + required + "</div>");
-		m.ln("	<input type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
+		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -71,7 +71,7 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Email-address: * " + required + "</div>");
-		m.ln("	<input type=\"text\" name=\"email\" value=\"" + email + "\">");
+		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"email\" value=\"" + email + "\">");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -84,7 +84,7 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Subject: * " + required + "</div>");
-		m.ln("	<input type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
+		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
 
 		style = "";
 		required = "";

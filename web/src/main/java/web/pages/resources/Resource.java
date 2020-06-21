@@ -16,6 +16,8 @@ public class Resource {
 	public static final String CSS_TOOLTIP = "web/css/tooltip.css";
 	public static final String CSS_TOGGLE_DIV = "web/css/toggle-div.css";
 	public static final String CSS_CAROUSEL = "web/css/carousel.css";
+	public static final String CSS_FORMS = "web/css/forms.css";
+	public static final String CSS_3D_QUOTE = "web/css/3d-quote.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";
@@ -23,6 +25,7 @@ public class Resource {
 	public static final String JS_SCROLL_TOP = "web/js/scroll-top.js";
 	public static final String JS_MODAL_IMAGE = "web/js/modal-image.js";
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
+	public static final String JS_3D_QUOTE = "web/js/3d-quote.js";
 
 	public static final String IMG_BANNER_1 = "https://i.imgur.com/dtgWhuG.jpg"; // https://wallpaperplay.com/walls/full/1/b/e/366897.jpg
 	public static final String IMG_BANNER_2 = "https://i.imgur.com/9p0HPN7.jpg";

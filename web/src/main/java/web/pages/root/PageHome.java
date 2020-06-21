@@ -29,6 +29,9 @@ public class PageHome extends BasePage {
 
 		for (int i = 0; i < 12; i++) {
 			m.ln("<h2>Title</h2>");
+			if (i == 1) {
+				m.ln("	<a style=\"text-decoration: none;\" href=\"/stage/spelling\">404 example</a>");
+			}
 			m.ln("<p>What is Lorem Ipsum?\r\n"
 					+ "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n"
 					+ "\r\n" + "Why do we use it?\r\n"

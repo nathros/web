@@ -1,0 +1,12 @@
+.forms-param-error {
+	color: red;
+}
+
+.forms-small-text {
+	font-size: 0.75rem;
+}
+
+.forms-input {
+	width: 100%;
+	max-width: 500px;
+}
