@@ -1,7 +1,20 @@
 package web.common;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.imageio.ImageIO;
 
 public class Helper {
 
@@ -11,5 +24,67 @@ public class Helper {
 		Matcher matcher = pattern.matcher(email);
 		boolean b = matcher.matches();
 		return b;
+	}
+
+	public static String generateCAPTCHAImageAsBase64(final int number1, final int number2) {
+		final int width = 90;
+		final int height = 60;
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+		Graphics2D g2d = bufferedImage.createGraphics();
+		Font font = new Font("Georgia", Font.BOLD, 18);
+		g2d.setFont(font);
+		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+		g2d.setRenderingHints(rh);
+		Random rand = new Random();
+
+		g2d.setStroke(new BasicStroke(Math.abs((rand.nextInt() % 10) + 5)));
+		g2d.setColor(Color.yellow);
+		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
+
+		g2d.setStroke(new BasicStroke(Math.abs((rand.nextInt() % 10) + 5)));
+		g2d.setColor(Color.green);
+		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
+
+		g2d.setStroke(new BasicStroke(Math.abs((rand.nextInt() % 10) + 5)));
+		g2d.setColor(Color.cyan);
+		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
+
+		// g2d.setColor(new Color(0, 255, 0));
+		// g2d.fillRect(0, 0, width, height);
+		g2d.setColor(new Color(0, 0, 0));
+
+		int degreesFirst = 30 + (rand.nextInt() % 90);
+		AffineTransform affineTransform = new AffineTransform();
+		affineTransform.rotate(Math.toRadians(degreesFirst), 10, 10);
+		Font rotatedFont = font.deriveFont(affineTransform);
+
+		g2d.setFont(rotatedFont);
+		g2d.drawString(String.valueOf(number1), 15, 20);
+
+		int degreesSecond = degreesFirst + (rand.nextInt() % 90);
+		affineTransform = new AffineTransform();
+		affineTransform.rotate(Math.toRadians(degreesSecond), 10, 10);
+		rotatedFont = font.deriveFont(affineTransform);
+		g2d.setFont(rotatedFont);
+		g2d.drawString(String.valueOf(number2), 50, 25);
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try {
+			ImageIO.write(bufferedImage, "png", baos);
+		} catch (IOException e) {
+			return null;
+		}
+		byte[] bytes = baos.toByteArray();
+		String b64 = new String(Base64.getEncoder().encode(bytes));
+
+//		File outputfile = new File("image.png");
+//		try {
+//			ImageIO.write(bufferedImage, "png", outputfile);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		return "data:image/png;base64, " + b64;
 	}
 }
