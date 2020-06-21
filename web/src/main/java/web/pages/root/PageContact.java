@@ -102,7 +102,7 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Message: * " + required + "</div>");
 
-		m.ln("	<textarea style=\"width:100%;\" rows=\"12\" cols=\"100\" name=\"comment\">");
+		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);

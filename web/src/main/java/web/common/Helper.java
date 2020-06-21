@@ -32,27 +32,27 @@ public class Helper {
 		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
 		Graphics2D g2d = bufferedImage.createGraphics();
-		Font font = new Font("Georgia", Font.BOLD, 18);
+		Font font = new Font(null, Font.BOLD, 18);
 		g2d.setFont(font);
 		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 		g2d.setRenderingHints(rh);
 		Random rand = new Random();
 
-		g2d.setStroke(new BasicStroke(Math.abs((rand.nextInt() % 10) + 5)));
+		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % 10) + 5));
 		g2d.setColor(Color.yellow);
 		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
 
-		g2d.setStroke(new BasicStroke(Math.abs((rand.nextInt() % 10) + 5)));
+		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % 10) + 5));
 		g2d.setColor(Color.green);
 		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
 
-		g2d.setStroke(new BasicStroke(Math.abs((rand.nextInt() % 10) + 5)));
+		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % 10) + 5));
 		g2d.setColor(Color.cyan);
-		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
+		g2d.drawLine(0, Math.abs(rand.nextInt() % height), width, Math.abs(rand.nextInt() % height));
 
-		// g2d.setColor(new Color(0, 255, 0));
-		// g2d.fillRect(0, 0, width, height);
+		// g2d.setColor(new Color(0, 0, 255));
+		// g2d.fillRect(0, 0, width, height); // Fill background
 		g2d.setColor(new Color(0, 0, 0));
 
 		int degreesFirst = 30 + (rand.nextInt() % 90);
@@ -79,12 +79,13 @@ public class Helper {
 		byte[] bytes = baos.toByteArray();
 		String b64 = new String(Base64.getEncoder().encode(bytes));
 
-//		File outputfile = new File("image.png");
-//		try {
-//			ImageIO.write(bufferedImage, "png", outputfile);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		// Save to file in working directory
+		// File outputfile = new File("CAPTCHA.png");
+		// try {
+		// ImageIO.write(bufferedImage, "png", outputfile);
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
 		return "data:image/png;base64, " + b64;
 	}
 }

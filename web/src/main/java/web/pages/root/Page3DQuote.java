@@ -64,7 +64,7 @@ public class Page3DQuote extends BasePage {
 				parseFailure = true;
 			}
 		}
-		m.ln("	<div" + style + ">eBay Username or email: * " + required + "</div>");
+		m.ln("	<div" + style + ">eBay Username or E-mail: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"user\" value=\"" + user + "\">");
 		m.ln("	<i class=\"forms-small-text\">Quote will be sent to this address or user</i>");
 		m.ln("	<br><br>");
@@ -112,6 +112,7 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<i class=\"forms-small-text\">Examples: 0.1mm, 0.2mm <b>(typical)</b></i>");
 		m.ln("	<br><br>");
 
+		m.ln("<div class=\"forms-input\" style=\"padding-right:4px\">");
 		m.ln("	<a class=\"btn btn-blue ripple\" style=\"text-decoration: none\" href=\"https://driveuploader.com/upload/WjH1Bp0IIF/\" target=\"_blank\">Upload files</a>");
 		style = "";
 		required = "";
@@ -125,6 +126,8 @@ public class Page3DQuote extends BasePage {
 		String checked = uploaded ? "checked" : "";
 		m.ln("	<input type=\"checkbox\" id=\"uploaded\" name=\"uploaded\" " + checked + ">");
 		m.ln("	<label" + style + " for=\"uploaded\">I have uploaded files * " + required + "</label>");
+		m.ln("	</div>"); // forms-input wrapper for upload button
+		m.ln("	<i class=\"forms-small-text\">Opens new tab, you can upload multiple times</i>");
 		m.ln(" <br><br>");
 
 		style = "";
@@ -137,7 +140,7 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Details: * " + required + "</div>");
-		m.ln("	<textarea style=\"width:100%;resize: vertical;\" rows=\"12\" cols=\"100\" name=\"comment\">");
+		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);
@@ -157,7 +160,7 @@ public class Page3DQuote extends BasePage {
 			number2 = Math.abs(random.nextInt() % 10);
 		} while ((number2 == 6) || (number2 == 9));
 		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
-		m.ln("<img style=\"border: 1px solid black;\" src=\"" + cap + "\">");
+		m.ln("<img style=\"border: 1px solid gray;\" src=\"" + cap + "\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";

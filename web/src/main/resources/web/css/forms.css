@@ -4,9 +4,16 @@
 
 .forms-small-text {
 	font-size: 0.75rem;
+	display: inline-block;
 }
 
 .forms-input {
 	width: 100%;
 	max-width: 500px;
+	display: inline-block;
+}
+
+textarea {
+	width: 100%;
+	resize: vertical;
 }
