@@ -1,6 +1,10 @@
 package web.pages.root;
 
+import java.io.IOException;
+import java.util.Random;
+
 import web.Scheduled;
+import web.common.Debug;
 import web.common.Helper;
 import web.common.HttpMethod;
 import web.common.NavbarItem;
@@ -28,10 +32,11 @@ public class PageContact extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
-		String firstname = requestInfo.getBodyParam("firstname");
-		String email = requestInfo.getBodyParam("email");
-		String subject = requestInfo.getBodyParam("subject");
-		String comment = requestInfo.getBodyParam("comment");
+		final String firstname = requestInfo.getBodyParam("firstname");
+		final String email = requestInfo.getBodyParam("email");
+		final String subject = requestInfo.getBodyParam("subject");
+		final String comment = requestInfo.getBodyParam("comment");
+		final String captcha = requestInfo.getBodyParam("captcha");
 
 		final String styleMissing = " style=\"color:red\"";
 		final String requiredParam = " REQUIRED";
@@ -104,6 +109,51 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("</textarea>");
+		m.ln("	<br><br>");
+
+		Random random = new Random();
+		int number1;
+		do {
+			number1 = Math.abs(random.nextInt() % 10);
+		} while ((number1 == 6) || (number1 == 9));
+		int number2;
+		do {
+			number2 = Math.abs(random.nextInt() % 10);
+		} while ((number2 == 6) || (number2 == 9));
+		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
+		m.ln("<img style=\"border: 1px solid gray;\" src=\"" + cap + "\">");
+
+		final String encoded = requestInfo.getBodyParam("encoded");
+		style = "";
+		required = "";
+		if (isPost) {
+			if ("".equals(captcha)) {
+				style = styleMissing;
+				required = "INCORRECT";
+				parseFailure = true;
+			} else {
+				try {
+					String compare = Debug.serialise(captcha);
+					if (!compare.equals(encoded)) {
+						style = styleMissing;
+						required = "INCORRECT";
+						parseFailure = true;
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
+		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"off\">");
+		m.ln("	<i class=\"forms-small-text\">Add both numbers together</i>");
+		String encodedCaptcha = "";
+		try {
+			encodedCaptcha = Debug.serialise(String.valueOf(number1 + number2));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 
 		m.ln("	<br><br>");
 		m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\">");
