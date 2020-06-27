@@ -14,7 +14,7 @@ public class PageHome extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_H_SECTION };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.addHead(css, js, "Home Page");
@@ -23,14 +23,28 @@ public class PageHome extends BasePage {
 		m.addNavbar(NavbarItem.Home);
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
 
-		////
+		//// https://i.imgur.com/pwDNLvY.jpg
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
 		m.ln("	<div class=\"card\">");
 
 		for (int i = 0; i < 12; i++) {
 			m.ln("<h2>Title</h2>");
 			if (i == 1) {
+				// https://sg.element14.com/productimages/large/en_GB/2451533-40.jpg
+				// https://www.microchip.com/_ImagedCopy/ATmega328PB-XMINI_front.jpg
+				// https://img.pixers.pics/pho(s3:700/FO/48/36/24/84/700_FO48362484_30045f183526a0f45cb05dbfa9cea87a.jpg,700,700,jpg)/wall-murals-circuit-board-seamless-pattern.jpg.jpg
+				// 'https://i.pinimg.com/originals/9c/50/86/9c5086f4402e61b7bc348da6278ee49e.jpg
 				m.ln("	<a style=\"text-decoration: none;\" href=\"/stage/spelling\">404 example</a>");
+
+				m.ln("	<div class=\"horizontal-section-container-left\" style=\"background-image: url('https://img.pixers.pics/pho(s3:700/FO/48/36/24/84/700_FO48362484_30045f183526a0f45cb05dbfa9cea87a.jpg,700,700,jpg)/wall-murals-circuit-board-seamless-pattern.jpg.jpg');\">");
+				m.ln("		<img class=\"horizontal-section-image\" src=\"https://i.imgur.com/FOHDVjQ.png\">");
+				m.ln("		<p class=\"horizontal-section-text-left\"><b>Atmel SAM D10 Xplained Mini</b><br><br>Working with a cheap development kit. how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the </p>");
+				m.ln("	</div>");
+
+				m.ln("	<div class=\"horizontal-section-container-right\" style=\"background-image: url(\'https://previews.123rf.com/images/rommmeo79/rommmeo791610/rommmeo79161000214/64977895-chinese-yellow-gold-seamless-pattern-dragon-fish-scales-simple-seamless-pattern-nature-background-wi.jpg');\">");
+				m.ln("		<p class=\"horizontal-section-text-right\">s how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the </p>");
+				m.ln("		<img class=\"horizontal-section-image\" src=\"https://i.imgur.com/FOHDVjQ.png\">");
+				m.ln("	</div>");
 			}
 			m.ln("<p>What is Lorem Ipsum?\r\n"
 					+ "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n"

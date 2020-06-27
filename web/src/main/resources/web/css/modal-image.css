@@ -46,8 +46,8 @@
 }
 
 @keyframes zoom { /* zoom on click thumbnail */
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
+	from {transform:scale(0)}
+	to {transform:scale(1)}
 }
 
 .modal-container {

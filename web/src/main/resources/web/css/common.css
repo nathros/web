@@ -75,7 +75,7 @@ only screen and (min-resolution: 2dppx) and (min-width: 320px) {
 	}
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
 	body {
 		/* Used for side to side padding of main content*/
 		--global-content-padding: 0%;
