@@ -2,6 +2,7 @@ package web.pages.root;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.UUID;
 
 import web.Scheduled;
 import web.common.Debug;
@@ -38,12 +39,12 @@ public class Page3DQuote extends BasePage {
 
 		final boolean isPost = requestInfo.getMethod() == HttpMethod.POST;
 		final String user = requestInfo.getBodyParam("user");
-		final boolean uploaded = "on".equals(requestInfo.getBodyParam("uploaded"));
 		final String comment = requestInfo.getBodyParam("comment");
 		final String filamentColour = requestInfo.getBodyParam("filament-colour");
 		final String filamentMaterial = requestInfo.getBodyParam("filament-material");
 		final String layerHeight = requestInfo.getBodyParam("layer-height");
 		final String captcha = requestInfo.getBodyParam("captcha");
+		String userId = requestInfo.getBodyParam("userId");
 
 		final String errorParam = " class=\"forms-param-error\"";
 		final String requiredParamText = " REQUIRED";
@@ -112,23 +113,18 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<i class=\"forms-small-text\">Examples: 0.1mm, 0.2mm <b>(typical)</b></i>");
 		m.ln("	<br><br>");
 
-		m.ln("<div class=\"forms-input\" style=\"padding-right:4px\">");
-		m.ln("	<a class=\"btn btn-blue ripple\" style=\"text-decoration: none\" href=\"https://driveuploader.com/upload/WjH1Bp0IIF/\" target=\"_blank\">Upload files</a>");
-		style = "";
-		required = "";
-		if (isPost) {
-			if (!uploaded) {
-				style = errorParam;
-				required = requiredParamText;
-				parseFailure = true;
+		if (!isPost) { // TODO resize iframe to correct height
+			userId = UUID.randomUUID().toString().replace("-", "");
+		} else {
+			if ("".equals(userId)) { // This should not blank
+				userId = UUID.randomUUID().toString().replace("-", "");
 			}
 		}
-		String checked = uploaded ? "checked" : "";
-		m.ln("	<input type=\"checkbox\" id=\"uploaded\" name=\"uploaded\" " + checked + ">");
-		m.ln("	<label" + style + " for=\"uploaded\">I have uploaded files * " + required + "</label>");
-		m.ln("	</div>"); // forms-input wrapper for upload button
-		m.ln("	<i class=\"forms-small-text\">Opens new tab, you can upload multiple times</i>");
-		m.ln(" <br><br>");
+		m.ln("	<div>File Upload</div>");
+		m.ln("	<input type=\"hidden\" id=\"userId\" name=\"userId\" value=\"" + userId + "\">");
+		m.ln("	<iframe id=\"upload-iframe\" class=\"forms-input\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
+				+ userId + "\" frameBorder=\"0\"\"></iframe>");
+		m.ln("	<br><br>");
 
 		style = "";
 		required = "";
@@ -202,6 +198,7 @@ public class Page3DQuote extends BasePage {
 			} else {
 				m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 				String body = user + "\n";
+				body += userId + "\n";
 				body += filamentColour + "\n";
 				body += filamentMaterial + "\n";
 				body += layerHeight + "\n";
