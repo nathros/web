@@ -197,12 +197,12 @@ public class Page3DQuote extends BasePage {
 				m.ln("	<p style=\"color:red\">ERROR: missing or invalid fields</p>");
 			} else {
 				m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
-				String body = user + "\n";
-				body += userId + "\n";
-				body += filamentColour + "\n";
-				body += filamentMaterial + "\n";
-				body += layerHeight + "\n";
-				body += comment;
+				String body = "username: " + user + "\n";
+				body += "userId: " + userId + "\n";
+				body += "filamentColour: " + filamentColour + "\n";
+				body += "filamentMaterial: " + filamentMaterial + "\n";
+				body += "layerHeight: " + layerHeight + "\n";
+				body += "message:" + comment;
 				Scheduled.scheduleEmail("New Quote", body);
 			}
 		}

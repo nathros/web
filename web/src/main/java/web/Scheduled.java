@@ -1,10 +1,12 @@
 package web;
 
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -60,27 +62,29 @@ public class Scheduled {
 				sendEmail = false;
 				long startLog = System.currentTimeMillis();
 				System.out.print("Started email request...");
-				Properties prop = new Properties();
-				prop.put("mail.smtp.host", "smtp.gmail.com");
-				prop.put("mail.smtp.socketFactory.port", "465");
-				prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-				prop.put("mail.smtp.auth", "true");
-				prop.put("mail.smtp.port", "465");
+				Properties props = new Properties();
+				props.put("mail.smtp.starttls.enable", "true");
+				props.put("mail.smtp.auth", "true");
+				props.put("mail.smtp.host", "smtp.office365.com");
+				props.put("mail.smtp.port", "587");
+				// props.put("mail.debug", "true");
 
-				Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
+				Session session = Session.getInstance(props, new Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(Config.contactEmailAddress, Config.contactEmailPassword);
+						return new PasswordAuthentication(Config.emailAddress, Config.emailPassword);
 					}
 				});
 
 				try {
-					MimeMessage message = new MimeMessage(session);
-					message.addRecipient(Message.RecipientType.TO, new InternetAddress(Config.destinationEmailAddress));
+					final Message message = new MimeMessage(session);
+					message.setRecipient(Message.RecipientType.TO, new InternetAddress(Config.emailAddress));
+					message.setFrom(new InternetAddress(Config.emailAddress));
 					message.setSubject(subject);
 					message.setText(body);
+					message.setSentDate(new Date());
 					Transport.send(message);
-				} catch (MessagingException e) {
-					// Log error
+				} catch (final MessagingException ex) {
+					System.out.println(ex.getMessage());
 				}
 				System.out.println("...finished in " + (System.currentTimeMillis() - startLog) + "ms");
 			}
