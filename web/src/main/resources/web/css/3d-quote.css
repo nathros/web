@@ -13,3 +13,8 @@
 	box-shadow: inset 0 -5px 0 var(--highlight-colour);
 	background-color: var(--navbar-background-colour-selected);
 }
+
+.print-extras {
+	transition: max-height 0.15s cubic-bezier(0, 0, 0, 0), opacity 0.15s ease;
+    overflow: hidden;
+}

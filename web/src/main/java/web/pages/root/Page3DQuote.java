@@ -20,7 +20,7 @@ public class Page3DQuote extends BasePage {
 
 	public void addNavbar3D() {
 		m.ln("<div class=\"navbar\">");
-		m.ln("	<a class=\"navbar-selected\"\">3D Print Quote</a>");
+		m.ln("	<a class=\"navbar-selected\"\">3D Print / Design Quote</a>");
 		m.ln("	<a class=\"ebay-logo\" style=\"float:right\" href=\"https://www.ebay.co.uk\" target=\"_blank\">&nbsp;</a>");
 		m.ln("</div>"); // navbar
 	}
@@ -29,7 +29,7 @@ public class Page3DQuote extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_3D_QUOTE, Resource.CSS_FORMS };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE };
 
 		m.addHead(css, js, "Quote");
 
@@ -44,6 +44,8 @@ public class Page3DQuote extends BasePage {
 		final String filamentMaterial = requestInfo.getBodyParam("filament-material");
 		final String layerHeight = requestInfo.getBodyParam("layer-height");
 		final String captcha = requestInfo.getBodyParam("captcha");
+		final String service = requestInfo.getBodyParam("service");
+		final boolean isDesignService = "designService".equals(service);
 		String userId = requestInfo.getBodyParam("userId");
 
 		final String errorParam = " class=\"forms-param-error\"";
@@ -70,15 +72,35 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<i class=\"forms-small-text\">Quote will be sent to this address or user</i>");
 		m.ln("	<br><br>");
 
+		m.ln("	<div>Service:</div>");
+		m.ln("	<div class=\"forms-input\">");
+		m.ln("	<div style=\"display:flex;gap:1rem;\">");
+		m.ln("		<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
+		m.ln(" 			<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">");
+		m.ln("			3D Print Service");
+		m.ln("		</label>");
+		m.ln("		<label id=\"radio-design-label\" class=\"btn btn-light-blue ripple\" style=\"width:100%\" onclick=\"selectDesignService()\">");
+		m.ln("			<input id=\"radio-design\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"designService\">");
+		m.ln("			Design Service");
+		m.ln("		</label>");
+		m.ln("	</div>"); // forms-input
+		m.ln("	</div>"); // forms-input
+		m.ln("	<i class=\"forms-small-text\">What kind of service you require</i>");
+		m.ln("	<br><br>");
+
 		style = "";
 		required = "";
 		if (isPost) {
 			if ("".equals(filamentColour)) {
 				style = errorParam;
 				required = requiredParamText;
-				parseFailure = true;
+				if (!isDesignService) {
+					parseFailure = true;
+				}
 			}
 		}
+		m.ln("<div id=\"print-extras\" class=\"print-extras\">");
+
 		m.ln("	<div" + style + ">Filament Colour: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"filament-colour\" value=\"" + filamentColour + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: Black, Green, Red</i>");
@@ -90,7 +112,9 @@ public class Page3DQuote extends BasePage {
 			if ("".equals(filamentMaterial)) {
 				style = errorParam;
 				required = requiredParamText;
-				parseFailure = true;
+				if (!isDesignService) {
+					parseFailure = true;
+				}
 			}
 		}
 		m.ln("	<div" + style + ">Filament Material: * " + required + "</div>");
@@ -105,13 +129,24 @@ public class Page3DQuote extends BasePage {
 			if ("".equals(layerHeight)) {
 				style = errorParam;
 				required = requiredParamText;
-				parseFailure = true;
+				if (!isDesignService) {
+					parseFailure = true;
+				}
 			}
 		}
 		m.ln("	<div" + style + ">Layer Height: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"layer-height\" value=\"" + layerHeight + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: 0.1mm, 0.2mm <b>(typical)</b></i>");
 		m.ln("	<br><br>");
+
+		m.ln("</div>"); // print-extras
+		m.l("<script>");
+		if (isDesignService) {
+			m.l("selectDesignService();");
+		} else {
+			m.l("selectPrintService();");
+		}
+		m.ln("</script>");
 
 		if (!isPost) { // TODO resize iframe to correct height
 			userId = UUID.randomUUID().toString().replace("-", "");
@@ -122,7 +157,7 @@ public class Page3DQuote extends BasePage {
 		}
 		m.ln("	<div>File Upload</div>");
 		m.ln("	<input type=\"hidden\" id=\"userId\" name=\"userId\" value=\"" + userId + "\">");
-		m.ln("	<iframe id=\"upload-iframe\" class=\"forms-input\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
+		m.ln(" <iframe id=\"upload-iframe\" class=\"forms-input\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
 				+ userId + "\" frameBorder=\"0\"\"></iframe>");
 		m.ln("	<br><br>");
 
@@ -199,6 +234,7 @@ public class Page3DQuote extends BasePage {
 				m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 				String body = "username: " + user + "\n";
 				body += "userId: " + userId + "\n";
+				body += "service: " + service + "\n";
 				body += "filamentColour: " + filamentColour + "\n";
 				body += "filamentMaterial: " + filamentMaterial + "\n";
 				body += "layerHeight: " + layerHeight + "\n";
@@ -220,7 +256,6 @@ public class Page3DQuote extends BasePage {
 
 		m.ln("<script>");
 		m.ln(Resource.readResource(Resource.JS_BANNER));
-		m.ln(Resource.readResource(Resource.JS_3D_QUOTE));
 		m.ln("</script>");
 
 		m.ln("</body>");

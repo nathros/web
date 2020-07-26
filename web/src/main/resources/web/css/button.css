@@ -27,21 +27,6 @@
 	transition: 0s
 }
 
-.btn-blue {
-    background-color: #5bc0de;
-    border-color: #46b8da;
-}
-
-.btn-blue:hover {
-    background-color: #31b0d5;
-    border-color: #269abc;
-}
-
-.btn-blue:active {
-    background-color: #269abc;
-    border-color: #1b6d85;
-}
-
 .btn {
 	color: #fff;
     display: inline-block;
@@ -54,4 +39,24 @@
     background-image: none;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+}
+
+.btn-blue {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-light-blue {
+    background-color: #caebf4;
+    border-color: #b7e3f0;
+}
+
+.btn-blue:hover, .btn-light-blue:hover {
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.btn-blue:active, .btn-light-blue:active {
+    background-color: #269abc;
+    border-color: #1b6d85;
 }

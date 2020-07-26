@@ -9,6 +9,7 @@
 	align-items: center;
 	background-size: auto 100%;
 	justify-content: flex-end;
+	*clip-path: polygon(0 0, 0 100%, calc(100% - 1rem) 100%, 100% calc(100% - 1rem), 100% 0);
 }
 
 .horizontal-section-image {
@@ -20,10 +21,11 @@
 
 .horizontal-section-text-left, .horizontal-section-text-right {
 	padding: 2em;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.85);
 	margin: 0;
 	margin-right: 2rem;
 	color: white;
+	*clip-path: polygon(0 0, 0 100%, calc(100% - 1rem) 100%, 100% calc(100% - 1rem), 100% 0);
 }
 
 .horizontal-section-text-right {

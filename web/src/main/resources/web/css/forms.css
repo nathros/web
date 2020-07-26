@@ -5,12 +5,14 @@
 .forms-small-text {
 	font-size: 0.75rem;
 	display: inline-block;
+	color: grey;
 }
 
 .forms-input {
 	width: 100%;
 	max-width: 500px;
 	display: inline-block;
+	box-sizing: border-box;
 }
 
 textarea {
