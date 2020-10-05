@@ -86,6 +86,6 @@ public class Helper {
 		// } catch (IOException e) {
 		// e.printStackTrace();
 		// }
-		return "data:image/png;base64, " + b64;
+		return "data:image/png;base64," + b64;
 	}
 }

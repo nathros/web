@@ -20,7 +20,7 @@ public class Page3DQuote extends BasePage {
 
 	public void addNavbar3D() {
 		m.ln("<div class=\"navbar\">");
-		m.ln("	<a class=\"navbar-selected\"\">3D Print / Design Quote</a>");
+		m.ln("	<a class=\"navbar-selected\">3D Print / Design Quote</a>");
 		m.ln("	<a class=\"ebay-logo\" style=\"float:right\" href=\"https://www.ebay.co.uk\" target=\"_blank\">&nbsp;</a>");
 		m.ln("</div>"); // navbar
 	}
@@ -74,16 +74,16 @@ public class Page3DQuote extends BasePage {
 
 		m.ln("	<div>Service:</div>");
 		m.ln("	<div class=\"forms-input\">");
-		m.ln("	<div style=\"display:flex;gap:1rem;\">");
-		m.ln("		<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
-		m.ln(" 			<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">");
-		m.ln("			3D Print Service");
-		m.ln("		</label>");
-		m.ln("		<label id=\"radio-design-label\" class=\"btn btn-light-blue ripple\" style=\"width:100%\" onclick=\"selectDesignService()\">");
-		m.ln("			<input id=\"radio-design\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"designService\">");
-		m.ln("			Design Service");
-		m.ln("		</label>");
-		m.ln("	</div>"); // forms-input
+		m.ln("		<div style=\"display:flex;gap:0rem;\">");
+		m.ln("			<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
+		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">");
+		m.ln("				3D Print Service");
+		m.ln("			</label>");
+		m.ln("			<label id=\"radio-design-label\" class=\"btn btn-light-blue ripple\" style=\"width:100%\" onclick=\"selectDesignService()\">");
+		m.ln("				<input id=\"radio-design\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"designService\">");
+		m.ln("				Design Service");
+		m.ln("			</label>");
+		m.ln("		</div>");
 		m.ln("	</div>"); // forms-input
 		m.ln("	<i class=\"forms-small-text\">What kind of service you require</i>");
 		m.ln("	<br><br>");
@@ -157,8 +157,8 @@ public class Page3DQuote extends BasePage {
 		}
 		m.ln("	<div>File Upload</div>");
 		m.ln("	<input type=\"hidden\" id=\"userId\" name=\"userId\" value=\"" + userId + "\">");
-		m.ln(" <iframe id=\"upload-iframe\" class=\"forms-input\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
-				+ userId + "\" frameBorder=\"0\"\"></iframe>");
+		m.ln(" <iframe id=\"upload-iframe\" class=\"forms-input\" style=\"border: 0\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
+				+ userId + "\"></iframe>");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -191,7 +191,7 @@ public class Page3DQuote extends BasePage {
 			number2 = Math.abs(random.nextInt() % 10);
 		} while ((number2 == 6) || (number2 == 9));
 		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
-		m.ln("<img style=\"border: 1px solid gray;\" src=\"" + cap + "\">");
+		m.ln("<img style=\"border: 1px solid gray;\" src=\"" + cap + "\" alt=\"CAPTCHA\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";
@@ -215,7 +215,7 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"off\">");
+		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
 		m.ln("	<i class=\"forms-small-text\">Add both numbers together</i>");
 		String encodedCaptcha = "";
 		try {
