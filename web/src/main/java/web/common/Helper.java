@@ -27,27 +27,27 @@ public class Helper {
 	}
 
 	public static String generateCAPTCHAImageAsBase64(final int number1, final int number2) {
-		final int width = 90;
-		final int height = 60;
+		final int height = 256;
+		final int width = (int) (height * 1.5);
 		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
 		Graphics2D g2d = bufferedImage.createGraphics();
-		Font font = new Font(null, Font.BOLD, 18);
+		Font font = new Font(null, Font.BOLD, height / 3);
 		g2d.setFont(font);
 		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 		g2d.setRenderingHints(rh);
 		Random rand = new Random();
 
-		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % 10) + 5));
+		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % (height / 4)) + 5));
 		g2d.setColor(Color.yellow);
 		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
 
-		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % 10) + 5));
+		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % (height / 4)) + 5));
 		g2d.setColor(Color.green);
 		g2d.drawLine(Math.abs(rand.nextInt() % width), 0, Math.abs(rand.nextInt() % width), width);
 
-		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % 10) + 5));
+		g2d.setStroke(new BasicStroke((Math.abs(rand.nextInt()) % (height / 4)) + 5));
 		g2d.setColor(Color.cyan);
 		g2d.drawLine(0, Math.abs(rand.nextInt() % height), width, Math.abs(rand.nextInt() % height));
 
@@ -61,14 +61,14 @@ public class Helper {
 		Font rotatedFont = font.deriveFont(affineTransform);
 
 		g2d.setFont(rotatedFont);
-		g2d.drawString(String.valueOf(number1), 15, 20);
+		g2d.drawString(String.valueOf(number1), width / 6, height / 3);
 
 		int degreesSecond = degreesFirst + (rand.nextInt() % 90);
 		affineTransform = new AffineTransform();
 		affineTransform.rotate(Math.toRadians(degreesSecond), 10, 10);
 		rotatedFont = font.deriveFont(affineTransform);
 		g2d.setFont(rotatedFont);
-		g2d.drawString(String.valueOf(number2), 50, 25);
+		g2d.drawString(String.valueOf(number2), (int) (width / 6 * 3.5), (int) (height / 6 * 1.5));
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try {
