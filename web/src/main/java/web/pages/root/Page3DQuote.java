@@ -29,7 +29,7 @@ public class Page3DQuote extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_3D_QUOTE, Resource.CSS_FORMS };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE};
 
 		m.addHead(css, js, "Quote");
 
@@ -51,6 +51,7 @@ public class Page3DQuote extends BasePage {
 		final String errorParam = " class=\"forms-param-error\"";
 		final String requiredParamText = " REQUIRED";
 		boolean parseFailure = false;
+		boolean localFailure = false;
 
 		////
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
@@ -60,20 +61,22 @@ public class Page3DQuote extends BasePage {
 
 		String style = "";
 		String required = "";
+		localFailure = false;
 		if (isPost) {
 			if ("".equals(user)) {
 				style = errorParam;
 				required = requiredParamText;
 				parseFailure = true;
+				localFailure = true;
 			}
 		}
 		m.ln("	<div" + style + ">eBay Username or E-mail: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"user\" value=\"" + user + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error\"" : "") + "\" type=\"text\" name=\"user\" value=\"" + user + "\">");
 		m.ln("	<i class=\"forms-small-text\">Quote will be sent to this address or user</i>");
 		m.ln("	<br><br>");
 
 		m.ln("	<div>Service:</div>");
-		m.ln("	<div class=\"forms-input\">");
+		m.ln("	<div class=\"forms-input\" style=\"padding-left:0;padding-right:0\">");
 		m.ln("		<div style=\"display:flex;gap:0rem;\">");
 		m.ln("			<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
 		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">");
@@ -90,10 +93,12 @@ public class Page3DQuote extends BasePage {
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if ("".equals(filamentColour)) {
 				style = errorParam;
 				required = requiredParamText;
+				localFailure = true;
 				if (!isDesignService) {
 					parseFailure = true;
 				}
@@ -102,40 +107,44 @@ public class Page3DQuote extends BasePage {
 		m.ln("<div id=\"print-extras\" class=\"print-extras\">");
 
 		m.ln("	<div" + style + ">Filament Colour: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"filament-colour\" value=\"" + filamentColour + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"filament-colour\" value=\"" + filamentColour + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: Black, Green, Red</i>");
 		m.ln("	<br><br>");
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if ("".equals(filamentMaterial)) {
 				style = errorParam;
 				required = requiredParamText;
+				localFailure = true;
 				if (!isDesignService) {
 					parseFailure = true;
 				}
 			}
 		}
 		m.ln("	<div" + style + ">Filament Material: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"filament-material\" value=\"" + filamentMaterial
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error": "") + "\" type=\"text\" name=\"filament-material\" value=\"" + filamentMaterial
 				+ "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: PLA <b>(typical)</b>, ABS</i>");
 		m.ln("	<br><br>");
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if ("".equals(layerHeight)) {
 				style = errorParam;
 				required = requiredParamText;
+				localFailure = true;
 				if (!isDesignService) {
 					parseFailure = true;
 				}
 			}
 		}
 		m.ln("	<div" + style + ">Layer Height: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"layer-height\" value=\"" + layerHeight + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error": "") + "\" type=\"text\" name=\"layer-height\" value=\"" + layerHeight + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: 0.1mm, 0.2mm <b>(typical)</b></i>");
 		m.ln("	<br><br>");
 
@@ -163,15 +172,17 @@ public class Page3DQuote extends BasePage {
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if (comment.equals("")) {
 				style = errorParam;
 				required = requiredParamText;
 				parseFailure = true;
+				localFailure = true;
 			}
 		}
 		m.ln("	<div" + style + ">Details: * " + required + "</div>");
-		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\">");
+		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" " + (localFailure ? "class=\"forms-input-error\"" : "") + ">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);
@@ -196,11 +207,13 @@ public class Page3DQuote extends BasePage {
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if ("".equals(captcha)) {
 				style = errorParam;
 				required = "INCORRECT";
 				parseFailure = true;
+				localFailure = true;
 			} else {
 				try {
 					String compare = Debug.serialise(captcha);
@@ -208,6 +221,7 @@ public class Page3DQuote extends BasePage {
 						style = errorParam;
 						required = "INCORRECT";
 						parseFailure = true;
+						localFailure = true;
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -215,7 +229,7 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error": "") + "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
 		m.ln("	<i class=\"forms-small-text\">Add both numbers together</i>");
 		String encodedCaptcha = "";
 		try {

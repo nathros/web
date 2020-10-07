@@ -19,3 +19,7 @@
 	transition: max-height 0.15s cubic-bezier(0, 0, 0, 0), opacity 0.15s ease;
     overflow: hidden;
 }
+
+#upload-iframe {
+	padding: 0;
+}

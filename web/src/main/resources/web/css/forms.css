@@ -13,10 +13,27 @@
 	max-width: 500px;
 	display: inline-block;
 	box-sizing: border-box;
+	margin-top: 0.25rem;
 	margin-right: 0.5rem;
+	padding: 0.4rem;
+	border-width: thin;
+}
+
+.forms-input:focus, textarea:focus {
+	border-style: solid;
+	border-color: #46b8da;
+	box-shadow: 0px 0px 6px 0px #46b8da;
+}
+
+.forms-input-error {
+	border-style: solid;
+	border-color: red;
 }
 
 textarea {
+	border-width: thin;
 	width: 100%;
 	resize: vertical;
+	padding: 0.4rem;
+	box-sizing: border-box;
 }
