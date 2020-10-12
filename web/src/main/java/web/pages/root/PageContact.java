@@ -121,7 +121,7 @@ public class PageContact extends BasePage {
 			number2 = Math.abs(random.nextInt() % 10);
 		} while ((number2 == 6) || (number2 == 9));
 		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
-		m.ln("<img style=\"border: 1px solid gray;height:4rem\" src=\"" + cap + "\">");
+		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";

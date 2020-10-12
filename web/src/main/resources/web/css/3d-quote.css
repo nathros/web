@@ -6,6 +6,7 @@
 	height: 100%;
 	padding-top: 1rem;
 	background-position: center;
+	float: right !important;
 	*margin-right: calc(var(--global-content-padding) * 2);
 }
 
@@ -17,9 +18,10 @@
 
 .print-extras {
 	transition: max-height 0.15s cubic-bezier(0, 0, 0, 0), opacity 0.15s ease;
-    overflow: hidden;
 }
 
 #upload-iframe {
 	padding: 0;
+	background: white;
+	border: 0;
 }

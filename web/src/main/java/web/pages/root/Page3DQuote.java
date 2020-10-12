@@ -21,7 +21,7 @@ public class Page3DQuote extends BasePage {
 	public void addNavbar3D() {
 		m.ln("<div class=\"navbar\">");
 		m.ln("	<a class=\"navbar-selected\">3D Print / Design Quote</a>");
-		m.ln("	<a class=\"ebay-logo\" style=\"float:right\" href=\"https://www.ebay.co.uk\" target=\"_blank\">&nbsp;</a>");
+		m.ln("	<a class=\"ebay-logo\" href=\"https://www.ebay.co.uk\" target=\"_blank\">&nbsp;</a>");
 		m.ln("</div>"); // navbar
 	}
 
@@ -166,7 +166,7 @@ public class Page3DQuote extends BasePage {
 		}
 		m.ln("	<div>File Upload</div>");
 		m.ln("	<input type=\"hidden\" id=\"userId\" name=\"userId\" value=\"" + userId + "\">");
-		m.ln(" <iframe id=\"upload-iframe\" class=\"forms-input\" style=\"border: 0\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
+		m.ln(" <iframe id=\"upload-iframe\" class=\"forms-input\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
 				+ userId + "\"></iframe>");
 		m.ln("	<br><br>");
 
@@ -202,7 +202,7 @@ public class Page3DQuote extends BasePage {
 			number2 = Math.abs(random.nextInt() % 10);
 		} while ((number2 == 6) || (number2 == 9));
 		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
-		m.ln("<img style=\"border: 1px solid gray;height:4rem\" src=\"" + cap + "\" alt=\"CAPTCHA\">");
+		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" alt=\"CAPTCHA\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";

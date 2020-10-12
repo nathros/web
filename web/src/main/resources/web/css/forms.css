@@ -37,3 +37,8 @@ textarea {
 	padding: 0.4rem;
 	box-sizing: border-box;
 }
+
+.captcha-image {
+	border: 1px solid gray;
+	height: 4rem;
+}
