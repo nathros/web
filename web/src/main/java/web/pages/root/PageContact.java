@@ -1,9 +1,11 @@
 package web.pages.root;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-import web.Scheduled;
 import web.common.Debug;
 import web.common.Helper;
 import web.common.HttpMethod;
@@ -162,8 +164,16 @@ public class PageContact extends BasePage {
 			if (parseFailure) {
 				m.ln("	<p style=\"color:red\">ERROR: missing or invalid fields</p>");
 			} else {
-				m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
-				Scheduled.scheduleEmail(subject, firstname + "\n" + email + "\n" + comment);
+				String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
+				try {
+					exe += URLEncoder.encode(subject, StandardCharsets.UTF_8.name()) + "&body=";
+					exe += URLEncoder.encode(firstname + "\n" + email + "\n" + comment, StandardCharsets.UTF_8.name());
+					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
+					m.ln("	<iframe src=\"" + exe + "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
+				} catch (UnsupportedEncodingException e) {
+					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
+					e.printStackTrace();
+				}
 			}
 		}
 

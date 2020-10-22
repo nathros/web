@@ -2,6 +2,7 @@ package web.pages.root;
 
 import java.io.IOException;
 
+import web.Tools;
 import web.common.Debug;
 import web.common.LocalStringBuffer;
 import web.common.NavbarItem;
@@ -28,6 +29,9 @@ public class PageAdmin extends BasePage {
 
 		m.addBanner("Admin", Resource.IMG_BANNER_ADMIN);
 
+		final String email = requestInfo.getQueryParam("email");
+		
+		
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
@@ -47,8 +51,19 @@ public class PageAdmin extends BasePage {
 
 			e.printStackTrace();
 		}
-
 		m.ln(m.getContentToggle("<b>Current Request</b>", ErrorMsg.toString()));
+		
+		
+		m.ln("<form>");
+		m.ln("	<input type=\"hidden\" name=\"email\" value=\"test\">");
+		if (email != "") {
+			m.ln("	<textarea style=\"width:100%\" rows=\"32\">");
+			m.ln(Tools.sendEmail("Test Subject", "Test Body", true));
+			m.ln("	</textarea>");
+			m.ln("	<br>");
+		}
+		m.ln("	<input type=\"submit\" value=\"Send Test Email\">");
+		m.ln("</form>");
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
