@@ -31,7 +31,7 @@ public class Page3DQuote extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_3D_QUOTE, Resource.CSS_FORMS };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE};
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE };
 
 		m.addHead(css, js, "Quote");
 
@@ -45,7 +45,7 @@ public class Page3DQuote extends BasePage {
 		final String filamentColour = requestInfo.getBodyParam("filament-colour");
 		final String filamentMaterial = requestInfo.getBodyParam("filament-material");
 		final String layerHeight = requestInfo.getBodyParam("layer-height");
-		final String captcha = requestInfo.getBodyParam("captcha");
+		final String captcha = requestInfo.getBodyParam("captcha").replaceAll(" ", "");
 		final String service = requestInfo.getBodyParam("service");
 		final boolean isDesignService = "designService".equals(service);
 		String userId = requestInfo.getBodyParam("userId");
@@ -73,7 +73,8 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">eBay Username or E-mail: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error\"" : "") + "\" type=\"text\" name=\"user\" value=\"" + user + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error\"" : "")
+				+ "\" type=\"text\" name=\"user\" value=\"" + user + "\">");
 		m.ln("	<i class=\"forms-small-text\">Quote will be sent to this address or user</i>");
 		m.ln("	<br><br>");
 
@@ -109,7 +110,8 @@ public class Page3DQuote extends BasePage {
 		m.ln("<div id=\"print-extras\" class=\"print-extras\">");
 
 		m.ln("	<div" + style + ">Filament Colour: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"filament-colour\" value=\"" + filamentColour + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"filament-colour\" value=\"" + filamentColour + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: Black, Green, Red</i>");
 		m.ln("	<br><br>");
 
@@ -127,8 +129,8 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Filament Material: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error": "") + "\" type=\"text\" name=\"filament-material\" value=\"" + filamentMaterial
-				+ "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"filament-material\" value=\"" + filamentMaterial + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: PLA <b>(typical)</b>, ABS</i>");
 		m.ln("	<br><br>");
 
@@ -146,7 +148,8 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Layer Height: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error": "") + "\" type=\"text\" name=\"layer-height\" value=\"" + layerHeight + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"layer-height\" value=\"" + layerHeight + "\">");
 		m.ln("	<i class=\"forms-small-text\">Examples: 0.1mm, 0.2mm <b>(typical)</b></i>");
 		m.ln("	<br><br>");
 
@@ -184,7 +187,8 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Details: * " + required + "</div>");
-		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" " + (localFailure ? "class=\"forms-input-error\"" : "") + ">");
+		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" "
+				+ (localFailure ? "class=\"forms-input-error\"" : "") + ">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);
@@ -231,11 +235,12 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error": "") + "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
-		m.ln("	<i class=\"forms-small-text\">Add both numbers together</i>");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
+		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {
-			encodedCaptcha = Debug.serialise(String.valueOf(number1 + number2));
+			encodedCaptcha = Debug.serialise(String.valueOf(number1) + String.valueOf(number2));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -254,14 +259,15 @@ public class Page3DQuote extends BasePage {
 				body += "filamentMaterial: " + filamentMaterial + "\n";
 				body += "layerHeight: " + layerHeight + "\n";
 				body += "message:" + comment;
-				//Scheduled.scheduleEmail("New Quote", body);
+				// Scheduled.scheduleEmail("New Quote", body);
 
 				String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
 				try {
 					exe += URLEncoder.encode("New Quote", StandardCharsets.UTF_8.name()) + "&body=";
 					exe += URLEncoder.encode(body, StandardCharsets.UTF_8.name());
 					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
-					m.ln("	<iframe src=\"" + exe + "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
+					m.ln("	<iframe src=\"" + exe
+							+ "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
 				} catch (UnsupportedEncodingException e) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
 					e.printStackTrace();

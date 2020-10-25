@@ -38,7 +38,8 @@ public class PageContact extends BasePage {
 		final String email = requestInfo.getBodyParam("email");
 		final String subject = requestInfo.getBodyParam("subject");
 		final String comment = requestInfo.getBodyParam("comment");
-		final String captcha = requestInfo.getBodyParam("captcha");
+		final String captcha = requestInfo.getBodyParam("captcha").replaceAll(" ", "");
+		;
 
 		final String styleMissing = " style=\"color:red\"";
 		final String requiredParam = " REQUIRED";
@@ -148,10 +149,10 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"off\">");
-		m.ln("	<i class=\"forms-small-text\">Add both numbers together</i>");
+		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {
-			encodedCaptcha = Debug.serialise(String.valueOf(number1 + number2));
+			encodedCaptcha = Debug.serialise(String.valueOf(number1) + String.valueOf(number2));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -169,7 +170,8 @@ public class PageContact extends BasePage {
 					exe += URLEncoder.encode(subject, StandardCharsets.UTF_8.name()) + "&body=";
 					exe += URLEncoder.encode(firstname + "\n" + email + "\n" + comment, StandardCharsets.UTF_8.name());
 					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
-					m.ln("	<iframe src=\"" + exe + "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
+					m.ln("	<iframe src=\"" + exe
+							+ "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
 				} catch (UnsupportedEncodingException e) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
 					e.printStackTrace();
