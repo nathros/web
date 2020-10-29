@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat
 plugins {
     id 'java-library'
     id 'com.github.johnrengelman.shadow' version '5.0.0'
+    id "org.padler.gradle.minify" version "1.6.0"
 }
 
 repositories {
@@ -27,8 +28,10 @@ sourceSets {
 			//exclude 'web/pages/root/sandpit/*'
 		}
 		resources {
-			//srcDirs = ["src/main/java"]
-			//includes = ["**/*.*"]
+			srcDirs = ["$buildDir/dist/"]
+			includes = ["**/*min.css*", "**/*min.js*"]
+			//excludes = ["**/*.map*"]
+			//includes = ["$buildDir/dist/css/*"]
 			//exclude 'web/js/snake.js'
 		}
 	}
@@ -61,4 +64,26 @@ jar {
 	manifest {
 		attributes 'Main-Class': 'web.Main'
 	}
+}
+
+task cleanMinification {
+    //delete file("$buildDir/dist/web/").listFiles();
+}
+
+minification {
+    cssDstDir = "$buildDir/dist/web/css"
+    cssSrcDir = "${rootDir}/src/main/resources/web/css"
+    jsDstDir = "$buildDir/dist/web/js"
+    jsSrcDir = "${rootDir}/src/main/resources/web/js"
+
+    createCssSourceMaps = false
+    createJsSourceMaps = false
+
+    css {
+        cssRenamingPrefix = ""
+    }
+
+    js {
+        compilationLevel = "SIMPLE_OPTIMIZATIONS"
+    }
 }
