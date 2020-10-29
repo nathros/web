@@ -19,6 +19,7 @@ public class Resource {
 	public static final String CSS_FORMS = "web/css/forms.css";
 	public static final String CSS_3D_QUOTE = "web/css/3d-quote.css";
 	public static final String CSS_H_SECTION = "web/css/horizontal-section.css";
+	public static final String CSS_TABS = "web/css/tabs.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";
