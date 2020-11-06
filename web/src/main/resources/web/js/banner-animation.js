@@ -5,9 +5,11 @@ var canvas = document.getElementById("banner-canvas");
 var ctx = canvas.getContext("2d");
 var mousePos = null;
 
+
 canvas.style.width = "100%";
 canvas.style.height = "100%";
 
+var currentWidth = 0;
 var lineWidth = 4;
 var stepSize = 0.25;
 var stepFPS = 20;
@@ -36,8 +38,8 @@ function debug() {
 function getMousePos(evt) {
 	var rect = canvas.getBoundingClientRect();
 	return {
-		x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-		y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+		x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width / window.devicePixelRatio,
+		y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height / window.devicePixelRatio
 	};
 }
 
@@ -60,8 +62,14 @@ function drawLine(y) {
 }
 
 function bannerAnimate() {
-	canvas.width = canvas.offsetWidth;
-	canvas.height = canvas.offsetHeight;
+	if (canvas.clientWidth != currentWidth) { // Only scale on vw change
+		currentWidth = canvas.clientWidth;
+		var scale = window.devicePixelRatio;
+		canvas.width = canvas.clientWidth * scale;
+		canvas.height = canvas.clientHeight * scale;
+		ctx.scale(scale, scale);
+	}
+
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.lineWidth = lineWidth;
 
