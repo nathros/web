@@ -25,7 +25,7 @@
 	display: block;
 	font-weight: 700;
 	font-size: .785rrem;
-	#background-color: rgba(255, 0, 0, 0.1);
+	*background-color: rgba(255, 0, 0, 0.1);
 }
 
 .timeline-item::after {
@@ -46,8 +46,8 @@
 }
 
 .timeline-item:hover {
-	#background-color: rgba(0, 0, 0, 0.01);
-	#padding-left: 2.1rem;
+	*background-color: rgba(0, 0, 0, 0.01);
+	*padding-left: 2.1rem;
 }
 
 /* Skills **/

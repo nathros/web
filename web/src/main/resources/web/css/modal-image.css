@@ -1,6 +1,6 @@
 .modal-thumbnail:hover {
 	opacity: 0.7;
-	#filter: brightness(1.1);
+	*filter: brightness(1.1);
 	transform: scale(1.04);
 	transition: all 0.3s;
 }

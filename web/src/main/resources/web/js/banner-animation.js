@@ -5,19 +5,18 @@ var canvas = document.getElementById("banner-canvas");
 var ctx = canvas.getContext("2d");
 var mousePos = null;
 
-
 canvas.style.width = "100%";
 canvas.style.height = "100%";
 
 var currentWidth = 0;
 var lineWidth = 4;
-var stepSize = 0.25;
-var stepFPS = 20;
+var stepFPS = 60;
+var stepSize = (0.25 / 3) * (60 / stepFPS);
 
 var fadeDirection = true;
 var fade = 0.1; // Start mid fade
 var fadeMax = 0.2;
-var fadeStep = 0.005;
+var fadeStep = 0.001 * (60 / stepFPS);
 
 function debug() {
 	ctx.save();
@@ -93,7 +92,7 @@ function bannerAnimate() {
 	
 	// Move scan line down
 	stepFrame += stepSize;
-	if (stepFrame == (lineWidth * 2)) stepFrame = 0;
+	if (stepFrame >= (lineWidth * 2)) stepFrame = 0;
 	
 	// Scan line fade amount for pulse
 	if (fadeDirection) {
