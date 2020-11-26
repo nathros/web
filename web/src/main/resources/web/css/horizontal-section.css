@@ -28,6 +28,11 @@
 	*clip-path: polygon(0 0, 0 100%, calc(100% - 1rem) 100%, 100% calc(100% - 1rem), 100% 0);
 }
 
+.horizontal-section-clear {
+	background-color: transparent;
+	color: black;
+}
+
 .horizontal-section-text-right {
 	margin-right: 0rem;
 	margin-left: 2rem;
