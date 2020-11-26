@@ -3,6 +3,7 @@ package web.pages.root;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
+import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class PageHome extends BasePage {
@@ -22,41 +23,65 @@ public class PageHome extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Home);
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
+		//m.addBannerHomeAnimated("");
 
 		//// https://i.imgur.com/pwDNLvY.jpg
+		// https://ma-hub.imgix.net/wp-images/2019/11/17203220/final-cut-pro-missing-file.jpg
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
-		m.ln("	<div class=\"card\">");
-
-		m.ln("	</div><br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>"); // card
+		m.ln("	<div class=\"card card-home\">");
+		m.ln("		<h1 style=\"text-align:center\">Building Value Through Design</h1>");
+		m.ln("		<h4 style=\"text-align:center\">Enabling tight software and hardware integration</h4>");
+		m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");
+		m.ln("	</div>"); // card
 		
+		m.ln("<br><br>");
 		
 		m.ln("		<div class=\"tab-container\">");
-		m.ln("			<input type=\"radio\" id=\"tab-1\" name=\"tab-group1\" checked >");
+		m.ln("			<input type=\"radio\" id=\"tab-1\" name=\"tab-group1\" checked>");
 		m.ln("			<input type=\"radio\" id=\"tab-2\" name=\"tab-group1\">");
 		m.ln("			<div class=\"tab\">");
 		m.ln("				<ul>");
 		m.ln("					<li class=\"tab-wrapper\">");
-		m.ln("					<ul>");
-		m.ln("						<li id=\"tab-id-1\"><label for=\"tab-1\">start</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("						<li id=\"tab-id-2\"><label for=\"tab-2\">end Service</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("					</ul>");
+		m.ln("						<ul>");
+		m.ln("							<li id=\"tab-id-1\"><label class=\"long-text-fix\" for=\"tab-1\">Embedded Software Contracting</label><div class=\"shadow-cover long-text-fix-shadow\"></div></li>");
+		m.ln("							<li id=\"tab-id-2\"><label for=\"tab-2\">3D Printing Service</label><div class=\"shadow-cover\"></div></li>");
+		m.ln("						</ul>");
 		m.ln("					</li>"); // tab-wrapper
 		m.ln("				</ul>");
 		m.ln("			</div>"); // tab
 		m.ln("			<div class=\"tab-content-container\">"); // replace container
-		
+
+
 		m.ln("				<div id=\"container-tab-1\" class=\"tab-animated\">");
-		m.ln("					<p>sdsdsdshdsdhskdhdkhdkshdukhdskdh<br>dd<br>sdshdshdj dhsudsuds uds</p>");
+		m.ln("	<div class=\"horizontal-section-container-left\" style=\"\">");
+		m.ln("		<img class=\"horizontal-section-image\" src=\"https://i.ibb.co/r27vLqT/FOHDVjQ.webp\" alt=\"\">");
+		m.ln("		<p class=\"horizontal-section-text-left horizontal-section-clear\"><b>Atmel SAM D10 Xplained Mini</b><br><br>Working with a cheap development kit. how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the </p>");
+		m.ln("	</div>");
 		m.ln("				</div>"); // container-tab-1
-		
+
+
+
 		m.ln("				<div id=\"container-tab-2\" class=\"tab-animated\">");
-		m.ln("					<p>fdfkd fhdfdmi dowd pds kdpo sidlsndskl</p>");
-		m.ln("				</div>"); // container-tab-2
+		m.ln("	<div class=\"horizontal-section-container-right\" style=\"\">");
+		m.ln("		<div class=\"horizontal-section-text-right horizontal-section-clear\">");
+		m.ln("			<p>");
+		m.ln("s how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the ");
+		m.ln("			</p>");
+
+		m.ln("			<div class=\"common-container-centre\">");
+		m.addLinkButton("Request Quote", PageMapping.QUOTE_3D_PG, true);
+		m.ln("			</div>");
 		
+		m.ln("		</div>");
+		m.ln("		<img class=\"horizontal-section-image\" src=\"https://cdn-3d.niceshops.com/upload/image/product/large/default/creality-cr-6-se-1-pc-333178-en.jpg\" alt=\"\">");
+		m.ln("	</div>");
+		m.ln("				</div>"); // container-tab-2
+
+
 		m.ln("			</div>"); // tab-content-container
 		m.ln("		</div>"); // tab-container
-		
-		
+
+
 		m.ln("		<div class=\"tab-container\">");
 		m.ln("			<input type=\"radio\" id=\"tab-3\" name=\"tab-group2\" checked >");
 		m.ln("			<input type=\"radio\" id=\"tab-4\" name=\"tab-group2\">");
@@ -64,11 +89,11 @@ public class PageHome extends BasePage {
 		m.ln("			<div class=\"tab\">");
 		m.ln("				<ul>");
 		m.ln("					<li class=\"tab-wrapper\">");
-		m.ln("					<ul>");
-		m.ln("						<li id=\"tab-id-3\"><label for=\"tab-3\">start</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("						<li id=\"tab-id-4\"><label for=\"tab-4\">end Service</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("						<li id=\"tab-id-5\"><label for=\"tab-5\">end Service</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("					</ul>");
+		m.ln("						<ul>");
+		m.ln("							<li id=\"tab-id-3\"><label for=\"tab-3\">Rohloff Build</label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-4\"><label for=\"tab-4\">File Server</label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-5\"><label for=\"tab-5\">Contact</label><div class=\"shadow-cover\"></div></li>");
+		m.ln("						</ul>");
 		m.ln("					</li>"); // tab-wrapper
 		m.ln("				</ul>");
 		m.ln("			</div>"); // tab
@@ -102,7 +127,7 @@ public class PageHome extends BasePage {
 				m.ln("	<a style=\"text-decoration: none;\" href=\"/stage/spelling\">404 example</a>");
 
 				m.ln("	<div class=\"horizontal-section-container-left\" style=\"background-image: url('https://img.pixers.pics/pho(s3:700/FO/48/36/24/84/700_FO48362484_30045f183526a0f45cb05dbfa9cea87a.jpg,700,700,jpg)/wall-murals-circuit-board-seamless-pattern.jpg.jpg');\">");
-				m.ln("		<img class=\"horizontal-section-image\" src=\"https://i.imgur.com/FOHDVjQ.png\" alt=\"\">");
+				m.ln("		<img class=\"horizontal-section-image\" src=\"https://i.ibb.co/r27vLqT/FOHDVjQ.webp\" alt=\"\">");
 				m.ln("		<p class=\"horizontal-section-text-left\"><b>Atmel SAM D10 Xplained Mini</b><br><br>Working with a cheap development kit. how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the </p>");
 				m.ln("	</div>");
 

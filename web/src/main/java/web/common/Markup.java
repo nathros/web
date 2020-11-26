@@ -165,6 +165,10 @@ public class Markup {
 		p.append(line);
 	}
 
+	public void addLinkButton(String text, String href, boolean newTab) {
+		l("<a class=\"btn btn-blue ripple\" href=\"".concat(href).concat("\"").concat(newTab ? " target=\"_blank\">" : ">").concat(text).concat("</a>"));
+	}
+
 	public void addHead(String[] cssImport, String[] jsImport, String title) {
 		ln("<html lang=\"en\">");
 		ln("<head>");

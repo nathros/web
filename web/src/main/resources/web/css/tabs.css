@@ -52,6 +52,8 @@
 	display: block;
 	cursor: pointer;
 	text-align: center;
+	position: relative;;
+	z-index: 3;
 }
 
 .tab-container .tab-content-container {
@@ -147,5 +149,20 @@
 	}
 	100% {
 		opacity:1
+	}
+}
+
+.long-text-fix {
+	*padding-top: 0.5rem !important;
+}
+
+/* Long text in tab causes shadow to no longer work */
+/* TODO Need to find a more dynamic way to fix this */
+@media only screen and (max-width: 500px) {
+	.long-text-fix {
+		padding-top: 0.4rem !important;
+	}
+	.long-text-fix-shadow {
+		margin-top: -20px !important;
 	}
 }
