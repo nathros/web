@@ -31,6 +31,7 @@ public class PageHome extends BasePage {
 		m.ln("	<div class=\"card card-home\">");
 		m.ln("		<h1 style=\"text-align:center\">Building Value Through Design</h1>");
 		m.ln("		<h4 style=\"text-align:center\">Enabling tight software and hardware integration</h4>");
+		m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");
 		m.ln("	</div>"); // card
 		
 		m.ln("<br><br>");

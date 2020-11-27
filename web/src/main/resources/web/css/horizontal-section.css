@@ -25,6 +25,7 @@
 	margin: 0;
 	margin-right: 2rem;
 	color: white;
+	text-align: justify;
 	*clip-path: polygon(0 0, 0 100%, calc(100% - 1rem) 100%, 100% calc(100% - 1rem), 100% 0);
 }
 
@@ -38,28 +39,27 @@
 	margin-left: 2rem;
 }
 
-
 @media only screen and (max-width: 768px) {
-.horizontal-section-container-left {
-	flex-direction: column;
-}
+	.horizontal-section-container-left {
+		flex-direction: column;
+	}
 
-.horizontal-section-container-right {
-	flex-direction: column-reverse;
-}
+	.horizontal-section-container-right {
+		flex-direction: column-reverse;
+	}
 
-.horizontal-section-image {
-	padding: 0;
-	max-width: 100%;
-}
+	.horizontal-section-image {
+		padding: 0;
+		max-width: 100%;
+	}
 
-.horizontal-section-text-left {
-	margin: 1em;
-	margin-top: 0;
-}
+	.horizontal-section-text-left {
+		margin: 1em;
+		margin-top: 0;
+	}
 
-.horizontal-section-text-right {
-	margin: 1em;
-	margin-top: 0;
-}
+	.horizontal-section-text-right {
+		margin: 1em;
+		margin-top: 0;
+	}
 }
