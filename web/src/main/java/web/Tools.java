@@ -2,6 +2,7 @@ package web;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -16,7 +17,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Tools {
 
-	// Using Gmail or Outlook on local machine is fine, when deployed in AWS is fraught with problems
+	// Using Gmail or Outlook on local machine is fine, when deployed in AWS is fraught with problems as IP address constantly changes
 	public static String sendEmail(String subject, String body, boolean debug) {
 		Properties props = new Properties();
 		props.put("mail.smtp.starttls.enable", "true");
@@ -60,5 +61,52 @@ public class Tools {
 			return ret;
 		}
 		return status;
+	}
+
+	private static final String AWShost = "email-smtp.eu-west-1.amazonaws.com";
+	private static final String AWSUsername = "user";
+	private static final String AWSPassword = "password";
+	private static final String AWSFromEmail = "from@gmail.com";
+	private static final String AWSToEmail = "to@gamil.com";
+
+	public static String sendEmailAWSSMTP(String subject, String body) {
+		Properties props = new Properties();
+		props.put("mail.transport.protocol", "smtp");
+		props.put("mail.smtp.port", 587);
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.auth", "true");
+
+		Session session = Session.getDefaultInstance(props);
+
+        MimeMessage msg = new MimeMessage(session);
+        try {
+			msg.setFrom(new InternetAddress(AWSFromEmail, "name"));
+			msg.setRecipient(Message.RecipientType.TO, new InternetAddress(AWSToEmail));
+	        msg.setSubject(subject);
+	        msg.setContent(body, "text/plain");
+
+	        Transport transport = session.getTransport();
+
+	        try
+	        {
+	            System.out.println("Sending...");
+	            transport.connect(AWShost, AWSUsername, AWSPassword);
+	            transport.sendMessage(msg, msg.getAllRecipients());  // Send the email
+	            System.out.println("Email sent!");
+	        }
+	        catch (Exception ex) {
+	            System.out.println("The email was not sent.");
+	            System.out.println("Error message: " + ex.getMessage());
+	            return ex.getMessage();
+	        }
+	        finally
+	        {
+	            transport.close();
+	        }
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.getMessage();
+		}
+		return "okay";
 	}
 }

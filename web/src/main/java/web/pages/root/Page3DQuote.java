@@ -7,6 +7,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.UUID;
 
+import web.Scheduled;
+import web.Tools;
 import web.common.Debug;
 import web.common.Helper;
 import web.common.HttpMethod;
@@ -36,6 +38,11 @@ public class Page3DQuote extends BasePage {
 		m.addHead(css, js, "Quote");
 
 		m.ln("<body>");
+
+		m.ln("<div id=\"fullscreen-message\">");
+		m.ln("	<h1>Please Wait...</h1>");
+		m.ln("</div>");
+
 		addNavbar3D();
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
 
@@ -59,7 +66,7 @@ public class Page3DQuote extends BasePage {
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
 		m.ln("	<div class=\"card\">");
 
-		m.ln("<form action=\"3d-quote\" method=\"post\">");
+		m.ln("<form id=\"3d-quote\" action=\"3d-quote\" method=\"post\">");
 
 		String style = "";
 		String required = "";
@@ -247,7 +254,8 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 		m.ln("	<br><br>");
 
-		m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\">");
+		//m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\">");
+		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\">");
 		if (isPost) {
 			if (parseFailure) {
 				m.ln("	<p style=\"color:red\">ERROR: missing or invalid fields</p>");
@@ -259,19 +267,23 @@ public class Page3DQuote extends BasePage {
 				body += "filamentMaterial: " + filamentMaterial + "\n";
 				body += "layerHeight: " + layerHeight + "\n";
 				body += "message:" + comment;
-				// Scheduled.scheduleEmail("New Quote", body);
+				Scheduled.scheduleEmailAWSSMTP("New Quote", body);
+				String result = Tools.sendEmailAWSSMTP("New Quote", body);
 
-				String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
+				if (!result.equals("okay")) m.ln("<p>".concat(result).concat("</p>"));
+				else m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
+
+				// Using Google Script to send e-mails has proven not to be reliable
+				/*String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
 				try {
 					exe += URLEncoder.encode("New Quote", StandardCharsets.UTF_8.name()) + "&body=";
 					exe += URLEncoder.encode(body, StandardCharsets.UTF_8.name());
-					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 					m.ln("	<iframe src=\"" + exe
 							+ "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
 				} catch (UnsupportedEncodingException e) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
 					e.printStackTrace();
-				}
+				}*/
 			}
 		}
 
