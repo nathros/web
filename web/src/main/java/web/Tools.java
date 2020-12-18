@@ -84,35 +84,33 @@ public class Tools {
 
 		Session session = Session.getDefaultInstance(props);
 
-        MimeMessage msg = new MimeMessage(session);
-        try {
+		MimeMessage msg = new MimeMessage(session);
+		try {
 			msg.setFrom(new InternetAddress(AWSFromEmail, "name"));
 			msg.setRecipient(Message.RecipientType.TO, new InternetAddress(AWSToEmail));
-	        msg.setSubject(subject);
-	        msg.setContent(body, "text/plain");
+			msg.setSubject(subject);
+			msg.setContent(body, "text/plain");
 
-	        Transport transport = session.getTransport();
+			Transport transport = session.getTransport();
 
-	        try
-	        {
-	            System.out.println("Sending...");
-	            transport.connect(AWShost, AWSUsername, AWSPassword);
-	            transport.sendMessage(msg, msg.getAllRecipients());  // Send the email
-	            System.out.println("Email sent!");
-	        }
-	        catch (Exception ex) {
-	            System.out.println("The email was not sent.");
-	            System.out.println("Error message: " + ex.getMessage());
-	            return ex.getMessage();
-	        }
-	        finally
-	        {
-	            transport.close();
-	        }
+			try {
+				System.out.println("Sending...");
+				transport.connect(AWShost, AWSUsername, AWSPassword);
+				transport.sendMessage(msg, msg.getAllRecipients());  // Send the email
+				System.out.println("Email sent!");
+			}
+			catch (Exception ex) {
+				System.out.println("The email was not sent.");
+				System.out.println("Error message: " + ex.getMessage());
+				return ex.getMessage();
+			}
+			finally {
+				transport.close();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return e.getMessage();
-		}
+		return e.getMessage();
+	}
 		return EmailOkayResponse;
 	}
 

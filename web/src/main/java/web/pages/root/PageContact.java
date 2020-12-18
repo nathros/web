@@ -1,9 +1,6 @@
 package web.pages.root;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
 import web.Tools;

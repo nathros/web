@@ -18,13 +18,15 @@
 	margin-top: auto;
 	position: relative;
 	width: calc(100% - (2 * var(--global-content-padding)));
+	pointer-events: none;
 }
 
 .title-banner div p {
 	background-color: var(--highlight-colour-banner);
-	padding: 2rem 2rem 1rem 2rem;
+	padding: 2rem 2rem 1.5rem 2rem;
 	margin: 0;
 	font-size: 1.5rem;
+	pointer-events: all;
 }
 
 /********/
