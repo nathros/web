@@ -32,7 +32,8 @@ public class Markup {
 			ln("		<button class=\"dropbtn\">Projects</button>");
 		}
 		ln("		<div class=\"navbar-dropdown-content\">");
-		ln("			<a href=\"".concat(PageMapping.ROHLOFF_PG0).concat("\">Rohloff Bike</a>"));
+		ln("			<a href=\"".concat(PageMapping.ROHLOFF_PG1).concat("\">Rohloff Bike</a>"));
+		ln("			<a href=\"".concat(PageMapping.ROHLOFF2_PG1).concat("\">Rohloff Bike Upgrade</a>"));
 		ln("			<a href=\"".concat(PageMapping.FILESERVER1_PG0).concat("\">45TB File Server</a>"));
 		ln("			<a href=\"".concat(PageMapping.CONNECT4).concat("\">Connect 4</a>"));
 		ln("			<a href=\"https://github.com/nathros\" target=\"_blank\">Github");
@@ -66,8 +67,9 @@ public class Markup {
 
 	public void addPageSelector(LinkedHashMap<String, String> items, int selectedIndex) {
 		ln("<form method=\"get\" action=javascript:action>");
-		ln("	<label for=\"page-select\"><strong>Page:</strong></label>");
-		ln("	<select id=\"page-select\" onChange=\"self.location=this.options[this.selectedIndex].value;\">");
+		ln("	<div style=\"display:flex;align-items:center;\">");
+		ln("		<label for=\"page-select\"><strong>Page:</strong></label>");
+		ln("		<select style=\"flex:1;margin-left:1rem;\" id=\"page-select\" onChange=\"self.location=this.options[this.selectedIndex].value;\">");
 		if (items != null) {
 			for (Map.Entry<String, String> entry : items.entrySet()) {
 				selectedIndex--;
@@ -80,7 +82,8 @@ public class Markup {
 				}
 			}
 		}
-		ln("	</select>"); // select
+		ln("		</select>"); // select
+		ln("	</div>"); // container
 		ln("</form>"); // form
 	}
 
@@ -132,16 +135,14 @@ public class Markup {
 	int modalCount = 0;
 
 	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle) { // TODO @media for mobile,
-																								// alt text
-		ln("<div class=\"modal-container\" style=\"" + thumbnailStyle + "\">");
+		ln("<div class=\"modal-container\" style=\"".concat(thumbnailStyle).concat("\">"));
 		ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" >"); //
-		ln("		<img class=\"modal-thumbnail\" src=\"" + thumbnailURL + "\" style=\"" + thumbnailStyle
-				+ "\" alt=\"\">");
+		ln("		<img class=\"modal-thumbnail\" src=\"".concat(thumbnailURL).concat("\" style=\"").concat(thumbnailStyle).concat("\" alt=\"\">"));
 		ln("	</a>"); // #img
 		ln("</div>"); // modal-container
 
 		ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\">");
-		ln("	<img src=\"" + imageURL + "\" alt=\"\">");
+		ln("	<img src=\"".concat(imageURL).concat("\" alt=\"\">"));
 		ln("</a>"); // modal-image
 		modalCount++;
 	}

@@ -12,6 +12,7 @@ body {
 	
 	/* Used for side to side padding of main content*/
 	--global-content-padding: 10%;
+	--global-max-content-width: 75rem;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -22,6 +23,8 @@ input:focus, textarea:focus, select:focus {
 	*padding-top: 5rem;
 	padding-left: var(--global-content-padding);
 	padding-right: var(--global-content-padding);
+	max-width: var(--global-max-content-width);
+	margin: auto;
 	padding-bottom: calc(var(--global-content-padding) / 2);
 	*animation: 1s ease-out 0s 1 fadeup;
 }

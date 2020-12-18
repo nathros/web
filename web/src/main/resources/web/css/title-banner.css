@@ -8,21 +8,24 @@
 	height: 15rem;
 	position: relative;
 }
+
 .title-banner div {
+	padding-left: var(--global-content-padding);
+	padding-right: var(--global-content-padding);
+	max-width: var(--global-max-content-width);
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: auto;
-	background-color: var(--highlight-colour-banner);
-	margin-left: var(--global-content-padding);
-	margin-right: var(--global-content-padding);
-	padding: 2rem 2rem 1rem 2rem;
 	position: relative;
+	width: calc(100% - (2 * var(--global-content-padding)));
 }
 
 .title-banner div p {
+	background-color: var(--highlight-colour-banner);
+	padding: 2rem 2rem 1rem 2rem;
 	margin: 0;
-	margin-bottom: 0.3rem;
 	font-size: 1.5rem;
 }
-
 
 /********/
 .title-banner-home {
