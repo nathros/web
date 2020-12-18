@@ -19,8 +19,3 @@ function selectDesignService() {
 	document.getElementById("print-extras").style.opacity = "0";
 	document.getElementById("print-extras").style.pointerEvents = "none";
 }
-
-function sendEmail() {
-	setTimeout(function() { document.getElementById("fullscreen-message").style.visibility = "visible"; }, 350);
-	document.getElementById("3d-quote").submit();
-}

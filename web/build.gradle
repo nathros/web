@@ -13,7 +13,6 @@ dependencies {
 	compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.918'
 	compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
 	compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
-	//compile group: 'org.unbescape', name: 'unbescape', version: '1.1.6.RELEASE'
 }
 
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8

@@ -27,6 +27,7 @@ public class PageHome extends BasePage {
 
 		//// https://i.imgur.com/pwDNLvY.jpg
 		// https://ma-hub.imgix.net/wp-images/2019/11/17203220/final-cut-pro-missing-file.jpg
+		// https://www.mtbr.com/threads/bontrager-race-lite-serial-number.316277/
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
 		m.ln("	<div class=\"card card-home\">");
 		m.ln("		<h1 style=\"text-align:center\">Building Value Through Design</h1>");

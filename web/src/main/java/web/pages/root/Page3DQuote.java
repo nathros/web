@@ -1,9 +1,6 @@
 package web.pages.root;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.UUID;
 
@@ -33,7 +30,7 @@ public class Page3DQuote extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_3D_QUOTE, Resource.CSS_FORMS };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE, Resource.JS_FORMS };
 
 		m.addHead(css, js, "Quote");
 
@@ -66,7 +63,7 @@ public class Page3DQuote extends BasePage {
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
 		m.ln("	<div class=\"card\">");
 
-		m.ln("<form id=\"3d-quote\" action=\"3d-quote\" method=\"post\">");
+		m.ln("<form id=\"email-form\" action=\"3d-quote\" method=\"post\">");
 
 		String style = "";
 		String required = "";
@@ -267,23 +264,14 @@ public class Page3DQuote extends BasePage {
 				body += "filamentMaterial: " + filamentMaterial + "\n";
 				body += "layerHeight: " + layerHeight + "\n";
 				body += "message:" + comment;
-				Scheduled.scheduleEmailAWSSMTP("New Quote", body);
+
 				String result = Tools.sendEmailAWSSMTP("New Quote", body);
 
-				if (!result.equals("okay")) m.ln("<p>".concat(result).concat("</p>"));
-				else m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
-
-				// Using Google Script to send e-mails has proven not to be reliable
-				/*String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
-				try {
-					exe += URLEncoder.encode("New Quote", StandardCharsets.UTF_8.name()) + "&body=";
-					exe += URLEncoder.encode(body, StandardCharsets.UTF_8.name());
-					m.ln("	<iframe src=\"" + exe
-							+ "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
-				} catch (UnsupportedEncodingException e) {
+				if (!result.equals(Tools.EmailOkayResponse)) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
-					e.printStackTrace();
-				}*/
+					m.ln("<p>".concat(result).concat("</p>"));
+				}
+				else m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 			}
 		}
 

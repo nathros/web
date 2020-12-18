@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
+import web.Tools;
 import web.common.Debug;
 import web.common.Helper;
 import web.common.HttpMethod;
@@ -24,10 +25,15 @@ public class PageContact extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FORMS };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_FORMS };
 
 		m.addHead(css, js, "Contact");
 		m.ln("<body>");
+
+		m.ln("<div id=\"fullscreen-message\">");
+		m.ln("	<h1>Please Wait...</h1>");
+		m.ln("</div>");
+
 		m.addNavbar(NavbarItem.Contact);
 		m.addBannerAnimated("Contact", Resource.IMG_BANNER_1);
 
@@ -48,7 +54,7 @@ public class PageContact extends BasePage {
 		boolean isPost = requestInfo.getMethod() == HttpMethod.POST;
 
 		boolean parseFailure = false;
-		m.ln("<form action=\"contact\" method=\"post\">");
+		m.ln("<form id=\"email-form\" action=\"contact\" method=\"post\">");
 
 		style = "";
 		required = "";
@@ -159,23 +165,22 @@ public class PageContact extends BasePage {
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 
 		m.ln("	<br><br>");
-		m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\">");
+		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\">");
 
 		if (isPost) {
 			if (parseFailure) {
 				m.ln("	<p style=\"color:red\">ERROR: missing or invalid fields</p>");
 			} else {
-				String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
-				try {
-					exe += URLEncoder.encode(subject, StandardCharsets.UTF_8.name()) + "&body=";
-					exe += URLEncoder.encode(firstname + "\n" + email + "\n" + comment, StandardCharsets.UTF_8.name());
-					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
-					m.ln("	<iframe src=\"" + exe
-							+ "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
-				} catch (UnsupportedEncodingException e) {
+				String body = "firstname: " + firstname + "\n";
+				body += "email: " + email + "\n";
+				body += "comment: " + comment + "\n";
+				String result = Tools.sendEmailAWSSMTP(subject, body);
+
+				if (!result.equals(Tools.EmailOkayResponse)) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
-					e.printStackTrace();
+					m.ln("<p>".concat(result).concat("</p>"));
 				}
+				else m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 			}
 		}
 

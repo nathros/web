@@ -3,6 +3,8 @@ package web;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Properties;
 
@@ -14,6 +16,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import web.common.Markup;
 
 public class Tools {
 
@@ -41,7 +45,7 @@ public class Tools {
 			}
 		});
 
-		String status = "Success";
+		String status = EmailOkayResponse;
 		try {
 			final Message message = new MimeMessage(session);
 			message.setRecipient(Message.RecipientType.TO, new InternetAddress(Config.emailAddress));
@@ -68,6 +72,8 @@ public class Tools {
 	private static final String AWSPassword = "password";
 	private static final String AWSFromEmail = "from@gmail.com";
 	private static final String AWSToEmail = "to@gamil.com";
+
+	public static final String EmailOkayResponse = "okay";
 
 	public static String sendEmailAWSSMTP(String subject, String body) {
 		Properties props = new Properties();
@@ -107,6 +113,22 @@ public class Tools {
 			e.printStackTrace();
 			return e.getMessage();
 		}
-		return "okay";
+		return EmailOkayResponse;
 	}
+
+	public String sendEmailGoogleAppsScript(Markup m, String subject, String body) {
+		// Using Google Script to send e-mails has proven not to be reliable, fails if user is logged into multiple Google accounts at once
+		// Passes data to a hidden iframe which sends it to an Apps Script which sends the data in an email
+		String exe = "https://script.google.com/macros/s/AKfycbwowNovB7k4jCl1YyIIJOPVbkl9n1xvz7k74BIuG59taWR8BPM/exec?subject=";
+		try {
+			exe += URLEncoder.encode(subject, StandardCharsets.UTF_8.name()) + "&body=";
+			exe += URLEncoder.encode(body, StandardCharsets.UTF_8.name());
+			m.ln("	<iframe src=\"" + exe + "\" style=\"width:0;height:0;border:0;border:none;position:absolute;\"></iframe>");
+			return EmailOkayResponse;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return "error";
+		}
+	}
+
 }
