@@ -15,8 +15,8 @@ public class PageHome extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_H_SECTION, Resource.CSS_TABS };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_H_SECTION, Resource.CSS_TABS, Resource.CSS_MODAL_IMAGE };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
 
 		m.addHead(css, js, "Home Page");
 
@@ -32,7 +32,7 @@ public class PageHome extends BasePage {
 		m.ln("	<div class=\"card card-home\">");
 		m.ln("		<h1 style=\"text-align:center\">Building Value Through Design</h1>");
 		m.ln("		<h4 style=\"text-align:center\">Enabling tight software and hardware integration</h4>");
-		m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");
+		//m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");
 		m.ln("	</div>"); // card
 		
 		m.ln("<br><br>");
@@ -56,17 +56,21 @@ public class PageHome extends BasePage {
 		m.ln("				<div id=\"container-tab-1\" class=\"tab-animated\">");
 		m.ln("	<div class=\"horizontal-section-container-left\" style=\"\">");
 		m.ln("		<img class=\"horizontal-section-image\" src=\"https://i.ibb.co/r27vLqT/FOHDVjQ.webp\" alt=\"\">");
-		m.ln("		<p class=\"horizontal-section-text-left horizontal-section-clear\"><b>Atmel SAM D10 Xplained Mini</b><br><br>Working with a cheap development kit. how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the </p>");
+		m.ln("		<p class=\"horizontal-section-text-left horizontal-section-clear\">");
+		m.ln("			<b>Atmel SAM D10 Xplained Mini</b><br><br>");
+		m.ln("			Embedded software can be very simple, such as that used for controlling lighting in homes, and can run on an 8-bit microcontroller with just a few kilobytes of memory, or it can be quite complex such as the software running all of the electronic components of a modern smart car, complete with climate controls, automatic cruising and collision sensing, as well as control navigations. Complex embedded software can also be found in aircraft avionics systems, in very complex fly-by-wire systems used in fighter planes and even in missile guidance systems.");
+	
+		m.ln("		</p>");
 		m.ln("	</div>");
 		m.ln("				</div>"); // container-tab-1
 
-
-
+		
+		
 		m.ln("				<div id=\"container-tab-2\" class=\"tab-animated\">");
 		m.ln("	<div class=\"horizontal-section-container-right\" style=\"\">");
 		m.ln("		<div class=\"horizontal-section-text-right horizontal-section-clear\">");
 		m.ln("			<p>");
-		m.ln("s how thick each layer is. Smaller 0.1mm height can provide fine details but requires more time to complete a print. Thicker layers such as 0.3mm will be cheaper to produce as the print will complete quicker but the ");
+		m.ln("Our 3D printing service is used to fabricate high quality prototypes. Products modelled in 3D CAD can be produced in a variety of materials to replicate the products aesthetics, form and functionality. 3D People's prototyping service helps customers reduce costs, speed up product development time and create valuable presentation tools.");
 		m.ln("			</p>");
 
 		m.ln("			<div class=\"common-container-centre\">");
@@ -101,24 +105,27 @@ public class PageHome extends BasePage {
 		m.ln("			<div class=\"tab-content-container\">"); // replace container
 		
 		m.ln("				<div id=\"container-tab-3\" class=\"tab-animated\">");
-		m.ln("					<p>sdsdsdshdsdhskdhdkhdkshdukhdskdhsdshdshdj dhsudsuds uds</p>");
+		
+		m.ln("		<img class=\"\" src=\"".concat("https://i.pinimg.com/originals/74/88/0b/74880bc293ef939e31366692f104a925.jpg").concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\"><br>"));
+		m.addLinkButton("See build", PageMapping.ROHLOFF_PG1, false);
 		m.ln("				</div>"); // container-tab-1
 		
 		m.ln("				<div id=\"container-tab-4\" class=\"tab-animated\">");
-		m.ln("					<p>fdfkd fhdfdmi dowd pds kdpo sidlsndskl</p>");
+		m.ln("		<img class=\"\" src=\"".concat("https://i.imgur.com/bq6Nm5v.jpg").concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\"><br>"));
+		m.addLinkButton("See machine", PageMapping.FILESERVER1_PG1, false);
 		m.ln("				</div>"); // container-tab-2
 		
 		m.ln("				<div id=\"container-tab-5\" class=\"tab-animated\">");
-		m.ln("					<p>fdfdfdfdfdf</p>");
-		m.ln("				</div>"); // container-tab-2
+		m.addLinkButton("Open contact form", PageMapping.CONTACT_PG, false);
+		m.ln("				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>"); // container-tab-2
 
 		m.ln("			</div>"); // tab-content-container
 		m.ln("		</div>"); // tab-container
 		
-		m.ln("<h2>Title</h2>");
+		/*m.ln("<h2>Title</h2>");
 		
 		
-		for (int i = 0; i < 12; i++) {
+		/*for (int i = 0; i < 12; i++) {
 			m.ln("<h2>Title</h2>");
 			if (i == 1) {
 				// https://sg.element14.com/productimages/large/en_GB/2451533-40.jpg
@@ -145,7 +152,7 @@ public class PageHome extends BasePage {
 					+ "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n"
 					+ "\r\n"
 					+ "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>");
-		}
+		}*/
 		m.ln("<a class=\"btn btn-blue ripple\" style=\"text-align: center;display:block;\" onclick=\"scrollToTop();\">Top</a>");
 
 		

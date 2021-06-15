@@ -13,7 +13,7 @@
 }
 
 .card-home {
-	background-image: url("https://i.imgur.com/kiuQrs6.png");
+	*background-image: url("https://i.imgur.com/kiuQrs6.png");
 	background-position: right bottom;
 	background-repeat: no-repeat;
 	background-size: 100%;

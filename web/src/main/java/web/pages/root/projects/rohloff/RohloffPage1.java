@@ -29,7 +29,7 @@ public class RohloffPage1 extends BasePage {
 		RohloffUtils.addRohloffPageSelector(m, 1);
 
 		m.ln("<br>");
-		m.addModalImage(Resource.IMG_ROHLOFF_FINAL_COMPLETE_TN, Resource.IMG_ROHLOFF_FINAL_COMPLETE, "max-width:60%");
+		m.addModalImage(Resource.IMG_ROHLOFF_FINAL_COMPLETE_TN, Resource.IMG_ROHLOFF_FINAL_COMPLETE, "max-width:60%", null);
 		m.ln("Finished build");
 		m.ln("<h2>Design Goal</h2>");
 		m.ln("<p>");
@@ -38,22 +38,26 @@ public class RohloffPage1 extends BasePage {
 
 		m.ln("<h2>Types of Transmission</h2>");
 		m.ln("<p>");
-		m.ln("A direct chain drive is possibly the most efficient system at transferring rider power to the rear wheel and is also the most popular system. When looking for alternatives I categorised them into hub gears, shaft drive or exotic. Hubs are the second most popular system, with offerings from big manufactures such Shimano. Shaft drive equipped frames are hard to come by https://bicycles.stackexchange.com/questions/20591/any-experience-with-shaft-driven-bikes but interesting. Exotic systems are even rarer than shaft bikes. String bicycles are interesting www.stringbike.com and CeramicSpeed have an interesting concept in development named Driven: https://www.ceramicspeed.com/en/driven/ \r\n"
-				+ "\r\n" + "\r\n"
-				+ "I have settled on a Rohloff hub as it is the best and well regarded internal hub available renowned for its durability. The efficiency is not that far behind a derailleur, see\r\n"
-				+ "\r\n"
-				+ "internal hubs and derailleur efficiency: http://www.ihpva.org/HParchive/PDF/hp52-2001.pdf internal hub efficiency comparison: https://www.cyclingabout.com/speed-difference-testing-gearbox-systems/ Single speed is not suitable for my use case and the exotic systems have their own unique issues which is why I rejected these options.\r\n"
-				+ "\r\n" + "\r\n"
-				+ "Also, a derailleur system will quickly become less efficient as the lubricant deteriorates and drivetrain becomes dirty. Depending on the user and conditions a belt driven hub could be more efficient on average in terms of less time spent maintaining the system.");
+		m.ln("A direct chain drive is possibly the most efficient system at transferring rider power to the rear wheel and is also the most popular system. ");
+		m.ln("When looking for alternatives I categorised them into hub gears, shaft drive or exotic. ");
+		m.ln("Hubs are the second most popular system, with offerings from big manufactures such Shimano. ");
+		m.ln("Shaft drive equipped frames are hard to come by ");
+		m.addLink("link", "https://bicycles.stackexchange.com/questions/20591/any-experience-with-shaft-driven-bikes", true);
+		
+		m.ln(" Exotic systems are even rarer than shaft bikes. String bicycles are interesting www.stringbike.com and CeramicSpeed have an interesting concept in development named Driven: https://www.ceramicspeed.com/en/driven/ ");
+		m.ln("I have settled on a Rohloff hub as it is the best and well regarded internal hub available renowned for its durability. The efficiency is not that far behind a derailleur, see");
+		m.ln("internal hubs and derailleur efficiency: http://www.ihpva.org/HParchive/PDF/hp52-2001.pdf internal hub efficiency comparison: https://www.cyclingabout.com/speed-difference-testing-gearbox-systems/ Single speed is not suitable for my use case and the exotic systems have their own unique issues which is why I rejected these options.");
+		m.ln("Also, a derailleur system will quickly become less efficient as the lubricant deteriorates and drivetrain becomes dirty. Depending on the user and conditions a belt driven hub could be more efficient on average in terms of less time spent maintaining the system.");
 		m.ln("</p>");
 
 		m.ln("<h2>Belt Transmission</h2>");
 		m.ln("<p>");
-		m.ln("BikeRadar: https://www.bikeradar.com/road/news/article/chain-or-belt-drive-which-is-faster-36074/ This article says that belts have very poor efficiency: 34.6% more power loss than a chain and the wording in the article makes belts appear unusable. While this is true 2.92W loss for chain, 3.93W for belt, for a 250W input this is less than 0.5% difference in total power and negligible. That is for a clean chain with a straight chainline, in practice this will not be the case in most situations, closing the gap. If performance is very important, you ride professionally or you only ride a few hours a week then a derailleur system is fine for you.");
+		m.ln("BikeRadar: ");
+		m.addLink("link", "https://www.bikeradar.com/road/news/article/chain-or-belt-drive-which-is-faster-36074/", true);
+		
+		m.ln(" This article says that belts have very poor efficiency: 34.6% more power loss than a chain and the wording in the article makes belts appear unusable. While this is true 2.92W loss for chain, 3.93W for belt, for a 250W input this is less than 0.5% difference in total power and negligible. That is for a clean chain with a straight chainline, in practice this will not be the case in most situations, closing the gap. If performance is very important, you ride professionally or you only ride a few hours a week then a derailleur system is fine for you.");
 		m.ln("</p>");
 
-		// m.ln("<a class=\"btn btn-blue ripple\">Link</a>");
-		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 

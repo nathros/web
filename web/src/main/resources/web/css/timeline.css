@@ -13,18 +13,18 @@
 	color: inherit;
 }
 
-[date-is]::before {
-	content: attr(date-is) " ";
+[data-date-is]::before {
+	content: attr(data-date-is) " ";
 }
 
 .timeline-item::before {
 	position: absolute;
 	left: 2rem;
 	font-weight: bold;
-	top: 1rem;
+	top: 0.5rem;
 	display: block;
 	font-weight: 700;
-	font-size: .785rrem;
+	font-size: 1.5rem;
 	*background-color: rgba(255, 0, 0, 0.1);
 }
 
@@ -49,6 +49,21 @@
 	*background-color: rgba(0, 0, 0, 0.01);
 	*padding-left: 2.1rem;
 }
+
+.timeline-item-content > img {
+	height: 2rem;
+	padding-right: 1rem;
+}
+
+.timeline-item-content > i > a {
+	color: inherit;
+}
+
+.timeline-item-content > h4 {
+	margin-top: 1rem;
+}
+
+
 
 /* Skills **/
 

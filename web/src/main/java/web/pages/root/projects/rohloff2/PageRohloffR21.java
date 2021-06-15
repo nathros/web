@@ -34,6 +34,7 @@ public class PageRohloffR21 extends BasePage {
 		
 		m.ln("<h2>title</h2>");
 		m.ln("<p>");
+		m.ln("Decmeber 2020 work in progress<br>");
 		m.ln("Frame upgrade<br>");
 		m.ln("3d print rear light mount<br>");
 		m.ln("needed new a12 mount - difficulty<br>");

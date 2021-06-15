@@ -6,8 +6,8 @@
 	transform: rotate(45deg);
 	transition: all 0.5s ease;
 	position: absolute;
-	top: 0.3rem;
-	right: 0.1rem;
+	top: 0.5rem;
+	right: 0.5rem;
 }
 
 .toggle-label {
@@ -31,7 +31,8 @@
 .toggle-container .toggle-content {
 	width: 100%;
 	display: table;
-	overflow: hidden;
+	overflow: auto; /* was hidden, on close briefly shows scrollbar */
+	overflow-y: hidden;
 	transition: all 0.5s ease;
 	height: 50px; /* used for move animation */
 }
@@ -43,5 +44,5 @@
 }
 
 .toggle-container input[type="checkbox"]:checked ~ .toggle-arrow {
-  transform: rotate(225deg);
+	transform: rotate(225deg);
 }

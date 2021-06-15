@@ -41,13 +41,13 @@ public class RohloffPage4 extends BasePage {
 		m.ln("	I have contacted Rohloff and they have no plans to support flat-mount in the future.");
 		m.ln("	The next step was Cycle Monkey, a company renowned in selling internal hub bikes.");
 
-		m.ln("	They even produce dedicated A12 dropouts replacing the thru-axle adapters [link] I didn’t find the adapters too much of an issue.");
+		m.ln("	They even produce dedicated A12 dropouts replacing the thru-axle adapters [link] I didn't find the adapters too much of an issue.");
 		// https://bikerumor.com/2018/06/15/cycle-monkey-x-paragon-machine-works-team-up-for-rohloff-a12-thru-axle-dropouts/
 		m.ln("</p>");
 
 		m.ln("</p>");
 		m.ln("	I queried them and they replied saying that they are working on a flat mount adapter but >6 months later and still no progress.");
-		m.ln("	If you didn’t know internal hubs need to be directly mounted to the frame to counter input torque.");
+		m.ln("	If you didn't know internal hubs need to be directly mounted to the frame to counter input torque.");
 		m.ln("	~The Rohloff hub can make use of an axle plate (OEM2) which connects to a custom post mount brake adapter (monkey bone).");
 		m.ln(String.format(
 				"	This only works post mount brake mounting, Rohloff can provide a %s which attaches to the chainstay for non-compatible frames, but it is big and unsightly.",
@@ -67,8 +67,7 @@ public class RohloffPage4 extends BasePage {
 		m.ln("	This means there is no room to fit a flat-mount monkeybone on top of the brake mount.");
 		m.ln("	Also I would assume if Cycle Monkey would ever release an adapter it would only be compatible with standard calipers flat-mount 140mm calipers.");
 
-		m.addModalImage(Resource.IMG_ROHLOFF_FLATMOUNT_FINAL_TN, Resource.IMG_ROHLOFF_FLATMOUNT_FINAL,
-				"width:250px;height:188px");
+		m.addModalImage(Resource.IMG_ROHLOFF_FLATMOUNT_FINAL_TN, Resource.IMG_ROHLOFF_FLATMOUNT_FINAL, "width:250px;height:188px", null);
 
 		m.ln("</p>");
 		m.ln("	</div>"); // card

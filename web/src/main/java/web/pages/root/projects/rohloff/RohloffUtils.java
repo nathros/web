@@ -15,7 +15,7 @@ public class RohloffUtils {
 		items.put("Flat-mount Adapter", PageMapping.ROHLOFF_PG4);
 		items.put("Wheel Build", PageMapping.ROHLOFF_PG5);
 		items.put("Headset Spacers", PageMapping.ROHLOFF_PG6);
-		items.put("STI Shifting", PageMapping.ROHLOFF_PG7);
+		items.put("Drop Bar Shifting", PageMapping.ROHLOFF_PG7);
 		m.addPageSelector(items, selectedIndex);
 	}
 
@@ -23,6 +23,8 @@ public class RohloffUtils {
 		LinkedHashMap<String, String> items = new LinkedHashMap<String, String>();
 		items.put("Background", PageMapping.ROHLOFF2_PG1);
 		items.put("Frame", PageMapping.ROHLOFF2_PG2);
+		items.put("A12", PageMapping.ROHLOFF2_PG3);
+		items.put("Lights", PageMapping.ROHLOFF2_PG4);
 		m.addPageSelector(items, selectedIndex);
 	}
 

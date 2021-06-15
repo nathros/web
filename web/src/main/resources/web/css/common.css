@@ -1,5 +1,6 @@
 * {
 	font-family: sans-serif;
+	word-wrap: break-word;
 }
 body {
 	margin: 0;
@@ -69,6 +70,12 @@ select:focus {
 
 .common-container-centre {
 	text-align: center;
+}
+
+.superscript {
+	position: relative;
+	top: -0.5em;
+	font-size: 80%;
 }
 
 @media

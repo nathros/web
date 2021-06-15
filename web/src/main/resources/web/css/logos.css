@@ -1,0 +1,285 @@
+/*.logo-little {
+	transition: background-size 0.1s ease-in-out;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 90%;
+	border: none;
+	width: 2rem;
+	height: 2rem;
+}
+
+.logo-little:hover {
+	background-size: 95%;
+}
+
+.logo-tooltip {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+}
+
+.logo-tooltip .logo-tooltip-bottom {
+    left: 50%;
+	top: 120%;
+    transform: translate(-50%, 0);
+    padding: 1rem;
+    background-color: black;
+    font-size: 13px;
+    border-radius: 8px;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    display: none;
+}
+
+.logo-tooltip:hover .logo-tooltip-bottom {
+    display:block;
+}
+
+.logo-tooltip .logo-tooltip-bottom i {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.logo-tooltip .logo-tooltip-bottom i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%,50%) rotate(45deg);
+    background-color: black;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+.logo-tooltip .logo-tooltip-bottom p {
+	margin: 0;
+	white-space: nowrap;
+	color: white;
+	font-size: 0.7rem;
+}*/
+
+/************start*/
+
+.logo-little {
+	border: none;
+	width: 2rem;
+	height: 2rem;
+	margin-right: 0.3rem;
+}
+
+.logo-little::before
+{
+	content: "";
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	z-index: 50;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	*transition: background-size 0.1s ease-in-out;
+}
+
+.logo-little:hover::before {
+	transform: rotate(360deg);
+	transition: transform .4s ease-in-out;
+	*background-size: 95%;
+}
+
+.logo-tooltip {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+}
+
+.logo-tooltip .logo-tooltip-bottom {
+    /*min-width: 200px;*/
+    left: 50%;
+	top: 120%;
+    transform: translate(-50%, 0);
+    padding: 1rem;
+    background-color: var(--navbar-background-colour);
+    font-size: 13px;
+    border-radius: 8px;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    display: none;
+}
+
+.logo-tooltip:hover .logo-tooltip-bottom {
+    display:block;
+	z-index: 51;
+}
+
+.logo-tooltip .logo-tooltip-bottom i {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.logo-tooltip .logo-tooltip-bottom i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%,50%) rotate(45deg);
+    background-color: var(--navbar-background-colour);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+.logo-tooltip .logo-tooltip-bottom p {
+	margin: 0;
+	white-space: nowrap;
+	color: white;
+	font-size: 0.7rem;
+}
+/*************/
+
+
+/* https://websemantics.uk/tools/image-to-data-uri-converter/ */
+
+.xilinx-logo::before {
+    background-image: url("http://svgur.com/i/YAD.svg");
+}
+
+.cpp-logo::before {
+    background-image: url("http://svgur.com/i/YA1.svg");
+}
+
+.csharp-logo::before {
+    background-image: url("http://svgur.com/i/YAS.svg");
+}
+
+.c-logo::before {
+    background-image: url("http://svgur.com/i/YA0.svg");
+}
+
+.java-logo::before {
+    background-image: url("http://svgur.com/i/YAR.svg");
+}
+
+.jira-logo::before {
+    background-image: url("http://svgur.com/i/YAC.svg");
+}
+
+.linux-logo::before {
+    background-image: url("http://svgur.com/i/Y9v.svg");
+}
+
+.gradle-logo::before {
+    background-image: url("http://svgur.com/i/Y9W.svg");
+}
+
+.yocto-logo::before {
+    background-image: url("http://svgur.com/i/Y8f.svg");
+}
+
+.q-pulse-logo::before {
+    background-image: url("http://svgur.com/i/Y8r.svg");
+}
+
+.freertos-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Freertos.svg");
+}
+
+.vivado-logo::before {
+	background-image: url("https://i.imgur.com/TMeeOOV.png");
+}
+
+.vitis-logo::before {
+	background-image: url("https://i.imgur.com/Z9YUhdL.png");
+}
+
+.visual-studio-logo::before {
+	background-image: url("http://svgur.com/i/Y9L.svg");
+}
+
+.cypress-logo::before {
+	background-image: url("http://svgur.com/i/YAN.svg");
+}
+
+.cmake-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/8f/Breezeicons-apps-48-cmake.svg");
+}
+
+.atmel-studio-logo::before {
+	background-image: url("https://www.it.unlv.edu/sites/default/files/styles/250_width/public/sites/default/files/assets/software/icons/atmel_studio.png?itok=Y_BrK5R2");
+}
+
+.clion-logo::before {
+	background-image: url("http://svgur.com/i/Y8y.svg");
+}
+
+.nxp-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a7/NXP-Logo.svg");
+}
+
+.microchip-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/ca/Microchip-Logo.svg");
+}
+
+.aws-logo::before {
+	background-image: url("http://svgur.com/i/Y9M.svg");
+}
+
+.aws-ec2-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b9/AWS_Simple_Icons_Compute_Amazon_EC2_Instances.svg");
+}
+
+.aws-lambda-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/en/e/e9/Amazon_Lambda_architecture_logo.png");
+}
+
+.aws-dyndb-logo::before {
+	background-image: url("https://iconape.com/wp-content/files/tm/33928/png/aws-dynamodb.png");
+}
+
+.eclipse-logo::before {
+	background-image: url("http://svgur.com/i/YAZ.svg");
+}
+
+.open-suse-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d0/OpenSUSE_Logo.svg");
+}
+
+.postgres-sql-logo::before {
+	background-image: url("https://wiki.postgresql.org/images/a/a4/PostgreSQL_logo.3colors.svg");
+}
+
+.mqtt-logo::before {
+	background-image: url("https://obrienlabs.net/images/content/mosquitto_logo.png");
+}
+
+.jenkins-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg");
+}
+
+.git-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg");
+}
+
+.svn-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/22/Apache_Subversion_logo.svg");
+}
+ 
+.altium-logo::before {
+	background-image: url("https://crackproduct.com/wp-content/uploads/2021/03/Altium-Designer-Crack-License-Key-Updated-Free-Download.png");
+}
+
+.solid-works-logo::before {
+	background-image: url("http://svgur.com/i/YAV.svg");
+}
+
+

@@ -56,10 +56,14 @@
 	.horizontal-section-text-left {
 		margin: 1em;
 		margin-top: 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 
 	.horizontal-section-text-right {
 		margin: 1em;
 		margin-top: 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }

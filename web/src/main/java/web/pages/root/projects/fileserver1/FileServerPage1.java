@@ -17,19 +17,19 @@ public class FileServerPage1 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
 
-		m.addHead(css, js, "File Server 1");
+		m.addHead(css, js, "FreeNAS Backup Server");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects);
 
-		m.addBanner("File Server 1", Resource.IMG_BANNER_FILESERVER1);
+		m.addBanner("FreeNAS Backup Server", Resource.IMG_BANNER_FILESERVER1);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
 		////
-		m.addModalImage("https://i.imgur.com/h7fRzRG.jpg", "https://i.imgur.com/bq6Nm5v.jpg", "max-width:60%");
-		m.ln("<a class=\"btn btn-blue ripple\">Work in Progress</a>");
+		m.addModalImage("https://i.imgur.com/h7fRzRG.jpg", "https://i.imgur.com/bq6Nm5v.jpg", "max-width:60%", null);
+		m.ln("<br><a class=\"btn btn-blue ripple\">Page is work in progress</a>");
 		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
