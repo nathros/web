@@ -3,7 +3,7 @@
 }
 
 .timeline-item {
-	padding: 3rem 2rem 2rem;
+	padding: 0 0 2rem 2rem;
 	position: relative;
 	color: rgba(0, 0, 0, 0.7);
 	border-left: 2px solid rgba(0, 0, 0, 0.3);	
@@ -14,7 +14,7 @@
 }
 
 [data-date-is]::before {
-	content: attr(data-date-is) " ";
+	*content: attr(data-date-is) " "; /* no longer in use, cannot select text */
 }
 
 .timeline-item::before {
@@ -61,6 +61,12 @@
 
 .timeline-item-content > h4 {
 	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.timeline-item-content > h2 {
+	padding-top: 0.6rem;
+	margin-top: 0;
 }
 
 

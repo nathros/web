@@ -1,71 +1,3 @@
-/*.logo-little {
-	transition: background-size 0.1s ease-in-out;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 90%;
-	border: none;
-	width: 2rem;
-	height: 2rem;
-}
-
-.logo-little:hover {
-	background-size: 95%;
-}
-
-.logo-tooltip {
-    display: inline-block;
-    position: relative;
-    text-align: left;
-}
-
-.logo-tooltip .logo-tooltip-bottom {
-    left: 50%;
-	top: 120%;
-    transform: translate(-50%, 0);
-    padding: 1rem;
-    background-color: black;
-    font-size: 13px;
-    border-radius: 8px;
-    position: absolute;
-    box-sizing: border-box;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
-    display: none;
-}
-
-.logo-tooltip:hover .logo-tooltip-bottom {
-    display:block;
-}
-
-.logo-tooltip .logo-tooltip-bottom i {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -12px;
-    width: 24px;
-    height: 12px;
-    overflow: hidden;
-}
-
-.logo-tooltip .logo-tooltip-bottom i::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    left: 50%;
-    transform: translate(-50%,50%) rotate(45deg);
-    background-color: black;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
-}
-
-.logo-tooltip .logo-tooltip-bottom p {
-	margin: 0;
-	white-space: nowrap;
-	color: white;
-	font-size: 0.7rem;
-}*/
-
-/************start*/
-
 .logo-little {
 	border: none;
 	width: 2rem;
@@ -83,13 +15,16 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100%;
-	*transition: background-size 0.1s ease-in-out;
 }
 
 .logo-little:hover::before {
-	transform: rotate(360deg);
-	transition: transform .4s ease-in-out;
-	*background-size: 95%;
+	animation: spin-animation 0.2s;
+}
+
+@keyframes spin-animation {
+	0%   { transform: rotate(0deg); }
+	50%   { transform: rotate(20deg); }
+	100% { transform: rotate(0deg); }
 }
 
 .logo-tooltip {
@@ -105,11 +40,10 @@
     transform: translate(-50%, 0);
     padding: 1rem;
     background-color: var(--navbar-background-colour);
-    font-size: 13px;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     position: absolute;
     box-sizing: border-box;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
     display: none;
 }
 
@@ -128,13 +62,13 @@
     overflow: hidden;
 }
 
-.logo-tooltip .logo-tooltip-bottom i::after {
+.logo-tooltip .logo-tooltip-bottom i::after { /* arrow */
     content: '';
     position: absolute;
     width: 12px;
     height: 12px;
     left: 50%;
-    transform: translate(-50%,50%) rotate(45deg);
+    transform: translate(-50%, 50%) rotate(45deg);
     background-color: var(--navbar-background-colour);
     box-shadow: 0 1px 8px rgba(0,0,0,0.5);
 }
