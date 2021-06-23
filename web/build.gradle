@@ -10,9 +10,9 @@ repositories {
 }
 
 dependencies {
-	compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.918'
-	compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
-	compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.918'
+	implementation group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
+	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 }
 
 compileJava { // AWS Lamdba currently June-2019 only supports Java 8
@@ -43,9 +43,9 @@ shadowJar {
 	def jarName = "web-" + ext.getDateTimeStr()
 	
 	//minimize()	
-	baseName = jarName
-   	classifier = null
-   	version = null
+	archiveBaseName = jarName
+	classifier = null
+	archiveVersion = null
    	
    	doLast { // Move jar file to root of build dir
         copy {
