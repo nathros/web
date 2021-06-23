@@ -42,10 +42,10 @@ public class PageContact extends BasePage {
 		final String subject = requestInfo.getBodyParam("subject");
 		final String comment = requestInfo.getBodyParam("comment");
 		final String captcha = requestInfo.getBodyParam("captcha").replaceAll(" ", "");
-		;
 
 		final String styleMissing = " style=\"color:red\"";
 		final String requiredParam = " REQUIRED";
+		boolean localFailure = false;
 		String style = "";
 		String required = "";
 		boolean isPost = requestInfo.getMethod() == HttpMethod.POST;
@@ -60,55 +60,63 @@ public class PageContact extends BasePage {
 				style = styleMissing;
 				required = requiredParam;
 				parseFailure = true;
+				localFailure = true;
 			}
 		}
 		m.ln("	<div" + style + ">Name: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
 		m.ln("	<br><br>");
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if (email.equals("")) {
 				style = styleMissing;
 				required = requiredParam;
 				parseFailure = true;
+				localFailure = true;
 			} else {
 				if (!Helper.isValidEmail(email)) {
 					required = " INVALID EMAIL";
 					style = styleMissing;
 					parseFailure = true;
+					localFailure = true;
 				}
 			}
 		}
 		m.ln("	<div" + style + ">Email-address: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"email\" value=\"" + email + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"email\" value=\"" + email + "\">");
 		m.ln("	<br><br>");
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if (subject.equals("")) {
 				style = styleMissing;
 				required = requiredParam;
 				parseFailure = true;
+				localFailure = true;
 			}
 		}
 		m.ln("	<div" + style + ">Subject: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
 
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if (comment.equals("")) {
 				style = styleMissing;
 				required = requiredParam;
 				parseFailure = true;
+				localFailure = true;
 			}
 		}
 		m.ln("	<div" + style + ">Message: * " + required + "</div>");
 
-		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\">");
+		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" " + (localFailure ? " class=\"forms-input-error\"" : "") + ">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);
@@ -132,11 +140,13 @@ public class PageContact extends BasePage {
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";
 		required = "";
+		localFailure = false;
 		if (isPost) {
 			if ("".equals(captcha)) {
 				style = styleMissing;
 				required = "INCORRECT";
 				parseFailure = true;
+				localFailure = true;
 			} else {
 				try {
 					String compare = Debug.serialise(captcha);
@@ -144,14 +154,16 @@ public class PageContact extends BasePage {
 						style = styleMissing;
 						required = "INCORRECT";
 						parseFailure = true;
+						localFailure = true;
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
+					localFailure = true;
 				}
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"off\">");
+		m.ln("	<input class=\"forms-input " + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
 		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {

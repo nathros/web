@@ -1,7 +1,5 @@
 .logo-little {
 	border: none;
-	width: 2rem;
-	height: 2rem;
 	margin-right: 0.3rem;
 }
 
@@ -9,12 +7,15 @@
 {
 	content: "";
 	position: absolute;
-	width: 2rem;
-	height: 2rem;
 	z-index: 50;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 100%;
+	background-size: contain;
+}
+
+.logo-little, .logo-little::before {
+	width: 2rem;
+	height: 2rem;
 }
 
 .logo-little:hover::before {
@@ -70,7 +71,7 @@
     left: 50%;
     transform: translate(-50%, 50%) rotate(45deg);
     background-color: var(--navbar-background-colour);
-    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .logo-tooltip .logo-tooltip-bottom p {
@@ -79,10 +80,6 @@
 	color: white;
 	font-size: 0.7rem;
 }
-/*************/
-
-
-/* https://websemantics.uk/tools/image-to-data-uri-converter/ */
 
 .xilinx-logo::before {
     background-image: url("http://svgur.com/i/YAD.svg");
@@ -216,4 +213,35 @@
 	background-image: url("http://svgur.com/i/YAV.svg");
 }
 
+.vhdl-logo::before {
+	background-image: url("https://cas.tudelft.nl/fpga_tdc/images/logos/VHDL_icon.svg");
+}
+
+.verilog-logo::before {
+	background-image: url("http://svgur.com/i/YP4.svg");
+}
+
+.verilog-logo::before {
+	background-image: url("http://svgur.com/i/YP4.svg");
+}
+
+.device-tree-logo::before {
+	background-image: url("https://devicetree-specification.readthedocs.io/en/latest/_static/devicetree-logo.svg");
+}
+
+.u-boot-logo::before {
+	background-image: url("http://svgur.com/i/YPx.svg");
+}
+
+.atmel-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/51/Atmel_logo.svg");
+}
+
+.iec-logo::before {
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3e/International_Electrotechnical_Commission_Logo.svg");
+}
+
+.gwt-logo::before {
+	background-image: url("https://symbols.getvecta.com/stencil_82/107_gwt-project-icon.fc9159e9c3.svg");
+}
 

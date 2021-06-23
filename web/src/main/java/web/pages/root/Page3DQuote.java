@@ -238,8 +238,7 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
 		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {

@@ -16,7 +16,7 @@ public class PageCV extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_TOGGLE_DIV, Resource.CSS_TIMELINE, Resource.CSS_LOGOS };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_TOGGLE_DIV};
 
 		m.addHead(css, js, "CV");
 		m.ln("<body>");
@@ -46,9 +46,15 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("linux", "PetaLinux"));
 		job.ln(m.getLittleLogoWithTooltip("vivado", "Vivado 2020.1"));
 		job.ln(m.getLittleLogoWithTooltip("vitis", "Vitis 2020.1"));
-		job.ln(m.getLittleLogoWithTooltip("c", "C 11")); //TODO this logo has sizeing issue
+		job.ln(m.getLittleLogoWithTooltip("freertos", "FreeRTOS 10"));
+		job.ln(m.getLittleLogoWithTooltip("c", "C 11"));
+		job.ln(m.getLittleLogoWithTooltip("cpp", "C++ 17"));
 		job.ln(m.getLittleLogoWithTooltip("visual-studio", "Visual Studio 2019"));
 		job.ln(m.getLittleLogoWithTooltip("csharp", "C#"));
+		job.ln(m.getLittleLogoWithTooltip("vhdl", "VHDL"));
+		job.ln(m.getLittleLogoWithTooltip("verilog", "Verilog"));
+		job.ln(m.getLittleLogoWithTooltip("device-tree", "Linux Device Tree"));
+		job.ln(m.getLittleLogoWithTooltip("u-boot", "U-Boot"));
 		job.ln(m.getLittleLogoWithTooltip("git", "git"));
 		job.ln(m.getLittleLogoWithTooltip("svn", "SVN"));
 		job.ln("<i class=\"superscript\">Technologies used</i><br>");
@@ -102,20 +108,22 @@ public class PageCV extends BasePage {
 
 
 		job.ln(m.getLittleLogoWithTooltip("cypress", "Cypress PSoC 6"));
-		job.ln(m.getLittleLogoWithTooltip("nxp", "i.MX8 SoC"));
-		job.ln(m.getLittleLogoWithTooltip("microchip", "FIND SoC")); //TODO find chip
-		job.ln(m.getLittleLogoWithTooltip("cmake", "CMake"));
-		job.ln(m.getLittleLogoWithTooltip("freertos", "FreeRTOS 10"));
-		job.ln(m.getLittleLogoWithTooltip("atmel-studio", "Atmel Studio 7"));
-		job.ln(m.getLittleLogoWithTooltip("clion", "CLion IDE"));
+		job.ln(m.getLittleLogoWithTooltip("microchip", "Microchip SAMA5D27"));
+		job.ln(m.getLittleLogoWithTooltip("nxp", "NXP i.MX8 SoC"));
+		job.ln(m.getLittleLogoWithTooltip("atmel", "Atmel SAM V71 Xplained Ultra"));
 		job.ln(m.getLittleLogoWithTooltip("yocto", "Yocto Poky"));
-		job.ln(m.getLittleLogoWithTooltip("mqtt", "Mosquitto MQTT"));
-		job.ln(m.getLittleLogoWithTooltip("git", "git"));
+		job.ln(m.getLittleLogoWithTooltip("freertos", "FreeRTOS 10"));
 		job.ln(m.getLittleLogoWithTooltip("cpp", "C++ 14"));
 		job.ln(m.getLittleLogoWithTooltip("c", "C 99"));
 		job.ln(m.getLittleLogoWithTooltip("csharp", "C#"));
+		job.ln(m.getLittleLogoWithTooltip("cmake", "CMake"));
+		job.ln(m.getLittleLogoWithTooltip("git", "git"));
+		job.ln(m.getLittleLogoWithTooltip("clion", "CLion IDE"));
+		job.ln(m.getLittleLogoWithTooltip("atmel-studio", "Atmel Studio 7"));
 		job.ln(m.getLittleLogoWithTooltip("visual-studio", "Visual Studio 2019"));
+		job.ln(m.getLittleLogoWithTooltip("mqtt", "Mosquitto MQTT"));
 		job.ln(m.getLittleLogoWithTooltip("jenkins", "Jenkins"));
+		job.ln(m.getLittleLogoWithTooltip("iec", "IEC 62304"));
 		job.ln(m.getLittleLogoWithTooltip("q-pulse", "Q-Pulse QMS"));
 		job.ln("<i class=\"superscript\">Technologies used</i><br>");
 
@@ -143,6 +151,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("eclipse", "Eclipse IDE"));
 		job.ln(m.getLittleLogoWithTooltip("aws-dyndb", "AWS DynamoDB"));
 		job.ln(m.getLittleLogoWithTooltip("postgres-sql", "PostgreSQL"));
+		job.ln(m.getLittleLogoWithTooltip("gwt", "Google Web Toolkit 2.7"));
 		job.ln(m.getLittleLogoWithTooltip("gradle", "Gradle"));
 		job.ln(m.getLittleLogoWithTooltip("java", "Java 8"));
 		job.ln(m.getLittleLogoWithTooltip("svn", "SVN"));

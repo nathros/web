@@ -3,10 +3,10 @@
 	border-width: 0 3px 3px 0;
 	display: inline-block;
 	padding: 3px;
-	transform: rotate(45deg);
+	transform: rotate(45deg) translateY(-0.2rem) translateX(-0.2rem);
 	transition: all 0.5s ease;
 	position: absolute;
-	top: 0.5rem;
+	top: 0.75rem;
 	right: 0.5rem;
 }
 
@@ -26,16 +26,16 @@
 }
 
 .toggle-container {
-	position: relative;	
+	position: relative;
 }
 
 .toggle-container .toggle-content {
 	width: 100%;
-	display: table;
+	display: table-cell;
 	overflow: auto; /* was hidden, on close briefly shows scrollbar */
 	overflow-y: hidden;
 	transition: all 0.5s ease;
-	height: 50px; /* used for move animation */
+	/*height: 50px; /* used for move animation cannot be set dynamically in css so done in toggle-div.js */
 }
 
 .toggle-container input[type="checkbox"]:checked + .toggle-content {

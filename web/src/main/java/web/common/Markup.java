@@ -94,7 +94,7 @@ public class Markup {
 		buffer.ln("<div class=\"toggle-container\">");
 		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount
 				+ "\">".concat(title).concat("</label>"));
-		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\">");
+		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\" onclick=\"toggleContentHeight(this)\">");
 		buffer.ln("	<div class=\"toggle-content\">");
 		buffer.ln(content);
 		buffer.ln("	</div>"); // toggle-content
