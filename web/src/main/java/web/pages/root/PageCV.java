@@ -46,6 +46,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("linux", "PetaLinux"));
 		job.ln(m.getLittleLogoWithTooltip("vivado", "Vivado 2020.1"));
 		job.ln(m.getLittleLogoWithTooltip("vitis", "Vitis 2020.1"));
+		job.ln(m.getLittleLogoWithTooltip("white-rabbit", "CERN White Rabbit"));
 		job.ln(m.getLittleLogoWithTooltip("freertos", "FreeRTOS 10"));
 		job.ln(m.getLittleLogoWithTooltip("c", "C 11"));
 		job.ln(m.getLittleLogoWithTooltip("cpp", "C++ 17"));
@@ -84,7 +85,7 @@ public class PageCV extends BasePage {
 		m.ln("				<h2>December 2017 - 2020: Software Engineer</h2>");
 		m.ln("				<img src=\"http://svgur.com/i/Y9g.svg\" alt=\"QuantuMDx Group Ltd\"> </img>");
 		m.ln("				<i class=\"superscript\">QuantuMDx Group Ltd: <a href=\"https://quantumdx.com\" target=\"_blank\">https://quantumdx.com</a></i>");
-		m.ln("				<h4>Embedded C/C++ software developer for portable PCR and QPCR diagnostics device</h4>");
+		m.ln("				<h4>Embedded C/C++ software developer for portable PCR and QPCR medical diagnostics device</h4>");
 		
 		job.ln("<p>Low Level Controller - Fluid heating and shuttling, cassette handling plus other controls<br>");
 		job.ln("Atmel SAMV71 ATSAMV71Q21 ARM Cortex M-7 Atmel Studio 7 with FreeRTOS V10.0.1, FFF(fake function framework) testing.");

@@ -32,8 +32,8 @@
 .toggle-container .toggle-content {
 	width: 100%;
 	display: table-cell;
-	overflow: auto; /* was hidden, on close briefly shows scrollbar */
-	overflow-y: hidden;
+	/*overflow: auto; /* was hidden, on close briefly shows scrollbar */
+	/*overflow-y: hidden; */
 	transition: all 0.5s ease;
 	/*height: 50px; /* used for move animation cannot be set dynamically in css so done in toggle-div.js */
 }

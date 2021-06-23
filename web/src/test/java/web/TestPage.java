@@ -46,12 +46,15 @@ public class TestPage {
 			long startTime = System.currentTimeMillis();
 			Lambda ret = new Lambda();
 			String response = "NULL missing startup param";
-			if (args.length > 1) {
-				if ("fixed".equals(args[1])) {
+			if (args.length > 0) {
+				if ("fixed".equals(args[0])) {
 					response = ret.handleRequest(RequestFactory.getPremadeRequestObject());
-				} else if ("dynamic".equals(args[1])) {
+				} else if ("dynamic".equals(args[0])) {
 					response = ret.handleRequest(RequestFactory.generateRequestObject(headers));
 				}
+			} else {
+				System.out.println("Missing start param, assume dynamic");
+				response = ret.handleRequest(RequestFactory.generateRequestObject(headers));
 			}
 			// ============================================================== //
 

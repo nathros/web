@@ -245,3 +245,7 @@
 	background-image: url("https://symbols.getvecta.com/stencil_82/107_gwt-project-icon.fc9159e9c3.svg");
 }
 
+.white-rabbit-logo::before {
+	background-image: url("https://white-rabbit.web.cern.ch/images/WRlogo-original.jpg");
+}
+
