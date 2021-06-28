@@ -27,6 +27,11 @@
 
 .toggle-container {
 	position: relative;
+	overflow-y: visible;
+}
+
+.toggle-content {
+	overflow-y: visible;
 }
 
 .toggle-container .toggle-content {
@@ -42,6 +47,7 @@
 	height: 0; /* used for move animation */
 	opacity: 0; /* used for fade animation */
 	display: block;
+	overflow-y: hidden;
 }
 
 .toggle-container input[type="checkbox"]:checked ~ .toggle-arrow {

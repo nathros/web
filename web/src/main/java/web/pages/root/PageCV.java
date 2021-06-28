@@ -35,7 +35,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020? - Present\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2020? - Present: Job Title</h2>");
-		m.ln("				<img src=\"https://i.imgur.com/drsWZYP.jpeg\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\"> </img>");
+		m.ln("				<img src=\"https://i.imgur.com/drsWZYP.jpeg\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\">");
 		m.ln("				<i class=\"superscript\">Slipstream Engineering Design Ltd: <a href=\"https://www.slipstream-design.co.uk/\" target=\"_blank\">https://www.slipstream-design.co.uk/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for RF systems in commercial and military applications</h4>");
 
@@ -83,8 +83,8 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"December 2017 - 2020: Software Engineer\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>December 2017 - 2020: Software Engineer</h2>");
-		m.ln("				<img src=\"http://svgur.com/i/Y9g.svg\" alt=\"QuantuMDx Group Ltd\"> </img>");
-		m.ln("				<i class=\"superscript\">QuantuMDx Group Ltd: <a href=\"https://quantumdx.com\" target=\"_blank\">https://quantumdx.com</a></i>");
+		m.ln("				<img src=\"http://svgur.com/i/Y9g.svg\" alt=\"QuantuMDx Group Ltd\">");
+		m.ln("				<i class=\"superscript\">QuantuMDx Group Ltd: <a href=\"https://quantumdx.com\" target=\"_blank\">https://quantumdx.com/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for portable PCR and QPCR medical diagnostics device</h4>");
 		
 		job.ln("<p>Low Level Controller - Fluid heating and shuttling, cassette handling plus other controls<br>");
@@ -138,7 +138,7 @@ public class PageCV extends BasePage {
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>Graduate Job</h2>");
 		
-		m.ln("				<img src=\"https://i.imgur.com/zJHyO4f.png\" alt=\"EnAppSys\"> </img>");
+		m.ln("				<img src=\"https://i.imgur.com/zJHyO4f.png\" alt=\"EnAppSys\">");
 		m.ln("				<i class=\"superscript\">EnAppSys Ltd: <a href=\"https://www.enappsys.com/\" target=\"_blank\">https://www.enappsys.com/</a></i>");
 		m.ln("				<h4>Java software developer providing energy market analytics for trading</h4>");
 
