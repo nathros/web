@@ -44,8 +44,8 @@ public class PageHome extends BasePage {
 		m.ln("				<ul>");
 		m.ln("					<li class=\"tab-wrapper\">");
 		m.ln("						<ul>");
-		m.ln("							<li id=\"tab-id-1\"><label class=\"long-text-fix\" for=\"tab-1\">Embedded Software Contracting</label><div class=\"shadow-cover long-text-fix-shadow\"></div></li>");
-		m.ln("							<li id=\"tab-id-2\"><label for=\"tab-2\">3D Printing Service</label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-1\"><label for=\"tab-1\"><div>Embedded Software Contracting</div></label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-2\"><label for=\"tab-2\"><div>3D Printing Service</div></label><div class=\"shadow-cover\"></div></li>");
 		m.ln("						</ul>");
 		m.ln("					</li>"); // tab-wrapper
 		m.ln("				</ul>");
@@ -95,9 +95,9 @@ public class PageHome extends BasePage {
 		m.ln("				<ul>");
 		m.ln("					<li class=\"tab-wrapper\">");
 		m.ln("						<ul>");
-		m.ln("							<li id=\"tab-id-3\"><label for=\"tab-3\">Rohloff Build</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("							<li id=\"tab-id-4\"><label for=\"tab-4\">File Server</label><div class=\"shadow-cover\"></div></li>");
-		m.ln("							<li id=\"tab-id-5\"><label for=\"tab-5\">Contact</label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-3\"><label for=\"tab-3\"><div>Rohloff Build</div></label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-4\"><label for=\"tab-4\"><div>File Server</div></label><div class=\"shadow-cover\"></div></li>");
+		m.ln("							<li id=\"tab-id-5\"><label for=\"tab-5\"><div>Contact</div></label><div class=\"shadow-cover\"></div></li>");
 		m.ln("						</ul>");
 		m.ln("					</li>"); // tab-wrapper
 		m.ln("				</ul>");
