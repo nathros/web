@@ -29,6 +29,11 @@ public class PageContact extends BasePage {
 
 		m.ln("<div id=\"fullscreen-message\">");
 		m.ln("	<h1>Please Wait...</h1>");
+		m.ln("	<div class=\"loading\">");
+		m.ln("		<div class=\"bounce1\"></div>");
+		m.ln("		<div class=\"bounce2\"></div>");
+		m.ln("		<div class=\"bounce3\"></div>");
+		m.ln("	</div>");
 		m.ln("</div>");
 
 		m.addNavbar(NavbarItem.Contact);
@@ -64,7 +69,8 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Name: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -86,7 +92,8 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Email-address: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"email\" value=\"" + email + "\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"email\" value=\"" + email + "\">");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -101,7 +108,8 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Subject: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
 
 		style = "";
 		required = "";
@@ -116,7 +124,8 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Message: * " + required + "</div>");
 
-		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" " + (localFailure ? " class=\"forms-input-error\"" : "") + ">");
+		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" "
+				+ (localFailure ? " class=\"forms-input-error\"" : "") + ">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);
@@ -163,7 +172,8 @@ public class PageContact extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input " + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
+		m.ln("	<input class=\"forms-input " + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
 		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {
@@ -188,8 +198,8 @@ public class PageContact extends BasePage {
 				if (!result.equals(Tools.EmailOkayResponse)) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
 					m.ln("<p>".concat(result).concat("</p>"));
-				}
-				else m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
+				} else
+					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 			}
 		}
 

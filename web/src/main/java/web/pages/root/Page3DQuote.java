@@ -37,6 +37,11 @@ public class Page3DQuote extends BasePage {
 
 		m.ln("<div id=\"fullscreen-message\">");
 		m.ln("	<h1>Please Wait...</h1>");
+		m.ln("	<div class=\"loading\">");
+		m.ln("		<div class=\"bounce1\"></div>");
+		m.ln("		<div class=\"bounce2\"></div>");
+		m.ln("		<div class=\"bounce3\"></div>");
+		m.ln("	</div>");
 		m.ln("</div>");
 
 		addNavbar3D();
@@ -82,7 +87,7 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<br><br>");
 
 		m.ln("	<div>Service:</div>");
-		m.ln("	<div class=\"forms-input\" style=\"padding-left:0;padding-right:0\">");
+		m.ln("	<div class=\"forms-input\" style=\"padding:0\">");
 		m.ln("		<div style=\"display:flex;gap:0rem;\">");
 		m.ln("			<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
 		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">");
@@ -238,7 +243,8 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "") + "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
+		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
 		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {
@@ -249,7 +255,8 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 		m.ln("	<br><br>");
 
-		//m.ln("	<input class=\"btn btn-blue ripple\" type=\"submit\" value=\"Submit\">");
+		// m.ln(" <input class=\"btn btn-blue ripple\" type=\"submit\"
+		// value=\"Submit\">");
 		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\">");
 		if (isPost) {
 			if (parseFailure) {
@@ -268,8 +275,8 @@ public class Page3DQuote extends BasePage {
 				if (!result.equals(Tools.EmailOkayResponse)) {
 					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
 					m.ln("<p>".concat(result).concat("</p>"));
-				}
-				else m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
+				} else
+					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
 			}
 		}
 
