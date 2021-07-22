@@ -61,7 +61,6 @@ public class PageRohloffR22 extends BasePage {
 		
 		m.l("Saddle rail mounted lights are available and this is what I used in the original bike build, they are discrete and not very protusruhg. ");
 		m.l("One issue is that the position of the light is so high that it can easily be covered by a coat or bag. ");
-		m.ln("</p>");
 
 
 
@@ -78,7 +77,7 @@ public class PageRohloffR22 extends BasePage {
 		m.l("Praxis do manufacture a BB30 to M30 converter. M30 is similar to GXP in that the non-drive slide spindle is 2mm smaller than drive side. In this case 30mm drive and 28mm non-drive");
 		m.l("I ordered a Praxis M30 bottom bracket, the 68-4001R. Doing some reasearch beforehand I determined that M30 uses standard 6806 bearings with a 1mm stepdown shim for the non-drive side");
 		m.l("I was able to press out both bearings and press in standard 6806 bearings");
-		m.ln("</p>");
+		
 		
 		m.ln("<p>");
 		//When it was desieded to use a crankset with a steel 24mm axle I had to get a new 

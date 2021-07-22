@@ -70,7 +70,7 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Name: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\">");
+				+ "\" type=\"text\" name=\"firstname\" value=\"" + firstname + "\"aria-label=\"Firstname\">");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -93,7 +93,7 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Email-address: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"email\" value=\"" + email + "\">");
+				+ "\" type=\"text\" name=\"email\" value=\"" + email + "\" aria-label=\"Email\">");
 		m.ln("	<br><br>");
 
 		style = "";
@@ -109,7 +109,7 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Subject: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"subject\" value=\"" + subject + "\"><br><br>");
+				+ "\" type=\"text\" name=\"subject\" value=\"" + subject + "\" aria-label=\"Subject\"><br><br>");
 
 		style = "";
 		required = "";
@@ -125,7 +125,7 @@ public class PageContact extends BasePage {
 		m.ln("	<div" + style + ">Message: * " + required + "</div>");
 
 		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" "
-				+ (localFailure ? " class=\"forms-input-error\"" : "") + ">");
+				+ (localFailure ? " class=\"forms-input-error\"" : "") + " aria-label=\"Comment\">");
 		if (isPost) {
 			if (!comment.equals("")) {
 				m.l(comment);
@@ -144,7 +144,7 @@ public class PageContact extends BasePage {
 			number2 = Math.abs(random.nextInt() % 10);
 		} while ((number2 == 6) || (number2 == 9));
 		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
-		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\">");
+		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		style = "";
@@ -173,7 +173,7 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
 		m.ln("	<input class=\"forms-input " + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
+				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\" aria-label=\"Password\">");
 		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
 		String encodedCaptcha = "";
 		try {
@@ -184,7 +184,7 @@ public class PageContact extends BasePage {
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 
 		m.ln("	<br><br>");
-		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\">");
+		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">");
 
 		if (isPost) {
 			if (parseFailure) {

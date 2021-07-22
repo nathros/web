@@ -39,7 +39,8 @@ public class TestPage {
 			System.out.println("Client request: " + headers.get(0) + " Body:" + payload.toString());
 			out = new PrintWriter(socket.getOutputStream(), true);
 			out.println("HTTP/1.0 200");
-			out.println("Content-type: text/html");
+			out.println("Content-type: text/html; charset=UTF-8");
+			out.println("Cookie: SameSite=Strict");
 			out.println("Server-name: server");
 
 			// ============================================================== //

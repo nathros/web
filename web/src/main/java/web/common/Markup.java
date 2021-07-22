@@ -148,12 +148,12 @@ public class Markup {
 	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle, String caption) {
 		//if (true )return;
 		ln("<div class=\"modal-container\" style=\"".concat(thumbnailStyle).concat("\">"));
-		ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" >");
+		ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" aria-label=\"Scroll\">");
 		ln("		<img class=\"modal-thumbnail\" src=\"".concat(thumbnailURL).concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\">"));
 		ln("	</a>"); // #img
 		ln("</div>"); // modal-container
 
-		ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\">");
+		ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\" aria-label=\"Scroll\">");
 		ln("	<div>");
 		ln("		<img src=\"".concat(imageURL).concat("\" alt=\"\">"));
 		if (null != caption) ln("		<p>".concat(caption).concat("</p>"));
@@ -194,11 +194,11 @@ public class Markup {
 		ln("<head>");
 		if (null == title)
 			title = "";
+		ln("	<meta charset=\"UTF-8\">"); // Firefox complains about missing encoding
 		ln("	<title>".concat(title).concat("</title>"));
 		ln("	<link rel=\"shortcut icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
 		ln("	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-		ln("	<meta name=\"theme-color\" content=\"00be8dee\">"); // Mobile tab colour
-		ln("	<meta charset=\"UTF-8\">"); // Firefox complains about missing encoding
+		ln("	<meta name=\"theme-color\" content=\"#be8dee\">"); // Mobile tab colour
 
 		if (cssImport != null) {
 			ln("<style>");

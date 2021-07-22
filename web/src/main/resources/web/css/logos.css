@@ -1,3 +1,7 @@
+.logo-group {
+	padding-bottom: 1rem;
+}
+
 .logo-little {
 	border: none;
 	margin-right: 0.3rem;
@@ -35,7 +39,6 @@
 }
 
 .logo-tooltip .logo-tooltip-bottom {
-    /*min-width: 200px;*/
     left: 50%;
 	top: 120%;
     transform: translate(-50%, 0);
@@ -166,11 +169,15 @@
 }
 
 .aws-ec2-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b9/AWS_Simple_Icons_Compute_Amazon_EC2_Instances.svg");
+	background-image: url("http://svgur.com/i/ZLA.svg");
 }
 
 .aws-lambda-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/en/e/e9/Amazon_Lambda_architecture_logo.png");
+	background-image: url("http://svgur.com/i/ZLw.svg");
+}
+
+.aws-load-balancer-logo::before {
+	background-image: url("http://svgur.com/i/ZTA.svg");
 }
 
 .aws-dyndb-logo::before {
@@ -226,7 +233,7 @@
 }
 
 .device-tree-logo::before {
-	background-image: url("https://devicetree-specification.readthedocs.io/en/latest/_static/devicetree-logo.svg");
+	background-image: url("http://svgur.com/i/ZSX.svg");
 }
 
 .u-boot-logo::before {
@@ -234,11 +241,11 @@
 }
 
 .atmel-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/51/Atmel_logo.svg");
+	background-image: url("http://svgur.com/i/ZTh.svg");
 }
 
 .iec-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3e/International_Electrotechnical_Commission_Logo.svg");
+	background-image: url("http://svgur.com/i/ZTY.svg");
 }
 
 .gwt-logo::before {
@@ -247,5 +254,25 @@
 
 .white-rabbit-logo::before {
 	background-image: url("https://white-rabbit.web.cern.ch/images/WRlogo-original.jpg");
+}
+
+.test-stand-logo::before {
+	background-image: url("https://testeract.com/wp-content/uploads/2020/04/TestStand_Icon.png");
+}
+
+.st-logo::before {
+	background-image: url("http://svgur.com/i/ZCy.svg");
+}
+
+.buildroot-logo::before {
+	background-image: url("https://buildroot.org/images/logo.png");
+}
+
+.ise-logo::before {
+	background-image: url("http://1.bp.blogspot.com/-dbxQ9XDEhFo/VPnA-T8MV1I/AAAAAAAAA-A/bmXHJVO3okA/s1600/g4490.png");
+}
+
+.tibco-logo::before {
+	background-image: url("http://svgur.com/i/ZRz.svg");
 }
 
