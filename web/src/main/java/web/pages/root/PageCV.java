@@ -151,12 +151,16 @@ public class PageCV extends BasePage {
 		
 		m.ln("				<img src=\"https://i.imgur.com/zJHyO4f.png\" alt=\"EnAppSys\">");
 		m.ln("				<i class=\"superscript\">EnAppSys Ltd: <a href=\"https://www.enappsys.com/\" target=\"_blank\">https://www.enappsys.com/</a></i>");
-		m.ln("				<h4>Java software developer providing analytics for energy market trading</h4>");
+		m.ln("				<h4>Java software developer providing energy market analytics for energy traders</h4>");
 
 		job.buffer.setLength(0);
-		job.ln("<p>Port of self hosted monolithic system into more extensible microservice architecture for AWS.</p>");
-		job.ln("<p>Full stack web develpment, GWT client and server size development.</p>");
-		job.ln("<p>Realtime processing Tibco messages from Elexon, stored in Postgres database for historical data and sending to realtime traders.</p>");
+		job.ln("<p>Port and migration of self hosted monolithic system into more extensible microservice architecture for AWS. ");
+		job.ln("This included change from OpenSUSE operating system to dynamic scaling EC2 instances and change from Postgres database to NoSQL DynamoDB. ");
+		job.ln("Helped move from Ant build system to the more flexible Gradle</p>");
+		job.ln("<p>Full stack web develpment, helping extend interactive frontend in GWT (Google Web Toolkit) both client and server side.</p>");
+		job.ln("<p>Realtime processing Tibco messages from Elexon, multiple destinations of data inlcluding database for historical access and directly to realtime traders GWT client.</p>");
+		job.ln("<p>Verification and validation of newly deployed systems, fall back and redundancy is critical for 99.9% uptime. ");
+		job.ln("Operating directly with big parties such as National Grid and Elexon while upholding governmental industry regulations. Some projects had requirements for out of hours support.</p>");
 
 		job.ln("<div class=\"logo-group\">");
 		job.ln(m.getLittleLogoWithTooltip("aws", "Amazon Web Services"));
@@ -168,11 +172,13 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("eclipse", "Eclipse IDE"));
 		job.ln(m.getLittleLogoWithTooltip("aws-dyndb", "AWS DynamoDB"));
 		job.ln(m.getLittleLogoWithTooltip("postgres-sql", "PostgreSQL"));
+		job.ln(m.getLittleLogoWithTooltip("tomcat", "Apache Tomcat 8"));
 		job.ln(m.getLittleLogoWithTooltip("gwt", "Google Web Toolkit 2.7"));
-		job.ln(m.getLittleLogoWithTooltip("gradle", "Gradle"));
+		job.ln(m.getLittleLogoWithTooltip("gradle", "Gradle")); // Enappsys used ant, helped them move to Gradle
 		job.ln(m.getLittleLogoWithTooltip("java", "Java 8"));
 		job.ln(m.getLittleLogoWithTooltip("svn", "SVN"));
 		job.ln(m.getLittleLogoWithTooltip("tibco", "TIBCO Enterprise Message Service"));
+		job.ln(m.getLittleLogoWithTooltip("rest", "RESTful API"));
 		job.ln("<i class=\"superscript\">Technologies used</i>");
 		job.ln("</div>");
 
@@ -245,15 +251,26 @@ public class PageCV extends BasePage {
 		m.ln("	<div class=\"timeline-container\">");
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"2011 - 2015\">");
 		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h2>Computer Science</h2>");
-		job.ln("<p>Detailed description</p>");
+		m.ln("				<h2>2011 - 2015</h2>");
+		m.ln("				<img class=\"timeline-img-tall\" src=\"https://i.imgur.com/YAIDy9s.jpeg\" alt=\"University of York\">");
+		m.ln("				<i class=\"superscript\">University of York <a href=\"https://www.york.ac.uk/\" target=\"_blank\">https://www.york.ac.uk/</a></i>");
+		m.ln("				<h4>Computer Science B.Eng 2:1</h4>");
+		job.buffer.setLength(0);
+		job.ln("<p>Key Modules: Embedded systems design & implementation, programming of micro-controllers and real-time operating systems, introduction to analogue and digital circuits.</p>");
+
 		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
 
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"2008 - 2011\">");
 		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h2>College</h2>");
+		m.ln("				<h2>2008 - 2011</h2>");
+		m.ln("				<img class=\"timeline-img-tall\" src=\"https://upload.wikimedia.org/wikipedia/commons/9/93/Hartlepool_Sixth_Form_College_Logo.png\" alt=\"Hartlepool Sixth Form_College\">");
+		m.ln("				<i class=\"superscript\">Hartlepool Sixth Form College <a href=\"http://www.hpoolsfc.ac.uk/\" target=\"_blank\">http://www.hpoolsfc.ac.uk/</a></i>");
+		m.ln("				<h4>A-Levels</h4>");
+		job.buffer.setLength(0);
+		job.ln("<p>Computing (A), Mathematics(B), Business Studies(B), AS-level Physics.</p>");
+
 		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
