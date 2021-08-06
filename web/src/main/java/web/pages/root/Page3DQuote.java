@@ -92,7 +92,7 @@ public class Page3DQuote extends BasePage {
 
 		inputError = !Forms.isContentValid(filamentMaterial, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS</i>");
+		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS");
 
 		inputError = !Forms.isContentValid(layerHeight, method);
 		if (inputError && !isDesignService) anyFailure = true;
@@ -126,7 +126,7 @@ public class Page3DQuote extends BasePage {
 
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
-		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\">");
+		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);

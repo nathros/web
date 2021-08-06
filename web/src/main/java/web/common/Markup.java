@@ -232,9 +232,9 @@ public class Markup {
 	}
 
 	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
-		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + "\">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
+		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
 		ln("	<input class=\"forms-input" + (showError ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\"aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+				+ "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\" aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
 		if (subText != null) {
 			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
 		}
@@ -242,8 +242,8 @@ public class Markup {
 	}
 
 	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
-		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + "\">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
-		ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"forms-input-error\"" : "") + " aria-label=\"Comment\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
+		ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"forms-input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
 		l(inputValue);
 		ln("</textarea>");
 		if (subText != null) {

@@ -67,7 +67,7 @@ public class PageContact extends BasePage {
 
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
-		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\">");
+		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
