@@ -82,7 +82,7 @@ public class PageContact extends BasePage {
 		}
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 
-		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">");
+		m.ln("	<button class=\"btn btn-blue ripple\" style=\"width:12rem\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">Submit</button>");
 
 		if (requestInfo.getMethod() == HttpMethod.POST) {
 			if (anyFailure) {

@@ -141,7 +141,7 @@ public class Page3DQuote extends BasePage {
 		}
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
 
-		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\">");
+		m.ln("	<button class=\"btn btn-blue ripple\" style=\"width:12rem\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">Submit</button>");
 		if (requestInfo.getMethod() == HttpMethod.POST) {
 			if (anyFailure) {
 				m.ln("	<p style=\"color:red\">ERROR: missing or invalid fields</p>");
