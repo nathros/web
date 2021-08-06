@@ -66,7 +66,7 @@ public class Page3DQuote extends BasePage {
 		boolean anyFailure = false;
 		boolean inputError = !Forms.isContentValid(user, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user");
+		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user");
 
 		m.ln("	<div>Service:</div>");
 		m.ln("	<div class=\"forms-input\" style=\"padding:0\">");
@@ -88,15 +88,15 @@ public class Page3DQuote extends BasePage {
 
 		inputError = !Forms.isContentValid(filamentColour, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red");
+		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red");
 
 		inputError = !Forms.isContentValid(filamentMaterial, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS");
+		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS");
 
 		inputError = !Forms.isContentValid(layerHeight, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>");
+		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>");
 
 		m.ln("</div>"); // print-extras
 		m.l("<script>");
@@ -131,7 +131,7 @@ public class Page3DQuote extends BasePage {
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers");
+		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers");
 
 		String encodedCaptcha = "";
 		try {

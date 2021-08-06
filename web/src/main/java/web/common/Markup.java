@@ -231,10 +231,10 @@ public class Markup {
 		ln("</div>");
 	}
 
-	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
+	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean autoComplete, String focusScript, String inputScript, String subText) {
 		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
 		ln("	<input class=\"forms-input" + (showError ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\" aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+				+ "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\" aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\"" + (autoComplete ? " autocomplete=\"new-password\"" : "") + ">");
 		if (subText != null) {
 			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
 		}

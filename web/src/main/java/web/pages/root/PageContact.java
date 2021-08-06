@@ -48,18 +48,18 @@ public class PageContact extends BasePage {
 
 		boolean inputError = !Forms.isContentValid(firstname, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_NAME, firstname, "Name", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null);
+		m.addFormInput(Forms.INPUT_NAME, firstname, "Name", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null);
 
 		inputError = !Forms.isContentValid(email, method);
 		if ((!inputError) && (method == HttpMethod.POST)) {
 			inputError = !Helper.isValidEmail(email);
 		}
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_EMAIL, email, "Email", Forms.ERROR_MESSAGE_EMAIL, inputError, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null);
+		m.addFormInput(Forms.INPUT_EMAIL, email, "Email", Forms.ERROR_MESSAGE_EMAIL, inputError, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null);
 
 		inputError = !Forms.isContentValid(subject, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_SUBJECT, subject, "Subject", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null);
+		m.addFormInput(Forms.INPUT_SUBJECT, subject, "Subject", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null);
 
 		inputError = !Forms.isContentValid(comment, method);
 		if (inputError) anyFailure = true;
@@ -72,7 +72,7 @@ public class PageContact extends BasePage {
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers");
+		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers");
 
 		String encodedCaptcha = "";
 		try {
