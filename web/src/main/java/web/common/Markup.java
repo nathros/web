@@ -220,4 +220,35 @@ public class Markup {
 		ln("</head>");
 	}
 
+	public void AddFormFullscreenMessage() {
+		ln("<div id=\"fullscreen-message\">");
+		ln("	<h1>Please Wait...</h1>");
+		ln("	<div class=\"loading\">");
+		ln("		<div class=\"bounce1\"></div>");
+		ln("		<div class=\"bounce2\"></div>");
+		ln("		<div class=\"bounce3\"></div>");
+		ln("	</div>");
+		ln("</div>");
+	}
+
+	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
+		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + "\">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
+		ln("	<input class=\"forms-input" + (showError ? " forms-input-error" : "")
+				+ "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\"aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+		if (subText != null) {
+			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
+		}
+		ln("	<br><br>");
+	}
+
+	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
+		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + "\">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
+		ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"forms-input-error\"" : "") + " aria-label=\"Comment\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+		l(inputValue);
+		ln("</textarea>");
+		if (subText != null) {
+			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
+		}
+		ln("	<br><br>");
+	}
 }

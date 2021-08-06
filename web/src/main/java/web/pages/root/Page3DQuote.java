@@ -1,11 +1,12 @@
 package web.pages.root;
 
 import java.io.IOException;
-import java.util.Random;
+import java.util.List;
 import java.util.UUID;
 
 import web.Tools;
 import web.common.Debug;
+import web.common.Forms;
 import web.common.Helper;
 import web.common.HttpMethod;
 import web.common.RequestInfo;
@@ -13,6 +14,11 @@ import web.pages.BasePage;
 import web.pages.resources.Resource;
 
 public class Page3DQuote extends BasePage {
+
+	final static String INPUT_FILAMENT_COLOUR = "filament-colour";
+	final static String INPUT_FILAMENT_MATERIAL = "filament-material";
+	final static String INPUT_LAYER_HEIGHT = "layer-height";
+	final static String INPUT_SERVICE = "service";
 
 	public Page3DQuote(RequestInfo request) {
 		super(request);
@@ -35,33 +41,20 @@ public class Page3DQuote extends BasePage {
 
 		m.ln("<body>");
 
-		m.ln("<div id=\"fullscreen-message\">");
-		m.ln("	<h1>Please Wait...</h1>");
-		m.ln("	<div class=\"loading\">");
-		m.ln("		<div class=\"bounce1\"></div>");
-		m.ln("		<div class=\"bounce2\"></div>");
-		m.ln("		<div class=\"bounce3\"></div>");
-		m.ln("	</div>");
-		m.ln("</div>");
-
+		m.AddFormFullscreenMessage();
 		addNavbar3D();
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
 
 		final boolean isPost = requestInfo.getMethod() == HttpMethod.POST;
-		final String user = requestInfo.getBodyParam("user");
-		final String comment = requestInfo.getBodyParam("comment");
-		final String filamentColour = requestInfo.getBodyParam("filament-colour");
-		final String filamentMaterial = requestInfo.getBodyParam("filament-material");
-		final String layerHeight = requestInfo.getBodyParam("layer-height");
-		final String captcha = requestInfo.getBodyParam("captcha").replaceAll(" ", "");
-		final String service = requestInfo.getBodyParam("service");
+		final String user = requestInfo.getBodyParam(Forms.INPUT_USER);
+		final String comment = requestInfo.getBodyParam(Forms.INPUT_COMMENT);
+		final String filamentColour = requestInfo.getBodyParam(INPUT_FILAMENT_COLOUR);
+		final String filamentMaterial = requestInfo.getBodyParam(INPUT_FILAMENT_MATERIAL);
+		final String layerHeight = requestInfo.getBodyParam(INPUT_LAYER_HEIGHT);
+		final String captcha = requestInfo.getBodyParam(Forms.INPUT_CAPTCHA).replaceAll(" ", "");
+		final String service = requestInfo.getBodyParam(INPUT_SERVICE);
 		final boolean isDesignService = "designService".equals(service);
 		String userId = requestInfo.getBodyParam("userId");
-
-		final String errorParam = " class=\"forms-param-error\"";
-		final String requiredParamText = " REQUIRED";
-		boolean parseFailure = false;
-		boolean localFailure = false;
 
 		////
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
@@ -69,28 +62,17 @@ public class Page3DQuote extends BasePage {
 
 		m.ln("<form id=\"email-form\" action=\"3d-quote\" method=\"post\">");
 
-		String style = "";
-		String required = "";
-		localFailure = false;
-		if (isPost) {
-			if ("".equals(user)) {
-				style = errorParam;
-				required = requiredParamText;
-				parseFailure = true;
-				localFailure = true;
-			}
-		}
-		m.ln("	<div" + style + ">eBay Username or E-mail: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error\"" : "")
-				+ "\" type=\"text\" name=\"user\" value=\"" + user + "\">");
-		m.ln("	<i class=\"forms-small-text\">Quote will be sent to this address or user</i>");
-		m.ln("	<br><br>");
+		HttpMethod method = requestInfo.getMethod();
+		boolean anyFailure = false;
+		boolean inputError = !Forms.isContentValid(user, method);
+		if (inputError) anyFailure = true;
+		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user");
 
 		m.ln("	<div>Service:</div>");
 		m.ln("	<div class=\"forms-input\" style=\"padding:0\">");
 		m.ln("		<div style=\"display:flex;gap:0rem;\">");
 		m.ln("			<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
-		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">");
+		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">"); // TODO make resize to 320px dynamic not fixed, animation overlap on expand also needs correcting
 		m.ln("				3D Print Service");
 		m.ln("			</label>");
 		m.ln("			<label id=\"radio-design-label\" class=\"btn btn-light-blue ripple\" style=\"width:100%\" onclick=\"selectDesignService()\">");
@@ -102,64 +84,19 @@ public class Page3DQuote extends BasePage {
 		m.ln("	<i class=\"forms-small-text\">What kind of service you require</i>");
 		m.ln("	<br><br>");
 
-		style = "";
-		required = "";
-		localFailure = false;
-		if (isPost) {
-			if ("".equals(filamentColour)) {
-				style = errorParam;
-				required = requiredParamText;
-				localFailure = true;
-				if (!isDesignService) {
-					parseFailure = true;
-				}
-			}
-		}
 		m.ln("<div id=\"print-extras\" class=\"print-extras\">");
 
-		m.ln("	<div" + style + ">Filament Colour: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"filament-colour\" value=\"" + filamentColour + "\">");
-		m.ln("	<i class=\"forms-small-text\">Examples: Black, Green, Red</i>");
-		m.ln("	<br><br>");
+		inputError = !Forms.isContentValid(filamentColour, method);
+		if (inputError && !isDesignService) anyFailure = true;
+		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red");
 
-		style = "";
-		required = "";
-		localFailure = false;
-		if (isPost) {
-			if ("".equals(filamentMaterial)) {
-				style = errorParam;
-				required = requiredParamText;
-				localFailure = true;
-				if (!isDesignService) {
-					parseFailure = true;
-				}
-			}
-		}
-		m.ln("	<div" + style + ">Filament Material: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"filament-material\" value=\"" + filamentMaterial + "\">");
-		m.ln("	<i class=\"forms-small-text\">Examples: PLA <b>(typical)</b>, ABS</i>");
-		m.ln("	<br><br>");
+		inputError = !Forms.isContentValid(filamentMaterial, method);
+		if (inputError && !isDesignService) anyFailure = true;
+		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS</i>");
 
-		style = "";
-		required = "";
-		localFailure = false;
-		if (isPost) {
-			if ("".equals(layerHeight)) {
-				style = errorParam;
-				required = requiredParamText;
-				localFailure = true;
-				if (!isDesignService) {
-					parseFailure = true;
-				}
-			}
-		}
-		m.ln("	<div" + style + ">Layer Height: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"layer-height\" value=\"" + layerHeight + "\">");
-		m.ln("	<i class=\"forms-small-text\">Examples: 0.1mm, 0.2mm <b>(typical)</b></i>");
-		m.ln("	<br><br>");
+		inputError = !Forms.isContentValid(layerHeight, method);
+		if (inputError && !isDesignService) anyFailure = true;
+		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>");
 
 		m.ln("</div>"); // print-extras
 		m.l("<script>");
@@ -183,83 +120,30 @@ public class Page3DQuote extends BasePage {
 				+ userId + "\"></iframe>");
 		m.ln("	<br><br>");
 
-		style = "";
-		required = "";
-		localFailure = false;
-		if (isPost) {
-			if (comment.equals("")) {
-				style = errorParam;
-				required = requiredParamText;
-				parseFailure = true;
-				localFailure = true;
-			}
-		}
-		m.ln("	<div" + style + ">Details: * " + required + "</div>");
-		m.ln("	<textarea rows=\"12\" cols=\"100\" name=\"comment\" "
-				+ (localFailure ? "class=\"forms-input-error\"" : "") + ">");
-		if (isPost) {
-			if (!comment.equals("")) {
-				m.l(comment);
-			}
-		}
-		m.ln("</textarea>");
-		m.ln("	<i class=\"forms-small-text\">Any other additions about your project goal or requirements.");
-		m.ln("This can include quantity or any other special considerations.</i><br><br>");
+		inputError = !Forms.isContentValid(comment, method);
+		if (inputError) anyFailure = true;
+		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Any other additions about your project goal or requirements, this can include quantity or any other special considerations");
 
-		Random random = new Random();
-		int number1;
-		do {
-			number1 = Math.abs(random.nextInt() % 10);
-		} while ((number1 == 6) || (number1 == 9));
-		int number2;
-		do {
-			number2 = Math.abs(random.nextInt() % 10);
-		} while ((number2 == 6) || (number2 == 9));
-		String cap = Helper.generateCAPTCHAImageAsBase64(number1, number2);
-		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" alt=\"CAPTCHA\">");
+		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
+		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
+		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\">");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
-		style = "";
-		required = "";
-		localFailure = false;
-		if (isPost) {
-			if ("".equals(captcha)) {
-				style = errorParam;
-				required = "INCORRECT";
-				parseFailure = true;
-				localFailure = true;
-			} else {
-				try {
-					String compare = Debug.serialise(captcha);
-					if (!compare.equals(encoded)) {
-						style = errorParam;
-						required = "INCORRECT";
-						parseFailure = true;
-						localFailure = true;
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		m.ln("	<div" + style + ">Security Check: * " + required + "</div>");
-		m.ln("	<input class=\"forms-input" + (localFailure ? " forms-input-error" : "")
-				+ "\" type=\"text\" name=\"captcha\" value=\"\" autocomplete=\"new-password\">");
-		m.ln("	<i class=\"forms-small-text\">Copy both numbers</i>");
+		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
+		if (inputError) anyFailure = true;
+		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers");
+
 		String encodedCaptcha = "";
 		try {
-			encodedCaptcha = Debug.serialise(String.valueOf(number1) + String.valueOf(number2));
+			encodedCaptcha = Debug.serialise(String.valueOf(numbers.get(0)) + String.valueOf(numbers.get(1)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
-		m.ln("	<br><br>");
 
-		// m.ln(" <input class=\"btn btn-blue ripple\" type=\"submit\"
-		// value=\"Submit\">");
 		m.ln("	<input class=\"btn btn-blue ripple\" onclick=\"sendEmail()\" value=\"Submit\">");
-		if (isPost) {
-			if (parseFailure) {
+		if (requestInfo.getMethod() == HttpMethod.POST) {
+			if (anyFailure) {
 				m.ln("	<p style=\"color:red\">ERROR: missing or invalid fields</p>");
 			} else {
 				String body = "username: " + user + "\n";
@@ -273,10 +157,11 @@ public class Page3DQuote extends BasePage {
 				String result = Tools.sendEmailAWSSMTP("New Quote", body);
 
 				if (!result.equals(Tools.EmailOkayResponse)) {
-					m.ln("	<p style=\"color:red\">ERROR: in sending email</p>");
+					m.ln("	<p class=\"forms-param-error\">ERROR: in sending email</p>");
 					m.ln("<p>".concat(result).concat("</p>"));
-				} else
-					m.ln("	<p style=\"color:green\">SUCCESS: E-mail successfully sent</p>");
+				} else {
+					m.ln("	<p class=\"forms-param-good\">SUCCESS: E-mail successfully sent</p>");
+				}
 			}
 		}
 

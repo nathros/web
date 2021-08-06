@@ -253,7 +253,7 @@ public class PageCV extends BasePage {
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>2011 - 2015</h2>");
 		m.ln("				<img class=\"timeline-img-tall\" src=\"https://i.imgur.com/YAIDy9s.jpeg\" alt=\"University of York\">");
-		m.ln("				<i class=\"superscript\">University of York <a href=\"https://www.york.ac.uk/\" target=\"_blank\">https://www.york.ac.uk/</a></i>");
+		m.ln("				<i class=\"superscript\">University of York: <a href=\"https://www.york.ac.uk/\" target=\"_blank\">https://www.york.ac.uk/</a></i>");
 		m.ln("				<h4>Computer Science B.Eng 2:1</h4>");
 		job.buffer.setLength(0);
 		job.ln("<p>Key Modules: Embedded systems design & implementation, programming of micro-controllers and real-time operating systems, introduction to analogue and digital circuits.</p>");
@@ -266,7 +266,7 @@ public class PageCV extends BasePage {
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>2008 - 2011</h2>");
 		m.ln("				<img class=\"timeline-img-tall\" src=\"https://upload.wikimedia.org/wikipedia/commons/9/93/Hartlepool_Sixth_Form_College_Logo.png\" alt=\"Hartlepool Sixth Form_College\">");
-		m.ln("				<i class=\"superscript\">Hartlepool Sixth Form College <a href=\"http://www.hpoolsfc.ac.uk/\" target=\"_blank\">http://www.hpoolsfc.ac.uk/</a></i>");
+		m.ln("				<i class=\"superscript\">Hartlepool Sixth Form College: <a href=\"https://www.hartlepoolsixth.ac.uk/\" target=\"_blank\">https://www.hartlepoolsixth.ac.uk/</a></i>");
 		m.ln("				<h4>A-Levels</h4>");
 		job.buffer.setLength(0);
 		job.ln("<p>Computing (A), Mathematics(B), Business Studies(B), AS-level Physics.</p>");

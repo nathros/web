@@ -2,6 +2,10 @@
 	color: red;
 }
 
+.forms-param-good {
+	color: green;
+}
+
 .forms-small-text {
 	font-size: 0.75rem;
 	display: inline-block;
@@ -27,7 +31,11 @@
 
 .forms-input-error {
 	border-style: solid;
-	border-color: red;
+	border-color: red !important;
+}
+
+.forms-input-error:focus {
+	box-shadow: 0px 0px 6px 0px red;
 }
 
 textarea {
