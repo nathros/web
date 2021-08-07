@@ -77,24 +77,31 @@ function checkInputCAPTCHA(sender) {
 	}
 }
 
+function loadNewCAPTCHAError(sender) {
+	sender.classList.remove(SpinAnimation);
+	sender.nextElementSibling.style.display = "initial";
+}
+
 function loadNewCAPTCHA(url, sender) {
 	sender.classList.add(SpinAnimation);
-	sender.addEventListener("animationend",  function() {
-		sender.classList.remove(SpinAnimation);
-	});
-
+	var timeout = setInterval(function(){ loadNewCAPTCHAError(sender) }, 5000);
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
+			clearInterval(timeout);
 			var index = this.responseText.indexOf("@");
 			if (index > 0) {
+				sender.classList.remove(SpinAnimation);
 				sender.previousElementSibling.src = this.responseText.substring(0, index);
 				var newEncoded = this.responseText.substring(index + 1, this.responseText.length);
 				document.getElementById("encoded").value = newEncoded;
+				sender.nextElementSibling.style.display = "none";
+			} else {
+				loadNewCAPTCHAError(sender);
 			}
 		}
 	};
-	xhttp.ontimeout = function () { sender.nextElementSibling.style.display = "initial" }
+	xhttp.ontimeout = function () { loadNewCAPTCHAError(sender); }
 	xhttp.open("GET", url, true);
 	xhttp.send();
 }

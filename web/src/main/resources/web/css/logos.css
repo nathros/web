@@ -180,6 +180,10 @@
 	background-image: url("http://svgur.com/i/ZTA.svg");
 }
 
+.aws-sqs-logo::before {
+	background-image: url("https://svgur.com/i/Ztt.svg");
+}
+
 .aws-dyndb-logo::before {
 	background-image: url("https://iconape.com/wp-content/files/tm/33928/png/aws-dynamodb.png");
 }
