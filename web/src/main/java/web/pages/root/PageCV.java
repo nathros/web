@@ -15,7 +15,7 @@ public class PageCV extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_TOGGLE_DIV, Resource.CSS_TIMELINE, Resource.CSS_LOGOS };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_TOGGLE_DIV, Resource.CSS_TIMELINE, Resource.CSS_LOGOS, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_TOGGLE_DIV};
 
 		m.addHead(css, js, "CV");
@@ -167,6 +167,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("aws-ec2", "AWS EC2"));
 		job.ln(m.getLittleLogoWithTooltip("aws-lambda", "AWS Lambda"));
 		job.ln(m.getLittleLogoWithTooltip("aws-load-balancer", "AWS Elastic Load Balancing"));
+		job.ln(m.getLittleLogoWithTooltip("aws-sqs", "AWS Simple Queue Service"));
 		job.ln(m.getLittleLogoWithTooltip("linux", "Amazon Linux AMI"));
 		job.ln(m.getLittleLogoWithTooltip("open-suse", "OpenSUSE"));
 		job.ln(m.getLittleLogoWithTooltip("eclipse", "Eclipse IDE"));
@@ -278,6 +279,8 @@ public class PageCV extends BasePage {
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+
+		m.addFooter();
 
 		m.ln("<script>");
 		m.ln(Resource.readResource(Resource.JS_BANNER));

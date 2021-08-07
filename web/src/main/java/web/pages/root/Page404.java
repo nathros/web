@@ -24,7 +24,7 @@ public class Page404 extends BasePage {
 
 	public String getResponse(Exception e, Object request) {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_TOGGLE_DIV, Resource.CSS_BUTTON };
+				Resource.CSS_TOGGLE_DIV, Resource.CSS_BUTTON, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.ln("<html lang=\"en\">");
@@ -75,6 +75,7 @@ public class Page404 extends BasePage {
 		m.ln(m.getContentToggle("<b>Show Detailed Info</b>", ErrorMsg.toString()));
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+		m.addFooter();
 		m.ln("</body>");
 		m.ln("</html>");
 		return m.p.toString();

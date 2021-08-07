@@ -14,7 +14,7 @@ public class RohloffPage7 extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
 
 		m.addHead(css, js, "STI Shifting");
@@ -47,9 +47,10 @@ public class RohloffPage7 extends BasePage {
 
 		m.addModalImage("https://www.allcycling.co.uk/content/products/shiftbox-shiftbox-for-rohloff-that-allows-the-use-of-normal-shifters_117958.jpg", "https://www.allcycling.co.uk/content/products/shiftbox-shiftbox-for-rohloff-that-allows-the-use-of-normal-shifters_117958.jpg", "max-width:60%", "Gebla Rohbox");
 		
-		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+
+		m.addFooter();
 
 		m.ln("</body>");
 		m.ln("</html>");

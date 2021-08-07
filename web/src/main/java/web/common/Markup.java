@@ -220,7 +220,14 @@ public class Markup {
 		ln("</head>");
 	}
 
-	public void AddFormFullscreenMessage() {
+	public void addFooter() {
+		ln("<footer>");
+		ln("<img src=\"" + Resource.IMG_SNAKEICO + "\" onclick=\"startSnake()\">");
+		ln("<p>Snake...</p>");
+		ln("</footer>");
+	}
+
+	public void addFormFullscreenMessage() {
 		ln("<div id=\"fullscreen-message\">");
 		ln("	<h1>Please Wait...</h1>");
 		ln("	<div class=\"loading\">");

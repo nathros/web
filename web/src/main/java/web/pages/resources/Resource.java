@@ -21,6 +21,7 @@ public class Resource {
 	public static final String CSS_H_SECTION = "web/css/horizontal-section.css";
 	public static final String CSS_TABS = "web/css/tabs.css";
 	public static final String CSS_LOGOS = "web/css/logos.css";
+	public static final String CSS_FOOTER = "web/css/footer.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";
@@ -72,6 +73,7 @@ public class Resource {
 	public static final String IMG_ROHLOFF_RIM_PROFILE = "https://i.imgur.com/Rp0mRvx.png";
 
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
+	public static final String IMG_SNAKEICO = "https://i.imgur.com/uPjBm4o.png";
 
 	public static String readResource(String path) {
 		try {

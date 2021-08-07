@@ -13,7 +13,7 @@ public class PageRohloff0 extends BasePage {
 
 	@Override
 	public String getResponse() {
-		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_SIDENAV };
+		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_SIDENAV, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
 
 		m.addHead(css, js, "Admin");
@@ -24,6 +24,7 @@ public class PageRohloff0 extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.addCard("	<h2><a href=\"/test/admin\"> link</a></h2>");
 		////
+		m.addFooter();
 
 		m.ln("</div>"); // common-content
 		m.ln("</body>");

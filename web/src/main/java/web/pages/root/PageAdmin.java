@@ -19,7 +19,7 @@ public class PageAdmin extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_TOGGLE_DIV };
+				Resource.CSS_TOGGLE_DIV, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK };
 
 		m.addHead(css, js, "Admin");
@@ -67,6 +67,8 @@ public class PageAdmin extends BasePage {
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+
+		m.addFooter();
 
 		m.ln("</body>");
 		m.ln("</html>");

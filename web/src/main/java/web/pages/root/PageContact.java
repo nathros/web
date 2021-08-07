@@ -22,13 +22,13 @@ public class PageContact extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FORMS };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FORMS, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_FORMS };
 
 		m.addHead(css, js, "Contact");
 		m.ln("<body>");
 
-		m.AddFormFullscreenMessage();
+		m.addFormFullscreenMessage();
 		m.addNavbar(NavbarItem.Contact);
 		m.addBannerAnimated("Contact", Resource.IMG_BANNER_1);
 
@@ -106,6 +106,8 @@ public class PageContact extends BasePage {
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
+
+		m.addFooter();
 
 		m.ln("<script>");
 		m.ln(Resource.readResource(Resource.JS_BANNER));
