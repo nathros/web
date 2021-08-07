@@ -1,5 +1,5 @@
 .forms-param-error {
-	color: red;
+	color: red !important;
 }
 
 .forms-param-good {
@@ -54,6 +54,23 @@ textarea, input {
 	border: 1px solid gray;
 	height: 4rem;
 }
+
+.captcha-refresh {
+	content:url(https://svgur.com/i/Zth.svg);
+	max-width: 1rem;
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.captcha-refresh:hover {
+	opacity: 1;
+}
+
+.captcha-spin {
+	animation: spin 0.2s ease-in-out both;
+}
+
+@keyframes spin { 100% { transform:rotate(180deg); } }
 
 #fullscreen-message {
 	position: fixed;

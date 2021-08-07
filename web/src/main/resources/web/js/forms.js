@@ -15,6 +15,7 @@ function validateEmail(email) {
 const ErrorClass = "forms-input-error";
 const ErrorParam = "forms-param-error";
 const ShakeAnimation = "input-shake";
+const SpinAnimation = "captcha-spin";
 
 function setInputError(sender, error, shake) {
 	if (error == true) {
@@ -74,4 +75,26 @@ function checkInputCAPTCHA(sender) {
 	} else {
 		setInputError(sender, false, false);
 	}
+}
+
+function loadNewCAPTCHA(url, sender) {
+	sender.classList.add(SpinAnimation);
+	sender.addEventListener("animationend",  function() {
+		sender.classList.remove(SpinAnimation);
+	});
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var index = this.responseText.indexOf("@");
+			if (index > 0) {
+				sender.previousElementSibling.src = this.responseText.substring(0, index);
+				var newEncoded = this.responseText.substring(index + 1, this.responseText.length);
+				document.getElementById("encoded").value = newEncoded;
+			}
+		}
+	};
+	xhttp.ontimeout = function () { sender.nextElementSibling.style.display = "initial" }
+	xhttp.open("GET", url, true);
+	xhttp.send();
 }

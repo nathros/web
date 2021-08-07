@@ -5,8 +5,7 @@ footer {
 footer img {
 	width: 1rem;
 	height: 1rem;
-	padding-left: 0.25rem;
-	padding-bottom: 0.25rem;
+	padding: 0.5rem 0.5rem 0.25rem 0.25rem;
 	position: absolute;
 	bottom: 0;
 	cursor: pointer;

@@ -11,6 +11,7 @@ import web.common.HttpMethod;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
+import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class PageContact extends BasePage {
@@ -68,6 +69,8 @@ public class PageContact extends BasePage {
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
 		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
+		m.ln("<img class=\"captcha-refresh\" aria-label=\"Refresh\" alt=\"Refresh\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\" tabindex=\"1\">");
+		m.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error is refresh</i>");
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
