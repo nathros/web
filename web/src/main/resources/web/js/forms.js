@@ -16,6 +16,7 @@ const ErrorClass = "forms-input-error";
 const ErrorParam = "forms-param-error";
 const ShakeAnimation = "input-shake";
 const SpinAnimation = "captcha-spin";
+const FlipAnimation = "captcha-image-flip"
 
 function setInputError(sender, error, shake) {
 	if (error == true) {
@@ -109,7 +110,11 @@ function loadNewCAPTCHA(url, sender) {
 		if (finished) {
 			sender.classList.remove(SpinAnimation);
 			clearInterval(loop);
-			sender.previousElementSibling.src = imageData;
+			sender.previousElementSibling.addEventListener("transitionend", () => {
+				sender.previousElementSibling.src = imageData;
+				sender.previousElementSibling.classList.remove(FlipAnimation);
+			}, { once: true });
+			sender.previousElementSibling.classList.add(FlipAnimation);
 			timeoutCAPTCHA.clearTimeout();
 		}
 	 }, 500);
