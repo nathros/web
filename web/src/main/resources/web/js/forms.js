@@ -82,26 +82,63 @@ function loadNewCAPTCHAError(sender) {
 	sender.nextElementSibling.style.display = "initial";
 }
 
+var timeoutCAPTCHA = (function () {
+    var timeout = null;
+    return {
+        getTimeout: function()  {
+			return timeout;
+		},
+		setTimeout: function(obj)  {
+			timeout = obj;
+		},
+		clearTimeout: function()  {
+			timeout = null;
+		}
+    }
+})();
+
 function loadNewCAPTCHA(url, sender) {
+	if (timeoutCAPTCHA.getTimeout() != null) return;
+	var finished = false;
+	var imageData = null;
+
 	sender.classList.add(SpinAnimation);
-	var timeout = setInterval(function(){ loadNewCAPTCHAError(sender) }, 5000);
 	var xhttp = new XMLHttpRequest();
+
+	var loop = setInterval(function(){
+		if (finished) {
+			sender.classList.remove(SpinAnimation);
+			clearInterval(loop);
+			sender.previousElementSibling.src = imageData;
+			timeoutCAPTCHA.clearTimeout();
+		}
+	 }, 500);
+
+	timeoutCAPTCHA.setTimeout(setTimeout(function(){
+		clearInterval(loop);
+		loadNewCAPTCHAError(sender);
+		xhttp.abort();
+		timeoutCAPTCHA.clearTimeout();
+	}, 5000));
+
+
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			clearInterval(timeout);
+			clearInterval(timeoutCAPTCHA.getTimeout());
 			var index = this.responseText.indexOf("@");
 			if (index > 0) {
-				sender.classList.remove(SpinAnimation);
-				sender.previousElementSibling.src = this.responseText.substring(0, index);
+				imageData = this.responseText.substring(0, index);
+				finished = true;
 				var newEncoded = this.responseText.substring(index + 1, this.responseText.length);
 				document.getElementById("encoded").value = newEncoded;
 				sender.nextElementSibling.style.display = "none";
 			} else {
 				loadNewCAPTCHAError(sender);
+				clearInterval(loop);
+				timeoutCAPTCHA.clearTimeout();
 			}
 		}
 	};
-	xhttp.ontimeout = function () { loadNewCAPTCHAError(sender); }
 	xhttp.open("GET", url, true);
 	xhttp.send();
 }
