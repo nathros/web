@@ -14,6 +14,7 @@ import java.util.concurrent.Executors;
 public class TestPage {
 	private static final Executor threadPool = Executors.newFixedThreadPool(3);
 	public static boolean stopServer = false;
+	public static int requestNumber = 0;
 
 	private static void handleRequest(Socket socket, String[] args) {
 		BufferedReader in;
@@ -66,7 +67,8 @@ public class TestPage {
 			out.close();
 			socket.close();
 
-			System.out.println("Server response time: " + (System.currentTimeMillis() - startTime) + "ms");
+			requestNumber++;
+			System.out.println("Server response time: " + (System.currentTimeMillis() - startTime) + "ms, Request: " + requestNumber);
 			if (Config.printVerboseRequest) {
 				System.out.println("==================================");
 			}

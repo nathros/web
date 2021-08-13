@@ -11,7 +11,6 @@ import web.common.HttpMethod;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
-import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class PageContact extends BasePage {
@@ -66,11 +65,7 @@ public class PageContact extends BasePage {
 		if (inputError) anyFailure = true;
 		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null);
 
-		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
-		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
-		m.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
-		m.ln("<img class=\"captcha-refresh\" aria-label=\"Refresh\" alt=\"Refresh\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
-		m.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
+		List<Integer> numbers = m.addCAPTCHAInput();
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
