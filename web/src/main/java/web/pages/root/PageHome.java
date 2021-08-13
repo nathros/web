@@ -161,7 +161,6 @@ public class PageHome extends BasePage {
 		m.addFooter();
 
 		m.ln("<script>");
-		m.ln(Resource.readResource(Resource.JS_BANNER));
 		m.ln(Resource.readResource(Resource.JS_SCROLL_TOP));
 		m.ln("</script>");
 

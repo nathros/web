@@ -174,10 +174,6 @@ public class Page3DQuote extends BasePage {
 
 		m.addFooter();
 
-		m.ln("<script>");
-		m.ln(Resource.readResource(Resource.JS_BANNER));
-		m.ln("</script>");
-
 		m.ln("</body>");
 		m.ln("</html>");
 		return m.p.toString();

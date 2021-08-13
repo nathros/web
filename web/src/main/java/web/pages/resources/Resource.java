@@ -25,7 +25,6 @@ public class Resource {
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";
-	public static final String JS_BANNER = "web/js/banner-animation.js";
 	public static final String JS_SCROLL_TOP = "web/js/scroll-top.js";
 	public static final String JS_MODAL_IMAGE = "web/js/modal-image.js";
 	public static final String JS_LOAD_DOC = "web/js/load_doc.js";
