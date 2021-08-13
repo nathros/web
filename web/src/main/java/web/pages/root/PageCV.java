@@ -232,7 +232,7 @@ public class PageCV extends BasePage {
 
 		m.ln("	<div class=\"skills-subject\">Concepts</div>");
 		m.ln("	<div class=\"skills-detail\">Object-oriented Programming and Design, Real-time Operating Systems, Networking"
-				+ "and Sockets, Multi-threaded and Multi-process Applications, Asynchronous Programming,"
+				+ " and Sockets, Multi-threaded and Multi-process Applications, Asynchronous Programming,"
 				+ " Microservices, High Availability</div>");
 
 		m.ln("	<div class=\"skills-subject\">Systems</div>");
