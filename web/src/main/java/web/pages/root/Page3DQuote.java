@@ -67,13 +67,13 @@ public class Page3DQuote extends BasePage {
 		boolean anyFailure = false;
 		boolean inputError = !Forms.isContentValid(user, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user");
+		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user", Forms.INPUT_ICON_USER);
 
 		m.ln("	<div>Service:</div>");
 		m.ln("	<div class=\"forms-input\" style=\"padding:0\">");
 		m.ln("		<div style=\"display:flex;gap:0rem;\">");
-		m.ln("			<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:1rem\" onclick=\"selectPrintService()\">");
-		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">"); // TODO make resize to 320px dynamic not fixed, animation overlap on expand also needs correcting
+		m.ln("			<label id=\"radio-print-label\" class=\"btn btn-blue ripple\" style=\"width:100%;margin-right:0.5rem\" onclick=\"selectPrintService()\">");
+		m.ln(" 				<input id=\"radio-print\" style=\"display:none;\" type=\"radio\" name=\"service\" value=\"printService\">"); // TODO make resize to 370px dynamic not fixed, animation overlap on expand also needs correcting
 		m.ln("				3D Print Service");
 		m.ln("			</label>");
 		m.ln("			<label id=\"radio-design-label\" class=\"btn btn-light-blue ripple\" style=\"width:100%\" onclick=\"selectDesignService()\">");
@@ -89,15 +89,15 @@ public class Page3DQuote extends BasePage {
 
 		inputError = !Forms.isContentValid(filamentColour, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red");
+		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red", Forms.INPUT_ICON_PALETTE);
 
 		inputError = !Forms.isContentValid(filamentMaterial, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS");
+		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS", Forms.INPUT_ICON_BRICKS);
 
 		inputError = !Forms.isContentValid(layerHeight, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>");
+		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>", Forms.INPUT_ICON_WIDTH);
 
 		m.ln("</div>"); // print-extras
 		m.l("<script>");
@@ -123,7 +123,7 @@ public class Page3DQuote extends BasePage {
 
 		inputError = !Forms.isContentValid(comment, method);
 		if (inputError) anyFailure = true;
-		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Any other additions about your project goal or requirements, this can include quantity or any other special considerations");
+		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, "Any other additions about your project goal or requirements, this can include quantity or any other special considerations");
 
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
@@ -134,7 +134,7 @@ public class Page3DQuote extends BasePage {
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers");
+		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY);
 
 		String encodedCaptcha = "";
 		try {

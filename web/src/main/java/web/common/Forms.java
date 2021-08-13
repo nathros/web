@@ -13,10 +13,20 @@ public class Forms {
 	public final static String INPUT_COMMENT = "comment";
 	public final static String INPUT_CAPTCHA = "captcha";
 
+	public final static String INPUT_ICON_EMAIL = "input-icon-email";
+	public final static String INPUT_ICON_USER = "input-icon-user";
+	public final static String INPUT_ICON_SECURITY = "input-icon-security";
+	public final static String INPUT_ICON_SUBJECT = "input-icon-subject";
+	public final static String INPUT_ICON_PALETTE = "input-icon-palette";
+	public final static String INPUT_ICON_WIDTH = "input-icon-width";
+	public final static String INPUT_ICON_BRICKS = "input-icon-bricks";
+
 	public final static String SCRIPT_INPUT = "checkInputEmpty";
 	public final static String SCRIPT_INPUT_EMAIL = "checkInputEmail";
 	public final static String SCRIPT_INPUT_EMAIL_LEAVE = "checkInputEmailLeave";
 	public final static String SCRIPT_INPUT_CAPTCHA = "checkInputCAPTCHA";
+	public final static String SCRIPT_TEXTAREA = "checkTextAreaEmpty";
+
 	public final static String ERROR_MESSAGE_REQUIRED = "REQUIRED";
 	public final static String ERROR_MESSAGE_EMAIL = "INVALID EMAIL";
 	public final static String ERROR_MESSAGE_INCORRECT = "INCORRECT";
