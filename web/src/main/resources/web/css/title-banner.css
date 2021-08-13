@@ -19,7 +19,7 @@
 	position: relative;
 	width: calc(100% - (2 * var(--global-content-padding)));
 	pointer-events: none;
-	z-index: 100;
+	z-index: 1;
 }
 
 .title-banner div p {
