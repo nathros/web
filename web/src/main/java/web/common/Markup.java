@@ -63,6 +63,13 @@ public class Markup {
 			ln("	<a class=\"navbar-selected\" >Missing Page</a>");
 		}
 
+		ln("	<div class=\"navbar-search" + (NavbarItem.Search == item ? " navbar-line" : "") + "\">");
+		ln("		<form action=\"/stage/search\" name=\"search-form\">");
+		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\"></button>");
+		ln("			<input type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
+		ln("		</form>");
+		ln("	</div>");
+
 		ln("</div>"); // navbar
 	}
 
@@ -251,7 +258,7 @@ public class Markup {
 
 	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
 		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
-		ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"forms-input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+		ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
 		l(inputValue);
 		ln("</textarea>");
 		if (subText != null) {

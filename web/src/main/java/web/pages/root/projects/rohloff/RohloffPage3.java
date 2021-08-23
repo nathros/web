@@ -8,13 +8,13 @@ import web.pages.resources.Resource;
 public class RohloffPage3 extends BasePage {
 
 	public RohloffPage3(RequestInfo request) {
-		super(request);
+		super(request, true);
 	}
 
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_HEADER };
 
 		m.addHead(css, js, "Rohloff 3");
 

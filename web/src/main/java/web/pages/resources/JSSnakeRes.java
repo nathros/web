@@ -6,7 +6,7 @@ import web.pages.BasePage;
 public class JSSnakeRes extends BasePage {
 
 	public JSSnakeRes(RequestInfo request) {
-		super(request);
+		super(request, false);
 	}
 
 	@Override

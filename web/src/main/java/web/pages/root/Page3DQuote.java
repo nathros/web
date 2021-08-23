@@ -20,7 +20,7 @@ public class Page3DQuote extends BasePage {
 	final static String INPUT_SERVICE = "service";
 
 	public Page3DQuote(RequestInfo request) {
-		super(request);
+		super(request, true);
 	}
 
 	public void addNavbar3D() {
@@ -34,7 +34,7 @@ public class Page3DQuote extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_3D_QUOTE, Resource.CSS_FORMS, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE, Resource.JS_FORMS };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_3D_QUOTE, Resource.JS_FORMS, Resource.JS_HEADER };
 
 		m.addHead(css, js, "Quote");
 

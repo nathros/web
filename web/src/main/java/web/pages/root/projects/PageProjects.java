@@ -6,7 +6,7 @@ import web.pages.BasePage;
 public class PageProjects extends BasePage {
 
 	public PageProjects(RequestInfo request) {
-		super(request);
+		super(request, true);
 	}
 
 	@Override

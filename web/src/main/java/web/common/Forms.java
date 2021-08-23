@@ -12,6 +12,7 @@ public class Forms {
 	public final static String INPUT_SUBJECT = "subject";
 	public final static String INPUT_COMMENT = "comment";
 	public final static String INPUT_CAPTCHA = "captcha";
+	public final static String INPUT_QUERY = "query";
 
 	public final static String INPUT_ICON_EMAIL = "input-icon-email";
 	public final static String INPUT_ICON_USER = "input-icon-user";
@@ -20,6 +21,7 @@ public class Forms {
 	public final static String INPUT_ICON_PALETTE = "input-icon-palette";
 	public final static String INPUT_ICON_WIDTH = "input-icon-width";
 	public final static String INPUT_ICON_BRICKS = "input-icon-bricks";
+	public final static String INPUT_ICON_SEARCH = "input-icon-search";
 
 	public final static String SCRIPT_INPUT = "checkInputEmpty";
 	public final static String SCRIPT_INPUT_EMAIL = "checkInputEmail";
@@ -30,6 +32,7 @@ public class Forms {
 	public final static String ERROR_MESSAGE_REQUIRED = "REQUIRED";
 	public final static String ERROR_MESSAGE_EMAIL = "INVALID EMAIL";
 	public final static String ERROR_MESSAGE_INCORRECT = "INCORRECT";
+	public final static String ERROR_MESSAGE_EMPTY = "CANNOT BE EMPTY";
 
 	public static boolean isContentValid(String value, HttpMethod method) {
 		if (HttpMethod.POST == method) {

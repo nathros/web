@@ -9,14 +9,14 @@ import web.pages.resources.Resource;
 public class PageHome extends BasePage {
 
 	public PageHome(RequestInfo request) {
-		super(request);
+		super(request, true);
 	}
 
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_H_SECTION, Resource.CSS_TABS, Resource.CSS_MODAL_IMAGE, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER };
 
 		m.addHead(css, js, "Home Page");
 

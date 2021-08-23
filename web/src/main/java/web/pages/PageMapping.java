@@ -33,6 +33,7 @@ public class PageMapping {
 	public static final String CV_PG = STAGE + "/cv";
 	public static final String CONTACT_PG = STAGE + "/contact";
 	public static final String QUOTE_3D_PG = STAGE + "/3d-quote";
+	public static final String SEARCH_PG = STAGE + "/search";
 
 	public static final String AJAX_NEW_CAPTCHA = STAGE + "/ajax/new-captcha";
 
@@ -55,7 +56,7 @@ public class PageMapping {
 	public static final String FILESERVER1_PG2 = STAGE + "/projects/fileserver-2";
 	public static final String CONNECT4 = STAGE + "/projects/connect4";
 
-	private static Map<String, String> map = createMap();
+	public static Map<String, String> map = createMap();
 
 	private static Map<String, String> createMap() {
 		Map<String, String> m = new HashMap<String, String>();
@@ -67,6 +68,7 @@ public class PageMapping {
 		m.put(CV_PG, PageCV.class.getName());
 		m.put(CONTACT_PG, PageContact.class.getName());
 		m.put(QUOTE_3D_PG, Page3DQuote.class.getName());
+		m.put(SEARCH_PG, PageSearch.class.getName());
 
 		// AJAX
 		m.put(AJAX_NEW_CAPTCHA, AJAXNewCAPTCHA.class.getName());

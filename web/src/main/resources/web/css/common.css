@@ -3,6 +3,7 @@
 * {
 	font-family: 'Noto Sans', sans-serif;
 	word-wrap: break-word;
+	-webkit-tap-highlight-color: transparent;
 }
 
 body {

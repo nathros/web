@@ -8,13 +8,13 @@ import web.pages.resources.Resource;
 public class PageRohloff0 extends BasePage {
 
 	public PageRohloff0(RequestInfo request) {
-		super(request);
+		super(request, true);
 	}
 
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_SIDENAV, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_LOAD_DOC, Resource.JS_HEADER };
 
 		m.addHead(css, js, "Admin");
 

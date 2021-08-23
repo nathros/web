@@ -14,7 +14,7 @@ import web.pages.resources.Resource;
 public class Page404 extends BasePage {
 
 	public Page404(RequestInfo request) {
-		super(request);
+		super(request, false);
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class Page404 extends BasePage {
 	public String getResponse(Exception e, Object request) {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_TOGGLE_DIV, Resource.CSS_BUTTON, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_HEADER };
 
 		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "404");

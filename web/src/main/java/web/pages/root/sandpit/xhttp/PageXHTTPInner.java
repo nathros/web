@@ -9,7 +9,7 @@ import web.pages.BasePage;
 public class PageXHTTPInner extends BasePage {
 
 	public PageXHTTPInner(RequestInfo request) {
-		super(request);
+		super(request, false);
 	}
 
 	@Override

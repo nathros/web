@@ -9,14 +9,14 @@ import web.pages.resources.Resource;
 public class PageCV extends BasePage {
 
 	public PageCV(RequestInfo request) {
-		super(request);
+		super(request, true);
 	}
 
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_TOGGLE_DIV, Resource.CSS_TIMELINE, Resource.CSS_LOGOS, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_TOGGLE_DIV};
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_TOGGLE_DIV, Resource.JS_HEADER};
 
 		m.addHead(css, js, "CV");
 		m.ln("<body>");

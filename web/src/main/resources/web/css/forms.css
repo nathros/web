@@ -64,8 +64,11 @@ textarea, input, .captcha-image {
 	max-width: 500px;
 	display: inline-block;
 	box-sizing: border-box;
-	margin-top: 0.25rem;
 	margin-right: 0.5rem;
+}
+
+.forms-input, textarea {
+	margin-top: 0.25rem;
 }
 
 .forms-input-error {
@@ -273,4 +276,9 @@ input:focus + .input-icon-error:after {
 .input-icon-bricks:before {
 	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/bricks.svg);
 	mask: url(https://icons.getbootstrap.com/assets/icons/bricks.svg);
+}
+
+.input-icon-search:before {
+	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/search.svg);
+	mask: url(https://icons.getbootstrap.com/assets/icons/search.svg);
 }
