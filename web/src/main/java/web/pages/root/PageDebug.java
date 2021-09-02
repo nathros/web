@@ -6,7 +6,7 @@ import web.pages.BasePage;
 public class PageDebug extends BasePage {
 
 	public PageDebug(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override

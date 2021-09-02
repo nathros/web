@@ -244,7 +244,7 @@ public class Markup {
 		ln("</div>");
 	}
 
-	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean stopAutoComplete, String focusScript, String inputScript, String subText, String icon) {
+	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean stopAutoComplete, String focusScript, String inputScript, String subText, String icon, boolean addBreaks) {
 		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
 		ln("	<div class=\"input-group forms-input\">");
 		ln("		<input class=\"" + (showError ? "input-error" : "") + "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\" aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\"" + (stopAutoComplete ? " autocomplete=\"new-password\"" : "") + ">");
@@ -253,7 +253,7 @@ public class Markup {
 		if (subText != null) {
 			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
 		}
-		ln("	<br><br>");
+		if (addBreaks) ln("	<br><br>");
 	}
 
 	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {

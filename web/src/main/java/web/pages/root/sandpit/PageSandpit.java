@@ -6,7 +6,7 @@ import web.pages.BasePage;
 public class PageSandpit extends BasePage {
 
 	public PageSandpit(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override

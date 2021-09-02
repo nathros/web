@@ -14,7 +14,7 @@ import web.pages.resources.Resource;
 public class Page404 extends BasePage {
 
 	public Page404(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import web.pages.BasePage;
 public class AJAXNewCAPTCHA extends BasePage {
 
 	public AJAXNewCAPTCHA(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override

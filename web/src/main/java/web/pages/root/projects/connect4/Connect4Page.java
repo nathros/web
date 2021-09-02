@@ -8,7 +8,7 @@ import web.pages.resources.Resource;
 public class Connect4Page extends BasePage {
 
 	public Connect4Page(RequestInfo request) {
-		super(request, true);
+		super(request);
 	}
 
 	@Override

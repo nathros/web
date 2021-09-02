@@ -13,6 +13,10 @@ public class LocalStringBuffer {
 		buffer.append("\n");
 	}
 
+	public void l(String line) {
+		buffer.append(line);
+	}
+
 	public String toString() {
 		return buffer.toString();
 	}

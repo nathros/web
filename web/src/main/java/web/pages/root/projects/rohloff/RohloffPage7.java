@@ -8,7 +8,7 @@ import web.pages.resources.Resource;
 public class RohloffPage7 extends BasePage {
 
 	public RohloffPage7(RequestInfo request) {
-		super(request, true);
+		super(request);
 	}
 
 	@Override

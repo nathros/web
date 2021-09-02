@@ -9,7 +9,7 @@ import web.pages.resources.Resource;
 public class PageCV extends BasePage {
 
 	public PageCV(RequestInfo request) {
-		super(request, true);
+		super(request);
 	}
 
 	@Override

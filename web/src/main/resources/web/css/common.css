@@ -24,6 +24,12 @@ input:focus, textarea:focus, select:focus {
 	outline: none;
 }
 
+a {
+    text-decoration: none;
+	color: inherit;
+	font-weight: 600;
+}
+
 .common-content {
 	*padding-top: 5rem;
 	padding-left: var(--global-content-padding);

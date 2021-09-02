@@ -57,6 +57,7 @@ public class PageMapping {
 	public static final String CONNECT4 = STAGE + "/projects/connect4";
 
 	public static Map<String, String> map = createMap();
+	public static Map<String, String> searchMap = createSearchMap();
 
 	private static Map<String, String> createMap() {
 		Map<String, String> m = new HashMap<String, String>();
@@ -88,8 +89,8 @@ public class PageMapping {
 		m.put(ROHLOFF2_PG4, PageRohloffR24.class.getName());
 
 		m.put(FILESERVER1_PG0, FileServerPage1.class.getName());
-		m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
-		m.put(FILESERVER1_PG2, FileServerPage1.class.getName());
+		//m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
+		//m.put(FILESERVER1_PG2, FileServerPage1.class.getName());
 
 		m.put(CONNECT4, Connect4Page.class.getName());
 
@@ -102,6 +103,33 @@ public class PageMapping {
 		m.put("/sandpit/xhttpinner", PageXHTTPInner.class.getName());
 		m.put("/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
 		m.put("/sandpit/carousel", PageCarousel.class.getName());
+		return m;
+	}
+
+	private static Map<String, String> createSearchMap() {
+		Map<String, String> m = new HashMap<String, String>();
+		m.put(HOME_PG, PageHome.class.getName());
+		m.put("/root/projects", PageProjects.class.getName());
+		m.put(CV_PG, PageCV.class.getName());
+		m.put(CONTACT_PG, PageContact.class.getName());
+		m.put(QUOTE_3D_PG, Page3DQuote.class.getName());
+
+		m.put(ROHLOFF_PG1, RohloffPage1.class.getName());
+		m.put(ROHLOFF_PG2, RohloffPage2.class.getName());
+		m.put(ROHLOFF_PG3, RohloffPage3.class.getName());
+		m.put(ROHLOFF_PG4, RohloffPage4.class.getName());
+		m.put(ROHLOFF_PG5, RohloffPage5.class.getName());
+		m.put(ROHLOFF_PG6, RohloffPage6.class.getName());
+		m.put(ROHLOFF_PG7, RohloffPage7.class.getName());
+
+		m.put(ROHLOFF2_PG1, PageRohloffR21.class.getName());
+		m.put(ROHLOFF2_PG2, PageRohloffR22.class.getName());
+		m.put(ROHLOFF2_PG3, PageRohloffR23.class.getName());
+		m.put(ROHLOFF2_PG4, PageRohloffR24.class.getName());
+
+		m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
+
+		m.put(CONNECT4, Connect4Page.class.getName());
 		return m;
 	}
 

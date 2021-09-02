@@ -9,7 +9,7 @@ import web.pages.root.projects.rohloff.RohloffUtils;
 public class PageRohloffR22 extends BasePage {
 
 	public PageRohloffR22(RequestInfo request) {
-		super(request, true);
+		super(request);
 	}
 
 	@Override

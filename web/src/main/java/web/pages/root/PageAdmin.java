@@ -13,7 +13,7 @@ import web.pages.resources.Resource;
 public class PageAdmin extends BasePage {
 
 	public PageAdmin(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override

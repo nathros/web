@@ -8,7 +8,7 @@ import web.pages.resources.Resource;
 public class PageCarousel extends BasePage {
 
 	public PageCarousel(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import web.pages.resources.Resource;
 public class FileServerPage1 extends BasePage {
 
 	public FileServerPage1(RequestInfo request) {
-		super(request, true);
+		super(request);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import web.pages.resources.Resource;
 public class PageHome extends BasePage {
 
 	public PageHome(RequestInfo request) {
-		super(request, true);
+		super(request);
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import web.pages.resources.Resource;
 public class PageXHTTPOuter extends BasePage {
 
 	public PageXHTTPOuter(RequestInfo request) {
-		super(request, false);
+		super(request);
 	}
 
 	@Override
