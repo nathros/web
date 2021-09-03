@@ -40,7 +40,6 @@ public class Page3DQuote extends BasePage {
 
 		m.ln("<body>");
 
-		m.addFormFullscreenMessage();
 		addNavbar3D();
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
 

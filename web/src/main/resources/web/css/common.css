@@ -25,9 +25,14 @@ input:focus, textarea:focus, select:focus {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline solid transparent;
 	color: inherit;
 	font-weight: 600;
+}
+
+a:hover {
+	text-decoration: underline solid Currentcolor;
+	transition: all 0.15s ease-in-out, height 0s;
 }
 
 .common-content {
@@ -87,6 +92,47 @@ select:focus {
 	top: -0.5em;
 	font-size: 80%;
 	white-space: nowrap;
+}
+
+#fullscreen-message {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+.loading {
+	text-align: center;
+}
+
+.loading > div {
+	width: 1.25rem;
+	height: 1.25rem;
+	background-color: black;
+	border-radius: 100%;
+	display: inline-block;
+	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.loading .bounce1 {
+	animation-delay: -0.32s;
+}
+
+.loading .bounce2 {
+	animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+	0%, 80%, 100% { transform: scale(0) }
+	40% { transform: scale(1.0) }
 }
 
 @media

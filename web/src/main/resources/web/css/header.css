@@ -94,11 +94,6 @@ body {
 	display: block;
 }
 
-.navbar-line {
-	box-shadow: inset 0 -5px 0 var(--highlight-colour);
-	border-radius: 0; /* Microsoft Edge has 2px radius */
-}
-
 /** Search **/
 .navbar-search{
 	width: fit-content;
@@ -161,6 +156,11 @@ body {
 	background-color: black;
 	filter: invert(56%) sepia(91%) saturate(782%) hue-rotate(117deg) brightness(85%) contrast(101%) invert(100%);
 	content:"";
+}
+
+.btn-search-form-selected {
+	background-color: var(--navbar-background-colour-selected);
+	padding-right: 0.5rem;
 }
 
 .btn-search:hover, .btn-search-selected {

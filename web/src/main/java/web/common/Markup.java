@@ -15,6 +15,7 @@ public class Markup {
 	}
 
 	public void addNavbar(NavbarItem item) {
+		addFormFullscreenMessage();
 		ln("<div class=\"navbar\">");
 
 		if (NavbarItem.Home == item) {
@@ -64,9 +65,9 @@ public class Markup {
 		}
 
 		ln("	<div class=\"navbar-search\">");
-		ln("		<form action=\"/stage/search\" name=\"search-form\">");
+		ln("		<form action=\"/stage/search\" name=\"search-form\" class=\"" + (NavbarItem.Search == item ? "btn-search-form-selected" : "") + "\" onsubmit=\"btnSearchClick(this)\">");
 		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\"></button>");
-		ln("			<input type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
+		ln("			<input id=\"query\" type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
 		ln("		</form>");
 		ln("	</div>");
 

@@ -191,42 +191,6 @@ input:focus + .input-icon-error:after {
 
 @keyframes spin { 100% { transform:rotate(360deg); } }
 
-#fullscreen-message {
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	overflow: auto;
-	display: none;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-	background-color: rgba(255, 255, 255, 0.75);
-}
-
-.loading {
-	text-align: center;
-}
-
-.loading > div {
-	width: 1.25rem;
-	height: 1.25rem;
-	background-color: black;
-	border-radius: 100%;
-	display: inline-block;
-	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-}
-
-.loading .bounce1 {
-	animation-delay: -0.32s;
-}
-
-.loading .bounce2 {
-	animation-delay: -0.16s;
-}
-
 .input-shake {
 	animation: shake 0.4s cubic-bezier(.36, .07, .19, .97) both;
 }
@@ -236,11 +200,6 @@ input:focus + .input-icon-error:after {
 	20%, 80% { transform: translate3d(2px, 0, 0); }
 	30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
 	40%, 60% { transform: translate3d(4px, 0, 0); }
-}
-
-@keyframes sk-bouncedelay {
-	0%, 80%, 100% { transform: scale(0) }
-	40% { transform: scale(1.0) }
 }
 
 .input-icon-email:before {

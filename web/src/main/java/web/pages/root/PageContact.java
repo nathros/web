@@ -28,7 +28,6 @@ public class PageContact extends BasePage {
 		m.addHead(css, js, "Contact");
 		m.ln("<body>");
 
-		m.addFormFullscreenMessage();
 		m.addNavbar(NavbarItem.Contact);
 		m.addBannerAnimated("Contact", Resource.IMG_BANNER_1);
 
