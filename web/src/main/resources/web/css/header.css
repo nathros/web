@@ -96,6 +96,7 @@ body {
 
 .navbar-line {
 	box-shadow: inset 0 -5px 0 var(--highlight-colour);
+	border-radius: 0; /* Microsoft Edge has 2px radius */
 }
 
 /** Search **/
@@ -149,6 +150,17 @@ body {
 	background-position: center;
 	filter: invert(75%) sepia(2%) saturate(380%) hue-rotate(71deg) brightness(88%) contrast(91%);
 	transition: all 0.1s ease-in-out;
+}
+
+.btn-search-selected:before {
+	display: block;
+	position: relative;
+	top: 1.5rem;
+	width: 3.5rem;
+	height: 0.3125rem;
+	background-color: black;
+	filter: invert(56%) sepia(91%) saturate(782%) hue-rotate(117deg) brightness(85%) contrast(101%) invert(100%);
+	content:"";
 }
 
 .btn-search:hover, .btn-search-selected {

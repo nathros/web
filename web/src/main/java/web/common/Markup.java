@@ -63,9 +63,9 @@ public class Markup {
 			ln("	<a class=\"navbar-selected\" >Missing Page</a>");
 		}
 
-		ln("	<div class=\"navbar-search" + (NavbarItem.Search == item ? " navbar-line" : "") + "\">");
+		ln("	<div class=\"navbar-search\">");
 		ln("		<form action=\"/stage/search\" name=\"search-form\">");
-		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\"></button>");
+		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\"></button>");
 		ln("			<input type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
 		ln("		</form>");
 		ln("	</div>");
