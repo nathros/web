@@ -2,10 +2,10 @@ package web.common;
 
 public class LocalStringBuffer {
 
-	public StringBuffer buffer;
+	public StringBuilder buffer;
 
 	public LocalStringBuffer(int startSize) {
-		buffer = new StringBuffer(startSize);
+		buffer = new StringBuilder(startSize);
 	}
 
 	public void ln(String line) {

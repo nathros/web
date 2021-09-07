@@ -8,7 +8,7 @@ import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class Markup {
-	public StringBuffer p = new StringBuffer(1024 * 4);
+	public StringBuilder p = new StringBuilder(1024 * 32);
 
 	public Markup() {
 		ln("<!DOCTYPE html>");
