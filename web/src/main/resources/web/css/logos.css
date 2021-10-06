@@ -85,206 +85,202 @@
 }
 
 .xilinx-logo::before {
-    background-image: url("http://svgur.com/i/YAD.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/xilinx.svg");
 }
 
 .cpp-logo::before {
-    background-image: url("http://svgur.com/i/YA1.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/cpp.svg");
 }
 
 .csharp-logo::before {
-    background-image: url("http://svgur.com/i/YAS.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/csharp.svg");
 }
 
 .c-logo::before {
-    background-image: url("http://svgur.com/i/YA0.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/c.svg");
 }
 
 .java-logo::before {
-    background-image: url("http://svgur.com/i/YAR.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/java.svg");
 }
 
 .jira-logo::before {
-    background-image: url("http://svgur.com/i/YAC.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/jira.svg");
 }
 
 .linux-logo::before {
-    background-image: url("http://svgur.com/i/Y9v.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/linux.svg");
 }
 
 .gradle-logo::before {
-    background-image: url("http://svgur.com/i/Y9W.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/gradle.svg");
 }
 
 .yocto-logo::before {
-    background-image: url("http://svgur.com/i/Y8f.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/yocto.svg");
 }
 
 .q-pulse-logo::before {
-    background-image: url("http://svgur.com/i/Y8r.svg");
+    background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/qpluse.svg");
 }
 
 .freertos-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Freertos.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/freertos.svg");
 }
 
 .vivado-logo::before {
-	background-image: url("https://i.imgur.com/TMeeOOV.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/vivado.png");
 }
 
 .vitis-logo::before {
-	background-image: url("https://i.imgur.com/Z9YUhdL.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/vitis.png");
 }
 
 .visual-studio-logo::before {
-	background-image: url("http://svgur.com/i/Y9L.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/visual-studio.svg");
 }
 
 .cypress-logo::before {
-	background-image: url("http://svgur.com/i/YAN.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/cypress.svg");
 }
 
 .cmake-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/8f/Breezeicons-apps-48-cmake.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/cmake.svg");
 }
 
 .atmel-studio-logo::before {
-	background-image: url("https://www.it.unlv.edu/sites/default/files/styles/250_width/public/sites/default/files/assets/software/icons/atmel_studio.png?itok=Y_BrK5R2");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/atmel-studio.png");
 }
 
 .clion-logo::before {
-	background-image: url("http://svgur.com/i/Y8y.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/clion.svg");
 }
 
 .nxp-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a7/NXP-Logo.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/nxp.svg");
 }
 
 .microchip-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/ca/Microchip-Logo.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/microchip.svg");
 }
 
 .aws-logo::before {
-	background-image: url("http://svgur.com/i/Y9M.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws.svg");
 }
 
 .aws-ec2-logo::before {
-	background-image: url("http://svgur.com/i/ZLA.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-ec2.svg");
 }
 
 .aws-lambda-logo::before {
-	background-image: url("http://svgur.com/i/ZLw.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-lambda.svg");
 }
 
 .aws-load-balancer-logo::before {
-	background-image: url("http://svgur.com/i/ZTA.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-load-balancer.svg");
 }
 
 .aws-sqs-logo::before {
-	background-image: url("https://svgur.com/i/Ztt.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-sqs.svg");
 }
 
 .aws-dyndb-logo::before {
-	background-image: url("https://iconape.com/wp-content/files/tm/33928/png/aws-dynamodb.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-dynamodb.svg");
 }
 
 .eclipse-logo::before {
-	background-image: url("http://svgur.com/i/YAZ.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/eclipse.svg");
 }
 
 .open-suse-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d0/OpenSUSE_Logo.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-dynamodb.svg");
 }
 
 .postgres-sql-logo::before {
-	background-image: url("https://wiki.postgresql.org/images/a/a4/PostgreSQL_logo.3colors.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/postgres-sql.svg");
 }
 
 .mqtt-logo::before {
-	background-image: url("https://obrienlabs.net/images/content/mosquitto_logo.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/mqtt.svg");
 }
 
 .jenkins-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/jenkins.svg");
 }
 
 .git-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/git.svg");
 }
 
 .svn-logo::before {
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/22/Apache_Subversion_logo.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/svn.svg");
 }
  
 .altium-logo::before {
-	background-image: url("https://crackproduct.com/wp-content/uploads/2021/03/Altium-Designer-Crack-License-Key-Updated-Free-Download.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/altium.png");
 }
 
 .solid-works-logo::before {
-	background-image: url("http://svgur.com/i/YAV.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/solid-works.svg");
 }
 
 .vhdl-logo::before {
-	background-image: url("https://cas.tudelft.nl/fpga_tdc/images/logos/VHDL_icon.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/vhdl.svg");
 }
 
 .verilog-logo::before {
-	background-image: url("http://svgur.com/i/YP4.svg");
-}
-
-.verilog-logo::before {
-	background-image: url("http://svgur.com/i/YP4.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/verilog.svg");
 }
 
 .device-tree-logo::before {
-	background-image: url("http://svgur.com/i/ZSX.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/device-tree.svg");
 }
 
 .u-boot-logo::before {
-	background-image: url("http://svgur.com/i/YPx.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/u-boot.svg");
 }
 
 .atmel-logo::before {
-	background-image: url("http://svgur.com/i/ZTh.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/atmel.svg");
 }
 
 .iec-logo::before {
-	background-image: url("http://svgur.com/i/ZTY.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/iec.svg");
 }
 
 .gwt-logo::before {
-	background-image: url("https://symbols.getvecta.com/stencil_82/107_gwt-project-icon.fc9159e9c3.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/gwt.svg");
 }
 
 .white-rabbit-logo::before {
-	background-image: url("https://white-rabbit.web.cern.ch/images/WRlogo-original.jpg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/white-rabbit.jpg");
 }
 
 .test-stand-logo::before {
-	background-image: url("https://testeract.com/wp-content/uploads/2020/04/TestStand_Icon.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/test-stand.png");
 }
 
 .st-logo::before {
-	background-image: url("http://svgur.com/i/ZCy.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/st.svg");
 }
 
 .buildroot-logo::before {
-	background-image: url("https://buildroot.org/images/logo.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/buildroot.png");
 }
 
 .ise-logo::before {
-	background-image: url("http://1.bp.blogspot.com/-dbxQ9XDEhFo/VPnA-T8MV1I/AAAAAAAAA-A/bmXHJVO3okA/s1600/g4490.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/ise.png");
 }
 
 .tibco-logo::before {
-	background-image: url("http://svgur.com/i/ZRz.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/tibco.svg");
 }
 
 .tomcat-logo::before {
-	background-image: url("http://svgur.com/i/ZTN.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/tomcat.svg");
 }
 
 .rest-logo::before {
-	background-image: url("https://i.imgur.com/9ldTSQv.png");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/rest.png");
 }
 

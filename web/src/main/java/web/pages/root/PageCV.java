@@ -35,7 +35,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020 - Present\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2020 - Present</h2>");
-		m.ln("				<img src=\"https://i.imgur.com/drsWZYP.jpeg\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\">");
+		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/slipstream.jpg\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\">");
 		m.ln("				<i class=\"superscript\">Slipstream Engineering Design Ltd: <a href=\"https://www.slipstream-design.co.uk/\" target=\"_blank\">https://www.slipstream-design.co.uk/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for RF systems in commercial and military applications</h4>");
 
@@ -94,7 +94,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"December 2017 - August 2020\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>December 2017 - August 2020</h2>");
-		m.ln("				<img src=\"http://svgur.com/i/Y9g.svg\" alt=\"QuantuMDx Group Ltd\">");
+		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/quantumdx.svg\" alt=\"QuantuMDx Group Ltd\">");
 		m.ln("				<i class=\"superscript\">QuantuMDx Group Ltd: <a href=\"https://quantumdx.com\" target=\"_blank\">https://quantumdx.com/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for portable PCR and QPCR medical diagnostics device</h4>");
 		
@@ -149,7 +149,7 @@ public class PageCV extends BasePage {
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2015 - December 2017</h2>");
 		
-		m.ln("				<img src=\"https://i.imgur.com/zJHyO4f.png\" alt=\"EnAppSys\">");
+		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/enappsys.png\" alt=\"EnAppSys\">");
 		m.ln("				<i class=\"superscript\">EnAppSys Ltd: <a href=\"https://www.enappsys.com/\" target=\"_blank\">https://www.enappsys.com/</a></i>");
 		m.ln("				<h4>Java software developer providing energy market analytics for energy traders</h4>");
 
@@ -253,7 +253,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"2011 - 2015\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>2011 - 2015</h2>");
-		m.ln("				<img class=\"timeline-img-tall\" src=\"https://i.imgur.com/YAIDy9s.jpeg\" alt=\"University of York\">");
+		m.ln("				<img class=\"timeline-img-tall\" src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/york.jpg\" alt=\"University of York\">");
 		m.ln("				<i class=\"superscript\">University of York: <a href=\"https://www.york.ac.uk/\" target=\"_blank\">https://www.york.ac.uk/</a></i>");
 		m.ln("				<h4>Computer Science B.Eng 2:1</h4>");
 		job.buffer.setLength(0);
@@ -266,7 +266,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"2008 - 2011\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>2008 - 2011</h2>");
-		m.ln("				<img class=\"timeline-img-tall\" src=\"https://upload.wikimedia.org/wikipedia/commons/9/93/Hartlepool_Sixth_Form_College_Logo.png\" alt=\"Hartlepool Sixth Form_College\">");
+		m.ln("				<img class=\"timeline-img-tall\" src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/hplsfc.png\" alt=\"Hartlepool Sixth Form_College\">");
 		m.ln("				<i class=\"superscript\">Hartlepool Sixth Form College: <a href=\"https://www.hartlepoolsixth.ac.uk/\" target=\"_blank\">https://www.hartlepoolsixth.ac.uk/</a></i>");
 		m.ln("				<h4>A-Levels</h4>");
 		job.buffer.setLength(0);

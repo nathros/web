@@ -37,6 +37,7 @@ body {
 	background-color: var(--navbar-background-colour-selected);
 	box-sizing: border-box;
 	color: white !important;
+	border-radius: 0;
 }
 
 .navbar-dropdown .dropbtn {
