@@ -1,5 +1,6 @@
 package web.common;
 
+import java.io.Serializable;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -10,7 +11,9 @@ import java.util.Objects;
 import web.pages.PageMapping;
 import web.pages.root.PageHome;
 
-public class RequestInfo {
+public class RequestInfo implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	public LinkedHashMap<String, Objects> requestMap;
 
 	@SuppressWarnings("unchecked") // TODO better solution

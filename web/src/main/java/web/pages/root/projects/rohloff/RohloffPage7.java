@@ -50,7 +50,7 @@ public class RohloffPage7 extends BasePage {
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 
-		m.addFooter();
+		m.addFooter(requestInfo);
 
 		m.ln("</body>");
 		m.ln("</html>");

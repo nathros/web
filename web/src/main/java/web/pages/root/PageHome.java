@@ -158,7 +158,7 @@ public class PageHome extends BasePage {
 		
 		m.ln("</div>"); // common-content
 
-		m.addFooter();
+		m.addFooter(requestInfo);
 
 		m.ln("<script>");
 		m.ln(Resource.readResource(Resource.JS_SCROLL_TOP));

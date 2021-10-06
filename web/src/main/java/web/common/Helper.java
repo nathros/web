@@ -26,6 +26,7 @@ public class Helper {
 		return b;
 	}
 
+	//https://github.com/corretto/corretto-11/issues/118
 	public static String generateCAPTCHAImageAsBase64(final int number1, final int number2) {
 		final int height = 256;
 		final int width = (int) (height * 1.5);

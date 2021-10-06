@@ -227,10 +227,25 @@ public class Markup {
 		ln("</head>");
 	}
 
-	public void addFooter() {
+	public void addFooter(RequestInfo request) {
 		ln("<footer>");
 		ln("<img src=\"" + Resource.IMG_SNAKEICO + "\" onclick=\"startSnake()\" alt=\"Snake..\">");
 		ln("<p>Snake...</p>");
+
+		if ((request != null) && request.getQueryParam(Forms.INPUT_DEBUG_REQUEST).equals("y")) {
+			try {
+				ln("<div>");
+				ln("<b>Request</b><br>");
+				ln(request.getPrettyHTML());
+				ln("</div><br>");
+				ln("<b>Request Base64</b>");
+				ln("<div style=\"width: 32rem; word-wrap: break-word\">");
+				ln(Debug.serialise(request));
+				ln("</div><br>");
+			} catch (Exception e1) {
+				ln("Exception: " + e1.getClass().getCanonicalName() + ": " + e1.getMessage());
+			}
+		}
 		ln("</footer>");
 	}
 

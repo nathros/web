@@ -112,7 +112,7 @@ input:focus + .input-icon-error i:before {
 	background-repeat: no-repeat;
 	background-position: center center;
 	filter: invert(84%) sepia(1%) saturate(415%) hue-rotate(45deg) brightness(93%) contrast(108%);
-	background-image: url(https://icons.getbootstrap.com/assets/icons/envelope.svg); */
+	background-image: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/envelope.svg); */
 
 	transition: all 0.35s ease-in-out;
 }
@@ -202,42 +202,43 @@ input:focus + .input-icon-error:after {
 	40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 
+/* https://icons.getbootstrap.com/ */
 .input-icon-email:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/envelope.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/envelope.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/envelope.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/envelope.svg);
 }
 
 .input-icon-user:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/person-circle.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/person-circle.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/person-circle.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/person-circle.svg);
 }
 
 .input-icon-security:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/key-fill.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/key-fill.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/key-fill.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/key-fill.svg);
 }
 
 .input-icon-subject:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/question-circle-fill.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/question-circle-fill.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/question-circle-fill.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/question-circle-fill.svg);
 }
 
 .input-icon-palette:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/palette-fill.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/palette-fill.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/palette-fill.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/palette-fill.svg);
 }
 
 .input-icon-width:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/border-width.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/border-width.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/border-width.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/border-width.svg);
 }
 
 .input-icon-bricks:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/bricks.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/bricks.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/bricks.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/bricks.svg);
 }
 
 .input-icon-search:before {
-	-webkit-mask: url(https://icons.getbootstrap.com/assets/icons/search.svg);
-	mask: url(https://icons.getbootstrap.com/assets/icons/search.svg);
+	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/search.svg);
+	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/search.svg);
 }

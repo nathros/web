@@ -73,15 +73,22 @@ public class Resource {
 	public static final String IMG_ROHLOFF_RIM_PROFILE = "https://i.imgur.com/Rp0mRvx.png";
 
 	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
-	public static final String IMG_SNAKEICO = "https://i.imgur.com/uPjBm4o.png";
+	public static final String IMG_SNAKEICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/snake.svg";
+	/* https://www.svgrepo.com/vectors/search/ */
+
+	public static boolean readResource = true; // When searching pages for content strings do not load resources
 
 	public static String readResource(String path) {
-		try {
-			File file = new File(Resource.class.getClassLoader().getResource(path).getFile());
-			String content = new String(Files.readAllBytes(Paths.get(file.getPath())));
-			return content;
-		} catch (Exception e) {
-			return "Missing resource " + path;
+		if (readResource) {
+			try {
+				File file = new File(Resource.class.getClassLoader().getResource(path).getFile());
+				String content = new String(Files.readAllBytes(Paths.get(file.getPath())));
+				return content;
+			} catch (Exception e) {
+				return "Missing resource " + path;
+			}
+		} else {
+			return "";
 		}
 	}
 

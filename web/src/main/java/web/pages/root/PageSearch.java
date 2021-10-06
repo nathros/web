@@ -23,6 +23,7 @@ public class PageSearch extends BasePage {
 
 	@Override
 	public String getResponse() {
+		long startTime = System.currentTimeMillis();
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_TOGGLE_DIV, Resource.CSS_FOOTER, Resource.CSS_FORMS, Resource.CSS_BUTTON };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_HEADER, Resource.JS_FORMS };
@@ -43,6 +44,7 @@ public class PageSearch extends BasePage {
 		m.ln("	<button class=\"btn btn-blue ripple\" style=\"width:12rem;margin-top:0.35rem\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">Search</button>");
 		m.ln("</form>");
 	
+		Resource.readResource = false;
 		LocalStringBuffer sb = new LocalStringBuffer(4096);
 		int results = 0;
 		if ((query != null) && (!query.equals(""))) {
@@ -94,10 +96,11 @@ public class PageSearch extends BasePage {
 			}
 		}
 
+		Resource.readResource = true;
 		if (0 == results) {
 			m.ln("<p class=\"forms-param-error\">Not results found<p>");
 		} else {
-			m.ln("<p class=\"forms-param-good\">" + results + " result" + (results > 1 ? "s" : "" ) + " found<p>");
+			m.ln("<p class=\"forms-param-good\">" + results + " result" + (results > 1 ? "s" : "" ) + " found in " + (System.currentTimeMillis() - startTime) + "ms<p>");
 		}
 		
 		m.ln(sb.toString());
@@ -105,7 +108,7 @@ public class PageSearch extends BasePage {
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 
-		m.addFooter();
+		m.addFooter(requestInfo);
 
 		m.ln("</body>");
 		m.ln("</html>");

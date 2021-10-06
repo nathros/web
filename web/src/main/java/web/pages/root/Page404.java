@@ -66,8 +66,7 @@ public class Page404 extends BasePage {
 				// ErrorMsg.ln("<p><b>Request JSON</b></p>");
 				// ErrorMsg.ln(request.toString().replaceAll(", ", "<br>"));
 			} catch (IOException e1) {
-				ErrorMsg.ln(e1.getMessage());
-				e1.printStackTrace();
+				ErrorMsg.ln("Exception: " + e1.getClass().getCanonicalName() + ": " + e1.getMessage());
 			}
 		}
 
@@ -75,7 +74,7 @@ public class Page404 extends BasePage {
 		m.ln(m.getContentToggle("<b>Show Detailed Info</b>", ErrorMsg.toString()));
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
-		m.addFooter();
+		m.addFooter(requestInfo);
 		m.ln("</body>");
 		m.ln("</html>");
 		return m.p.toString();
