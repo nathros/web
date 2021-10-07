@@ -120,9 +120,9 @@ public class RequestInfo implements Serializable {
 			Object rootValue = requestMap.get(rootKey);
 
 			if (rootValue instanceof String) {
-				str.append("&nbsp;&nbsp;&nbsp;&nbsp;").append(rootKey).append("=").append(rootValue).append(",<br>");
+				str.append("&nbsp;&nbsp;&nbsp;&nbsp;").append(rootKey).append(" = ").append(rootValue).append(",<br>");
 			} else if (rootValue instanceof LinkedHashMap<?, ?>) {
-				str.append("&nbsp;&nbsp;&nbsp;&nbsp;").append(rootKey).append("= {");
+				str.append("&nbsp;&nbsp;&nbsp;&nbsp;").append(rootKey).append(" = {");
 
 				List<Object> childKeys = new ArrayList<Object>(((LinkedHashMap<String, Objects>) rootValue).keySet());
 				for (int j = 0; j < childKeys.size(); j++) {
@@ -140,7 +140,7 @@ public class RequestInfo implements Serializable {
 				if (childKeys.size() == 0) {
 					str.append("}<br>");
 				} else {
-					str.append("<br>&nbsp;&nbsp&nbsp;&nbsp;}<br>");
+					str.append("<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>");
 				}
 			}
 		}

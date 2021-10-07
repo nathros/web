@@ -25,9 +25,8 @@ public class Page404 extends BasePage {
 	public String getResponse(Exception e, Object request) {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_TOGGLE_DIV, Resource.CSS_BUTTON, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_HEADER };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_TOGGLE_DIV, Resource.JS_HEADER };
 
-		m.ln("<html lang=\"en\">");
 		m.addHead(css, js, "404");
 
 		m.ln("<body>");
@@ -36,7 +35,6 @@ public class Page404 extends BasePage {
 		m.addBanner("404 Page Not Found", Resource.IMG_BANNER_1);
 
 		m.ln("<div class=\"common-content\">");
-		// m.ln("<div class=\"card-single\">");
 		m.ln("<div class=\"card\">");
 		m.ln("<button class=\"btn btn-blue ripple\" onclick=\"window.history.back()\">Go Back</button>");
 
@@ -44,27 +42,25 @@ public class Page404 extends BasePage {
 
 		if (e != null) {
 			ErrorMsg.ln("<p><b>Stack Trace</b></p>");
+			ErrorMsg.ln("<div style=\"font-family:monospace\">");
 			ErrorMsg.ln(e.getMessage() + "<br>");
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
 			ErrorMsg.ln(sw.toString().replaceAll("\n", "<br>"));
-			ErrorMsg.ln("<br>");
+			ErrorMsg.ln("</div><br>");
 		}
 
 		if (request != null) {
 			try {
-				ErrorMsg.ln("<p>");
-				ErrorMsg.ln("<p><b>Request</b></p>");
+				ErrorMsg.ln("<b>Request JSON</b><br>");
+				ErrorMsg.ln("<div style=\"font-family:monospace\">");
 				ErrorMsg.ln(new RequestInfo(request).getPrettyHTML());
-				ErrorMsg.ln("</p><br>");
+				ErrorMsg.ln("</div><br>");
 
-				ErrorMsg.ln("<p><b>Request Base64</b></p>");
-				ErrorMsg.ln("<div style=\"width: 32rem; word-wrap: break-word\">");
+				ErrorMsg.ln("<b>Request Base64</b>");
+				ErrorMsg.ln("<div style=\"width:32rem;word-wrap:break-word;font-family:monospace\">");
 				ErrorMsg.ln(Debug.serialise(request));
 				ErrorMsg.ln("</div>");
-				ErrorMsg.ln("<br>");
-				// ErrorMsg.ln("<p><b>Request JSON</b></p>");
-				// ErrorMsg.ln(request.toString().replaceAll(", ", "<br>"));
 			} catch (IOException e1) {
 				ErrorMsg.ln("Exception: " + e1.getClass().getCanonicalName() + ": " + e1.getMessage());
 			}

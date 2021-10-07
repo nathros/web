@@ -234,14 +234,21 @@ public class Markup {
 
 		if ((request != null) && request.getQueryParam(Forms.INPUT_DEBUG_REQUEST).equals("y")) {
 			try {
-				ln("<div>");
-				ln("<b>Request</b><br>");
+				ln("<div class=\"common-content\">");
+				ln("<div class=\"card\">");
+
+				ln("<b>Request JSON</b><br>");
+				ln("<div style=\"font-family:monospace\">");
 				ln(request.getPrettyHTML());
 				ln("</div><br>");
+
 				ln("<b>Request Base64</b>");
-				ln("<div style=\"width: 32rem; word-wrap: break-word\">");
+				ln("<div style=\"width:32rem;word-wrap:break-word;font-family:monospace\">");
 				ln(Debug.serialise(request));
-				ln("</div><br>");
+				ln("</div>");
+
+				ln("</div>"); // card
+				ln("</div>"); // common-content
 			} catch (Exception e1) {
 				ln("Exception: " + e1.getClass().getCanonicalName() + ": " + e1.getMessage());
 			}
