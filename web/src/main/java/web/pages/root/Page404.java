@@ -32,7 +32,7 @@ public class Page404 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.BadPage);
 
-		m.addBanner("404 Page Not Found", Resource.IMG_BANNER_1);
+		m.addBannerAnimated("404 Page Not Found", Resource.IMG_BANNER_1);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("<div class=\"card\">");

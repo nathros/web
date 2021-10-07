@@ -11,3 +11,10 @@ function btnSearchClick() {
 		input.focus();
 	}, { once: true });
 }
+
+function btnSearchDebug() {
+	const urlParams = new URLSearchParams(window.location.search);
+	urlParams.set("dreq", "y");
+	window.location.search = urlParams;
+	window.location.href = url;
+}

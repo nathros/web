@@ -1,7 +1,11 @@
 var snake = new function() { // Isolates this code from other JavaScript
 
-var showGrid = false; // Debug
-var frameTime = 50; // How long a frame lasts in milliseconds, adjust game speed.
+var showGrid = false; // Debug, toggle with ¬ Tilde key.
+var frameTime;
+
+var speedIncrease = 1; // Frame time decrease amount when snake gets bigger.
+var frameTimeStart = 100; // How long a frame lasts in milliseconds, adjust game speed.
+var frameTimeMin = 20; // Minimum frame time.
 
 var direction = {
 	"LEFT": "LEFT",
@@ -10,10 +14,6 @@ var direction = {
 	"DOWN": "DOWN"
 };
 var snakeDirection;
-var snakeSegment = {
-	x: 0,
-	y: 0
-};
 var snake = [];
 var cellsXNum = 36;
 var cellsYNum = 24;
@@ -59,6 +59,7 @@ function createSnakeGame() { // Create canvas, is exists then replace.
 }
 
 function init() {
+	frameTime = frameTimeStart;
 	gameEnd = false;
 	acceptInput = true;
 	score = 0;
@@ -110,6 +111,9 @@ function newFood() { // TODO It is possible for new food to spawn on last snake 
 		x: xf,
 		y: yf
 	};
+	// Speed game up every time snake gets bigger.
+	frameTime -= speedIncrease;
+	if (frameTime < frameTimeMin) frameTime = frameTimeMin;
 }
 
 function destroySnake() {
@@ -232,6 +236,11 @@ function snakeKeyDown(e) {
 	case 27: // Escape.
 		destroySnake();
 		break;
+
+	case 223: // Tilde.
+		showGrid = !showGrid;
+		draw();
+		break;
 	}
 }
 
@@ -287,8 +296,9 @@ function updateGameState() {
 		} else {
 			newFood();
 		}
-	} else
+	} else {
 		snake = snake.slice(0, snake.length - 1);
+	}
 	acceptInput = true;
 }
 
@@ -357,11 +367,8 @@ function draw() {
 	ctx.fillText("close", window.innerWidth - crossSize, crossSize + Math.floor(crossSize / 2.5));	
 	ctx.restore();
 
-	if (showGrid) drawGrid(cellSize, xStart, yStart);
-
 	if (showSplash) {
 		drawSplash();
-		return;
 	} else {
 		// Draw snake.
 		ctx.save();
@@ -389,6 +396,8 @@ function draw() {
 	if (gameEnd) {
 		gameOver();
 	}
+
+	if (showGrid) drawGrid(cellSize, xStart, yStart);
 }
 
 function drawGrid(cellSize, xStart, yStart) {
@@ -405,6 +414,16 @@ function drawGrid(cellSize, xStart, yStart) {
 		ctx.lineTo(xStart + 0.5 + (cellSize * i), window.innerHeight - yStart);
 		ctx.stroke();
 	}
+	ctx.save();
+	ctx.font = cellSize + "px Monospace";
+	ctx.fillStyle = "green";
+	ctx.fillText("frameTime     : " + frameTime, xStart, yStart + cellSize);
+	ctx.fillText("frameTimeStart: " + frameTimeStart, xStart, yStart + (cellSize * 2));
+	ctx.fillText("frameTimeMin  : " + frameTimeMin, xStart, yStart + (cellSize * 3));
+	ctx.fillText("snakeDirection: " + snakeDirection, xStart, yStart + (cellSize * 4));
+	ctx.fillText("snakeHeadX    : " + snake[0].x, xStart, yStart + (cellSize * 5));
+	ctx.fillText("snakeHeadY    : " + snake[0].y, xStart, yStart + (cellSize * 6));
+	ctx.restore();
 }
 
 return {

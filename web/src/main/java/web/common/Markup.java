@@ -24,7 +24,7 @@ public class Markup {
 			ln("	<a href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
 		}
 
-		// ln(" <a href=\"sandpit\">Sandpit</a>");
+		// ln(" <a href=\"/sandpit\">Sandpit</a>");
 
 		if (NavbarItem.Projects == item) {
 			ln("	<div class=\"navbar-dropdown navbar-selected\">");
@@ -66,7 +66,7 @@ public class Markup {
 
 		ln("	<div class=\"navbar-search\">");
 		ln("		<form action=\"/stage/search\" name=\"search-form\" class=\"" + (NavbarItem.Search == item ? "btn-search-form-selected" : "") + "\" onsubmit=\"btnSearchClick(this)\">");
-		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\"></button>");
+		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\" onauxclick=\"btnSearchDebug()\"></button>");
 		ln("			<input id=\"query\" type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
 		ln("		</form>");
 		ln("	</div>");
