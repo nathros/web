@@ -35,7 +35,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020 - Present\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2020 - Present</h2>");
-		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/slipstream.jpg\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\">");
+		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/slipstream.webp\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\">");
 		m.ln("				<i class=\"superscript\">Slipstream Engineering Design Ltd: <a href=\"https://www.slipstream-design.co.uk/\" target=\"_blank\">https://www.slipstream-design.co.uk/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for RF systems in commercial and military applications</h4>");
 
@@ -127,6 +127,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("cpp", "C++ 14"));
 		job.ln(m.getLittleLogoWithTooltip("c", "C 99"));
 		job.ln(m.getLittleLogoWithTooltip("csharp", "C#"));
+		job.ln(m.getLittleLogoWithTooltip("jira", "Atlassian Jira"));
 		job.ln(m.getLittleLogoWithTooltip("cmake", "CMake"));
 		job.ln(m.getLittleLogoWithTooltip("git", "git"));
 		job.ln(m.getLittleLogoWithTooltip("clion", "CLion IDE"));

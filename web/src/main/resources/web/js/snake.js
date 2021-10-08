@@ -69,6 +69,7 @@ function init() {
 		x: Math.floor(cellsXNum / 4),
 		y: Math.floor(cellsYNum / 4)
 	});
+	food = { x: 0, y: 0 };
 }
 
 function mouse(e) { // Change mouse on cross top right corner.
@@ -376,6 +377,8 @@ function draw() {
 		for (i = 0; i < snake.length; i++) {
 			x = xStart + (snake[i].x * cellSize);
 			y = yStart + (snake[i].y * cellSize);
+			if (i == 0) ctx.fillStyle = "#323232";
+			else if (i == 1) ctx.fillStyle = "black";
 			drawRoundRect(x + 1, y + 1, cellSize - 1, Math.floor(cellSize / 4));
 		}
 
@@ -423,6 +426,8 @@ function drawGrid(cellSize, xStart, yStart) {
 	ctx.fillText("snakeDirection: " + snakeDirection, xStart, yStart + (cellSize * 4));
 	ctx.fillText("snakeHeadX    : " + snake[0].x, xStart, yStart + (cellSize * 5));
 	ctx.fillText("snakeHeadY    : " + snake[0].y, xStart, yStart + (cellSize * 6));
+	ctx.fillText("snakeFoodX    : " + food.x, xStart, yStart + (cellSize * 7));
+	ctx.fillText("snakeFoodY    : " + food.y, xStart, yStart + (cellSize * 8));
 	ctx.restore();
 }
 

@@ -1,5 +1,7 @@
 package web;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.Constructor;
 import web.common.RequestInfo;
 import web.pages.BasePage;
@@ -24,8 +26,14 @@ public class Lambda {
 			return result;
 
 		} catch (Exception e) { // return exception as response
-			Page404 page = new Page404(new RequestInfo(input));
-			return page.getResponse(e, input);
+			try {
+				Page404 page = new Page404(new RequestInfo(input));
+				return page.getResponse(e, input);
+			} catch (Exception e2) {
+				StringWriter sw = new StringWriter();
+				e.printStackTrace(new PrintWriter(sw));
+				return sw.toString();
+			}
 		}
 	}
 
