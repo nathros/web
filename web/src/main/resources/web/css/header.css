@@ -141,7 +141,7 @@ body {
 	right: 0px;
 	padding-left: 0;
 	background-color: transparent;
-	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/search.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/search.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	filter: invert(75%) sepia(2%) saturate(380%) hue-rotate(71deg) brightness(88%) contrast(91%);

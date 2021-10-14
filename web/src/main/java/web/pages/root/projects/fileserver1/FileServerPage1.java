@@ -15,12 +15,12 @@ public class FileServerPage1 extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER};
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER };
 
 		m.addHead(css, js, "FreeNAS Backup Server");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("FreeNAS Backup Server", Resource.IMG_BANNER_FILESERVER1);
 

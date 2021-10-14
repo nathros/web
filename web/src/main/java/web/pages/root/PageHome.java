@@ -21,7 +21,7 @@ public class PageHome extends BasePage {
 		m.addHead(css, js, "Home Page");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Home);
+		m.addNavbar(NavbarItem.Home, requestInfo);
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
 		//m.addBannerHomeAnimated("");
 

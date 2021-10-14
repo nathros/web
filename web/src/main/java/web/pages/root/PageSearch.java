@@ -31,7 +31,7 @@ public class PageSearch extends BasePage {
 		m.addHead(css, js, "Search");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Search);
+		m.addNavbar(NavbarItem.Search, requestInfo);
 		m.addBannerAnimated("Search", Resource.IMG_BANNER_1);
 
 		final String query = requestInfo.getQueryParam("query");

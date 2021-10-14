@@ -13,7 +13,7 @@ public class Forms {
 	public final static String INPUT_COMMENT = "comment";
 	public final static String INPUT_CAPTCHA = "captcha";
 	public final static String INPUT_QUERY = "query";
-	public final static String INPUT_DEBUG_REQUEST = "dreq";
+	public final static String INPUT_DEBUG_REQUEST = "debug";
 
 	public final static String INPUT_ICON_EMAIL = "input-icon-email";
 	public final static String INPUT_ICON_USER = "input-icon-user";

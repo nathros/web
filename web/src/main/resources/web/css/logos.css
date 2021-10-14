@@ -284,3 +284,7 @@
 	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/rest.png");
 }
 
+.tuleap-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/tuleap.svg");
+}
+

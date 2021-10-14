@@ -20,7 +20,7 @@ public class RohloffPage7 extends BasePage {
 		m.addHead(css, js, "STI Shifting");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("STI Shifting", Resource.IMG_BANNER_ROHLOFF);
 

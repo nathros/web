@@ -20,8 +20,8 @@ public class PageCV extends BasePage {
 
 		m.addHead(css, js, "CV");
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.CV);
-		m.addBannerAnimated("CV", Resource.IMG_BANNER_1);
+		m.addNavbar(NavbarItem.CV, requestInfo);
+		m.addBannerAnimated("CV", Resource.IMG_BANNER_1); // //https://i.imgur.com/q5uFPNn.jpeg
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
@@ -35,7 +35,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020 - Present\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2020 - Present</h2>");
-		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/slipstream.webp\" style=\"height:2rem\" alt=\"Slipstream Engineering Design Ltd\">");
+		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/slipstream.webp\" style=\"height:2rem;margin-left:-2.5px\" alt=\"Slipstream Engineering Design Ltd\">");
 		m.ln("				<i class=\"superscript\">Slipstream Engineering Design Ltd: <a href=\"https://www.slipstream-design.co.uk/\" target=\"_blank\">https://www.slipstream-design.co.uk/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for RF systems in commercial and military applications</h4>");
 
@@ -73,6 +73,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("cpp", "C++ 17"));
 		job.ln(m.getLittleLogoWithTooltip("visual-studio", "Visual Studio 2019"));
 		job.ln(m.getLittleLogoWithTooltip("csharp", "C#"));
+		job.ln(m.getLittleLogoWithTooltip("tuleap", "Enalean Tuleap"));
 		job.ln(m.getLittleLogoWithTooltip("vhdl", "VHDL"));
 		job.ln(m.getLittleLogoWithTooltip("verilog", "Verilog"));
 		job.ln(m.getLittleLogoWithTooltip("device-tree", "Linux Device Tree"));

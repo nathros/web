@@ -109,6 +109,29 @@ public class RequestInfo implements Serializable {
 		return "";
 	}
 
+	public String getCookie(String key) {
+		try {
+			Object o = requestMap.get("headers");
+			if ((null != o) && (o instanceof LinkedHashMap)) {
+				@SuppressWarnings("unchecked")
+				LinkedHashMap<String, Objects> list = (LinkedHashMap<String, Objects>) o;
+				o = list.get("cookie");
+				if ((null != o) && (o instanceof String)) {
+					String ret = (String) o;
+					String[] cookies = ret.split(";");
+					for (String i : cookies) {
+						String[] keyPair = i.split("=");
+						if (keyPair[0].trim().equals(key)) return keyPair[1];
+					}
+					return ret;
+				}
+			}
+		} catch (Exception e) {
+			return "";
+		}
+		return "";
+	}
+
 	@SuppressWarnings("unchecked")
 	public String getPrettyHTML() { // TODO make simpler
 		StringBuilder str = new StringBuilder(512);

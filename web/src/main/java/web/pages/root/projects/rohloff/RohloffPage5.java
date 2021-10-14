@@ -20,7 +20,7 @@ public class RohloffPage5 extends BasePage {
 		m.addHead(css, js, "Wheel Build");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("Flat-mount Adapter", Resource.IMG_BANNER_ROHLOFF);
 

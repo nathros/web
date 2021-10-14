@@ -28,7 +28,7 @@ public class PageContact extends BasePage {
 		m.addHead(css, js, "Contact");
 		m.ln("<body>");
 
-		m.addNavbar(NavbarItem.Contact);
+		m.addNavbar(NavbarItem.Contact, requestInfo);
 		m.addBannerAnimated("Contact", Resource.IMG_BANNER_1);
 
 		m.ln("<div class=\"common-content\">");

@@ -20,7 +20,7 @@ public class RohloffPage1 extends BasePage {
 		m.addHead(css, js, "Rohloff 1");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("Background", Resource.IMG_BANNER_ROHLOFF);
 

@@ -30,7 +30,7 @@ public class Page404 extends BasePage {
 		m.addHead(css, js, "404");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.BadPage);
+		m.addNavbar(NavbarItem.BadPage, requestInfo);
 
 		m.addBannerAnimated("404 Page Not Found", Resource.IMG_BANNER_1);
 

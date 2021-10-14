@@ -14,17 +14,16 @@ public class Markup {
 		ln("<!DOCTYPE html>");
 	}
 
-	public void addNavbar(NavbarItem item) {
+	public void addNavbar(NavbarItem item, RequestInfo request) {
+		boolean debug = request.getCookie(Forms.INPUT_DEBUG_REQUEST).equals("true");
 		addFormFullscreenMessage();
-		ln("<div class=\"navbar\">");
+		ln("<div class=\"navbar\"" + (debug ? "style=\"filter:invert(1)\"" : "") + ">");
 
 		if (NavbarItem.Home == item) {
 			ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
 		} else {
 			ln("	<a href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
 		}
-
-		// ln(" <a href=\"/sandpit\">Sandpit</a>");
 
 		if (NavbarItem.Projects == item) {
 			ln("	<div class=\"navbar-dropdown navbar-selected\">");
@@ -58,15 +57,23 @@ public class Markup {
 			ln("	<a href=\"".concat(PageMapping.CONTACT_PG).concat("\">Contact</a>"));
 		}
 
+		if (debug) {
+			ln("	<a href=\"".concat(PageMapping.SANDPIT_PG).concat("\">Sandpit</a>"));
+		}
+
 		if (NavbarItem.Admin == item) {
-			ln("	<a class=\"navbar-selected\" >Admin</a>");
-		} else if (NavbarItem.BadPage == item) {
+			ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.ADMIN_PG).concat("\">Admin</a>"));
+		} else if (debug) {
+			ln("	<a href=\"".concat(PageMapping.ADMIN_PG).concat("\">Admin</a>"));
+		}
+
+		if (NavbarItem.BadPage == item) {
 			ln("	<a class=\"navbar-selected\" >Missing Page</a>");
 		}
 
 		ln("	<div class=\"navbar-search\">");
 		ln("		<form action=\"/stage/search\" name=\"search-form\" class=\"" + (NavbarItem.Search == item ? "btn-search-form-selected" : "") + "\" onsubmit=\"btnSearchClick(this)\">");
-		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick(this)\" onauxclick=\"btnSearchDebug()\"></button>");
+		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick()\" onmouseup=\"btnSearchDebug(event)\"></button>");
 		ln("			<input id=\"query\" type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
 		ln("		</form>");
 		ln("	</div>");
@@ -140,7 +147,7 @@ public class Markup {
 	}
 
 	int modalCount = 0;
-	
+
 	public String getLittleLogoWithTooltip(String logoClass, String tooltipText) {
 		LocalStringBuffer buffer = new LocalStringBuffer(512);
 		buffer.ln("<div class=\"" + logoClass + "-logo logo-little logo-tooltip\">");
@@ -232,7 +239,7 @@ public class Markup {
 		ln("<img src=\"" + Resource.IMG_SNAKEICO + "\" onclick=\"startSnake()\" alt=\"Snake..\">");
 		ln("<p>Snake...</p>");
 
-		if ((request != null) && request.getQueryParam(Forms.INPUT_DEBUG_REQUEST).equals("y")) {
+		if ((request != null) && request.getCookie(Forms.INPUT_DEBUG_REQUEST).equals("true")) {
 			try {
 				ln("<div class=\"common-content\">");
 				ln("<div class=\"card\">");
@@ -244,7 +251,7 @@ public class Markup {
 
 				ln("<b>Request Base64</b>");
 				ln("<div style=\"width:32rem;word-wrap:break-word;font-family:monospace\">");
-				ln(Debug.serialise(request));
+				ln(Debug.serialise(request.requestMap));
 				ln("</div>");
 
 				ln("</div>"); // card

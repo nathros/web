@@ -20,12 +20,12 @@ public class PageAdmin extends BasePage {
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_TOGGLE_DIV, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_HEADER, Resource.JS_TOGGLE_DIV };
 
 		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Admin);
+		m.addNavbar(NavbarItem.Admin, requestInfo);
 
 		m.addBanner("Admin", Resource.IMG_BANNER_ADMIN);
 

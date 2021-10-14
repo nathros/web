@@ -24,8 +24,10 @@ public class TestPage {
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			List<String> headers = new ArrayList<String>();
 			String line;
+			String cookie = "";
 			while (((line = in.readLine()) != null) && (line.length() != 0)) {
 				headers.add(line);
+				if (line.contains("Cookie: ")) cookie = line.substring(8);
 				if (Config.printVerboseRequest) {
 					System.out.println(line);
 				}
@@ -37,7 +39,7 @@ public class TestPage {
 			}
 			headers.add(payload.toString());
 
-			System.out.println("Client request: " + headers.get(0) + " Body:" + payload.toString());
+			System.out.println("Client request: " + headers.get(0) + " Body:{" + payload.toString() + "} Cookie:{" + cookie + "}");
 			out = new PrintWriter(socket.getOutputStream(), true);
 			out.println("HTTP/1.0 200");
 			out.println("Content-type: text/html; charset=UTF-8");

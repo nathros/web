@@ -3,7 +3,7 @@ var snake = new function() { // Isolates this code from other JavaScript
 var showGrid = false; // Debug, toggle with ¬ Tilde key.
 var frameTime;
 
-var speedIncrease = 1; // Frame time decrease amount when snake gets bigger.
+var speedIncrease = 2; // Frame time decrease amount when snake gets bigger.
 var frameTimeStart = 100; // How long a frame lasts in milliseconds, adjust game speed.
 var frameTimeMin = 20; // Minimum frame time.
 
@@ -55,7 +55,7 @@ function createSnakeGame() { // Create canvas, is exists then replace.
 	canvas.addEventListener("click", click, false);
 	canvas.addEventListener("mousemove", mouse, false);
 	init();
-	draw();
+	draw(false);
 }
 
 function init() {
@@ -135,7 +135,7 @@ function restartSnake() {
 	window.clearInterval(drawInterval);
 	init();
 	newFood();	
-	drawInterval = window.setInterval(draw, frameTime); // Start game, draw calls update game state.
+	drawInterval = window.setTimeout(draw, frameTime, true); // Start game, draw calls update game state.
 }
 
 function drawSplash() {
@@ -173,7 +173,7 @@ function drawSplash() {
 function gameOver() {
 	gameActive = false;
 	gameEnd = true;
-	window.clearInterval(drawInterval); 
+	window.clearInterval(drawInterval);
 	ctx.save();
 	ctx.shadowColor = "white";
 	ctx.shadowBlur = 3;
@@ -239,8 +239,9 @@ function snakeKeyDown(e) {
 		break;
 
 	case 223: // Tilde.
+	case 192:
 		showGrid = !showGrid;
-		draw();
+		draw(false);
 		break;
 	}
 }
@@ -314,8 +315,8 @@ function drawRoundRect(x, y, cellSize, r) {
 	ctx.fill();
 }
 
-function draw() {
-	if (gameActive) {
+function draw(advanceGameState) {
+	if (gameActive && advanceGameState) {
 		if (updateGameState()) {
 			gameOver();
 			return;
@@ -401,6 +402,7 @@ function draw() {
 	}
 
 	if (showGrid) drawGrid(cellSize, xStart, yStart);
+	if (advanceGameState == null || advanceGameState == true) drawInterval = window.setTimeout(draw, frameTime, true);
 }
 
 function drawGrid(cellSize, xStart, yStart) {

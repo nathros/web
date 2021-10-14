@@ -21,7 +21,7 @@ public class PageRohloffR24 extends BasePage {
 		m.addHead(css, js, "Test new page 2");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("Light Mounts",
 				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");

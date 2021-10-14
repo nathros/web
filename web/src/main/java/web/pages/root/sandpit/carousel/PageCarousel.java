@@ -20,7 +20,7 @@ public class PageCarousel extends BasePage {
 		m.addHead(css, js, "Home Page");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Home);
+		m.addNavbar(NavbarItem.Home, requestInfo);
 
 		////
 		m.ln("	<div class=\"carousel\">");
@@ -35,35 +35,35 @@ public class PageCarousel extends BasePage {
 		m.ln("				<article class=\"slide\">");
 		m.ln("					<div class=\"info top-left\"><h3>Malacca</h3></div>");
 		m.ln("					<a href=\"https://google.com\">");
-		m.ln("						<img src=\"http://nottinghamtec.co.uk/~aer/TestPatterns/1080/proj-test.png\"/>");
+		m.ln("						<img src=\"https://image.shutterstock.com/image-illustration/abstract-blue-background-diagonal-lines-600w-2053988348.jpg\"/>");
 		m.ln("					</a>");
 		m.ln("				</article>");
 
 		m.ln("				<article class=\"slide\">");
 		m.ln("					<div class=\"info top-left\"><h3>Malacca</h3></div>");
 		m.ln("					<a href=\"https://google.com\">");
-		m.ln("						<img src=\"http://nottinghamtec.co.uk/~aer/TestPatterns/1080/proj-test.png\"/>");
+		m.ln("						<img src=\"https://image.shutterstock.com/image-illustration/yellow-blue-colored-grunge-backgroundyellow-600w-1998646751.jpg\"/>");
 		m.ln("					</a>");
 		m.ln("				</article>");
 
 		m.ln("				<article class=\"slide\">");
 		m.ln("					<div class=\"info top-left\"><h3>Malacca</h3></div>");
 		m.ln("					<a href=\"https://google.com\">");
-		m.ln("						<img src=\"http://nottinghamtec.co.uk/~aer/TestPatterns/1080/proj-test.png\"/>");
+		m.ln("						<img src=\"https://image.shutterstock.com/image-illustration/abstract-blue-background-diagonal-lines-600w-2053988348.jpg\"/>");
 		m.ln("					</a>");
 		m.ln("				</article>");
 
 		m.ln("				<article class=\"slide\">");
 		m.ln("					<div class=\"info top-left\"><h3>Malacca</h3></div>");
 		m.ln("					<a href=\"https://google.com\">");
-		m.ln("						<img src=\"http://nottinghamtec.co.uk/~aer/TestPatterns/1080/proj-test.png\"/>");
+		m.ln("						<img src=\"https://image.shutterstock.com/image-illustration/yellow-blue-colored-grunge-backgroundyellow-600w-1998646751.jpg\"/>");
 		m.ln("					</a>");
 		m.ln("				</article>");
 
 		m.ln("				<article class=\"slide\">");
 		m.ln("					<div class=\"info top-left\"><h3>Malacca</h3></div>");
 		m.ln("					<a href=\"https://google.com\">");
-		m.ln("						<img src=\"http://nottinghamtec.co.uk/~aer/TestPatterns/1080/proj-test.png\"/>");
+		m.ln("						<img src=\"https://image.shutterstock.com/image-illustration/abstract-blue-background-diagonal-lines-600w-2053988348.jpg\"/>");
 		m.ln("					</a>");
 		m.ln("				</article>");
 

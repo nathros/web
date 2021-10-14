@@ -20,7 +20,7 @@ public class RohloffPage6 extends BasePage {
 		m.addHead(css, js, "Headset Spacers");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("Headset Spacers", Resource.IMG_BANNER_ROHLOFF);
 

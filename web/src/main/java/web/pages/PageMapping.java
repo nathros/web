@@ -34,6 +34,7 @@ public class PageMapping {
 	public static final String CONTACT_PG = STAGE + "/contact";
 	public static final String QUOTE_3D_PG = STAGE + "/3d-quote";
 	public static final String SEARCH_PG = STAGE + "/search";
+	public static final String SANDPIT_PG = STAGE + "/sandpit";
 
 	public static final String AJAX_NEW_CAPTCHA = STAGE + "/ajax/new-captcha";
 

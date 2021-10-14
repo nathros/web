@@ -19,7 +19,7 @@ public class PageRohloff0 extends BasePage {
 		m.addHead(css, js, "Admin");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.ln("<div class=\"common-content\">");
 		m.addCard("	<h2><a href=\"/test/admin\"> link</a></h2>");

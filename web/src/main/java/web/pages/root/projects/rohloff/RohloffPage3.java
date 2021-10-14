@@ -19,7 +19,7 @@ public class RohloffPage3 extends BasePage {
 		m.addHead(css, js, "Rohloff 3");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("Belt Transmission", Resource.IMG_BANNER_ROHLOFF);
 

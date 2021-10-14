@@ -20,7 +20,7 @@ public class Connect4Page extends BasePage {
 		m.addHead(css, js, "Connect 4");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Projects);
+		m.addNavbar(NavbarItem.Projects, requestInfo);
 
 		m.addBanner("Connect 4", Resource.IMG_BANNER_CONNECT4);
 
