@@ -17,7 +17,7 @@ public class Markup {
 	public void addNavbar(NavbarItem item, RequestInfo request) {
 		boolean debug = request.getCookie(Forms.INPUT_DEBUG_REQUEST).equals("true");
 		addFormFullscreenMessage();
-		ln("<div class=\"navbar\"" + (debug ? "style=\"filter:invert(1)\"" : "") + ">");
+		ln("<div class=\"navbar\" " + (debug ? "style=\"filter:invert(1)\"" : "") + ">");
 
 		if (NavbarItem.Home == item) {
 			ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.HOME_PG).concat("\">Home</a>"));
