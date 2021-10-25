@@ -21,7 +21,10 @@ body {
 	font-size: var(--std-padding);
 	color: var(--navbar-font-idle-colour);
 	text-align: center;
-	padding: var(--std-padding);
+	padding-left: min(calc((100vw - 276px) / 6), var(--std-padding));
+	padding-right: min(calc((100vw - 276px) / 6), var(--std-padding));
+	padding-top: var(--std-padding);
+	padding-bottom: var(--std-padding);
 	text-decoration: none;
 	transition: 0.1s;
 	font-weight: initial;
