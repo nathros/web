@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import web.Version;
 import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
@@ -253,6 +254,8 @@ public class Markup {
 				ln("<div style=\"width:32rem;word-wrap:break-word;font-family:monospace\">");
 				ln(Debug.serialise(request.requestMap));
 				ln("</div>");
+
+				ln("<br><b>Version</b>: " + Version.version);
 
 				ln("</div>"); // card
 				ln("</div>"); // common-content

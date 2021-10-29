@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat
 plugins {
     id 'java-library'
     id 'com.github.johnrengelman.shadow' version '5.0.0'
+    id 'com.palantir.git-version' version '0.12.3'
 }
 
 repositories {
@@ -41,9 +42,19 @@ shadowJar {
 		return sdf.format(date)
 	}
 
+	def version = project.projectDir.toString() + "/src/main/java/web/Version.java"
+	def versionBackup = version + ".bak"
+	new File(versionBackup).bytes = new File(version).bytes
+	project.logger.lifecycle("Create dynamic version class: " + version)
+	File file = new File(version)
+	file.write "package web;\n\n"
+	file << "public class Version {\n"
+	file << "	public static String version = \"" + ext.getDateTimeStr() + " : " + gitVersion() + "\";\n"
+	file << "}\n"
+
 	def jarName = "web-" + ext.getDateTimeStr()
 	
-	//minimize()	
+	//minimize()
 	archiveBaseName = jarName
 	classifier = null
 	archiveVersion = null
@@ -54,6 +65,9 @@ shadowJar {
             into "build/"
         }
         delete("build/libs/${jarName}.jar")
+
+        new File(version).bytes = new File(versionBackup).bytes
+        delete(versionBackup)
     }
 }
 
