@@ -35,24 +35,27 @@ sourceSets {
 	}
 }
 
-shadowJar {
-	ext.getDateTimeStr = { param1 ->
-   		def date = new Date()
-		def sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss")
-		return sdf.format(date)
-	}
+def version = project.projectDir.toString() + "/src/main/java/web/Version.java"
+def versionBackup = version + ".bak"
+def formattedDate = new Date().format('yyyy-MM-dd-HH-mm-ss')
 
-	def version = project.projectDir.toString() + "/src/main/java/web/Version.java"
-	def versionBackup = version + ".bak"
+compileJava.doFirst {
 	new File(versionBackup).bytes = new File(version).bytes
 	project.logger.lifecycle("Create dynamic version class: " + version)
 	File file = new File(version)
 	file.write "package web;\n\n"
 	file << "public class Version {\n"
-	file << "	public static String version = \"" + ext.getDateTimeStr() + " : " + gitVersion() + "\";\n"
+	file << "	public static String version = \"" + formattedDate + " | " + gitVersion() + "\";\n"
 	file << "}\n"
+}
 
-	def jarName = "web-" + ext.getDateTimeStr()
+compileJava.doLast {
+    new File(version).bytes = new File(versionBackup).bytes
+    delete(versionBackup)
+}
+
+shadowJar {
+	def jarName = "web-" + formattedDate
 	
 	//minimize()
 	archiveBaseName = jarName
@@ -65,9 +68,6 @@ shadowJar {
             into "build/"
         }
         delete("build/libs/${jarName}.jar")
-
-        new File(version).bytes = new File(versionBackup).bytes
-        delete(versionBackup)
     }
 }
 
