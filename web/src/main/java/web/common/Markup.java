@@ -257,6 +257,9 @@ public class Markup {
 
 				ln("<br><b>Version</b>: " + Version.version);
 
+				long creationTime = System.currentTimeMillis() - request.getCreatedTime();
+				ln("<br><b>Server Page Time</b>: " + creationTime + "ms");
+
 				ln("</div>"); // card
 				ln("</div>"); // common-content
 			} catch (Exception e1) {

@@ -13,11 +13,13 @@ import web.pages.root.PageHome;
 
 public class RequestInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private long createdTime;
 
 	public LinkedHashMap<String, Objects> requestMap;
 
 	@SuppressWarnings("unchecked") // TODO better solution
 	public RequestInfo(Object request) {
+		createdTime = System.currentTimeMillis();
 		if (request instanceof LinkedHashMap<?, ?>) {
 			requestMap = (LinkedHashMap<String, Objects>) request;
 		}
@@ -170,6 +172,10 @@ public class RequestInfo implements Serializable {
 		str.append("}");
 		return str.toString();
 
+	}
+
+	public long getCreatedTime() {
+		return createdTime;
 	}
 
 	public String getString() {
