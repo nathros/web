@@ -166,7 +166,6 @@ input:focus + .input-icon-error:after {
 .captcha-image {
 	height: 4rem;
 	transition: transform 0.2s;
-	transform-style: preserve-3d;
 }
 
 .captcha-image-flip {
