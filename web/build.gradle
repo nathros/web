@@ -42,11 +42,24 @@ def formattedDate = new Date().format('yyyy-MM-dd-HH-mm-ss')
 compileJava.doFirst {
 	new File(versionBackup).bytes = new File(version).bytes
 	project.logger.lifecycle("Create dynamic version class: " + version)
+
+	def ln = System.getProperty('line.separator')
 	File file = new File(version)
-	file.write "package web;\n\n"
-	file << "public class Version {\n"
-	file << "	public static String version = \"" + formattedDate + " | " + gitVersion() + "\";\n"
-	file << "}\n"
+	file.write ""
+	def foundVersionString = false;
+	new File(versionBackup).eachLine { line ->
+		if (line.contains("UNDEFINED")) {
+			 file << line.replace("UNDEFINED", formattedDate + " | " + gitVersion()) << ln
+			 foundVersionString = true;
+		} else {
+			file << line << ln
+		}
+	}
+	if (!foundVersionString) {
+		new File(version).bytes = new File(versionBackup).bytes
+		delete(versionBackup)
+		throw new GradleException("Failed to find Version String UNDEFINED in : " + version)
+	}
 }
 
 compileJava.doLast {
@@ -56,7 +69,7 @@ compileJava.doLast {
 
 shadowJar {
 	def jarName = "web-" + formattedDate
-	
+
 	//minimize()
 	archiveBaseName = jarName
 	classifier = null
