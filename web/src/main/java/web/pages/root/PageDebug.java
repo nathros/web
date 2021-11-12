@@ -11,7 +11,7 @@ public class PageDebug extends BasePage {
 
 	@Override
 	public String getResponse() {
-		m.p.delete(0, m.p.length());
+		m.p.buffer.delete(0, m.p.buffer.length());
 		m.ln("<h2>" + System.currentTimeMillis() + "</h2>");
 
 		return m.p.toString();

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import web.pages.ajax.AJAXNewCAPTCHA;
+import web.pages.ajax.AJAXComment;
 import web.pages.resources.JSSnakeRes;
 import web.pages.root.*;
 import web.pages.root.projects.PageProjects;
@@ -21,7 +22,9 @@ import web.pages.root.projects.rohloff2.PageRohloffR22;
 import web.pages.root.projects.rohloff2.PageRohloffR23;
 import web.pages.root.projects.rohloff2.PageRohloffR24;
 import web.pages.root.sandpit.PageSandpit;
+import web.pages.root.sandpit.activeshow.PageActiveShow;
 import web.pages.root.sandpit.carousel.PageCarousel;
+import web.pages.root.sandpit.comment.PageComment;
 import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
@@ -37,6 +40,7 @@ public class PageMapping {
 	public static final String SANDPIT_PG = STAGE + "/sandpit";
 
 	public static final String AJAX_NEW_CAPTCHA = STAGE + "/ajax/new-captcha";
+	public static final String AJAX_NEW_COMMENT = STAGE + "/ajax/new-comment";
 
 	public static final String ROHLOFF_PG0 = STAGE + "/projects/rohloff";
 	public static final String ROHLOFF_PG1 = STAGE + "/projects/rohloff-1";
@@ -57,8 +61,8 @@ public class PageMapping {
 	public static final String FILESERVER1_PG2 = STAGE + "/projects/fileserver-2";
 	public static final String CONNECT4 = STAGE + "/projects/connect4";
 
-	public static Map<String, String> map = createMap();
-	public static Map<String, String> searchMap = createSearchMap();
+	public static Map<String, String> map = createMap(); // All pages
+	public static Map<String, String> searchMap = createSearchMap(); // Pages which are searchable
 
 	private static Map<String, String> createMap() {
 		Map<String, String> m = new HashMap<String, String>();
@@ -74,6 +78,7 @@ public class PageMapping {
 
 		// AJAX
 		m.put(AJAX_NEW_CAPTCHA, AJAXNewCAPTCHA.class.getName());
+		m.put(AJAX_NEW_COMMENT, AJAXComment.class.getName());
 
 		m.put(ROHLOFF_PG0, RohloffPage1.class.getName());
 		m.put(ROHLOFF_PG1, RohloffPage1.class.getName());
@@ -100,10 +105,12 @@ public class PageMapping {
 
 		// Testing pages
 		m.put("/debug", PageDebug.class.getName());
-		m.put("/sandpit", PageSandpit.class.getName());
-		m.put("/sandpit/xhttpinner", PageXHTTPInner.class.getName());
-		m.put("/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
-		m.put("/sandpit/carousel", PageCarousel.class.getName());
+		m.put(STAGE + "/sandpit", PageSandpit.class.getName());
+		m.put(STAGE + "/sandpit/xhttpinner", PageXHTTPInner.class.getName());
+		m.put(STAGE + "/sandpit/xhttpouter", PageXHTTPOuter.class.getName());
+		m.put(STAGE + "/sandpit/carousel", PageCarousel.class.getName());
+		m.put(STAGE + "/sandpit/comment", PageComment.class.getName());
+		m.put(STAGE + "/sandpit/activeshow", PageActiveShow.class.getName());
 		return m;
 	}
 

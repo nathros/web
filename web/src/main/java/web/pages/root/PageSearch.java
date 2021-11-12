@@ -40,7 +40,7 @@ public class PageSearch extends BasePage {
 		m.ln("	<div class=\"card\">");
 
 		m.ln("<form action=\"/stage/search\" name=\"search-form\">");
-		m.addFormInput(Forms.INPUT_QUERY, query, "Search", Forms.ERROR_MESSAGE_EMPTY, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_SEARCH, false);
+		m.addFormInput(Forms.INPUT_QUERY, query, "Search", Forms.ERROR_MESSAGE_EMPTY, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_SEARCH, false, null);
 		m.ln("	<button class=\"btn btn-blue ripple\" style=\"width:12rem;margin-top:0.35rem\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">Search</button>");
 		m.ln("</form>");
 	

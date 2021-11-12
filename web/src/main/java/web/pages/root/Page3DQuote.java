@@ -1,11 +1,8 @@
 package web.pages.root;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 
 import web.Tools;
-import web.common.Debug;
 import web.common.Forms;
 import web.common.HttpMethod;
 import web.common.RequestInfo;
@@ -64,7 +61,7 @@ public class Page3DQuote extends BasePage {
 		boolean anyFailure = false;
 		boolean inputError = !Forms.isContentValid(user, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user", Forms.INPUT_ICON_USER, true);
+		m.addFormInput(Forms.INPUT_USER, user, "eBay Username or E-mail", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Quote will be sent to this address or user", Forms.INPUT_ICON_USER, true, null);
 
 		m.ln("	<div>Service:</div>");
 		m.ln("	<div class=\"forms-input\" style=\"padding:0\">");
@@ -86,15 +83,15 @@ public class Page3DQuote extends BasePage {
 
 		inputError = !Forms.isContentValid(filamentColour, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red", Forms.INPUT_ICON_PALETTE, true);
+		m.addFormInput(INPUT_FILAMENT_COLOUR, filamentColour, "Filament Colour", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: Black, Green, Red", Forms.INPUT_ICON_PALETTE, true, null);
 
 		inputError = !Forms.isContentValid(filamentMaterial, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS", Forms.INPUT_ICON_BRICKS, true);
+		m.addFormInput(INPUT_FILAMENT_MATERIAL, filamentMaterial, "Filament Material", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: PLA <b>(typical)</b>, ABS", Forms.INPUT_ICON_BRICKS, true, null);
 
 		inputError = !Forms.isContentValid(layerHeight, method);
 		if (inputError && !isDesignService) anyFailure = true;
-		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>", Forms.INPUT_ICON_WIDTH, true);
+		m.addFormInput(INPUT_LAYER_HEIGHT, layerHeight, "Layer Height", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, "Examples: 0.1mm, 0.2mm <b>(typical)</b>", Forms.INPUT_ICON_WIDTH, true, null);
 
 		m.ln("</div>"); // print-extras
 		m.l("<script>");
@@ -105,7 +102,7 @@ public class Page3DQuote extends BasePage {
 		}
 		m.ln("</script>");
 
-		if (!isPost) { // TODO resize iframe to correct height
+		if (!isPost) {
 			userId = UUID.randomUUID().toString().replace("-", "");
 		} else {
 			if ("".equals(userId)) { // This should not blank
@@ -113,29 +110,21 @@ public class Page3DQuote extends BasePage {
 			}
 		}
 		m.ln("	<div>File Upload</div>");
-		m.ln("	<input type=\"hidden\" id=\"userId\" name=\"userId\" value=\"" + userId + "\">");
+		m.ln("	<input type=\"hidden\" id=\"userId\" name=\"userId\" value=\"" + userId + "\">");  // TODO resize iframe to correct height
 		m.ln(" <iframe id=\"upload-iframe\" class=\"forms-input\" src=\"https://script.google.com/macros/s/AKfycbwSmT5Np3Kaph121292wB1EwLNYWdprGfM4ap2gVforAtmItUw/exec?par="
 				+ userId + "\"></iframe>");
 		m.ln("	<br><br>");
 
 		inputError = !Forms.isContentValid(comment, method);
 		if (inputError) anyFailure = true;
-		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, "Any other additions about your project goal or requirements, this can include quantity or any other special considerations");
+		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, "Any other additions about your project goal or requirements, this can include quantity or any other special considerations", null);
 
-		List<Integer> numbers = m.addCAPTCHAInput();
+		m.addCAPTCHAInput(null, null);
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true);
-
-		String encodedCaptcha = "";
-		try {
-			encodedCaptcha = Debug.serialise(String.valueOf(numbers.get(0)) + String.valueOf(numbers.get(1)));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
+		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true, null);
 
 		m.ln("	<button class=\"btn btn-blue ripple\" style=\"width:12rem\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">Submit</button>");
 		if (requestInfo.getMethod() == HttpMethod.POST) {

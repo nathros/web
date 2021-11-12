@@ -125,13 +125,29 @@ public class RequestInfo implements Serializable {
 						String[] keyPair = i.split("=");
 						if (keyPair[0].trim().equals(key)) return keyPair[1];
 					}
-					return ret;
+					return "";
 				}
 			}
 		} catch (Exception e) {
 			return "";
 		}
 		return "";
+	}
+
+	public String getPath() {
+		try {
+			Object path = requestMap.get("path");
+			if ((null != path) && (path instanceof String)) {
+				return (String)path;
+			}
+			return "";
+		} catch (Exception e) {
+			return "";
+		}
+	}
+
+	public boolean isDebugCookieTrue() {
+		return getCookie(Forms.INPUT_DEBUG_REQUEST).equals(Forms.VALUE_TRUE);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -171,7 +187,6 @@ public class RequestInfo implements Serializable {
 		}
 		str.append("}");
 		return str.toString();
-
 	}
 
 	public long getCreatedTime() {

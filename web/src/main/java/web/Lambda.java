@@ -10,8 +10,9 @@ import web.pages.root.Page404;
 public class Lambda {
 
 	public String handleRequest(Object input) {
+		RequestInfo request = null;
 		try {
-			RequestInfo request = new RequestInfo(input);
+			request = new RequestInfo(input);
 
 			// Reflect to get page from URL "path" parameter
 			Class<?> c = Class.forName(request.getPageClass());
@@ -27,7 +28,7 @@ public class Lambda {
 
 		} catch (Exception e) { // return exception as response
 			try {
-				Page404 page = new Page404(new RequestInfo(input));
+				Page404 page = new Page404(request);
 				return page.getResponse(e, input);
 			} catch (Exception e2) {
 				StringWriter sw = new StringWriter();

@@ -1,22 +1,29 @@
 package web.common;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.spec.GetItemSpec;
 import web.Version;
+import web.database.CommentNode;
+import web.database.CommentRoot;
+import web.database.Database;
 import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class Markup {
-	public StringBuilder p = new StringBuilder(1024 * 32);
+	public LocalStringBuffer p = new LocalStringBuffer(1024 * 32);
 
 	public Markup() {
 		ln("<!DOCTYPE html>");
 	}
 
 	public void addNavbar(NavbarItem item, RequestInfo request) {
-		boolean debug = request.getCookie(Forms.INPUT_DEBUG_REQUEST).equals("true");
+		boolean debug = request.isDebugCookieTrue();
 		addFormFullscreenMessage();
 		ln("<div class=\"navbar\" " + (debug ? "style=\"filter:invert(1)\"" : "") + ">");
 
@@ -59,7 +66,11 @@ public class Markup {
 		}
 
 		if (debug) {
-			ln("	<a href=\"".concat(PageMapping.SANDPIT_PG).concat("\">Sandpit</a>"));
+			if (NavbarItem.Sandpit == item) {
+				ln("	<a class=\"navbar-selected\" href=\"".concat(PageMapping.SANDPIT_PG).concat("\">Sandpit</a>"));
+			} else {
+				ln("	<a href=\"".concat(PageMapping.SANDPIT_PG).concat("\">Sandpit</a>"));
+			}
 		}
 
 		if (NavbarItem.Admin == item) {
@@ -72,7 +83,7 @@ public class Markup {
 			ln("	<a class=\"navbar-selected\" >Missing Page</a>");
 		}
 
-		ln("	<div class=\"navbar-search\">"); // TODO on FireFox run a search then go back to previous page, full screen message will be present
+		ln("	<div class=\"navbar-search\">");
 		ln("		<form action=\"/stage/search\" name=\"search-form\" class=\"" + (NavbarItem.Search == item ? "btn-search-form-selected" : "") + "\" onsubmit=\"btnSearchClick(this)\">");
 		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick()\" onmouseup=\"btnSearchDebug(event)\"></button>");
 		ln("			<input id=\"query\" type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");
@@ -109,13 +120,26 @@ public class Markup {
 	public String getContentToggle(String title, String content) {
 		LocalStringBuffer buffer = new LocalStringBuffer(512);
 		buffer.ln("<div class=\"toggle-container\">");
-		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount
-				+ "\">".concat(title).concat("</label>"));
+		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount + "\">".concat(title).concat("</label>"));
 		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\" onclick=\"toggleContentHeight(this)\">");
 		buffer.ln("	<div class=\"toggle-content\">");
 		buffer.ln(content);
 		buffer.ln("	</div>"); // toggle-content
 		buffer.ln("	<i class=\"toggle-arrow\"></i>");
+		buffer.ln("</div>"); // toggle-container
+		toggleCount++;
+		return buffer.toString();
+	}
+
+	public String getContentToggleArrow(String title, String content) {
+		LocalStringBuffer buffer = new LocalStringBuffer(512);
+		buffer.ln("<div class=\"toggle-container\">");
+		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount + "\">".concat(title).concat("</label>"));
+		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\" onclick=\"toggleContentHeight(this)\">");
+		buffer.ln("	<div class=\"toggle-content\">");
+		buffer.ln(content);
+		buffer.ln("	</div>"); // toggle-content
+		buffer.ln("	<i class=\"toggle-cross\"></i>");
 		buffer.ln("</div>"); // toggle-container
 		toggleCount++;
 		return buffer.toString();
@@ -188,12 +212,11 @@ public class Markup {
 	}
 
 	public void ln(String line) {
-		p.append(line);
-		p.append("\n");
+		p.ln(line);
 	}
 
 	public void l(String line) {
-		p.append(line);
+		p.l(line);
 	}
 
 	public void addLinkButton(String text, String href, boolean newTab) {
@@ -240,7 +263,7 @@ public class Markup {
 		ln("<img src=\"" + Resource.IMG_SNAKEICO + "\" onclick=\"startSnake()\" alt=\"Snake..\">");
 		ln("<p>Snake...</p>");
 
-		if ((request != null) && request.getCookie(Forms.INPUT_DEBUG_REQUEST).equals("true")) {
+		if ((request != null) && request.isDebugCookieTrue()) {
 			try {
 				ln("<div class=\"common-content\">");
 				ln("<div class=\"card\">");
@@ -280,35 +303,130 @@ public class Markup {
 		ln("</div>");
 	}
 
-	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean stopAutoComplete, String focusScript, String inputScript, String subText, String icon, boolean addBreaks) {
-		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
-		ln("	<div class=\"input-group forms-input\">");
-		ln("		<input class=\"" + (showError ? "input-error" : "") + "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\" aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\"" + (stopAutoComplete ? " autocomplete=\"new-password\"" : "") + ">");
-		ln("		<div class=\"input-icon" + (showError ? " input-icon-error": "") + "\"><i class=\"" + icon + "\"></i></div>");
-		ln("		</div>");
+	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean stopAutoComplete, String focusScript, String inputScript, String subText, String icon, boolean addBreaks, LocalStringBuffer buff) {
+		if (buff == null) buff = p;
+		buff.ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
+		buff.ln("	<div class=\"input-group forms-input\">");
+		buff.ln("		<input class=\"" + (showError ? "input-error" : "") + "\" type=\"text\" name=\"" + inputName + "\" value=\"" + inputValue + "\" aria-label=\"" + inputName + "\" onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\"" + (stopAutoComplete ? " autocomplete=\"new-password\"" : "") + ">");
+		buff.ln("		<div class=\"input-icon" + (showError ? " input-icon-error": "") + "\"><i class=\"" + icon + "\"></i></div>");
+		buff.ln("		</div>");
 		if (subText != null) {
-			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
+			buff.ln("	<i class=\"forms-small-text\">" + subText + "</i>");
 		}
-		if (addBreaks) ln("	<br><br>");
+		if (addBreaks) buff.ln("	<br><br>");
 	}
 
-	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText) {
-		ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
-		ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
-		l(inputValue);
-		ln("</textarea>");
+	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText, LocalStringBuffer buff) {
+		if (buff == null) buff = p;
+		buff.ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
+		buff.ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+		buff.l(inputValue);
+		buff.ln("</textarea>");
 		if (subText != null) {
-			ln("	<i class=\"forms-small-text\">" + subText + "</i>");
+			buff.ln("	<i class=\"forms-small-text\">" + subText + "</i>");
 		}
-		ln("	<br><br>");
+		buff.ln("	<br><br>");
 	}
 
-	public List<Integer> addCAPTCHAInput() {
+	public List<Integer> addCAPTCHAInput(LocalStringBuffer buffer, String nameAppend) {
+		if (buffer == null) buffer = p;
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
-		ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
-		ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh\" alt=\"Refresh\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
-		ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
+		buffer.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
+		buffer.ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh\" alt=\"Refresh\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
+		buffer.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
+
+		String encodedCaptcha = "";
+		try {
+			encodedCaptcha = Debug.serialise(String.valueOf(numbers.get(0)) + String.valueOf(numbers.get(1)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (nameAppend == null) nameAppend = "";
+		buffer.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded" + nameAppend + "\" value=\"" + encodedCaptcha + "\">");
 		return numbers;
+	}
+
+	public void addCommentsTreeLoop(CommentNode node, final String nest, final int calls, LocalStringBuffer buf, RequestInfo request) throws Exception {
+		if ((node.user != null) && (node.comment != null)) {
+			if (calls == 1) buf.ln("<div style=\"padding-top: 1rem; padding-bottom: 1rem\">");
+			else buf.ln("<div style=\"padding: 1rem; padding-left: 3rem; padding-right:0\">");
+
+			buf.ln("<b>" + node.user + "</b> - ");
+			if (node.date != null) buf.ln("<i style=\"font-size:0.8rem\"> " + node.date + "</i>");
+			buf.ln("<br><p>" + node.comment + "</p>");
+		} else if (calls == 0) {
+			buf.ln("<div>");
+		}
+
+		LocalStringBuffer tmp = new LocalStringBuffer(1024);
+		String name = request.getCookie(Forms.COOKIE_COMMENT_NAME);
+		String email = request.getCookie(Forms.COOKIE_COMMENT_EMAIL);
+		addFormInput(Forms.INPUT_NAME + nest, name, "Name", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true, tmp);
+		addFormInput(Forms.INPUT_EMAIL + nest, email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
+
+		tmp.ln("<div class=\"checkbox-group\">");
+		tmp.ln("<input type=\"checkbox\" id=\"keep-comment" + nest + "\" name=\"keep-comment" + nest + "\" checked>");
+		tmp.ln("<label for=\"keep-comment" + nest + "\">Keep details for future use</label>");
+		tmp.ln("</div><br>");
+		addFormTextArea(Forms.INPUT_COMMENT + nest, "", "Comment", Forms.ERROR_MESSAGE_REQUIRED, false, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, tmp);
+
+		addCAPTCHAInput(tmp, nest);
+		addFormInput(Forms.INPUT_CAPTCHA + nest, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, false, false, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true, tmp);
+
+		tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','reply')\">Send</a>");
+		if (request.isDebugCookieTrue()) tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','delete')\">Delete</a>");
+
+		if (node.user == null) {
+			buf.ln(getContentToggleArrow("<b>Add New Comment</b>", tmp.toString()));
+			buf.ln("<hr>");
+		} else {
+			buf.ln(getContentToggleArrow("<i>Reply</i>", tmp.toString()));
+			buf.ln("<hr>");
+		}
+
+		if (node.children != null) {
+			for (int i = 0; i < node.children.size(); i++) {
+				addCommentsTreeLoop(node.children.get(i), nest + "," + String.valueOf(i), calls + 1, buf, request);
+			}
+		}
+
+		if ((node.user != null) || (calls == 0)) buf.ln("</div>");
+	}
+
+	public void addCommentsTree(RequestInfo request, String externalPath) {
+		try {
+			Table table = Database.dynamoDB.getTable(Database.DB_TABLE_COMMENTS);
+			String path = externalPath == null ? request.getPath() : externalPath;
+			GetItemSpec spec = new GetItemSpec().withPrimaryKey("page", path);
+			Item outcome = table.getItem(spec);
+			CommentRoot rootNode;
+			if (outcome == null) {
+				rootNode = Database.getEmptyCommentRoot(path);
+			} else {
+				rootNode = Database.itemToObject(outcome, CommentRoot.class);
+			}
+			LocalStringBuffer buffer = new LocalStringBuffer(4096);
+			addCommentsTreeLoop(rootNode.root, "r", 0, buffer, request);
+			ln(buffer.toString());
+		} catch (Exception e) {
+			ln("<div style=\"color:red\">ERROR in comments</div>");
+		}
+	}
+
+	public void addCommentsSectionAsync() { // TODO CSS must be in this order: Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS
+		ln("<div class=\"common-content\">");
+		ln("	<div class=\"card\">");
+
+		ln("<div id=\"comment\">");
+		ln("Waiting...");
+		ln("</div>"); // comment
+
+		ln("	</div>"); // card
+		ln("</div>"); // common-content
+
+		ln("<script>");
+		ln(Resource.readResource(Resource.JS_LOAD_DYNAMIC));
+		ln("</script>");
 	}
 }

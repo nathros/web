@@ -24,6 +24,7 @@ public class PageRohloff0 extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.addCard("	<h2><a href=\"/test/admin\"> link</a></h2>");
 		////
+		m.addCommentsSectionAsync();
 		m.addFooter(requestInfo);
 
 		m.ln("</div>"); // common-content

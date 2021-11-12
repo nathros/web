@@ -15,6 +15,12 @@ public class Forms {
 	public final static String INPUT_QUERY = "query";
 	public final static String INPUT_DEBUG_REQUEST = "debug";
 
+	public final static String VALUE_TRUE = "true";
+	public final static String VALUE_FALSE = "false";
+
+	public final static String COOKIE_COMMENT_NAME = "commentName";
+	public final static String COOKIE_COMMENT_EMAIL = "commentEmail";
+
 	public final static String INPUT_ICON_EMAIL = "input-icon-email";
 	public final static String INPUT_ICON_USER = "input-icon-user";
 	public final static String INPUT_ICON_SECURITY = "input-icon-security";

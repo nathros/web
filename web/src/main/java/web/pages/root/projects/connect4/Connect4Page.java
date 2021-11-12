@@ -14,8 +14,8 @@ public class Connect4Page extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_FORMS, Resource.CSS_TOGGLE_DIV };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV };
 
 		m.addHead(css, js, "Connect 4");
 
@@ -34,6 +34,7 @@ public class Connect4Page extends BasePage {
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 
+		m.addCommentsSectionAsync();
 		m.addFooter(requestInfo);
 
 		m.ln("</body>");

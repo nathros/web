@@ -5,15 +5,12 @@ body {
 }
 
 .navbar {
-	/*overflow: hidden; /*Add back for none-fixed*/
 	background-color: var(--navbar-background-colour);
-	box-shadow: 0rem 0.1rem 0.5rem 0.2rem rgba(0,0,0,0.3);
+	box-shadow: 0rem 0.1rem 0.5rem 0.2rem rgba(0, 0, 0, 0.3);
 	z-index: 100;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	*padding-left: var(--global-content-padding);
-	*padding-right: var(--global-content-padding);
 }
 
 .navbar a {
@@ -28,11 +25,13 @@ body {
 	text-decoration: none;
 	transition: 0.1s;
 	font-weight: initial;
+	height: 1.375rem;
 }
 
 .navbar-dropdown {
 	float: left;
 	overflow: hidden;
+	height: 3.375rem;
 }
 
 .navbar-selected {
@@ -41,7 +40,7 @@ body {
 	box-sizing: border-box;
 	color: white !important;
 	border-radius: 0;
-	height: 3.375rem;
+	height: 3.375rem !important;
 }
 
 .navbar-dropdown .dropbtn {
@@ -130,10 +129,9 @@ body {
 	box-shadow: inset 0 -5px 0 transparent;
 }
 
-/* transitions on placeholders are not technically supported in the CSS spec https://bugzilla.mozilla.org/show_bug.cgi?id=1115623 */
+/* Transitions on placeholders are not technically supported in the CSS spec https://bugzilla.mozilla.org/show_bug.cgi?id=1115623 */
 .input-search::placeholder { /* Fade does not work in FireFox 94 */
 	color: transparent;
-	*color: red;
 	transition: all 200ms linear;
 	font-size: var(--std-padding);
 }
@@ -179,7 +177,6 @@ body {
 
 .btn-search-form-selected {
 	background-color: var(--navbar-background-colour-selected);
-	*padding-right: 0.5rem;
 }
 
 .btn-search:hover, .btn-search-selected {

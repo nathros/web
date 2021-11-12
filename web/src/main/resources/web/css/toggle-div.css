@@ -1,21 +1,10 @@
-.toggle-arrow {
-	border: solid black;
-	border-width: 0 3px 3px 0;
-	display: inline-block;
-	padding: 3px;
-	transform: rotate(45deg) translateY(-0.2rem) translateX(-0.2rem);
-	transition: all 0.5s ease;
-	position: absolute;
-	top: 0.75rem;
-	right: 0.5rem;
-	pointer-events: none;
-}
-
 .toggle-label {
 	display: block;
 	padding: 0.25rem;
 	margin-left: -0.25rem;
 	cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .toggle-label:hover {
@@ -53,6 +42,50 @@
 	overflow-y: hidden;
 }
 
+.toggle-arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(45deg) translateY(-0.2rem) translateX(-0.2rem);
+	transition: all 0.5s ease;
+	position: absolute;
+	top: 0.75rem;
+	right: 0.5rem;
+	pointer-events: none;
+}
+
 .toggle-container input[type="checkbox"]:checked ~ .toggle-arrow {
 	transform: rotate(225deg);
+}
+
+.toggle-cross {
+	display: inline-block;
+	padding: 3px;
+	transition: all 0.5s ease;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	pointer-events: none;
+}
+
+.toggle-cross:before, .toggle-cross:after {
+	position: absolute;
+	content: "";
+	height: 20px;
+	top: -7px;
+	width: 2px;
+	left: 2px;
+	background-color: black;
+}
+
+.toggle-cross:before {
+	transform: rotate(45deg);
+}
+.toggle-cross:after {
+	transform: rotate(-45deg);
+}
+
+.toggle-container input[type="checkbox"]:checked ~ .toggle-cross {
+	transform: rotate(-45deg);
 }

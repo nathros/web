@@ -14,7 +14,7 @@ public class PageXHTTPInner extends BasePage {
 
 	@Override
 	public String getResponse() { // Only returns inner content
-		m.p.delete(0, m.p.length());
+		m.p.buffer.delete(0, m.p.buffer.length());
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Date date = new Date(System.currentTimeMillis());
 		m.ln(formatter.format(date));

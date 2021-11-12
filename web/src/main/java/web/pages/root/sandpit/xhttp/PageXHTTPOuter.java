@@ -3,6 +3,7 @@ package web.pages.root.sandpit.xhttp;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
+import web.pages.root.Page404;
 
 public class PageXHTTPOuter extends BasePage {
 
@@ -12,6 +13,8 @@ public class PageXHTTPOuter extends BasePage {
 
 	@Override
 	public String getResponse() {
+		if (!requestInfo.isDebugCookieTrue()) return new Page404(requestInfo).getResponse();
+
 		String[] css = {};
 		String[] js = { Resource.JS_LOAD_DOC };
 

@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBuffer;
+import java.awt.image.IndexColorModel;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Base64;
@@ -18,7 +20,7 @@ import javax.imageio.ImageIO;
 
 public class Helper {
 
-	static Pattern pattern = Pattern.compile("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
+	final static Pattern pattern = Pattern.compile("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
 
 	public static boolean isValidEmail(String email) {
 		Matcher matcher = pattern.matcher(email);
@@ -30,7 +32,11 @@ public class Helper {
 	public static String generateCAPTCHAImageAsBase64(final int number1, final int number2) {
 		final int height = 256;
 		final int width = (int) (height * 1.5);
-		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+		//https://dukesoftware00.blogspot.com/2012/07/create-indexed-256-png-using-pngj.html
+		final int[] colourMap = {  0x00000000, 0xff000000, 0xffffffff, 0xff00FFFF, 0xffFFFF00, 0xFF00FF00, 0x8800FF00 };
+		IndexColorModel colorModel = new IndexColorModel(8, colourMap.length, colourMap, 0, true, 0, DataBuffer.TYPE_BYTE);
+		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_INDEXED, colorModel);
 
 		Graphics2D g2d = bufferedImage.createGraphics();
 		Font font = new Font(null, Font.BOLD, height / 3);

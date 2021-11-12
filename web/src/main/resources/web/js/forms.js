@@ -97,7 +97,7 @@ function checkInputCAPTCHA(sender) {
 
 function loadNewCAPTCHAError(sender) {
 	sender.classList.remove(SpinAnimation);
-	sender.nextElementSibling.style.display = "initial";
+	sender.nextElementSibling.style.display = "initial"; // Show error message
 }
 
 var timeoutCAPTCHA = (function () {
@@ -152,8 +152,10 @@ function loadNewCAPTCHA(url, sender) {
 				imageData = this.responseText.substring(0, index);
 				finished = true;
 				var newEncoded = this.responseText.substring(index + 1, this.responseText.length);
-				document.getElementById("encoded").value = newEncoded;
-				sender.nextElementSibling.style.display = "none";
+				var encodedInput = sender.nextElementSibling.nextElementSibling;
+				//document.getElementById("encoded").value = newEncoded;
+				encodedInput.value = newEncoded;
+				sender.nextElementSibling.style.display = "none"; // Error message clear
 			} else {
 				loadNewCAPTCHAError(sender);
 				clearInterval(loop);
@@ -163,4 +165,66 @@ function loadNewCAPTCHA(url, sender) {
 	};
 	xhttp.open("GET", url, true);
 	xhttp.send();
+}
+
+/* Comments - needs header.js*/
+function commentAction(sender, level, operation) {
+	var page = window.location;
+	var xhttp = new XMLHttpRequest();
+	var nameInput = document.getElementsByName("firstname" + level)[0];
+	var emailInput = document.getElementsByName("email" + level)[0];
+	var keepComment = document.getElementsByName("keep-comment" + level)[0];
+	var commentText = document.getElementsByName("comment" + level)[0];
+	var captchaInput = document.getElementsByName("captcha" + level)[0];
+	var captchaValue = document.getElementsByName("encoded" + level)[0].value;
+
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if (this.responseText.length < 10) {
+				alert(this.responseText);
+			} else {
+				document.getElementById("comment").innerHTML = this.responseText;
+			}
+		}
+	};
+
+	var data = "";
+	if ("reply" == operation) {
+		if (commentText.value.trim() == "") {
+			alert("Missing comment");
+			return;
+		}
+		data = "&comment=" + encodeURI(commentText.value);
+
+		if (nameInput.value.trim() == "") {
+			alert("Missing Username");
+			return;
+		}
+		data += "&user=" + encodeURI(nameInput.value);
+
+		if (emailInput.value.trim() == "") {
+			alert("Missing Email");
+			return;
+		}
+		data += "&email=" + encodeURI(emailInput.value)
+
+		if (captchaInput.value.trim() == "") {
+			alert("Missing captcha");
+			return;
+		}
+		data += "&captcha=" + encodeURI(captchaInput.value);
+		data += "&encoded=" + captchaValue;
+	}
+
+	if (keepComment.value) {
+		createCookie("commentName", nameInput.value, 600);
+		createCookie("commentEmail", emailInput.value, 600);
+	} else {
+		createCookie("commentName", "", 600);
+		createCookie("commentEmail", "", 600);
+	}
+
+	xhttp.open("POST", "/stage/ajax/new-comment", true);
+	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhttp.send("page=" + page + "&level=" + level + "&action=" + operation + data);
 }

@@ -1,10 +1,9 @@
-
-
 function btnSearchClick() {
 	var input = document.getElementById("query");
 	if ((input.value != null) && (input.value.trim() != "")) {
 		if (input.getBoundingClientRect().width >= 290) {
 			setTimeout(function() { document.getElementById("fullscreen-message").style.display = "flex"; }, 350);
+			window.onunload = function(){}; // Fixes FireFox behaviour: do search then go back a page, fullscreen-message is visiable
 			document.forms["search-form"].submit();
 		}
 	}

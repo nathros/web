@@ -32,6 +32,7 @@ public class Resource {
 	public static final String JS_FORMS = "web/js/forms.js";
 	public static final String JS_TOGGLE_DIV = "web/js/toggle-div.js";
 	public static final String JS_HEADER = "web/js/header.js";
+	public static final String JS_LOAD_DYNAMIC = "web/js/load-dynamic.js";
 
 	public static final String IMG_BANNER_1 = "https://i.imgur.com/dtgWhuG.jpg"; // https://wallpaperplay.com/walls/full/1/b/e/366897.jpg
 	public static final String IMG_BANNER_2 = "https://i.imgur.com/9p0HPN7.jpg";

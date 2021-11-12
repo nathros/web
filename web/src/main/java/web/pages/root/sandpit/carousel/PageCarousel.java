@@ -4,6 +4,7 @@ import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
+import web.pages.root.Page404;
 
 public class PageCarousel extends BasePage {
 
@@ -13,14 +14,16 @@ public class PageCarousel extends BasePage {
 
 	@Override
 	public String getResponse() {
+		if (!requestInfo.isDebugCookieTrue()) return new Page404(requestInfo).getResponse();
+
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_CAROUSEL };
-		String[] js = { Resource.JS_SNAKE_HOOK };
+		String[] js = { Resource.JS_HEADER };
 
 		m.addHead(css, js, "Home Page");
 
 		m.ln("<body>");
-		m.addNavbar(NavbarItem.Home, requestInfo);
+		m.addNavbar(NavbarItem.Sandpit, requestInfo);
 
 		////
 		m.ln("	<div class=\"carousel\">");

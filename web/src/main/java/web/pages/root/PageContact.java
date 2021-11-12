@@ -1,10 +1,6 @@
 package web.pages.root;
 
-import java.io.IOException;
-import java.util.List;
-
 import web.Tools;
-import web.common.Debug;
 import web.common.Forms;
 import web.common.Helper;
 import web.common.HttpMethod;
@@ -47,37 +43,29 @@ public class PageContact extends BasePage {
 
 		boolean inputError = !Forms.isContentValid(firstname, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_NAME, firstname, "Name", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true);
+		m.addFormInput(Forms.INPUT_NAME, firstname, "Name", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true, null);
 
 		inputError = !Forms.isContentValid(email, method);
 		if ((!inputError) && (method == HttpMethod.POST)) {
 			inputError = !Helper.isValidEmail(email);
 		}
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_EMAIL, email, "Email", Forms.ERROR_MESSAGE_EMAIL, inputError, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true);
+		m.addFormInput(Forms.INPUT_EMAIL, email, "Email", Forms.ERROR_MESSAGE_EMAIL, inputError, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, null);
 
 		inputError = !Forms.isContentValid(subject, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_SUBJECT, subject, "Subject", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_SUBJECT, true);
+		m.addFormInput(Forms.INPUT_SUBJECT, subject, "Subject", Forms.ERROR_MESSAGE_REQUIRED, inputError, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_SUBJECT, true, null);
 
 		inputError = !Forms.isContentValid(comment, method);
 		if (inputError) anyFailure = true;
-		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null);
+		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, null);
 
-		List<Integer> numbers = m.addCAPTCHAInput();
+		m.addCAPTCHAInput(null, null);
 
 		final String encoded = requestInfo.getBodyParam("encoded");
 		inputError = !Forms.encodedCAPTCHACompareValid(encoded, captcha, method);
 		if (inputError) anyFailure = true;
-		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true);
-
-		String encodedCaptcha = "";
-		try {
-			encodedCaptcha = Debug.serialise(String.valueOf(numbers.get(0)) + String.valueOf(numbers.get(1)));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		m.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded\" value=\"" + encodedCaptcha + "\">");
+		m.addFormInput(Forms.INPUT_CAPTCHA, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, inputError, true, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true, null);
 
 		m.ln("	<button class=\"btn btn-blue ripple\" style=\"width:12rem\" onclick=\"sendEmail()\" value=\"Submit\" aria-label=\"Submit\">Submit</button>");
 
