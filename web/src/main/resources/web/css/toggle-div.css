@@ -34,6 +34,7 @@
 
 .toggle-content {
 	overflow-y: visible;
+	height: 0px !important; /* Intentionally conflicts with min-height in toggle-div.js for dynamic height transition */
 }
 
 .toggle-container .toggle-content {

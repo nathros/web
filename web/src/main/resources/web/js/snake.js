@@ -1,6 +1,6 @@
 var snake = new function() { // Isolates this code from other JavaScript
 
-var showGrid = false; // Debug, toggle with ¬ Tilde key.
+var showGrid = false; // Debug, toggle with ï¿½ Tilde key.
 var frameTime;
 
 var speedIncrease = 2; // Frame time decrease amount when snake gets bigger.
@@ -354,15 +354,17 @@ function draw(advanceGameState) {
 	var crossSize = cellSize > 24 ? cellSize : 24;
 	crossSize = crossSize * 1.5;
 	ctx.save();
+	ctx.lineCap = "square"; 
 	ctx.lineWidth = 4;
 	ctx.strokeStyle = "white";
 	ctx.fillStyle = "white";
 	//ctx.shadowColor = "white"; // Shadow for cross and text
 	//ctx.shadowBlur = 2;
 	ctx.beginPath();
-	ctx.moveTo(window.innerWidth - crossSize, 0);
-	ctx.lineTo(window.innerWidth, crossSize);
-	ctx.moveTo(window.innerWidth, 0);
+	const edge = 3
+	ctx.moveTo(window.innerWidth - crossSize, edge);
+	ctx.lineTo(window.innerWidth - edge, crossSize);
+	ctx.moveTo(window.innerWidth - edge, edge);
 	ctx.lineTo(window.innerWidth - crossSize, crossSize);
 	ctx.stroke();
 	ctx.font = " " + Math.floor(crossSize / 2.5) + "px Lucida Sans Unicode";
@@ -378,8 +380,9 @@ function draw(advanceGameState) {
 		for (i = 0; i < snake.length; i++) {
 			x = xStart + (snake[i].x * cellSize);
 			y = yStart + (snake[i].y * cellSize);
-			if (i == 0) ctx.fillStyle = "#323232";
-			else if (i == 1) ctx.fillStyle = "black";
+			if (i == 0) ctx.fillStyle = "blue";
+			else if (i == 1) ctx.fillStyle = "darkblue";
+			else if (i == 2) ctx.fillStyle = "black";
 			drawRoundRect(x + 1, y + 1, cellSize - 1, Math.floor(cellSize / 4));
 		}
 

@@ -72,7 +72,7 @@ public class Markup {
 			ln("	<a class=\"navbar-selected\" >Missing Page</a>");
 		}
 
-		ln("	<div class=\"navbar-search\">");
+		ln("	<div class=\"navbar-search\">"); // TODO on FireFox run a search then go back to previous page, full screen message will be present
 		ln("		<form action=\"/stage/search\" name=\"search-form\" class=\"" + (NavbarItem.Search == item ? "btn-search-form-selected" : "") + "\" onsubmit=\"btnSearchClick(this)\">");
 		ln("			<button type=\"button\" class=\"btn-search" + (NavbarItem.Search == item ? " navbar-line btn-search-selected" : "") + "\" onclick=\"btnSearchClick()\" onmouseup=\"btnSearchDebug(event)\"></button>");
 		ln("			<input id=\"query\" type=\"text\" class=\"input-search\" name=\"" + Forms.INPUT_QUERY + "\" placeholder=\"Type to search...\">");

@@ -1,3 +1,5 @@
+
+
 function btnSearchClick() {
 	var input = document.getElementById("query");
 	if ((input.value != null) && (input.value.trim() != "")) {
@@ -7,9 +9,13 @@ function btnSearchClick() {
 		}
 	}
 
-	input.addEventListener("transitionend", () => {
+	if (input.getBoundingClientRect().width <= 290) {
+		input.addEventListener("transitionend", () => {
+			input.focus();
+		}, { once: true });
+	} else {
 		input.focus();
-	}, { once: true });
+	}
 }
 
 // https://www.quirksmode.org/js/cookies.html
