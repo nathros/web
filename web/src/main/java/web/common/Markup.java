@@ -416,13 +416,18 @@ public class Markup {
 
 	public void addCommentsSectionAsync() { // TODO CSS must be in this order: Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS
 		ln("<div class=\"common-content\">");
-		ln("	<div class=\"card\">");
+		ln("<div class=\"card\">");
 
 		ln("<div id=\"comment\">");
-		ln("Waiting...");
+
+		ln("	<div style=\"text-align: center;\">Loading Comments</div>");
+		ln("	<div class=\"comments-placeholder-container\">");
+		ln("		<div class=\"comments-placeholder\">&nbsp;</div>");
+		ln("	</div>"); // comments-placeholder-container
+
 		ln("</div>"); // comment
 
-		ln("	</div>"); // card
+		ln("</div>"); // card
 		ln("</div>"); // common-content
 
 		ln("<script>");

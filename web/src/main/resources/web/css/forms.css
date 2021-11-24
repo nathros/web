@@ -1,5 +1,7 @@
 body {
 	--input-colour: #46b8da;
+	--load-colour-light: #3798d9;
+	--load-colour-dark: #50a5de;
 	--error-colour: red;
 	--good-colour: green;
 	--forms-icon-size: 3.25rem;
@@ -268,4 +270,46 @@ input:focus + .input-icon-error:after {
 .input-icon-search:before {
 	-webkit-mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/search.svg);
 	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/search.svg);
+}
+
+.comments-placeholder-container {
+    width: auto !important;
+    padding: 8px;
+    background-color: #f9f9f9;
+	border: 1px solid #e5e5e5;
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 3px;
+
+}
+
+.comments-placeholder {
+	background-image: linear-gradient(45deg, var(--load-colour-dark) 25%, var(--load-colour-light) 25%, var(--load-colour-light) 50%, var(--load-colour-dark) 50%, var(--load-colour-dark) 75%, var(--load-colour-light) 75%, var(--load-colour-light) 75%, var(--load-colour-light) 100%);
+	background-size: 35px 35px;
+	background-position:35px 35px;
+	animation: barberpole 1s infinite linear, expand 15s;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+    border-radius: 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	box-shadow: inset 0px -1px 2px rgb(0 0 0 / 10%);
+}
+
+@keyframes expand {
+	0% {
+		width: 0%
+	}
+	100% {
+		width: 100%
+	}
+}
+
+@keyframes barberpole {
+	0% {
+		background-position:35px
+	}
+	100% {
+		background-position:0px
+	}
 }
