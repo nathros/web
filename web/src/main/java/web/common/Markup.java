@@ -236,7 +236,7 @@ public class Markup {
 		ln("	<title>".concat(title).concat("</title>"));
 		ln("	<link rel=\"shortcut icon\" type=\"image/png\" href=\"".concat(Resource.IMG_FAVICO).concat("\">"));
 		ln("	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-		ln("	<meta name=\"theme-color\" content=\"#be8dee\">"); // Mobile tab colour
+		ln("	<meta name=\"theme-color\" content=\"#16202b\">"); // Mobile tab colour
 
 		if (cssImport != null) {
 			ln("<style>");
@@ -368,7 +368,7 @@ public class Markup {
 		addFormInput(Forms.INPUT_EMAIL + nest, email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
 
 		tmp.ln("<div class=\"checkbox-group\">");
-		String keep = request.getCookie("commentKeep").equals(Forms.VALUE_FALSE) ? "" : "checked";
+		String keep = request.getCookie(Forms.COOKIE_COMMENT_KEEP).equals(Forms.VALUE_FALSE) ? "" : "checked";
 		tmp.ln("<input type=\"checkbox\" id=\"keep-comment" + nest + "\" name=\"keep-comment" + nest + "\" " + keep + ">");
 		tmp.ln("<label for=\"keep-comment" + nest + "\">Keep details for future use</label>");
 		tmp.ln("</div><br>");
@@ -423,7 +423,7 @@ public class Markup {
 
 		ln("<div id=\"comment\">");
 
-		ln("	<div style=\"text-align: center;\">Loading Comments</div>");
+		ln("	<div style=\"text-align:center;padding-bottom:0.2rem;\">Loading Comments</div>");
 		ln("	<div class=\"comments-placeholder-container\">");
 		ln("		<div class=\"comments-placeholder\">&nbsp;</div>");
 		ln("	</div>"); // comments-placeholder-container

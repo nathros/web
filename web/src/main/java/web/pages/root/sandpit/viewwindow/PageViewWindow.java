@@ -45,6 +45,12 @@ public class PageViewWindow extends BasePage {
 		m.ln("	element.innerHTML = window.innerHeight;");
 		m.ln("}");
 
+		m.ln("function updateAll() {");
+		m.ln("updateClientWidth();");
+		m.ln("updateInnerWidth();");
+		m.ln("updateClientHeight();");
+		m.ln("updateInnerHeight();");
+		m.ln("}");
 		m.ln("</script>");
 
 
@@ -76,6 +82,9 @@ public class PageViewWindow extends BasePage {
 
 		m.ln("<p>window.innerWidth = <b id='inner-height'></b>");
 		m.ln("<button onclick='updateInnerHeight()'>update</button></p>");
+
+		m.ln("<p>Update all: ");
+		m.ln("<button onclick='updateAll()'>update all</button></p>");
 		m.ln("</div>"); // hold
 
 		for (int i = 0; i < 64; i ++) {
@@ -85,7 +94,7 @@ public class PageViewWindow extends BasePage {
 		m.ln("</div>"); // card
 		m.ln("</div>"); //common-content
 
-		m.ln("<button onclick='this.classList.toggle(\"green\");'>Can press?</button>");
+		m.ln("<button onclick='this.classList.toggle(\"green\");'>----| Can press? |----</button>");
 		m.ln("</body>");
 		m.ln("</html>");
 

@@ -41,7 +41,7 @@ public class PageMapping {
 	public static final String SANDPIT_PG = STAGE + "/sandpit";
 
 	public static final String AJAX_NEW_CAPTCHA = STAGE + "/ajax/new-captcha";
-	public static final String AJAX_NEW_COMMENT = STAGE + "/ajax/comment";
+	public static final String AJAX_COMMENT = STAGE + "/ajax/comment";
 
 	public static final String ROHLOFF_PG0 = STAGE + "/projects/rohloff";
 	public static final String ROHLOFF_PG1 = STAGE + "/projects/rohloff-1";
@@ -79,7 +79,7 @@ public class PageMapping {
 
 		// AJAX
 		m.put(AJAX_NEW_CAPTCHA, AJAXNewCAPTCHA.class.getName());
-		m.put(AJAX_NEW_COMMENT, AJAXComment.class.getName());
+		m.put(AJAX_COMMENT, AJAXComment.class.getName());
 
 		m.put(ROHLOFF_PG0, RohloffPage1.class.getName());
 		m.put(ROHLOFF_PG1, RohloffPage1.class.getName());

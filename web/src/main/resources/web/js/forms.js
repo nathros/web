@@ -216,7 +216,7 @@ function commentAction(sender, level, operation) {
 		data += "&encoded=" + captchaValue;
 	}
 
-	if (keepComment.value) {
+	if (keepComment.checked) {
 		createCookie("commentName", nameInput.value, 600);
 		createCookie("commentEmail", emailInput.value, 600);
 	} else {

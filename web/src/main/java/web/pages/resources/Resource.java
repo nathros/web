@@ -34,7 +34,7 @@ public class Resource {
 	public static final String JS_HEADER = "web/js/header.js";
 	public static final String JS_LOAD_DYNAMIC = "web/js/load-dynamic.js";
 
-	public static final String IMG_BANNER_1 = "https://i.imgur.com/dtgWhuG.jpg"; // https://wallpaperplay.com/walls/full/1/b/e/366897.jpg
+	public static final String IMG_BANNER_1 = "https://i.imgur.com/dtgWhuG.jpg";
 	public static final String IMG_BANNER_2 = "https://i.imgur.com/9p0HPN7.jpg";
 	public static final String IMG_BANNER_FILESERVER1 = "https://i.imgur.com/yWHI2Wi.jpg";
 	public static final String IMG_BANNER_ADMIN = "https://i.imgur.com/acO3yV1.jpg";
@@ -73,7 +73,7 @@ public class Resource {
 	public static final String IMG_ROHLOFF_ERD_CALC = "https://i.imgur.com/MHdfM0S.png";
 	public static final String IMG_ROHLOFF_RIM_PROFILE = "https://i.imgur.com/Rp0mRvx.png";
 
-	public static final String IMG_FAVICO = "https://i.imgur.com/1BUcNs0.png";
+	public static final String IMG_FAVICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/favico.png";
 	public static final String IMG_SNAKEICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/snake.svg";
 	/* https://www.svgrepo.com/vectors/search/ */
 
