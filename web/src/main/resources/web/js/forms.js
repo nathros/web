@@ -223,8 +223,8 @@ function commentAction(sender, level, operation) {
 		createCookie("commentName", "", 600);
 		createCookie("commentEmail", "", 600);
 	}
-
-	xhttp.open("POST", "/stage/ajax/new-comment", true);
+	createCookie("commentKeep", keepComment.checked, 600);
+	xhttp.open("POST", "/stage/ajax/comment", true);
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhttp.send("page=" + page + "&level=" + level + "&action=" + operation + data);
 }

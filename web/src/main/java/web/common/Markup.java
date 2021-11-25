@@ -333,7 +333,7 @@ public class Markup {
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
 		buffer.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
-		buffer.ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh\" alt=\"Refresh\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
+		buffer.ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh CAPTCHA\" alt=\"Refresh CAPTCHA\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
 		buffer.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
 
 		String encodedCaptcha = "";
@@ -347,6 +347,7 @@ public class Markup {
 		return numbers;
 	}
 
+	// TODO remove <br> and replace with styling
 	public void addCommentsTreeLoop(CommentNode node, final String nest, final int calls, LocalStringBuffer buf, RequestInfo request) throws Exception {
 		if ((node.user != null) && (node.comment != null)) {
 			if (calls == 1) buf.ln("<div style=\"padding-top: 1rem; padding-bottom: 1rem\">");
@@ -362,11 +363,13 @@ public class Markup {
 		LocalStringBuffer tmp = new LocalStringBuffer(1024);
 		String name = request.getCookie(Forms.COOKIE_COMMENT_NAME);
 		String email = request.getCookie(Forms.COOKIE_COMMENT_EMAIL);
+		tmp.ln("<div style=\"height:10px\"></div>"); // Change to CSS style
 		addFormInput(Forms.INPUT_NAME + nest, name, "Name", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true, tmp);
 		addFormInput(Forms.INPUT_EMAIL + nest, email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
 
 		tmp.ln("<div class=\"checkbox-group\">");
-		tmp.ln("<input type=\"checkbox\" id=\"keep-comment" + nest + "\" name=\"keep-comment" + nest + "\" checked>");
+		String keep = request.getCookie("commentKeep").equals(Forms.VALUE_FALSE) ? "" : "checked";
+		tmp.ln("<input type=\"checkbox\" id=\"keep-comment" + nest + "\" name=\"keep-comment" + nest + "\" " + keep + ">");
 		tmp.ln("<label for=\"keep-comment" + nest + "\">Keep details for future use</label>");
 		tmp.ln("</div><br>");
 		addFormTextArea(Forms.INPUT_COMMENT + nest, "", "Comment", Forms.ERROR_MESSAGE_REQUIRED, false, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, tmp);

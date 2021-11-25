@@ -204,8 +204,8 @@ input:focus + .input-icon-error:after {
 }
 
 .captcha-refresh {
-	content:url(https://svgur.com/i/Zth.svg);
-	max-width: 1.25rem;
+	content: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/refresh.svg);
+	max-height: 1.25rem;
 	cursor: pointer;
 	opacity: 0.5;
 }
@@ -277,7 +277,7 @@ input:focus + .input-icon-error:after {
     padding: 8px;
     background-color: #f9f9f9;
 	border: 1px solid #e5e5e5;
-    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
 
 }
@@ -285,7 +285,7 @@ input:focus + .input-icon-error:after {
 .comments-placeholder {
 	background-image: linear-gradient(45deg, var(--load-colour-dark) 25%, var(--load-colour-light) 25%, var(--load-colour-light) 50%, var(--load-colour-dark) 50%, var(--load-colour-dark) 75%, var(--load-colour-light) 75%, var(--load-colour-light) 75%, var(--load-colour-light) 100%);
 	background-size: 35px 35px;
-	background-position:35px 35px;
+	background-position: 35px 35px;
 	animation: barberpole 1s infinite linear, expand 15s;
 	color: white;
 	text-shadow: 1px 1px 1px black;
@@ -294,6 +294,10 @@ input:focus + .input-icon-error:after {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	box-shadow: inset 0px -1px 2px rgb(0 0 0 / 10%);
+}
+
+.comments-placeholder-clear-animation {
+	animation: barberpole 1s infinite linear !important;
 }
 
 @keyframes expand {
@@ -307,9 +311,9 @@ input:focus + .input-icon-error:after {
 
 @keyframes barberpole {
 	0% {
-		background-position:35px
+		background-position: 35px
 	}
 	100% {
-		background-position:0px
+		background-position: 0px
 	}
 }

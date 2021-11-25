@@ -5,12 +5,22 @@ var dynamicIsolate = new function() { // Isolates this code from other JavaScrip
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-				//location.reload();
 				comment.innerHTML = this.responseText;
-				//console.log(this.responseText)
 			}
 		};
-		xhttp.open("POST", "/stage/ajax/new-comment", true);
+
+		xhttp.timeout = 1000 * 19; // 19 seconds
+		xhttp.ontimeout = function () {
+			var element = document.getElementsByClassName("comments-placeholder")[0];
+			if (element != null) {
+				element.classList.add("comments-placeholder-clear-animation");
+				element.innerHTML = "Timeout error";
+			} else {
+				throw "Unable to find comments-placeholder element and report timout error";
+			}
+		};
+
+		xhttp.open("POST", "/stage/ajax/comment", true);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhttp.send("page=" + window.location +  "&action=refresh");
 	}

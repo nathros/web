@@ -193,7 +193,7 @@
 }
 
 .open-suse-logo::before {
-	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aws-dynamodb.svg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/open-suse.svg");
 }
 
 .postgres-sql-logo::before {
@@ -253,7 +253,7 @@
 }
 
 .white-rabbit-logo::before {
-	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/white-rabbit.jpg");
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/white-rabbit.png");
 }
 
 .test-stand-logo::before {

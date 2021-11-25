@@ -25,6 +25,7 @@ import web.pages.root.sandpit.PageSandpit;
 import web.pages.root.sandpit.activeshow.PageActiveShow;
 import web.pages.root.sandpit.carousel.PageCarousel;
 import web.pages.root.sandpit.comment.PageComment;
+import web.pages.root.sandpit.viewwindow.PageViewWindow;
 import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
 
@@ -40,7 +41,7 @@ public class PageMapping {
 	public static final String SANDPIT_PG = STAGE + "/sandpit";
 
 	public static final String AJAX_NEW_CAPTCHA = STAGE + "/ajax/new-captcha";
-	public static final String AJAX_NEW_COMMENT = STAGE + "/ajax/new-comment";
+	public static final String AJAX_NEW_COMMENT = STAGE + "/ajax/comment";
 
 	public static final String ROHLOFF_PG0 = STAGE + "/projects/rohloff";
 	public static final String ROHLOFF_PG1 = STAGE + "/projects/rohloff-1";
@@ -111,6 +112,7 @@ public class PageMapping {
 		m.put(STAGE + "/sandpit/carousel", PageCarousel.class.getName());
 		m.put(STAGE + "/sandpit/comment", PageComment.class.getName());
 		m.put(STAGE + "/sandpit/activeshow", PageActiveShow.class.getName());
+		m.put(STAGE + "/sandpit/viewwindow", PageViewWindow.class.getName());
 		return m;
 	}
 

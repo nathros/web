@@ -30,7 +30,7 @@ public class PageHome extends BasePage {
 		// https://www.mtbr.com/threads/bontrager-race-lite-serial-number.316277/
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20rem\">");
 		m.ln("	<div class=\"card card-home\">");
-		m.ln("		<h1 style=\"text-align:center\">Building Value Through Design</h1>");
+		m.ln("		<h1 style=\"text-align:center\">Technology With A Difference</h1>");
 		m.ln("		<h4 style=\"text-align:center\">Enabling tight software and hardware integration</h4>");
 		//m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");
 		m.ln("	</div>"); // card
