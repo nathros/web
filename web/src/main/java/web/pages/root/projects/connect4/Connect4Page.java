@@ -28,9 +28,9 @@ public class Connect4Page extends BasePage {
 		m.ln("	<div class=\"card\">");
 
 		////
-
 		m.ln("<a target=\"_blank\" href=\"https://github.com/nathros/connect4\" class=\"btn btn-blue ripple\">Page Work In Progress, click for Connect 4 code on Github</a>");
 		////
+		m.ln("<a href=\"/stage/sandpit/viewwindow\">viewwindow</a>");
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 

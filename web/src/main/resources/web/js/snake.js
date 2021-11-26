@@ -58,6 +58,8 @@ function createSnakeGame() { // Create canvas, is exists then replace.
 	draw(false);
 }
 
+
+
 function init() {
 	frameTime = frameTimeStart;
 	gameEnd = false;
@@ -323,8 +325,17 @@ function draw(advanceGameState) {
 		}
 	}
 
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
+	let ratio = window.devicePixelRatio;
+	if (ratio != 1) {
+		ratio = window.devicePixelRatio;
+		canvas.width = Math.ceil(window.innerWidth * ratio);
+		canvas.height = Math.ceil(window.innerHeight * ratio);
+		canvas.getContext("2d").scale(ratio, ratio);
+	} else {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+	}
+
 	var cellSize = getCellSize();
 
 	var xStart = Math.floor((window.innerWidth - (cellsXNum * cellSize)) / 2);

@@ -65,7 +65,7 @@ body {
 	background-color: var(--navbar-background-colour);
 	color: white;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 	animation: 0.2s ease-out 0s 1 fadedown;
 }
@@ -74,10 +74,33 @@ body {
 	0% {
 		transform: translateY(-1rem);
 		opacity: 0;
+		pointer-events: none;
 	}
 	100% {
 		transform: translateY(0);
 		opacity: 1;
+		pointer-events: none;
+	}
+}
+
+@keyframes stopclick { /* Stops miss tap on mobile by adding a delay to interactivity */
+	0% {
+		pointer-events: none;
+	}
+	50% {
+		pointer-events: none;
+	}
+	100% {
+		pointer-events: initial;
+	}
+}
+
+@media
+only screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
+only screen and (in-resolution: 192dpi) and (min-width: 320px),
+only screen and (min-resolution: 2dppx) and (min-width: 320px) {
+	.navbar-dropdown-content {
+		animation: 0.2s ease-out 0s 1 fadedown, 0.4s stopclick;
 	}
 }
 

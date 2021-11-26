@@ -288,3 +288,7 @@
 	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/tuleap.svg");
 }
 
+.bash-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/bash.svg");
+}
+

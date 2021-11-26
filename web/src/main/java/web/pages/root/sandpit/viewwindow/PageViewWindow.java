@@ -46,10 +46,10 @@ public class PageViewWindow extends BasePage {
 		m.ln("}");
 
 		m.ln("function updateAll() {");
-		m.ln("updateClientWidth();");
-		m.ln("updateInnerWidth();");
-		m.ln("updateClientHeight();");
-		m.ln("updateInnerHeight();");
+		m.ln("	updateClientWidth();");
+		m.ln("	updateInnerWidth();");
+		m.ln("	updateClientHeight();");
+		m.ln("	updateInnerHeight();");
 		m.ln("}");
 		m.ln("</script>");
 
@@ -68,7 +68,8 @@ public class PageViewWindow extends BasePage {
 		m.ln("<div class=\"card\">");
 
 		m.ln("<br><br><br>");
-		m.ln("<p><i>On Chrome for Android: you cannot interact with the bottom of the page when page is displayed through iframe</i></p><br>");
+		m.ln("<p><i>On Chrome for Android: you cannot interact with the bottom of the page when page is displayed through iframe. "
+				+ "When you scroll down the innerHeight becomes bigger than clientHeight as the URL bar is hidden.</i></p><br>");
 
 		m.ln("<div id='hold'>");
 		m.ln("<p>document.documentElement.clientWidth = <b id='client-width'></b>");
@@ -80,7 +81,7 @@ public class PageViewWindow extends BasePage {
 		m.ln("<p>document.documentElement.clientHeight = <b id='client-height'></b>");
 		m.ln("<button onclick='updateClientHeight()'>update</button></p>");
 
-		m.ln("<p>window.innerWidth = <b id='inner-height'></b>");
+		m.ln("<p>window.innerHeight = <b id='inner-height'></b>");
 		m.ln("<button onclick='updateInnerHeight()'>update</button></p>");
 
 		m.ln("<p>Update all: ");
@@ -94,7 +95,7 @@ public class PageViewWindow extends BasePage {
 		m.ln("</div>"); // card
 		m.ln("</div>"); //common-content
 
-		m.ln("<button onclick='this.classList.toggle(\"green\");'>----| Can press? |----</button>");
+		m.ln("<button onclick='this.classList.toggle(\"green\");'>----- Can press? -----</button><b style='float:right'>----- Can select? -----</b>");
 		m.ln("</body>");
 		m.ln("</html>");
 

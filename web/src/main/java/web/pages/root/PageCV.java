@@ -78,6 +78,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("verilog", "Verilog"));
 		job.ln(m.getLittleLogoWithTooltip("device-tree", "Linux Device Tree"));
 		job.ln(m.getLittleLogoWithTooltip("u-boot", "U-Boot"));
+		job.ln(m.getLittleLogoWithTooltip("bash", "Bash Scripting"));
 		job.ln(m.getLittleLogoWithTooltip("test-stand", "National Instruments Test Stand"));
 		job.ln(m.getLittleLogoWithTooltip("git", "git"));
 		job.ln(m.getLittleLogoWithTooltip("svn", "SVN"));

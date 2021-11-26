@@ -36,7 +36,6 @@ a:hover {
 }
 
 .common-content {
-	*padding-top: 5rem;
 	padding-left: var(--global-content-padding);
 	padding-right: var(--global-content-padding);
 	max-width: var(--global-max-content-width);
