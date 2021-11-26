@@ -56,3 +56,5 @@ function btnSearchDebug(event) {
 		location.reload();
 	}
 }
+
+parent.postMessage(window.location.pathname + window.location.search, "https://nathros.github.io/"); // So domain know which page is active
