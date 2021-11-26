@@ -273,6 +273,25 @@ input:focus + .input-icon-error:after {
 	mask: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/search.svg);
 }
 
+.inline-icon-comment {
+	background-image: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/chat-left-text.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding-right: 3rem;
+	opacity: 0.5;
+}
+
+.inline-icon-reply {
+	background-image: url(https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/forms/reply-fill.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 1rem;
+	height: 1rem;
+	margin-left: 0.5rem;
+	transform: scaleX(-1) rotate(-90deg);
+	opacity: 0.5;
+}
+
 .comments-placeholder-container {
     width: auto !important;
     padding: 0.5rem;
@@ -280,7 +299,6 @@ input:focus + .input-icon-error:after {
 	border: 1px solid #e5e5e5;
     box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2);
     border-radius: var(--forms-border-radius);
-
 }
 
 .comments-placeholder {

@@ -348,7 +348,8 @@ public class Markup {
 	}
 
 	// TODO remove <br> and replace with styling
-	public void addCommentsTreeLoop(CommentNode node, final String nest, final int calls, LocalStringBuffer buf, RequestInfo request) throws Exception {
+	public int addCommentsTreeLoop(CommentNode node, final String nest, final int calls, LocalStringBuffer buf, RequestInfo request) throws Exception {
+		int count = 0;
 		if ((node.user != null) && (node.comment != null)) {
 			if (calls == 1) buf.ln("<div style=\"padding-top: 1rem; padding-bottom: 1rem\">");
 			else buf.ln("<div style=\"padding: 1rem; padding-left: 3rem; padding-right:0\">");
@@ -379,22 +380,25 @@ public class Markup {
 
 		tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','reply')\">Send</a>");
 		if (request.isDebugCookieTrue()) tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','delete')\">Delete</a>");
+		tmp.ln("<br><br>");
 
 		if (node.user == null) {
-			buf.ln(getContentToggleArrow("<b>Add New Comment</b>", tmp.toString()));
-			buf.ln("<hr>");
+			buf.ln(getContentToggleArrow("<b>Leave a Comment</b>", tmp.toString()));
+			buf.ln("<hr class=\"hr-strong\">");
 		} else {
-			buf.ln(getContentToggleArrow("<i>Reply</i>", tmp.toString()));
+			buf.ln(getContentToggleArrow("<i>Reply</i><span class=\"inline-icon-reply\"></span>", tmp.toString()));
 			buf.ln("<hr>");
 		}
 
 		if (node.children != null) {
 			for (int i = 0; i < node.children.size(); i++) {
-				addCommentsTreeLoop(node.children.get(i), nest + "," + String.valueOf(i), calls + 1, buf, request);
+				count++;
+				count += addCommentsTreeLoop(node.children.get(i), nest + "," + String.valueOf(i), calls + 1, buf, request);
 			}
 		}
 
 		if ((node.user != null) || (calls == 0)) buf.ln("</div>");
+		return count;
 	}
 
 	public void addCommentsTree(RequestInfo request, String externalPath) {
@@ -410,7 +414,8 @@ public class Markup {
 				rootNode = Database.itemToObject(outcome, CommentRoot.class);
 			}
 			LocalStringBuffer buffer = new LocalStringBuffer(4096);
-			addCommentsTreeLoop(rootNode.root, "r", 0, buffer, request);
+			int count = addCommentsTreeLoop(rootNode.root, "r", 0, buffer, request);
+			ln("<h2 style=\"margin-top:0\"><span class=\"inline-icon-comment\"></span>Comments (" + count + ")</h2>");
 			ln(buffer.toString());
 		} catch (Exception e) {
 			ln("<div style=\"color:red\">ERROR in comments</div>");

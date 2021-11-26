@@ -40,6 +40,10 @@ hr {
     border-top: 1px solid grey;
 }
 
+.hr-strong {
+    border-top: 2px solid grey;
+}
+
 .common-content {
 	padding-left: var(--global-content-padding);
 	padding-right: var(--global-content-padding);

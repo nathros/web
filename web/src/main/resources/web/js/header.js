@@ -1,3 +1,5 @@
+if (window.self !== window.top) parent.postMessage(window.location.pathname + window.location.search, "https://nathros.github.io/"); // So domain know which page is active
+
 function btnSearchClick() {
 	var input = document.getElementById("query");
 	if ((input.value != null) && (input.value.trim() != "")) {
@@ -56,5 +58,3 @@ function btnSearchDebug(event) {
 		location.reload();
 	}
 }
-
-parent.postMessage(window.location.pathname + window.location.search, "https://nathros.github.io/"); // So domain know which page is active
