@@ -167,6 +167,26 @@ function loadNewCAPTCHA(url, sender) {
 	xhttp.send();
 }
 
+var toastTimout;
+function showToast(level, message) {
+	var toast = document.getElementById("toast");
+	var toastMessage = document.getElementById("toast-message");
+
+	if ((toast != null) && (toastMessage != null)) {
+		toastMessage.innerHTML = message;
+		toast.classList = "";
+		toast.offsetWidth; //Reflow
+		toast.classList.add("show");
+		toast.classList.add(level);
+		if (toastTimout != null) {
+			clearTimeout(toastTimout);
+		}
+		toastTimout = setTimeout(function(){ toast.className = "hide" }, 5000);
+	} else {
+		throw "Toast is not present";
+	}
+}
+
 /* Comments - needs header.js*/
 function commentAction(sender, level, operation) {
 	var page = window.location;
@@ -189,31 +209,38 @@ function commentAction(sender, level, operation) {
 	};
 
 	var data = "";
+	let message = "ERROR";
+	let error = false;
 	if ("reply" == operation) {
 		if (commentText.value.trim() == "") {
-			alert("Missing comment");
-			return;
+			message += "<br>Missing comment";
+			error = true;
 		}
 		data = "&comment=" + encodeURI(commentText.value);
 
 		if (nameInput.value.trim() == "") {
-			alert("Missing Username");
-			return;
+			message += "<br>Missing username";
+			error = true;
 		}
 		data += "&user=" + encodeURI(nameInput.value);
 
 		if (emailInput.value.trim() == "") {
-			alert("Missing Email");
-			return;
+			message += "<br>Missing email";
+			error = true;
 		}
 		data += "&email=" + encodeURI(emailInput.value)
 
 		if (captchaInput.value.trim() == "") {
-			alert("Missing captcha");
-			return;
+			message += "<br>Missing captcha";
+			error = true;
 		}
 		data += "&captcha=" + encodeURI(captchaInput.value);
 		data += "&encoded=" + captchaValue;
+	}
+
+	if (error) {
+		showToast("error", message);
+		return;
 	}
 
 	if (keepComment.checked) {

@@ -324,18 +324,94 @@ input:focus + .input-icon-error:after {
 
 @keyframes expand {
 	0% {
-		width: 0%
+		width: 0%;
 	}
 	100% {
-		width: 100%
+		width: 100%;
 	}
 }
 
 @keyframes barberpole {
 	0% {
-		background-position: 2rem
+		background-position: 2rem;
 	}
 	100% {
-		background-position: 0rem
+		background-position: 0rem;
 	}
 }
+
+#toast {
+	display: block !important;
+	visibility: visible;
+	opacity: 0;
+	min-width: min(75%, 25rem);
+	transform: translateX(-50%);
+	color: white;
+	background-color: black;
+	text-align: center;
+	border-radius: 2px;
+	position: fixed;
+	z-index: 1000;
+	left: 50%;
+	top: 4rem;
+	max-width: 5rem;
+}
+
+#toast.error {
+	background-color: #e51c23;
+}
+
+#toast.warning {
+	background-color: #ff9800;
+}
+
+#toast.good {
+	background-color: #4caf50;
+}
+
+#toast.show {
+	animation: showtoast 0.5s;
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+
+#toast.hide {
+	opacity: 0;
+	transition: all 0.5s;
+	pointer-events: none;
+}
+
+@keyframes showtoast {
+	from {
+		transform: translateY(-2rem) translateX(-50%);
+	}
+	to {
+		transform: translateY(0) translateX(-50%);
+	}
+}
+
+#toast button {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 2.5rem;
+	height: 2.5rem;
+	float: right;
+	background-color: transparent;
+	font-size: 2rem;
+	line-height: 2rem;
+	border: none;
+	color: white;
+	opacity: 70%;
+	cursor: pointer;
+}
+
+#toast button:hover {
+	opacity: 1;
+}
+
+#toast-message {
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+

@@ -300,7 +300,12 @@ public class Markup {
 		ln("		<div class=\"bounce2\"></div>");
 		ln("		<div class=\"bounce3\"></div>");
 		ln("	</div>");
-		ln("</div>");
+		ln("</div>"); // fullscreen-message
+
+		ln("<div id=\"toast\" style=\"display:none\">"); // Display none if forms.css not included
+		ln("	<button type=\"button\" onclick=\"document.getElementById('toast').className='hide'\">&times;</button>");
+		ln("	<p id=\"toast-message\">a b c a b c a b c a b c a b c a b c a b c a b c a b c a b c </p>");
+		ln("</div>"); //toast
 	}
 
 	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean stopAutoComplete, String focusScript, String inputScript, String subText, String icon, boolean addBreaks, LocalStringBuffer buff) {

@@ -25,6 +25,7 @@ import web.pages.root.sandpit.PageSandpit;
 import web.pages.root.sandpit.activeshow.PageActiveShow;
 import web.pages.root.sandpit.carousel.PageCarousel;
 import web.pages.root.sandpit.comment.PageComment;
+import web.pages.root.sandpit.toast.PageToast;
 import web.pages.root.sandpit.viewwindow.PageViewWindow;
 import web.pages.root.sandpit.xhttp.PageXHTTPInner;
 import web.pages.root.sandpit.xhttp.PageXHTTPOuter;
@@ -113,6 +114,7 @@ public class PageMapping {
 		m.put(STAGE + "/sandpit/comment", PageComment.class.getName());
 		m.put(STAGE + "/sandpit/activeshow", PageActiveShow.class.getName());
 		m.put(STAGE + "/sandpit/viewwindow", PageViewWindow.class.getName());
+		m.put(STAGE + "/sandpit/toast", PageToast.class.getName());
 		return m;
 	}
 

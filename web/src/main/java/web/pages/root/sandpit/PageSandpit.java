@@ -33,6 +33,7 @@ public class PageSandpit extends BasePage {
 		m.ln("		<a href=\"sandpit/comment\">comment</a><br>");
 		m.ln("		<a href=\"sandpit/activeshow\">activeshow</a><br>");
 		m.ln("		<a href=\"sandpit/viewwindow\">viewwindow</a><br>");
+		m.ln("		<a href=\"sandpit/toast\">toast</a><br>");
 		m.ln("	</div>");
 
 		m.ln("</div>"); // card
