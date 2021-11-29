@@ -21,6 +21,7 @@ public class Forms {
 	public final static String COOKIE_COMMENT_NAME = "commentName";
 	public final static String COOKIE_COMMENT_EMAIL = "commentEmail";
 	public final static String COOKIE_COMMENT_KEEP = "commentKeep";
+	public final static String COOKIE_EMPTY = "";
 
 	public final static String INPUT_ICON_EMAIL = "input-icon-email";
 	public final static String INPUT_ICON_USER = "input-icon-user";

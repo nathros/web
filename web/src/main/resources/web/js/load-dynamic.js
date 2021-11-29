@@ -4,17 +4,23 @@ var dynamicIsolate = new function() { // Isolates this code from other JavaScrip
 	if (comment != null) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-				comment.innerHTML = this.responseText;
+			if (this.readyState == 4) {
+				if (this.status == 200) {
+					comment.innerHTML = this.responseText;
+				} else {
+					xhttp.ontimeout.call(this, this.status);
+				}
 			}
 		};
 
 		xhttp.timeout = 1000 * 19; // 19 seconds
-		xhttp.ontimeout = function () {
+		xhttp.ontimeout = function(message) {
+			console.log(message);
 			var element = document.getElementsByClassName("comments-placeholder")[0];
 			if (element != null) {
 				element.classList.add("comments-placeholder-clear-animation");
-				element.innerHTML = "Timeout error";
+				if (message == null) element.innerHTML = "Timeout error";
+				else element.innerHTML = "Error: " + message;
 			} else {
 				throw "Unable to find comments-placeholder element and report timout error";
 			}

@@ -18,7 +18,7 @@ public class AJAXNewCAPTCHA extends BasePage {
 	@Override
 	public String getResponse() { // Only returns inner content
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
-		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
+		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1), false);
 
 		String encodedCaptcha = "";
 		try {

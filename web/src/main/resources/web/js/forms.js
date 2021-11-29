@@ -42,6 +42,7 @@ function checkTextAreaEmpty(sender) {
 		sender.previousElementSibling.classList.remove(FormsParamError);
 		sender.previousElementSibling.getElementsByTagName("b")[0].style.display = "none";
 	}
+	return error;
 }
 
 function setInputError(sender, error, shake) {
@@ -60,39 +61,47 @@ function setInputError(sender, error, shake) {
 }
 
 function checkInputEmpty(sender) {
-	setInputError(sender, (sender.value == null) || (sender.value.trim() == ""), true);
+	let error = (sender.value == null) || (sender.value.trim() == "");
+	setInputError(sender, error, true);
+	return error;
 }
 
 function checkInputEmail(sender) {
 	if (sender.getAttribute("error") == null) return;
-	if ((sender.value == null) || (sender.value.trim() == "")) {
+	let error = (sender.value == null) || (sender.value.trim() == "");
+	if (error) {
 		setInputError(sender, true, false);
 		sender.setAttribute("error", "true");
 	} else {
-		var error = !validateEmail(sender.value);
+		error = !validateEmail(sender.value);
 		setInputError(sender, error, false);
 		if (error) sender.setAttribute("error", "true");
 	}
+	return error;
 }
 
 function checkInputEmailLeave(sender) {
-	if ((sender.value == null) || (sender.value.trim() == "")) {
+	let error = (sender.value == null) || (sender.value.trim() == "");
+	if (error) {
 		setInputError(sender, true, true);
 		sender.setAttribute("error", "true");
 	} else {
-		var error = !validateEmail(sender.value);
+		error = !validateEmail(sender.value);
 		setInputError(sender, error, error);
 		if (error) sender.setAttribute("error", "true");
 	}
+	return error;
 }
 
 function checkInputCAPTCHA(sender) {
-	if ((sender.value == null) || (sender.value.trim() == "")) {
+	let error = (sender.value == null) || (sender.value.trim() == "");
+	if (error) {
 		setInputError(sender, true, true);
 		sender.parentElement.previousElementSibling.getElementsByTagName("b")[0].innerHTML = "SHOULD NOT BE EMPTY";
 	} else {
 		setInputError(sender, false, false);
 	}
+	return error;
 }
 
 function loadNewCAPTCHAError(sender) {
@@ -212,32 +221,31 @@ function commentAction(sender, level, operation) {
 	let message = "ERROR";
 	let error = false;
 	if ("reply" == operation) {
-		if (commentText.value.trim() == "") {
+		if (checkTextAreaEmpty(commentText)) {
 			message += "<br>Missing comment";
 			error = true;
 		}
 		data = "&comment=" + encodeURI(commentText.value);
 
-		if (nameInput.value.trim() == "") {
+		if (checkInputEmpty(nameInput)) {
 			message += "<br>Missing username";
 			error = true;
 		}
 		data += "&user=" + encodeURI(nameInput.value);
 
-		if (emailInput.value.trim() == "") {
-			message += "<br>Missing email";
+		if (checkInputEmailLeave(emailInput)) {
+			message += "<br>Problem with email";
 			error = true;
 		}
 		data += "&email=" + encodeURI(emailInput.value)
 
-		if (captchaInput.value.trim() == "") {
+		if (checkInputCAPTCHA(captchaInput)) {
 			message += "<br>Missing captcha";
 			error = true;
 		}
 		data += "&captcha=" + encodeURI(captchaInput.value);
 		data += "&encoded=" + captchaValue;
 	}
-
 	if (error) {
 		showToast("error", message);
 		return;

@@ -336,7 +336,7 @@ public class Markup {
 	public List<Integer> addCAPTCHAInput(LocalStringBuffer buffer, String nameAppend) {
 		if (buffer == null) buffer = p;
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
-		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1));
+		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1), false);
 		buffer.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
 		buffer.ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh CAPTCHA\" alt=\"Refresh CAPTCHA\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
 		buffer.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
@@ -374,7 +374,9 @@ public class Markup {
 		addFormInput(Forms.INPUT_EMAIL + nest, email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
 
 		tmp.ln("<div class=\"checkbox-group\">");
-		String keep = request.getCookie(Forms.COOKIE_COMMENT_KEEP).equals(Forms.VALUE_FALSE) ? "" : "checked";
+
+		final String keepCookie = request.getCookie(Forms.COOKIE_COMMENT_KEEP);
+		final String keep = keepCookie.equals(Forms.VALUE_FALSE) && !keepCookie.equals(Forms.COOKIE_EMPTY) ? "" : "checked";
 		tmp.ln("<input type=\"checkbox\" id=\"keep-comment" + nest + "\" name=\"keep-comment" + nest + "\" " + keep + ">");
 		tmp.ln("<label for=\"keep-comment" + nest + "\">Keep details for future use</label>");
 		tmp.ln("</div><br>");

@@ -28,21 +28,27 @@ public class Helper {
 		return b;
 	}
 
-	// https://github.com/corretto/corretto-11/issues/118
-	public static String generateCAPTCHAImageAsBase64(final int number1, final int number2) {
+	// https://github.com/corretto/corretto-11/issues/118 This function fails on Corretto 11 JVM, needs font layer
+	public static String generateCAPTCHAImageAsBase64(final int number1, final int number2, final boolean highQuality) {
 		final int height = 256;
 		final int width = (int) (height * 1.5);
 
-		//https://dukesoftware00.blogspot.com/2012/07/create-indexed-256-png-using-pngj.html
-		final int[] colourMap = {  0x00000000, 0xff000000, 0xffffffff, 0xff00FFFF, 0xffFFFF00, 0xFF00FF00, 0x8800FF00 };
-		IndexColorModel colorModel = new IndexColorModel(8, colourMap.length, colourMap, 0, true, 0, DataBuffer.TYPE_BYTE);
-		BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_INDEXED, colorModel);
-
+		BufferedImage bufferedImage;
+		RenderingHints rh;
+		if (highQuality) {
+			bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+			rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+		} else {
+			final int[] colourMap = { 0x00000000, 0xff000000, 0xffffffff, 0xff00FFFF, 0xffFFFF00, 0xFF00FF00, 0x8800FF00 };
+			IndexColorModel colorModel = new IndexColorModel(8, colourMap.length, colourMap, 0, true, 0, DataBuffer.TYPE_BYTE);
+			bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_INDEXED, colorModel);
+			rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+			rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
+		}
 		Graphics2D g2d = bufferedImage.createGraphics();
 		Font font = new Font(null, Font.BOLD, height / 3);
 		g2d.setFont(font);
-		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 		g2d.setRenderingHints(rh);
 		Random rand = new Random();
 
