@@ -16,7 +16,12 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
+import javax.imageio.ImageTypeSpecifier;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
 
 public class Helper {
 
@@ -83,14 +88,25 @@ public class Helper {
 		g2d.setFont(rotatedFont);
 		g2d.drawString(String.valueOf(number2), (int) (width / 6 * 3.5), (int) (height / 6 * 1.5));
 
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		String b64 = "";
 		try {
-			ImageIO.write(bufferedImage, "png", baos);
-		} catch (IOException e) {
-			return null;
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageOutputStream out = ImageIO.createImageOutputStream(baos);
+			ImageTypeSpecifier type = ImageTypeSpecifier.createFromRenderedImage(bufferedImage);
+			ImageWriter writer = ImageIO.getImageWriters(type, "png").next();
+
+			ImageWriteParam param = writer.getDefaultWriteParam();
+			if (param.canWriteCompressed()) {
+				param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+				param.setCompressionQuality(0.0f);
+		    }
+			writer.setOutput(out);
+			writer.write(null, new IIOImage(bufferedImage, null, null), param);
+			byte[] bytes = baos.toByteArray();
+			b64 = new String(Base64.getEncoder().encode(bytes));
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
-		byte[] bytes = baos.toByteArray();
-		String b64 = new String(Base64.getEncoder().encode(bytes));
 
 		// Save to file in working directory
 		// File outputfile = new File("CAPTCHA.png");

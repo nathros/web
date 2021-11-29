@@ -54,7 +54,7 @@ public class PageActiveShow extends BasePage {
 				+ "		<div class=\"input-icon input-icon-error\"><i class=\"input-icon-email\"></i></div>"
 				+ "		</div>");
 		m.ln("<textarea>");
-		m.ln("Will remain visible on active or focus");
+		m.ln("Will remain visible on active or focus of input or textarea, not on button until mouse up, no JavaScript");
 		m.ln("</textarea>");
 		m.ln("<a class=\"btn btn-blue ripple\" >Submit</a>");
 

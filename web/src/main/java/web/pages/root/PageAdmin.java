@@ -18,6 +18,8 @@ public class PageAdmin extends BasePage {
 
 	@Override
 	public String getResponse() {
+		if (!requestInfo.isDebugCookieTrue()) return new Page404(requestInfo).getResponse();
+
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
 				Resource.CSS_TOGGLE_DIV, Resource.CSS_FOOTER };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_HEADER, Resource.JS_TOGGLE_DIV };

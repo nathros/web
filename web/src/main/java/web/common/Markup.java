@@ -308,6 +308,14 @@ public class Markup {
 		ln("</div>"); //toast
 	}
 
+	public void addCheckbox(String inputName, boolean checked, LocalStringBuffer buff) {
+		if (buff == null) buff = p;
+		buff.ln("<div class=\"checkbox-group\">");
+		buff.ln("<input type=\"checkbox\" id=\"" + inputName + "\" name=\"" + inputName + "\" " + (checked ? "checked" : "") + ">");
+		buff.ln("<label for=\"" + inputName + "\">Keep details for future use</label>");
+		buff.ln("</div><br>");
+	}
+
 	public void addFormInput(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, boolean stopAutoComplete, String focusScript, String inputScript, String subText, String icon, boolean addBreaks, LocalStringBuffer buff) {
 		if (buff == null) buff = p;
 		buff.ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
@@ -334,26 +342,29 @@ public class Markup {
 	}
 
 	public List<Integer> addCAPTCHAInput(LocalStringBuffer buffer, String nameAppend) {
-		if (buffer == null) buffer = p;
 		List<Integer> numbers = Forms.getNewCAPTCHANumbers();
 		String cap = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1), false);
-		buffer.ln("<img class=\"captcha-image\" src=\"" + cap + "\" aria-label=\"Security\" alt=\"Security\">");
-		buffer.ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh CAPTCHA\" alt=\"Refresh CAPTCHA\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
-		buffer.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
-
 		String encodedCaptcha = "";
 		try {
 			encodedCaptcha = Debug.serialise(String.valueOf(numbers.get(0)) + String.valueOf(numbers.get(1)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		if (nameAppend == null) nameAppend = "";
-		buffer.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded" + nameAppend + "\" value=\"" + encodedCaptcha + "\">");
+		addCAPTCHAInputExternalConfig(buffer, nameAppend, cap, encodedCaptcha);
 		return numbers;
 	}
 
+	public void addCAPTCHAInputExternalConfig(LocalStringBuffer buffer, String nameAppend, String base64Image, String encodedCaptcha) {
+		if (buffer == null) buffer = p;
+		buffer.ln("<img class=\"captcha-image\" src=\"" + base64Image + "\" aria-label=\"Security\" alt=\"Security\">");
+		buffer.ln("<img class=\"captcha-refresh\" src=\"data:,x\" aria-label=\"Refresh CAPTCHA\" alt=\"Refresh CAPTCHA\" onclick=\"loadNewCAPTCHA('" + PageMapping.AJAX_NEW_CAPTCHA + "',this)\">");
+		buffer.ln("<i class=\"forms-small-text forms-param-error\" style=\"display:none\">Error in refresh</i>");
+		if (nameAppend == null) nameAppend = "";
+		buffer.ln("	<input type=\"hidden\" id=\"encoded\" name=\"encoded" + nameAppend + "\" value=\"" + encodedCaptcha + "\">");
+	}
+
 	// TODO remove <br> and replace with styling
-	public int addCommentsTreeLoop(CommentNode node, final String nest, final int calls, LocalStringBuffer buf, RequestInfo request) throws Exception {
+	public int addCommentsTreeLoop(CommentNode node, final String nest, final int calls, LocalStringBuffer buf, CommentLoopMetaData meta) throws Exception {
 		int count = 0;
 		if ((node.user != null) && (node.comment != null)) {
 			if (calls == 1) buf.ln("<div style=\"padding-top: 1rem; padding-bottom: 1rem\">");
@@ -367,26 +378,16 @@ public class Markup {
 		}
 
 		LocalStringBuffer tmp = new LocalStringBuffer(1024);
-		String name = request.getCookie(Forms.COOKIE_COMMENT_NAME);
-		String email = request.getCookie(Forms.COOKIE_COMMENT_EMAIL);
 		tmp.ln("<div style=\"height:10px\"></div>"); // Change to CSS style
-		addFormInput(Forms.INPUT_NAME + nest, name, "Name", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true, tmp);
-		addFormInput(Forms.INPUT_EMAIL + nest, email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
-
-		tmp.ln("<div class=\"checkbox-group\">");
-
-		final String keepCookie = request.getCookie(Forms.COOKIE_COMMENT_KEEP);
-		final String keep = keepCookie.equals(Forms.VALUE_FALSE) && !keepCookie.equals(Forms.COOKIE_EMPTY) ? "" : "checked";
-		tmp.ln("<input type=\"checkbox\" id=\"keep-comment" + nest + "\" name=\"keep-comment" + nest + "\" " + keep + ">");
-		tmp.ln("<label for=\"keep-comment" + nest + "\">Keep details for future use</label>");
-		tmp.ln("</div><br>");
+		addFormInput(Forms.INPUT_NAME + nest, meta.name, "Name", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true, tmp);
+		addFormInput(Forms.INPUT_EMAIL + nest, meta.email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
+		addCheckbox("keep-comment" + nest, meta.keepInputChecked, tmp);
 		addFormTextArea(Forms.INPUT_COMMENT + nest, "", "Comment", Forms.ERROR_MESSAGE_REQUIRED, false, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, tmp);
-
-		addCAPTCHAInput(tmp, nest);
+		addCAPTCHAInputExternalConfig(tmp, nest, meta.base64ImageCaptcha, meta.encodedCaptcha);
 		addFormInput(Forms.INPUT_CAPTCHA + nest, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, false, false, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true, tmp);
 
 		tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','reply')\">Send</a>");
-		if (request.isDebugCookieTrue()) tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','delete')\">Delete</a>");
+		if (meta.isDebugCookieTrue) tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','delete')\">Delete</a>");
 		tmp.ln("<br><br>");
 
 		if (node.user == null) {
@@ -400,7 +401,7 @@ public class Markup {
 		if (node.children != null) {
 			for (int i = 0; i < node.children.size(); i++) {
 				count++;
-				count += addCommentsTreeLoop(node.children.get(i), nest + "," + String.valueOf(i), calls + 1, buf, request);
+				count += addCommentsTreeLoop(node.children.get(i), nest + "," + String.valueOf(i), calls + 1, buf, meta);
 			}
 		}
 
@@ -421,7 +422,8 @@ public class Markup {
 				rootNode = Database.itemToObject(outcome, CommentRoot.class);
 			}
 			LocalStringBuffer buffer = new LocalStringBuffer(4096);
-			int count = addCommentsTreeLoop(rootNode.root, "r", 0, buffer, request);
+			CommentLoopMetaData meta = new CommentLoopMetaData(request);
+			int count = addCommentsTreeLoop(rootNode.root, "r", 0, buffer, meta);
 			ln("<h2 style=\"margin-top:0\"><span class=\"inline-icon-comment\"></span>Comments (" + count + ")</h2>");
 			ln(buffer.toString());
 		} catch (Exception e) {
@@ -429,7 +431,7 @@ public class Markup {
 		}
 	}
 
-	public void addCommentsSectionAsync() { // TODO CSS must be in this order: Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS
+	public void addCommentsSectionAsync() {
 		ln("<div class=\"common-content\">");
 		ln("<div class=\"card\">");
 
@@ -448,5 +450,36 @@ public class Markup {
 		ln("<script>");
 		ln(Resource.readResource(Resource.JS_LOAD_DYNAMIC));
 		ln("</script>");
+	}
+
+	private class CommentLoopMetaData {
+		public final boolean isDebugCookieTrue;
+		final String name;
+		final String email;
+		final boolean keepInputChecked;
+
+		public final String base64ImageCaptcha;
+		public String encodedCaptcha;
+
+		public CommentLoopMetaData(RequestInfo request) {
+			List<Integer> numbers = Forms.getNewCAPTCHANumbers();
+			base64ImageCaptcha = Helper.generateCAPTCHAImageAsBase64(numbers.get(0), numbers.get(1), false);
+			encodedCaptcha = "ERROR";
+			try {
+				encodedCaptcha = Debug.serialise(String.valueOf(numbers.get(0)) + String.valueOf(numbers.get(1)));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			isDebugCookieTrue = request.isDebugCookieTrue();
+			String keepCookie = request.getCookie(Forms.COOKIE_COMMENT_KEEP);
+			keepInputChecked = !(keepCookie.equals(Forms.VALUE_FALSE) && !keepCookie.equals(Forms.COOKIE_EMPTY));
+			if (keepInputChecked) {
+				name = request.getCookie(Forms.COOKIE_COMMENT_NAME);
+				email = request.getCookie(Forms.COOKIE_COMMENT_EMAIL);
+			} else {
+				name = email = "";
+			}
+		}
 	}
 }
