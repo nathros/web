@@ -390,6 +390,7 @@ public class Markup {
 		if (meta.isDebugCookieTrue) tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','delete')\">Delete</a>");
 		tmp.ln("<br><br>");
 
+		tmp.ln("<div id=\"comments-placeholder" + nest + "\" style=\"display:none;height:0.5rem\">&nbsp</div>");
 		if (node.user == null) {
 			buf.ln(getContentToggleArrow("<b>Leave a Comment</b>", tmp.toString()));
 			buf.ln("<hr class=\"hr-strong\">");

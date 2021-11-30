@@ -206,6 +206,7 @@ function commentAction(sender, level, operation) {
 	var commentText = document.getElementsByName("comment" + level)[0];
 	var captchaInput = document.getElementsByName("captcha" + level)[0];
 	var captchaValue = document.getElementsByName("encoded" + level)[0].value;
+	var loading = document.getElementById("comments-placeholder" + level);
 
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -218,7 +219,7 @@ function commentAction(sender, level, operation) {
 	};
 
 	var data = "";
-	let message = "ERROR";
+	let message = "<b>ERROR</b>";
 	let error = false;
 	if ("reply" == operation) {
 		if (checkTextAreaEmpty(commentText)) {
@@ -240,7 +241,7 @@ function commentAction(sender, level, operation) {
 		data += "&email=" + encodeURI(emailInput.value)
 
 		if (checkInputCAPTCHA(captchaInput)) {
-			message += "<br>Missing captcha";
+			message += "<br>Missing security check";
 			error = true;
 		}
 		data += "&captcha=" + encodeURI(captchaInput.value);
@@ -262,4 +263,12 @@ function commentAction(sender, level, operation) {
 	xhttp.open("POST", "/stage/ajax/comment", true);
 	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhttp.send("page=" + page + "&level=" + level + "&action=" + operation + data);
+
+	if (loading != null) {
+		loading.style.display = "block";
+		loading.classList.add("comments-placeholder");
+		sender.style.filter = "grayscale(100%)";
+		sender.style.cursor = "default";
+		sender.removeAttribute("onclick");
+	}
 }

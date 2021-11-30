@@ -323,21 +323,13 @@ input:focus + .input-icon-error:after {
 }
 
 @keyframes expand {
-	0% {
-		width: 0%;
-	}
-	100% {
-		width: 100%;
-	}
+	0% { width: 0%; }
+	100% { width: 100%; }
 }
 
 @keyframes barberpole {
-	0% {
-		background-position: 2rem;
-	}
-	100% {
-		background-position: 0rem;
-	}
+	0% { background-position: 2rem; }
+	100% { background-position: 0rem; }
 }
 
 #toast {
@@ -349,7 +341,7 @@ input:focus + .input-icon-error:after {
 	color: white;
 	background-color: black;
 	text-align: center;
-	border-radius: 2px;
+	border-radius: var(--forms-border-radius);
 	position: fixed;
 	z-index: 1000;
 	left: 50%;
@@ -382,12 +374,8 @@ input:focus + .input-icon-error:after {
 }
 
 @keyframes showtoast {
-	from {
-		transform: translateY(-2rem) translateX(-50%);
-	}
-	to {
-		transform: translateY(0) translateX(-50%);
-	}
+	from { transform: translateY(-2rem) translateX(-50%); }
+	to { transform: translateY(0) translateX(-50%); }
 }
 
 #toast button {
@@ -414,4 +402,3 @@ input:focus + .input-icon-error:after {
 	padding-left: 3rem;
 	padding-right: 3rem;
 }
-
