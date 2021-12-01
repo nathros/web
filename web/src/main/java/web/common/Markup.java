@@ -303,8 +303,8 @@ public class Markup {
 		ln("</div>"); // fullscreen-message
 
 		ln("<div id=\"toast\" style=\"display:none\">"); // Display none if forms.css not included
-		ln("	<button type=\"button\" onclick=\"document.getElementById('toast').className='hide'\">&times;</button>");
-		ln("	<p id=\"toast-message\">a b c a b c a b c a b c a b c a b c a b c a b c a b c a b c </p>");
+		ln("	<button type=\"button\" onclick=\"hideToast()\">&times;</button>");
+		ln("	<p id=\"toast-message\"></p>");
 		ln("</div>"); //toast
 	}
 
@@ -329,10 +329,12 @@ public class Markup {
 		if (addBreaks) buff.ln("	<br><br>");
 	}
 
-	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText, LocalStringBuffer buff) {
+	public void addFormTextArea(String inputName, String inputValue, String inputLabel, String errorMessage, boolean showError, String focusScript, String inputScript, String subText, int maxLength, LocalStringBuffer buff) {
 		if (buff == null) buff = p;
+		String maxLengthStr = "";
+		if (maxLength > 0) maxLengthStr = " maxlength=\"" + maxLength + "\" ";
 		buff.ln("	<div " + (showError ? "class=\"forms-param-error\"" : "" ) + ">" + inputLabel + ": * <b style=\"display:" + (showError ? "initial" : "none") + "\">"+ errorMessage + "</b></div>");
-		buff.ln("	<textarea rows=\"12\" cols=\"100\" name=\"" + inputName + "\" "+ (showError ? " class=\"input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
+		buff.ln("	<textarea rows=\"12\" cols=\"100\"" + maxLengthStr + " name=\"" + inputName + "\" "+ (showError ? " class=\"input-error\"" : "") + " aria-label=\"" + inputName + "\"  onfocusout=\"" + focusScript + "(this)\" oninput=\"" + inputScript + "(this)\">");
 		buff.l(inputValue);
 		buff.ln("</textarea>");
 		if (subText != null) {
@@ -382,11 +384,11 @@ public class Markup {
 		addFormInput(Forms.INPUT_NAME + nest, meta.name, "Name", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT, Forms.SCRIPT_INPUT, null, Forms.INPUT_ICON_USER, true, tmp);
 		addFormInput(Forms.INPUT_EMAIL + nest, meta.email, "Email (not made public)", Forms.ERROR_MESSAGE_REQUIRED, false, false, Forms.SCRIPT_INPUT_EMAIL_LEAVE, Forms.SCRIPT_INPUT_EMAIL, null, Forms.INPUT_ICON_EMAIL, true, tmp);
 		addCheckbox("keep-comment" + nest, meta.keepInputChecked, tmp);
-		addFormTextArea(Forms.INPUT_COMMENT + nest, "", "Comment", Forms.ERROR_MESSAGE_REQUIRED, false, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, tmp);
+		addFormTextArea(Forms.INPUT_COMMENT + nest, "", "Comment", Forms.ERROR_MESSAGE_REQUIRED, false, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, 1024, tmp);
 		addCAPTCHAInputExternalConfig(tmp, nest, meta.base64ImageCaptcha, meta.encodedCaptcha);
 		addFormInput(Forms.INPUT_CAPTCHA + nest, "", "Security Check", Forms.ERROR_MESSAGE_INCORRECT, false, false, Forms.SCRIPT_INPUT_CAPTCHA, Forms.SCRIPT_INPUT_CAPTCHA, "Copy both numbers", Forms.INPUT_ICON_SECURITY, true, tmp);
 
-		tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','reply')\">Send</a>");
+		tmp.ln("<button class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','reply')\">Send</button>");
 		if (meta.isDebugCookieTrue) tmp.ln("<a class=\"btn btn-blue ripple\" onclick=\"commentAction(this,'" + nest + "','delete')\">Delete</a>");
 		tmp.ln("<br><br>");
 

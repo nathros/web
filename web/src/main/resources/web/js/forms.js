@@ -176,23 +176,55 @@ function loadNewCAPTCHA(url, sender) {
 	xhttp.send();
 }
 
-var toastTimout;
-function showToast(level, message) {
+function showToast(level, message, time) {
 	var toast = document.getElementById("toast");
 	var toastMessage = document.getElementById("toast-message");
-
 	if ((toast != null) && (toastMessage != null)) {
 		toastMessage.innerHTML = message;
 		toast.classList = "";
-		toast.offsetWidth; //Reflow
-		toast.classList.add("show");
-		toast.classList.add(level);
-		if (toastTimout != null) {
-			clearTimeout(toastTimout);
-		}
-		toastTimout = setTimeout(function(){ toast.className = "hide" }, 5000);
+		toast.offsetWidth; // Reflow
+		toast.className = "show " + level;
+		showToast.toastLevel = level;
+		clearTimeout(showToast.toastTimeout);
+		if (time == null) time = 5000;
+		showToast.toastTimeout = setTimeout(function(){ toast.className = "hide " + level }, time);
 	} else {
 		throw "Toast is not present";
+	}
+}
+
+function hideToast() {
+	var toast = document.getElementById("toast");
+	if (toast != null) {
+		clearTimeout(showToast.toastTimeout);
+		toast.className = "hide " + showToast.toastLevel;
+	} else {
+		throw "Toast is not present";
+	}
+}
+
+function enableButton(button, enabled) {
+	if (button.tagName.toLowerCase() == "button") {
+		if (enabled == true) {
+			button.style.filter = "";
+			button.style.cursor = null;
+		} else {
+			button.style.filter = "grayscale(100%)";
+			button.style.cursor = "default";
+		}
+		button.disabled = !enabled;
+	} else {
+		throw button + " is not a button";
+	}
+}
+
+function commentSubmitLoadingBarShow(loading, show) {
+	if (show == true) {
+		loading.style.display = "block";
+		loading.classList.add("comments-placeholder");
+	} else {
+		loading.style.display = "none";
+		loading.classList.remove("comments-placeholder");
 	}
 }
 
@@ -210,8 +242,23 @@ function commentAction(sender, level, operation) {
 
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			if (this.responseText.length < 10) {
-				alert(this.responseText);
+			if (this.responseText.length < 256) {
+				let message = this.responseText.split("@");
+				if (message.length != 2) {
+					showToast("error", "Bad return data");
+				}
+				showToast("error", message[1]);
+				commentSubmitLoadingBarShow(loading, false);
+				enableButton(sender, true);
+
+				switch (message[0]) {
+					case "0": break; // Other error
+					case "1": // Failed captcha
+						captchaInput.value = "";
+						checkInputCAPTCHA(captchaInput);
+						break;
+					default: throw "Unknown response";
+				}
 			} else {
 				document.getElementById("comment").innerHTML = this.responseText;
 			}
@@ -265,10 +312,7 @@ function commentAction(sender, level, operation) {
 	xhttp.send("page=" + page + "&level=" + level + "&action=" + operation + data);
 
 	if (loading != null) {
-		loading.style.display = "block";
-		loading.classList.add("comments-placeholder");
-		sender.style.filter = "grayscale(100%)";
-		sender.style.cursor = "default";
-		sender.removeAttribute("onclick");
+		enableButton(sender, false);
+		commentSubmitLoadingBarShow(loading, true);
 	}
 }

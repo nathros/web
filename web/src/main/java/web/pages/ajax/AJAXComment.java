@@ -24,7 +24,7 @@ public class AJAXComment extends BasePage {
 			String page = requestInfo.getBodyParam("page");
 
 			if (action.equals("") || page.equals("")) {
-				return "ERROR 1";
+				return "0@Bad param";
 			}
 
 			int index = page.indexOf("//");
@@ -35,7 +35,7 @@ public class AJAXComment extends BasePage {
 					page = page.substring(index);
 				}
 			}
-			if (index == -1) return "ERROR 2";
+			if (index == -1) return "0@Bad page param";
 
 			if (action.equals("reply")) {
 				final String user = requestInfo.getBodyParam("user");
@@ -45,19 +45,19 @@ public class AJAXComment extends BasePage {
 				final String encoded = requestInfo.getBodyParam("encoded");
 				if (Forms.encodedCAPTCHACompareValid(encoded, captcha, HttpMethod.POST)) {
 					if (!Database.addNewComment(page, level, user, comment, date)) {
-						return "ERROR 6";
+						return "0@Failed to add to database";
 					}
 				} else {
-					return "ERROR7";
+					return "1@Security checked failed";
 				}
 
 			} else if (action.equals("delete")) {
 				if (requestInfo.isDebugCookieTrue()) {
 					if (!Database.delComment(page, level)) {
-						return "ERROR 7";
+						return "0@Failed to delete";
 					}
 				}
-				else return "ERROR 5";
+				else return "1@Security checked failed";
 
 			} else if (action.equals("refresh")) {
 				m.addCommentsTree(requestInfo, page);
@@ -65,12 +65,12 @@ public class AJAXComment extends BasePage {
 
 			}
 			else {
-				return "ERROR 3";
+				return "0@Bad action";
 			}
 
 			m.addCommentsTree(requestInfo, page);
 			return m.p.toString();
 		}
-		return "ERROR 4";
+		return "0@error";
 	}
 }

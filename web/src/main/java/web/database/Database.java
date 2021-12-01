@@ -86,7 +86,7 @@ public class Database {
 				if (node != null) {
 					CommentNode newNode = new CommentNode();
 					newNode.user = name;
-					newNode.comment = comment;
+					newNode.comment = comment.length() > 1024 ? comment.substring(0, 1023) : comment;
 					newNode.date = date;
 					if (node.children == null) node.children = new ArrayList<CommentNode>();
 					node.children.add(newNode);

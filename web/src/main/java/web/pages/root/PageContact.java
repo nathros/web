@@ -58,7 +58,7 @@ public class PageContact extends BasePage {
 
 		inputError = !Forms.isContentValid(comment, method);
 		if (inputError) anyFailure = true;
-		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, null);
+		m.addFormTextArea(Forms.INPUT_COMMENT, comment, "Comment", Forms.ERROR_MESSAGE_REQUIRED, inputError, Forms.SCRIPT_TEXTAREA, Forms.SCRIPT_TEXTAREA, null, -1, null);
 
 		m.addCAPTCHAInput(null, null);
 

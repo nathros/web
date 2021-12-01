@@ -30,12 +30,12 @@ public class PageToast extends BasePage {
 
 		m.ln("	<div style=\"text-align: left; margin-top: 3rem;\">");
 		m.ln("<br><br><br><br>");
-		m.ln("<button onclick=\"document.getElementById('toast').className='show'\">show</button>");
-		m.ln("<button onclick=\"document.getElementById('toast').className='show error'\">show error</button>");
-		m.ln("<button onclick=\"document.getElementById('toast').className='show warning'\">show warning</button>");
-		m.ln("<button onclick=\"document.getElementById('toast').className='show good'\">show good</button>");
-		m.ln("<button onclick=\"document.getElementById('toast').className='hide'\">hide</button>");
-		m.ln("<button onclick=\"document.getElementById('toast').className='';document.getElementById('toast').offsetWidth;document.getElementById('toast').className='show'\">reshow</button>");
+		m.ln("<span>Message to show</span><input id=\"test-message\" value=\"test message\" type=\"text\"><br>");
+		m.ln("<button onclick=\"showToast('any', document.getElementById('test-message').value)\">show</button>");
+		m.ln("<button onclick=\"showToast('error', document.getElementById('test-message').value)\">show error</button>");
+		m.ln("<button onclick=\"showToast('warning', document.getElementById('test-message').value)\">show warning</button>");
+		m.ln("<button onclick=\"showToast('good', document.getElementById('test-message').value)\">show good</button>");
+		m.ln("<button onclick=\"hideToast()\">hide</button>");
 		m.ln("	</div>");
 
 		m.ln("</div>"); // card

@@ -347,6 +347,7 @@ input:focus + .input-icon-error:after {
 	left: 50%;
 	top: 4rem;
 	max-width: 5rem;
+	pointer-events: none;
 }
 
 #toast.error {
@@ -365,6 +366,7 @@ input:focus + .input-icon-error:after {
 	animation: showtoast 0.5s;
 	opacity: 1;
 	transition: opacity 0.5s;
+	pointer-events: all;
 }
 
 #toast.hide {
