@@ -24,6 +24,10 @@
 	text-decoration: none;
 }
 
+.modal-image:hover {
+	text-decoration: none;
+}
+
 .modal-image:target {	
 	outline: none; /* remove default browser outline */	
 	display: block; /* unhide */
@@ -49,7 +53,9 @@
 .modal-image div p {
 	color: white;
     font-size: 2rem;
-	padding-bottom: 4rem;
+	padding-bottom: 0.5rem;
+	position: sticky;
+	bottom: 0;
 }
 
 @keyframes zoom { /* zoom on click thumbnail */

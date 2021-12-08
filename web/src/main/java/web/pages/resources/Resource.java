@@ -22,6 +22,7 @@ public class Resource {
 	public static final String CSS_TABS = "web/css/tabs.css";
 	public static final String CSS_LOGOS = "web/css/logos.css";
 	public static final String CSS_FOOTER = "web/css/footer.css";
+	public static final String CSS_FLEX_LIST = "web/css/flex-list.css";
 
 	public static final String JS_SNAKE_HOOK = "web/js/snake_hook.js";
 	public static final String JS_SNAKE = "web/js/snake.js";

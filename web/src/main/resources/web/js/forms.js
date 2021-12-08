@@ -93,11 +93,12 @@ function checkInputEmailLeave(sender) {
 	return error;
 }
 
-function checkInputCAPTCHA(sender) {
+function checkInputCAPTCHA(sender, message) {
 	let error = (sender.value == null) || (sender.value.trim() == "");
 	if (error) {
 		setInputError(sender, true, true);
-		sender.parentElement.previousElementSibling.getElementsByTagName("b")[0].innerHTML = "SHOULD NOT BE EMPTY";
+		if (message == null) message = "SHOULD NOT BE EMPTY";
+		sender.parentElement.previousElementSibling.getElementsByTagName("b")[0].innerHTML = message;
 	} else {
 		setInputError(sender, false, false);
 	}
@@ -255,7 +256,7 @@ function commentAction(sender, level, operation) {
 					case "0": break; // Other error
 					case "1": // Failed captcha
 						captchaInput.value = "";
-						checkInputCAPTCHA(captchaInput);
+						checkInputCAPTCHA(captchaInput, "INCORRECT");
 						break;
 					default: throw "Unknown response";
 				}

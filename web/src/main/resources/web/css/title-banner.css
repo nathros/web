@@ -78,11 +78,20 @@
 }
 
 @keyframes scanlines {
-	0% { background-position: 0 100%; }
+	0% { background-position: 0 -8px; }
 }
 
 @keyframes scanlines-fade {
 	100% { opacity: 1; }
 	50% { opacity: 0.25; }
 	0% { opacity: 1; }
+}
+
+@media
+only screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
+only screen and (in-resolution: 192dpi) and (min-width: 320px),
+only screen and (min-resolution: 2dppx) and (min-width: 320px) {
+	.title-banner {
+		height: 12rem;
+	}
 }
