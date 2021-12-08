@@ -31,7 +31,7 @@ public class PageCV extends BasePage {
 		LocalStringBuffer job = new LocalStringBuffer(1024);
 
 		m.ln("	<div class=\"timeline-container\">");
-		
+
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020 - Present\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2020 - Present</h2>");
@@ -146,7 +146,7 @@ public class PageCV extends BasePage {
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
 
-		
+
 		// ================================================================================================================= //
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2015 - December 2017\">");
 		m.ln("			<div class=\"timeline-item-content\">");
@@ -191,7 +191,7 @@ public class PageCV extends BasePage {
 		m.ln("		</div>"); // timeline-item
 		m.ln("	</div>"); // timeline-container
 
-		
+
 		// ================================================================================================================= //
 		m.ln("<h2><br>Skills</h2>");
 		m.ln("<div class=\"skills-wrapper\">");

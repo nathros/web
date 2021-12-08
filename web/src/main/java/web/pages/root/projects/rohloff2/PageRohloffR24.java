@@ -147,80 +147,84 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<p>");
 		m.ln("Gone are the Hope RX-4, they looked excellent but I had a lot of issues with sticking pistons and they were a challenge to bleed, so I started looking into alternatives. ");
 		m.ln("This led into an investigation of how hydraulics work and if it is possible to fit different calipers to the HydroR levers. ");
-		m.ln("The levers use DOT fluid so I need to make sure I select DOT calipers and mineral oil. ");
-		m.ln("Do not mix and match these as the seals are only designed for one type of fluid and might fail catastrophically. ");
+		m.ln("The levers use DOT fluid so I need to make sure I select DOT compatible calipers not ones designed for mineral oil. ");
+		m.ln("Do not mix and match these as the seals are only designed for one type of fluid and might corrode and fail catastrophically. ");
 		m.ln("</p>");
+		m.ln("<h3>!Tried with Shimano!</h3>");
 
 		m.ln("<h3>Hydraulic Theory</h3>");
-		m.ln("<img class=\"fit-image\" src=\"https://1iv8q2u5n9s3kzddi1cm15fo-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Hydraulic-Jack.gif\">");
+		m.ln("<img class=\"common-static-image\" src=\"https://1iv8q2u5n9s3kzddi1cm15fo-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Hydraulic-Jack.gif\" alt=\"Hydraulic System	\">");
 		m.ln("<p>");
-		m.ln("This is some background information on how basic hydraulics work to figure out if it is possible to mix and match levers and calipers. ");
-		m.ln("In this example the surface area of B is 5 times greater than A. So an input force of A of 30 newtons results in 150 Newtons at B which is calculated: <span style=\"white-space:nowrap;\">30 &times; 5 = 150.</span>");
+		m.ln("This is some background information on how basic hydraulics work in order to apply this knowledge to determine if it is possible to mix and match levers and calipers. ");
+		m.ln("In this example the surface area of B is 5 times greater than A. So an input force on A of 30 newtons results in 150 Newtons at B which is calculated: <span style=\"white-space:nowrap;\">30 &times; 5 = 150.</span>");
 		m.ln("This comes at a cost, if A moves down 25cm then B only moves 5cm. So you have traded a force amplification for a reduction in travel. ");
 		
 		m.ln("</p>");
 
 		m.ln("<h3>Lever and Caliper Compatibility</h3>");
+
+		m.ln("<div class=\"list-container\">");
+		m.ln("<div class=\"list-group\">");
+		m.ln("		<img src=\"https://cdn.deporvillage.com/cdn-cgi/image/w=900,dpr=1,f=auto,q=75,fit=contain,background=white/product/SR-00.7018.233.005.jpg\" alt=\"SRAM HydroR\">");
+		m.ln("		<b>SRAM Red HydroR</b>");
+		m.ln("		<span>Release date: 2014</span>");
+		m.ln("		<span>Mechanical only <i>(Rohbox compatible)</i></span>");
+		m.ln("		<span>Reservoir and master cylinder size unknown</span>");
+		m.ln("</div>");
+		m.ln("<div class=\"list-group\">");
+		m.ln("		<img src=\"https://www.westbrookcycles.co.uk/images/sram-red-etap-axs-right-shift-brake-lever-direct-mount-caliper-p344940-547342_image.jpg\" alt=\"SRAM AXS\">");
+		m.ln("		<b>SRAM Red AXS</b>");
+		m.ln("		<span>Release date: April 2019</span>");
+		m.ln("		<span>Electronic only <i>(Rohbox incompatible)</i></span>");
+		m.ln("		<span>Bigger reservoir and master cylinder for larger pistons?</span>");
+		m.ln("</div>");
+		m.ln("</div>"); // list-container
+
 		m.ln("<p>");
 		m.ln("The size of the SRAM HydroR master cylinder is unknown (A), but we can calculate (B) the surface area at the caliper end. ");
-		m.ln("I can make a best guess with a constant (A) and see the effects of different calipers. ");
+		m.ln("I can make a best guess with a constant (A) and see the effects of different calipers assuming the reservoir is of sufficient size. ");
 		m.ln("The HydroR caliper has 2 18mm pistons, so we can calculate the surface area on one and multiply it by 2 to get the formula: 2&#960;r<sup>2</sup>.");
-		m.ln("Manufacturers such as Shimano and SRAM do not provide a compatibility list and explicitly state no compatibility between models. ");
+		m.ln("Manufacturers such as Shimano and SRAM do not provide a compatibility list and explicitly state no compatibility between models even in their own product lines. ");
 		m.ln("If manufacturers published master cylinder sizes and resviour sizes you could make reasonable decisions to mix and match levers and calipers of the same type of hydrailic fluid.");
 		m.ln("</p>");
-
-		/*m.ln("<div class=\"list-container\">");
-
-		m.ln("<div>");
-		m.addModalImage("https://cdn.deporvillage.com/cdn-cgi/image/w=900,dpr=1,f=auto,q=75,fit=contain,background=white/product/SR-00.7018.233.005.jpg", "https://cdn.deporvillage.com/cdn-cgi/image/w=900,dpr=1,f=auto,q=75,fit=contain,background=white/product/SR-00.7018.233.005.jpg", "width:5rem", null);
-		m.ln("		<span>Release date 2014</span>"); //https://www.cxmagazine.com/sram-hydraulic-disc-brake-rim-brake-recall-website-register-red-s700
-		m.ln("</div>"); //https://www.bikeradar.com/news/redesigned-sram-red-hydraulic-road-disc-brakes-details-released/
-		
-		m.ln("<div>");
-		m.addModalImage("https://www.westbrookcycles.co.uk/images/sram-red-etap-axs-right-shift-brake-lever-direct-mount-caliper-p344940-547342_image.jpg", "https://www.westbrookcycles.co.uk/images/sram-red-etap-axs-right-shift-brake-lever-direct-mount-caliper-p344940-547342_image.jpg", "width:5rem", null);
-		m.ln("		<span>Release date April 2019 with bigger res</span>");
-		m.ln("</div>");
-		
-		m.ln("</div>"); // list-container
-	*/
 
 		m.ln("<div class=\"list-container\">");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://r2-bike.com/media/image/product/173332/lg/sram-red-22-hydror-hrd-brake-caliper-flatmount-fw-rw~2.jpg\">");
+		m.ln("		<img src=\"https://r2-bike.com/media/image/product/173332/lg/sram-red-22-hydror-hrd-brake-caliper-flatmount-fw-rw~2.jpg\" alt=\"RAM HydroR\">");
 		m.ln("		<b>SRAM HydroR</b>");
 		m.ln("		<span>2 x 18mm diameter pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);\">2&#960;9<sup>2</sup> = <b>508.93mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">2&#960;9<sup>2</sup> = <b>508.93mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 		
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://r2-bike.com/media/image/product/187133/lg/sram-red-etap-axs-hrd-brake-caliper-flat-mount-fw-rw.jpg\">");
+		m.ln("		<img src=\"https://r2-bike.com/media/image/product/187133/lg/sram-red-etap-axs-hrd-brake-caliper-flat-mount-fw-rw.jpg\" alt=\"SRAM AXS HRD\">");
 		m.ln("		<b>SRAM AXS HRD</b>");
 		m.ln("		<span>2 x 21mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);\">2&#960;10.5<sup>2</sup> = <b>692.72mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">2&#960;10.5<sup>2</sup> = <b>692.72mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://ghyllside.co.uk/5887-large_default/hope-rx4-caliper-flat-mount.jpg\">");
+		m.ln("		<img src=\"https://ghyllside.co.uk/5887-large_default/hope-rx4-caliper-flat-mount.jpg\" alt=\"Hope SRAM RX-4\">");
 		m.ln("		<b>Hope SRAM RX-4</b>");
 		m.ln("		<span>2 x 11mm pistons</span>");
 		m.ln("		<span>2 x 14mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);\">(2&#960;5.5<sup>2</sup>) + (2&#960;7<sup>2</sup>) = <b>497.94mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">(2&#960;5.5<sup>2</sup>) + (2&#960;7<sup>2</sup>) = <b>497.94mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://ghyllside.co.uk/5887-large_default/hope-rx4-caliper-flat-mount.jpg\">");
+		m.ln("		<img src=\"https://ghyllside.co.uk/5887-large_default/hope-rx4-caliper-flat-mount.jpg\" alt=\"Hope SRAM RX-4+\">");
 		m.ln("		<b>Hope SRAM RX-4+</b>");
 		m.ln("		<span>2 x 14mm pistons</span>");
 		m.ln("		<span>2 x 16mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);\">(2&#960;7<sup>2</sup>) + (2&#960;8<sup>2</sup>) = <b>710.00mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">(2&#960;7<sup>2</sup>) + (2&#960;8<sup>2</sup>) = <b>710.00mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://r2-bike.com/media/image/product/180694/lg/hope-brake-caliper-x2-fm-complete~8.jpg\">");
+		m.ln("		<img src=\"https://r2-bike.com/media/image/product/180694/lg/hope-brake-caliper-x2-fm-complete~8.jpg\" alt=\"Hope X2 Flat Mount\">");
 		m.ln("		<b>Hope X2 Flat Mount</b>");
 		m.ln("		<span>2 x 22mm pistons</span>");
-		m.ln("		<span>2&#960;11<sup>2</sup> = <b class=\"high-light-blue\">760.27mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,0,0,0);white-space: nowrap;\">2&#960;11<sup>2</sup> = <b>760.27mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("</div>"); // list-container

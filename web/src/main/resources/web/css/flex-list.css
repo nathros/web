@@ -31,7 +31,7 @@
 
 .list-container .list-group * {
 	text-align: center;
-	white-space: nowrap;
+	*white-space: nowrap;
 	width: fit-content;
 	margin-left: auto;
 	margin-right: auto;
@@ -41,9 +41,4 @@
 	margin-top: auto;
 	padding-bottom: 0.2rem;
 	width: 100%;
-}
-	
-.fit-image {
-	width: 100%;
-	max-width: fit-content;
 }

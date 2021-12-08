@@ -83,7 +83,7 @@ public class PageSearch extends BasePage {
 
 					results++;
 
-					sb.ln("<h3><a href=\"" + key + "\" target=\"_blank\">" + title + "</a></h3>");
+					sb.ln("<h3><a href=\"" + key + "\">" + title + "</a></h3>");
 					sb.ln("<p>");
 					sb.l("..." + firstSection);
 					sb.l("<b>" + search + "</b>");
