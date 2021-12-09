@@ -40,7 +40,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("");
 		m.ln("");
 		m.ln("");
-		m.ln("</p>");
+		m.ln("</p><br>");
 
 
 		m.ln("<h2>Bottom Bracket</h2>");
@@ -66,7 +66,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 91mm (86 + 5). ");
 		m.ln("An issue is that the Venge frame has a 68mm, so when the BB30 to BB86 converter is installed the final width will be 86mm, 5mm of extra spindle length will need to be taken up somehow. ");
 		m.ln("I fabricated 2 spacers measuring 3.5mm for the drive side and 1.5mm non-drive to take up the slack.");
-		m.ln("</p>");
+		m.ln("</p><br>");
 
 		m.ln("<h2>A12</h2>");
 		m.ln("<p>");
@@ -82,8 +82,8 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("They didn't understand my request at first and later turned out they had never dealt with A12 Rohloff hubs before. ");
 		m.ln("My contact at the shop got training from Rohloff on how to perform the task, later the measuring kit was sent to the shop and the procedure was done. ");
 		m.ln("Disappointingly Rohloff have a minimum dropout thickness rule which the new frame failed. ");
-		m.ln(" I requested to order the adapter anyway without warranty and that I would take all responsibility.");
-		m.ln("</p>");
+		m.ln("I requested to order the adapter anyway without warranty and that I would take all responsibility.");
+		m.ln("</p><br>");
 
 
 		m.ln("<h2>Headset</h2>");
@@ -94,27 +94,6 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("Looking online there is a headset for which supports mechanical shifting but my frame did not come with it and the kit is expensive for a piece of plastic. ");
 		m.ln("To work around this I designed a replacement spacer to allow a smoother cable transition into the headset. ");
 		m.ln("This needed a few revisions to match the unique shape.");
-		m.ln("</p>");
-
-		m.ln("<h2>Rear Light Mount</h2>");
-		m.ln("<p>");
-
-		// rear light, show cad and print direction...
-		// One interesting feature of the Venge is that it can house a handlebar plug style Di2 junction box in the back of the seatpost.
-		// I thought it would be a good idea to repurpose this into a rear light mount.
-		// Lights that mount to the saddle are readily available but one issue is that as they are high they are easily covered by a coat.
-		// This is not a big issue but I wanted to create a much neater and integrated design.
-		// My design is in two parts, this is because I decided to reuse the existing cover.
-		// The first is a direct replacement for the junction box, it allows the second part which is the light mount to be secured to the seatpost via 3 screw holes.
-		// The print orientation of this mount is important or the living hinge will fail quickly.
-		// PETG was used for both parts as it is more suitable for outdoor use as it does not degrade in UV, unlike PLA.
-
-		// front mount wip
-		// For the front the biggest hurdle was the living hinge for the light mount.
-		// "I tried many many different designs of hinge but they failed pretty quickly.
-		// My first reaction was to reinforce the area that broke but this just moved the failure point to another area until the hinge would not flex without a large amount of force.
-		// Inspecting the failures closely I noticed failure was caused by layer separation.
-		// The fix was to rotate the part 90 degrees towards the build plate so that the layers were not in the same direction as the hinge.
 		
 		// headset
 		// 
@@ -127,21 +106,32 @@ public class PageRohloffR24 extends BasePage {
 		// In the non-drive chain stay there is a lip which makes routing cables through there difficult.
 		// It looks like the bottom bracket area and rear triangle are built separately then joined together.
 		// I used a cheap endoscope which has a hook on the end which I used to move cables
+		m.ln("</p><br>");
 
-		m.ln("A saddle mount would work fine but one issue I have with them is that they are easily covered by a coat."); 
-		m.ln("The Venge seatpost has a handlebar Di2 junction box mount.");
-		m.ln("I thought it would be a good idea to repurpose this as a rear light mount.");
-		m.ln("This is in two parts, the first is a direction replacement for the junction box.");
-		m.ln("The second is the light mount itself which screws into the junction box."); 
-		m.ln("For the front the biggest hurdle was the living hinge for the light mount. ");
-		m.ln("I tried many many different designs of hinge but they failed pretty quickly. ");
-		m.ln("My first reaction was to reinforce the area that broke but this just moved the failure point to another area until the hinge would not flex without a large amount of force. ");
-		m.ln("Inspecting the failures closely I noticed failure was caused by layer separation. ");
-		m.ln("The fix was to rotate the part 90 degrees towards the build plate so that the layers were not in the same direction as the hinge. ");
-		m.ln("I used PETG, ABS or Nylon would likely be a better material as they are more have more elasticity but I did not have these at hand. ");
+		m.ln("<h2>Rear Light Mount</h2>");
+		m.ln("<p>");
+		m.ln("One interesting feature of the Venge is that it can house a Di2 junction box in the back of the seatpost such as the EW-RS910. ");
+		m.ln("These are originally designed to replace a road handlebar end cap but Specialized has retrofitted the design to fit inside the seatpost, this is a neat integrated design choice. ");
+		m.ln("I have looked at lights that fit into end caps (image?) but these do not produce much light and should be considered a complementary safety light. ");
+		m.ln("Another option is a saddle mounted light, this is what I used in the original bike build, they are discrete and not very protruding. ");
+		m.ln("One issue is that the position of the light is so high that it can easily be covered by a coat or bag. ");
+		m.ln("This is not a big issue but I wanted to create a much neater and integrated design. ");
+		m.ln("As I am not using Di2 rather than fit the included blank I thought it would be a good idea to repurpose this into a rear light mount. ");
+		m.ln("My design is in two parts, this is because I decided to reuse the existing cover. ");
+		m.ln("The first is a direct replacement for the junction box, it allows the second part which is the light mount to be secured to the seatpost via 3 screw holes. ");
+		m.ln("PETG was used for both parts as it is more suitable for outdoor use as it does not degrade in UV, unlike PLA. ");
+		m.ln("The print direction of the mount is important or the living hinge will fail quickly.(image)");
+		m.ln("</p><br>");
 
-		m.ln("</p>");
-
+		m.ln("<h2>Front Light Mount</h2>");
+		m.ln("<p>");
+		// front mount wip
+				// For the front the biggest hurdle was the living hinge for the light mount.
+				// "I tried many many different designs of hinge but they failed pretty quickly.
+				// My first reaction was to reinforce the area that broke but this just moved the failure point to another area until the hinge would not flex without a large amount of force.
+				// Inspecting the failures closely I noticed failure was caused by layer separation.
+				// The fix was to rotate the part 90 degrees towards the build plate so that the layers were not in the same direction as the hinge.
+		m.ln("</p><br>");
 
 		m.ln("<h2>Brake Caliper Change</h2>");
 		m.ln("<p>");
@@ -153,10 +143,10 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<h3>!Tried with Shimano!</h3>");
 
 		m.ln("<h3>Hydraulic Theory</h3>");
-		m.ln("<img class=\"common-static-image\" src=\"https://1iv8q2u5n9s3kzddi1cm15fo-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/Hydraulic-Jack.gif\" alt=\"Hydraulic System	\">");
+		m.ln("<img class=\"common-static-image\" src=\"https://i.imgur.com/RzT8DP3.png\" alt=\"Hydraulic System	\">");
 		m.ln("<p>");
 		m.ln("This is some background information on how basic hydraulics work in order to apply this knowledge to determine if it is possible to mix and match levers and calipers. ");
-		m.ln("In this example the surface area of B is 5 times greater than A. So an input force on A of 30 newtons results in 150 Newtons at B which is calculated: <span style=\"white-space:nowrap;\">30 &times; 5 = 150.</span>");
+		m.ln("In this example the surface area of B is 5 times greater than A. So an input force of 30 Newtons f<sub>1</sub> results in an output force 150 Newtons f<sub>2</sub> which is calculated: <span style=\"white-space:nowrap;\">30 &times; 5 = 150.</span>");
 		m.ln("This comes at a cost, if A moves down 25cm then B only moves 5cm. So you have traded a force amplification for a reduction in travel. ");
 		
 		m.ln("</p>");
@@ -165,14 +155,14 @@ public class PageRohloffR24 extends BasePage {
 
 		m.ln("<div class=\"list-container\">");
 		m.ln("<div class=\"list-group\">");
-		m.ln("		<img src=\"https://cdn.deporvillage.com/cdn-cgi/image/w=900,dpr=1,f=auto,q=75,fit=contain,background=white/product/SR-00.7018.233.005.jpg\" alt=\"SRAM HydroR\">");
+		m.ln("		<img src=\"https://i.imgur.com/HZNhVso.jpeg\" alt=\"SRAM HydroR\">");
 		m.ln("		<b>SRAM Red HydroR</b>");
 		m.ln("		<span>Release date: 2014</span>");
 		m.ln("		<span>Mechanical only <i>(Rohbox compatible)</i></span>");
 		m.ln("		<span>Reservoir and master cylinder size unknown</span>");
 		m.ln("</div>");
 		m.ln("<div class=\"list-group\">");
-		m.ln("		<img src=\"https://www.westbrookcycles.co.uk/images/sram-red-etap-axs-right-shift-brake-lever-direct-mount-caliper-p344940-547342_image.jpg\" alt=\"SRAM AXS\">");
+		m.ln("		<img src=\"https://i.imgur.com/Z2MGmvF.jpeg\" alt=\"SRAM AXS\">");
 		m.ln("		<b>SRAM Red AXS</b>");
 		m.ln("		<span>Release date: April 2019</span>");
 		m.ln("		<span>Electronic only <i>(Rohbox incompatible)</i></span>");
@@ -181,7 +171,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("</div>"); // list-container
 
 		m.ln("<p>");
-		m.ln("The size of the SRAM HydroR master cylinder is unknown (A), but we can calculate (B) the surface area at the caliper end. ");
+		m.ln("The size of the SRAM HydroR master cylinder area is unknown (A), but we can calculate (B) the surface area at the caliper end. ");
 		m.ln("I can make a best guess with a constant (A) and see the effects of different calipers assuming the reservoir is of sufficient size. ");
 		m.ln("The HydroR caliper has 2 18mm pistons, so we can calculate the surface area on one and multiply it by 2 to get the formula: 2&#960;r<sup>2</sup>.");
 		m.ln("Manufacturers such as Shimano and SRAM do not provide a compatibility list and explicitly state no compatibility between models even in their own product lines. ");
@@ -191,40 +181,40 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<div class=\"list-container\">");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://r2-bike.com/media/image/product/173332/lg/sram-red-22-hydror-hrd-brake-caliper-flatmount-fw-rw~2.jpg\" alt=\"RAM HydroR\">");
+		m.ln("		<img src=\"https://i.imgur.com/yGx0clq.jpeg\" alt=\"RAM HydroR\">");
 		m.ln("		<b>SRAM HydroR</b>");
 		m.ln("		<span>2 x 18mm diameter pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">2&#960;9<sup>2</sup> = <b>508.93mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">2&#960;9<sup>2</sup> = <b>508.9mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 		
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://r2-bike.com/media/image/product/187133/lg/sram-red-etap-axs-hrd-brake-caliper-flat-mount-fw-rw.jpg\" alt=\"SRAM AXS HRD\">");
+		m.ln("		<img src=\"https://i.imgur.com/r4Uk49Z.jpeg\" alt=\"SRAM AXS HRD\">");
 		m.ln("		<b>SRAM AXS HRD</b>");
 		m.ln("		<span>2 x 21mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">2&#960;10.5<sup>2</sup> = <b>692.72mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">2&#960;10.5<sup>2</sup> = <b>692.7mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://ghyllside.co.uk/5887-large_default/hope-rx4-caliper-flat-mount.jpg\" alt=\"Hope SRAM RX-4\">");
+		m.ln("		<img src=\"https://i.imgur.com/QPpAPN9.jpeg\" alt=\"Hope SRAM RX-4\">");
 		m.ln("		<b>Hope SRAM RX-4</b>");
 		m.ln("		<span>2 x 11mm pistons</span>");
 		m.ln("		<span>2 x 14mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">(2&#960;5.5<sup>2</sup>) + (2&#960;7<sup>2</sup>) = <b>497.94mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">(2&#960;5.5<sup>2</sup>) + (2&#960;7<sup>2</sup>) = <b>497.9mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://ghyllside.co.uk/5887-large_default/hope-rx4-caliper-flat-mount.jpg\" alt=\"Hope SRAM RX-4+\">");
+		m.ln("		<img src=\"https://i.imgur.com/1EvlDGn.jpeg\" alt=\"Hope SRAM RX-4+\">");
 		m.ln("		<b>Hope SRAM RX-4+</b>");
 		m.ln("		<span>2 x 14mm pistons</span>");
 		m.ln("		<span>2 x 16mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">(2&#960;7<sup>2</sup>) + (2&#960;8<sup>2</sup>) = <b>710.00mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">(2&#960;7<sup>2</sup>) + (2&#960;8<sup>2</sup>) = <b>710.0mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://r2-bike.com/media/image/product/180694/lg/hope-brake-caliper-x2-fm-complete~8.jpg\" alt=\"Hope X2 Flat Mount\">");
+		m.ln("		<img src=\"https://i.imgur.com/t12nsPc.jpeg\" alt=\"Hope X2 Flat Mount\">");
 		m.ln("		<b>Hope X2 Flat Mount</b>");
 		m.ln("		<span>2 x 22mm pistons</span>");
-		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,0,0,0);white-space: nowrap;\">2&#960;11<sup>2</sup> = <b>760.27mm<sup>2</sup></b></span>");
+		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,255,255,0);white-space: nowrap;\">2&#960;11<sup>2</sup> = <b>760.3mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("</div>"); // list-container
@@ -252,8 +242,6 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("The advantage over using the larger M555 is longer pad life and heat management. ");
 		m.ln("The costs of either pads ares similar but there is less choice available for the M555 as the Shimano Deore C900 caliper is long defunct. ");
 		m.ln("</p>");
-		
-		
 		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
