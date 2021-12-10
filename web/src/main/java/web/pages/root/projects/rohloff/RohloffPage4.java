@@ -14,7 +14,7 @@ public class RohloffPage4 extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_TOOLTIP };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV };
 
 		m.addHead(css, js, "Flat-Mount Adapter");
@@ -60,9 +60,7 @@ public class RohloffPage4 extends BasePage {
 		m.ln("	Rohloff supports a minimum rotor size of 160mm.");
 		m.ln("	I decided to replace the original SRAM calipers to the SRAM compatible Hope RX4.");
 		m.ln("	Rohloff supports a minimum rotor size of 160mm.");
-		m.addToolTip("<b>Torque arm</b>",
-				"<img src=\"http://twentynineinches.com/wp-content/uploads/2010/02/fig_rohl_3.jpg\">\r\n"
-						+ "	<p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>");
+		m.addToolTip("<b style=\"cursor: default\">Torque arm</b>", "<img src=\"http://twentynineinches.com/wp-content/uploads/2010/02/fig_rohl_3.jpg\" alt=\"Torque arm\"><p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>", true);
 		m.ln("	One issue with this decision the RX4 is that is does not require an adapter and only supports 160mm rotors, essentially having a built in one.");
 		m.ln("	This means there is no room to fit a flat-mount monkeybone on top of the brake mount.");
 		m.ln("	Also I would assume if Cycle Monkey would ever release an adapter it would only be compatible with standard calipers flat-mount 140mm calipers.");

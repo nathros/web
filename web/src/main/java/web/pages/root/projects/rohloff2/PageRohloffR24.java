@@ -69,6 +69,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("</p><br>");
 
 		m.ln("<h2>A12</h2>");
+		m.addModalImage("https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "max-width:30%", "The bearing ID is 28mm");
 		m.ln("<p>");
 		m.ln("The Rohloff hub was designed well before the thru axle standard.");
 		m.ln("If you look at a cutout or exploded diagram of the hub there is not enough free space for a 12mm diameter axle but does allow a Quick Release Skewer. ");
@@ -132,6 +133,8 @@ public class PageRohloffR24 extends BasePage {
 				// Inspecting the failures closely I noticed failure was caused by layer separation.
 				// The fix was to rotate the part 90 degrees towards the build plate so that the layers were not in the same direction as the hinge.
 		m.ln("</p><br>");
+
+		m.ln("<h2>Shimano Shifter with Rohbox Gebla</h2>");
 
 		m.ln("<h2>Brake Caliper Change</h2>");
 		m.ln("<p>");
@@ -230,9 +233,15 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("It is even larger but not too dissimilar to the RX-4+ being 7% bigger. ");
 		m.ln("Contacting Hope they recommended against the X2 as the reservoir may be too small. ");
 		m.ln("Rather than risk getting the X2 and not being able to return a used caliper I got a new pair of the original flat mount calipers.");
-		m.ln("</p>");
+		m.ln("</p><br>");
 		
 		m.ln("<h3>Brake Pads</h3>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://cdn.road.cc/sites/default/files/specialized-s-works-venge-seat-post.jpg", "https://cdn.road.cc/sites/default/files/specialized-s-works-venge-seat-post.jpg", "max-width:100%", "Stock image with Di2 fitted in the seatpost");
+		m.addModalImage("https://1.bp.blogspot.com/-RiV6G7qBb00/XmHlo5qRW2I/AAAAAAAAuxQ/x_qLOvR584MLTF7aAw1smP7LQxhotrBcQCLcBGAsYHQ/s1600/3D%2BEXERCISES%2B11-20_9.png", "https://1.bp.blogspot.com/-RiV6G7qBb00/XmHlo5qRW2I/AAAAAAAAuxQ/x_qLOvR584MLTF7aAw1smP7LQxhotrBcQCLcBGAsYHQ/s1600/3D%2BEXERCISES%2B11-20_9.png", "max-width:100%", null);
+		m.addModalImage("https://i.all3dp.com/cdn-cgi/image/fit=cover,w=1284,h=722,gravity=0.5x0.5,format=auto/wp-content/uploads/2018/04/26155007/an-example-temperature-tower-robomaniacthingiverse-180409.jpg", "https://i.all3dp.com/cdn-cgi/image/fit=cover,w=1284,h=722,gravity=0.5x0.5,format=auto/wp-content/uploads/2018/04/26155007/an-example-temperature-tower-robomaniacthingiverse-180409.jpg", "max-width:100%", null);
+		m.ln("</div>");
+
 		m.ln("<p>");
 		m.ln("When looking for 3rd party brake pads I noticed that Shimano M555 pads look very similar to the ones for the HydroR. ");
 		m.ln("The pad axle position and width are the same but the M555 is a few mm taller, the springs are also compatible. ");
@@ -240,7 +249,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("One thing to note is that with the same pad material there will not be an increase in braking power. ");
 		m.ln("This is because the force from pistons will not change and will simply be spread over a larger area. ");
 		m.ln("The advantage over using the larger M555 is longer pad life and heat management. ");
-		m.ln("The costs of either pads ares similar but there is less choice available for the M555 as the Shimano Deore C900 caliper is long defunct. ");
+		m.ln("The costs of either pads ares similar but there is less choice available for the M555 as the Shimano Deore C900 caliper they are made for is long defunct. ");
 		m.ln("</p>");
 		////
 		m.ln("	</div>"); // card
