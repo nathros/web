@@ -145,8 +145,8 @@ public class Markup {
 		return buffer.toString();
 	}
 
-	public void addToolTip(String visibleContent, String tooltipContent, boolean addIcon) { // TODO can go off screen
-		ln("<div class=\"tooltip\">");
+	public void addToolTip(String visibleContent, String tooltipContent, boolean addIcon) {
+		ln("<div class=\"tooltip\" onmouseover=\"tooltipHover(this)\" onmouseleave=\"tooltipHoverLeave(this)\">");
 		ln("<span>" + visibleContent + (addIcon ? " <img src=\"" + Resource.IMG_EXPANDICO + "\" alt=\"none\">" : "") + "</span>");
 		ln("	<div class=\"tooltip-inner\">");
 		ln(tooltipContent);

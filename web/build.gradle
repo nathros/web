@@ -1,13 +1,13 @@
 import java.text.SimpleDateFormat
 
 plugins {
-    id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '5.0.0'
-    id 'com.palantir.git-version' version '0.12.3'
+	id 'java-library'
+	id 'com.github.johnrengelman.shadow' version '5.0.0'
+	id 'com.palantir.git-version' version '0.12.3'
 }
 
 repositories {
-    jcenter()
+	jcenter()
 }
 
 dependencies {
@@ -49,8 +49,8 @@ compileJava.doFirst {
 	def foundVersionString = false;
 	new File(versionBackup).eachLine { line ->
 		if (line.contains("UNDEFINED")) {
-			 file << line.replace("UNDEFINED", formattedDate + " | " + gitVersion()) << ln
-			 foundVersionString = true;
+			file << line.replace("UNDEFINED", formattedDate + " | " + gitVersion()) << ln
+			foundVersionString = true;
 		} else {
 			file << line << ln
 		}
@@ -63,8 +63,8 @@ compileJava.doFirst {
 }
 
 compileJava.doLast {
-    new File(version).bytes = new File(versionBackup).bytes
-    delete(versionBackup)
+	new File(version).bytes = new File(versionBackup).bytes
+	delete(versionBackup)
 }
 
 shadowJar {
@@ -74,14 +74,14 @@ shadowJar {
 	archiveBaseName = jarName
 	classifier = null
 	archiveVersion = null
-   	
-   	doLast { // Move jar file to root of build dir
-        copy {
-            from "build/libs/${jarName}.jar"
-            into "build/"
-        }
-        delete("build/libs/${jarName}.jar")
-    }
+
+	doLast { // Move jar file to root of build dir
+		copy {
+			from "build/libs/${jarName}.jar"
+			into "build/"
+		}
+		delete("build/libs/${jarName}.jar")
+	}
 }
 
 jar {

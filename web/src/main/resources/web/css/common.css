@@ -9,6 +9,7 @@
 body {
 	margin: 0;
 	background-color: #f4f4f4;	
+	overflow-x: hidden;
 	
 	--std-padding: 1rem;
 	
