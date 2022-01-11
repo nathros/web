@@ -70,6 +70,7 @@
     line-height: 0;
     vertical-align: middle;
     background-color: white;
+    flex: 1;
 }
 
 .no-scroll {

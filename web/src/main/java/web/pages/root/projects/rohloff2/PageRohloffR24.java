@@ -15,8 +15,8 @@ public class PageRohloffR24 extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_FLEX_LIST };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_FLEX_LIST, Resource.CSS_TOOLTIP };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
 		m.addHead(css, js, "Test new page 2");
 
@@ -88,6 +88,11 @@ public class PageRohloffR24 extends BasePage {
 
 
 		m.ln("<h2>Headset</h2>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/6fuyCVS.jpg", "https://i.imgur.com/QtGppm7.jpg", "max-width:100%", "Original spacers");
+		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding");
+		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.ln("</div>");
 		m.ln("<p>");
 		m.ln("When the cables were routed I noticed very high friction in the cable. ");
 		m.ln("I did a lot of investigating to the cause of the problem and discovered that cables entering the headset are at a very tight angle. ");
@@ -110,6 +115,11 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("</p><br>");
 
 		m.ln("<h2>Rear Light Mount</h2>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Original spacers");
+		m.addModalImage("https://i.imgur.com/cp2ENTk.png", "https://i.imgur.com/cp2ENTk.png", "max-width:100%", "3D printed spacer after sanding");
+		m.addModalImage("https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.ln("</div>");
 		m.ln("<p>");
 		m.ln("One interesting feature of the Venge is that it can house a Di2 junction box in the back of the seatpost such as the EW-RS910. ");
 		m.ln("These are originally designed to replace a road handlebar end cap but Specialized has retrofitted the design to fit inside the seatpost, this is a neat integrated design choice. ");
@@ -122,6 +132,8 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("The first is a direct replacement for the junction box, it allows the second part which is the light mount to be secured to the seatpost via 3 screw holes. ");
 		m.ln("PETG was used for both parts as it is more suitable for outdoor use as it does not degrade in UV, unlike PLA. ");
 		m.ln("The print direction of the mount is important or the living hinge will fail quickly.(image)");
+		m.addToolTip("<b style=\"cursor: default\">Print Direction</b>", "<img src=\"https://i.imgur.com/O1ZIb0c.png\" alt=\"Print Direction\"><p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Di2</b>", "<img src=\"https://i.imgur.com/6OfI9ZR.jpg\" alt=\"Print Direction\"><p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>", true);
 		m.ln("</p><br>");
 
 		m.ln("<h2>Front Light Mount</h2>");
@@ -237,19 +249,19 @@ public class PageRohloffR24 extends BasePage {
 		
 		m.ln("<h3>Brake Pads</h3>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://cdn.road.cc/sites/default/files/specialized-s-works-venge-seat-post.jpg", "https://cdn.road.cc/sites/default/files/specialized-s-works-venge-seat-post.jpg", "max-width:100%", "Stock image with Di2 fitted in the seatpost");
-		m.addModalImage("https://1.bp.blogspot.com/-RiV6G7qBb00/XmHlo5qRW2I/AAAAAAAAuxQ/x_qLOvR584MLTF7aAw1smP7LQxhotrBcQCLcBGAsYHQ/s1600/3D%2BEXERCISES%2B11-20_9.png", "https://1.bp.blogspot.com/-RiV6G7qBb00/XmHlo5qRW2I/AAAAAAAAuxQ/x_qLOvR584MLTF7aAw1smP7LQxhotrBcQCLcBGAsYHQ/s1600/3D%2BEXERCISES%2B11-20_9.png", "max-width:100%", null);
-		m.addModalImage("https://i.all3dp.com/cdn-cgi/image/fit=cover,w=1284,h=722,gravity=0.5x0.5,format=auto/wp-content/uploads/2018/04/26155007/an-example-temperature-tower-robomaniacthingiverse-180409.jpg", "https://i.all3dp.com/cdn-cgi/image/fit=cover,w=1284,h=722,gravity=0.5x0.5,format=auto/wp-content/uploads/2018/04/26155007/an-example-temperature-tower-robomaniacthingiverse-180409.jpg", "max-width:100%", null);
+		m.addModalImage("https://i.imgur.com/LSdKX4s.jpg", "https://i.imgur.com/6k1MRVD.jpg", "max-width:100%", "(Top) Original SRAM brake pads, semi-metal and sintered BR-M555");
+		m.addModalImage("https://i.imgur.com/fUaohqb.png", "https://i.imgur.com/fUaohqb.png", "max-width:100%", null);
+		m.addModalImage("https://i.imgur.com/0El6Cls.jpg", "https://i.imgur.com/ex5DQX6.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
 		m.ln("</div>");
 
 		m.ln("<p>");
-		m.ln("When looking for 3rd party brake pads I noticed that Shimano M555 pads look very similar to the ones for the HydroR. ");
-		m.ln("The pad axle position and width are the same but the M555 is a few mm taller, the springs are also compatible. ");
-		m.ln("If you have a wide rotor then you can take advantage of the bigger M555 brake pads. ");
+		m.ln("When looking for 3rd party brake pads I noticed that Shimano BR-M555 pads look very similar to the ones for the HydroR. ");
+		m.ln("The pad axle position and width are the same but the BR-M555 is a few mm taller, the springs are also compatible. ");
+		m.ln("If you have a wide rotor then you can take advantage of the bigger BR-M555 brake pads. ");
 		m.ln("One thing to note is that with the same pad material there will not be an increase in braking power. ");
 		m.ln("This is because the force from pistons will not change and will simply be spread over a larger area. ");
-		m.ln("The advantage over using the larger M555 is longer pad life and heat management. ");
-		m.ln("The costs of either pads ares similar but there is less choice available for the M555 as the Shimano Deore C900 caliper they are made for is long defunct. ");
+		m.ln("The advantage over using the larger BR-M555 is longer pad life and heat management. ");
+		m.ln("The costs of either pads ares similar but there is less choice available for the BR-M555 as the Shimano Deore C900 caliper they are made for is long defunct. ");
 		m.ln("</p>");
 		////
 		m.ln("	</div>"); // card
