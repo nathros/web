@@ -52,8 +52,11 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("This is typically caused by poor manufacturing tolerances from frame manufacturers resulting in bad fit or even misalignment causing premature bearing failure. ");
 		m.ln("</p>");
 
-		m.ln("<p>");
-		m.ln("There exists BB30 to BB386 converters so I could use my existing FSA BB386 crank but the spindle is showing signs of wear which is in need of replacement. ");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("To avoid these issues I looked into a bottom bracket conversion kit. ");
+		m.ln("There exists BB30 to BB386 converters such as the ");
+		m.addToolTip("<b style=\"cursor: default\">Praxis M30 THRU</b>", "<img src=\"https://praxiscycles.com/wp-content/uploads/DSCF3688-1024x576.jpg\" alt=\"68-4101R\"><p>Prxis 68-4101R converts BB30/PF30 bottom brackets to allow use of wide 30mm spindle cranks such as BB386</p>", true);
+		m.ln("so I could use my existing FSA BB386 crank but the spindle is showing signs of wear which is in need of replacement. ");
 		m.ln("My own fault for not taking better care. ");
 		m.ln("Alloy 30mm spindles need to be cleaned regularly, the hard steel bearing makes direct contact to the softer aluminium spindle which can cause galling if not properly maintained. ");
 		m.ln("So I decided to move to a similar crank using MegaExo 24 which uses a steel 24mm spindle, which as far as I can tell is directly compatible with Shimano HollowTech II. ");
@@ -61,22 +64,30 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("A disadvantage is that the crank will be a little heavier, a tradeoff for a more durable item. ");
 		m.ln("Cranks with alloy spindles almost become a consumable item like a chain or cassette which is not ideal. ");
 		m.ln("With this in mind I got a BB30 to BB86 converter, the one I have allows the bearings to be replaced and I ordered some spare 6805 bearings and plastic top hats.");
-		m.ln("</p>");
-		m.ln("<p>");
 		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 91mm (86 + 5). ");
 		m.ln("An issue is that the Venge frame has a 68mm, so when the BB30 to BB86 converter is installed the final width will be 86mm, 5mm of extra spindle length will need to be taken up somehow. ");
 		m.ln("I fabricated 2 spacers measuring 3.5mm for the drive side and 1.5mm non-drive to take up the slack.");
-		m.ln("</p><br>");
+		m.addToolTip("<b style=\"cursor: default\">BBB BBO-85</b>", "<img src=\"https://m.media-amazon.com/images/I/71DwILbI3OL._AC_SL1500_.jpg\" alt=\"BBB BBO-85\"><p>Later discovered the BBB BBO-85 bottom bracket which has a wider outbound bearing cups to support MTB cranks in road frames</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Outbound Comparison</b>", "<img src=\"https://i.imgur.com/s0XZpoi.jpg\" alt=\"Outbound Comparison\"><p>BBB BBO-85 bottom bracket has wider cups than the ZTTO bottom bracket to accommodate for longer MTB spindle</p>", true);
+		m.ln("</div><br>");
 
 		m.ln("<h2>A12</h2>");
-		m.addModalImage("https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "max-width:30%", "The bearing ID is 28mm");
-		m.ln("<p>");
+		//m.addModalImage("https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "max-width:30%", "The bearing ID is 28mm");
+
+		m.ln("<div class=\"paragraph\">");
 		m.ln("The Rohloff hub was designed well before the thru axle standard.");
 		m.ln("If you look at a cutout or exploded diagram of the hub there is not enough free space for a 12mm diameter axle but does allow a Quick Release Skewer. ");
+		m.addToolTip("<b style=\"cursor: default\">Rohloff Exploded View</b>", "<img src=\"https://cdn-0.sheldonbrown.com/harris/images/speedbild2.jpeg\" alt=\"Rohloff Exploded View\"><p>The axle only has enough room for a 9mm quick release skewer</p>", true);
 		m.ln("Rather than redesign the hub Rohloff opted to have adapters that match the frame dropouts to allow M7 bolts to secure the hub. ");
 		m.ln("One issue with this is that unlike Quick Release, there are many thru axle standards. ");
+
+		m.ln("<br><img class=\"common-static-image\" src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Standards\"><br>");
+		m.ln("Total length of the Thru Axle can vary dramatically between manufacturers. A \"Standard\" 142x12mm Thru Axle can vary in length between 162mm and 171mm depending on the frame manufacturer. ");
+		m.ln("Modern Thru Axles thread directly into frames/forks but early rear thru axles needed a nut. There are also different thread pitches generally m1 or m1.5.");
+
+		m.ln("There are two different types of attachment seat used at the interface where the skewer mates to the frame or fork which are traditional (flat) and conical");
+
 		m.ln("These include different width, diameter, thread pitch and even the interface. ");
-		m.ln("<b>Show all standards/ 100mm.....https://wheelbuilder.com/blog/thru-axles-demystified-/</b>");
 		m.ln("My hub has adapters for the Yoeolo? RD25 which uses a Shimano type 142mm x 12mm thru axle.");
 		m.ln("The Venge frame is still 142 x 12mm but has a Syntace V2 interface so new adapters would be needed. ");
 		m.ln("I took my bike to the nearest shop that was registered with Rohloff as a dealer and asked them if it was possible to get the new frame measured and order new adapters. ");
@@ -84,22 +95,23 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("My contact at the shop got training from Rohloff on how to perform the task, later the measuring kit was sent to the shop and the procedure was done. ");
 		m.ln("Disappointingly Rohloff have a minimum dropout thickness rule which the new frame failed. ");
 		m.ln("I requested to order the adapter anyway without warranty and that I would take all responsibility.");
-		m.ln("</p><br>");
+		m.ln("</div><br>");
 
 
 		m.ln("<h2>Headset</h2>");
 		m.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/6fuyCVS.jpg", "https://i.imgur.com/QtGppm7.jpg", "max-width:100%", "Original spacers");
 		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding");
-		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Screenshot from FreeCAD");
 		m.ln("</div>");
-		m.ln("<p>");
+		m.ln("<div class=\"paragraph\">");
 		m.ln("When the cables were routed I noticed very high friction in the cable. ");
 		m.ln("I did a lot of investigating to the cause of the problem and discovered that cables entering the headset are at a very tight angle. ");
 		m.ln("The Venge is clearly tailored to electronic shifting and not too well suited to mechanical shifting. ");
 		m.ln("Looking online there is a headset for which supports mechanical shifting but my frame did not come with it and the kit is expensive for a piece of plastic. ");
 		m.ln("To work around this I designed a replacement spacer to allow a smoother cable transition into the headset. ");
-		m.ln("This needed a few revisions to match the unique shape.");
+		m.addToolTip("<b style=\"cursor: default\">Early Prototype</b>", "<img src=\"https://cdn-0.sheldonbrown.com/harris/images/speedbild2.jpeg\" alt=\"Early Headset spacer\"><p>Early resvision of the headset spacer</p>", true);
+		m.ln(" This needed a few revisions to match the unique shape. ");
 		
 		// headset
 		// 
@@ -112,16 +124,17 @@ public class PageRohloffR24 extends BasePage {
 		// In the non-drive chain stay there is a lip which makes routing cables through there difficult.
 		// It looks like the bottom bracket area and rear triangle are built separately then joined together.
 		// I used a cheap endoscope which has a hook on the end which I used to move cables
-		m.ln("</p><br>");
+		m.ln("</div><br>");
 
 		m.ln("<h2>Rear Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Original spacers");
-		m.addModalImage("https://i.imgur.com/cp2ENTk.png", "https://i.imgur.com/cp2ENTk.png", "max-width:100%", "3D printed spacer after sanding");
+		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost");
+		m.addModalImage("https://i.imgur.com/cp2ENTk.png", "https://i.imgur.com/cp2ENTk.png", "max-width:100%", "Screenshot from FreeCAD of both parts");
 		m.addModalImage("https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
 		m.ln("</div>");
-		m.ln("<p>");
+		m.ln("<div class=\"paragraph\">");
 		m.ln("One interesting feature of the Venge is that it can house a Di2 junction box in the back of the seatpost such as the EW-RS910. ");
+		m.addToolTip("<b style=\"cursor: default\">Di2 Junction Box</b>", "<img src=\"https://i.imgur.com/6OfI9ZR.jpg\" alt=\"Di2 Junction Box\"><p>Here is a Shmanio Di2 handlebar style junction box installed into a Venge seatpost</p>", true);
 		m.ln("These are originally designed to replace a road handlebar end cap but Specialized has retrofitted the design to fit inside the seatpost, this is a neat integrated design choice. ");
 		m.ln("I have looked at lights that fit into end caps (image?) but these do not produce much light and should be considered a complementary safety light. ");
 		m.ln("Another option is a saddle mounted light, this is what I used in the original bike build, they are discrete and not very protruding. ");
@@ -131,10 +144,10 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("My design is in two parts, this is because I decided to reuse the existing cover. ");
 		m.ln("The first is a direct replacement for the junction box, it allows the second part which is the light mount to be secured to the seatpost via 3 screw holes. ");
 		m.ln("PETG was used for both parts as it is more suitable for outdoor use as it does not degrade in UV, unlike PLA. ");
-		m.ln("The print direction of the mount is important or the living hinge will fail quickly.(image)");
-		m.addToolTip("<b style=\"cursor: default\">Print Direction</b>", "<img src=\"https://i.imgur.com/O1ZIb0c.png\" alt=\"Print Direction\"><p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>", true);
-		m.addToolTip("<b style=\"cursor: default\">Di2</b>", "<img src=\"https://i.imgur.com/6OfI9ZR.jpg\" alt=\"Print Direction\"><p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>", true);
-		m.ln("</p><br>");
+		m.ln("The print direction of the mount is critical and needs to parallel to the living hinge or it will fail quickly. ");
+		m.addToolTip("<b style=\"cursor: default\">Print Direction</b>", "<img src=\"https://i.imgur.com/O1ZIb0c.png\" alt=\"Print Direction\"><p>For a small part a brim was needed for good bed adhesion. Tree supports were used as they were much easier to remove</p>", true);
+		m.ln(" This is not to best orientation for the rest of the part as it results in a lot of support material.");
+		m.ln("</div><br>");
 
 		m.ln("<h2>Front Light Mount</h2>");
 		m.ln("<p>");
@@ -255,13 +268,14 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("</div>");
 
 		m.ln("<p>");
-		m.ln("When looking for 3rd party brake pads I noticed that Shimano BR-M555 pads look very similar to the ones for the HydroR. ");
-		m.ln("The pad axle position and width are the same but the BR-M555 is a few mm taller, the springs are also compatible. ");
-		m.ln("If you have a wide rotor then you can take advantage of the bigger BR-M555 brake pads. ");
-		m.ln("One thing to note is that with the same pad material there will not be an increase in braking power. ");
+		m.ln("When looking to purchase some extra brake pads I noticed that Shimano BR-M555 pads had a very similar shape to the pads for the HydroR. ");
+		m.ln("The shape is unique as most other brake pads have the pad axle hole in the centre rather than off to an edge. ");
+		m.ln("The BR-M555 is a few mm taller than the HydroR, the springs are very similar and from my testing are interchangeable making then compatible with either type of pad. ");
+		m.ln("If you have a wide rotor then you can take advantage of the taller BR-M555 brake pads. ");
+		m.ln("One thing to note is that with the same pad material there will not be an increase in braking power with a larger pad. ");
 		m.ln("This is because the force from pistons will not change and will simply be spread over a larger area. ");
-		m.ln("The advantage over using the larger BR-M555 is longer pad life and heat management. ");
-		m.ln("The costs of either pads ares similar but there is less choice available for the BR-M555 as the Shimano Deore C900 caliper they are made for is long defunct. ");
+		m.ln("The advantage over using the larger BR-M555 is longer pad life and better heat management. ");
+		m.ln("The costs of either type ares similar but there are fewer choices available for the BR-M555 as the Shimano Deore C900 caliper they are made for is long defunct. ");
 		m.ln("</p>");
 		////
 		m.ln("	</div>"); // card
