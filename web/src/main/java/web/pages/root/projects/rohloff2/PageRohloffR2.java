@@ -4,11 +4,10 @@ import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
-import web.pages.root.projects.rohloff.RohloffUtils;
 
-public class PageRohloffR24 extends BasePage {
+public class PageRohloffR2 extends BasePage {
 
-	public PageRohloffR24(RequestInfo request) {
+	public PageRohloffR2(RequestInfo request) {
 		super(request);
 	}
 
@@ -18,18 +17,16 @@ public class PageRohloffR24 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_FLEX_LIST, Resource.CSS_TOOLTIP };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
-		m.addHead(css, js, "Test new page 2");
+		m.addHead(css, js, "Rohloff Frame Upgrade");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
 
-		m.addBanner("Light Mounts", "https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
+		m.addBanner("Rohloff Frame Upgrade", "https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
-		RohloffUtils.addRohloff2PageSelector(m, 2);
 
-		
 		m.ln("<h2>Frame</h2>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("After working with the frame it is clear that it is intended for use with electronic shifting only. ");
@@ -38,7 +35,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("The second can be excused as the rear hydraulic line routing was not intended to fit an additional two extra gear cables. ");
 		m.ln("For the Venge the Axle plate cannot be placed under the stay, this is because routing the cable from the hydraulic brake hole it too much of an aggressive angle. ");
 		m.ln("Conversely the Yoeleo frame allows the axle plate to be in this position and have shifting work well as the cable hole is placed much closer to the centre of the stay. ");
-		m.ln("In the Venge the hydralic cable exit port is very close to the caliper. ");
+		m.ln("In the Venge the hydraulic cable exit port is situated very close to the caliper. ");
 		m.ln("</div><br>");
 
 
@@ -75,16 +72,16 @@ public class PageRohloffR24 extends BasePage {
 
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The Rohloff hub was designed well before the thru axle standard.");
-		m.ln("If you look at a cutout or exploded diagram of the hub there is not enough free space for a 12mm diameter axle but does allow a Quick Release Skewer. ");
+		m.ln("If you look at a cut out or exploded diagram of the hub there is not enough free space for a 12mm diameter axle but does allow a Quick Release Skewer. ");
 		m.addToolTip("<b style=\"cursor: default\">Rohloff Exploded View</b>", "<img src=\"https://cdn-0.sheldonbrown.com/harris/images/speedbild2.jpeg\" alt=\"Rohloff Exploded View\"><p>The axle only has enough room for a 9mm quick release skewer</p>", true);
 		m.ln("The only hub with native thru axle support is from Kindernay. ");
 		m.ln("Rather than redesign the hub Rohloff opted to have adapters that match the frame dropouts to allow M7 bolts to secure the hub. ");
 		m.ln("One issue with this is that unlike Quick Release, there are many thru axle standards. ");
 
 		//m.ln("<br><img class=\"common-static-image\" src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Standards\"><br>");
-		m.addToolTip("<b style=\"cursor: default\">Thru Axle Variations</b>", "<img src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Variations\"><p>There are different thread pitches, head taper types and even lengths depending on dropput widths</p>", true);
-		m.ln("Total length of the Thru Axle can vary dramatically between manufacturers. A \"Standard\" 142x12mm Thru Axle can vary in length between 162mm and 171mm depending on the frame manufacturer. ");
-		m.ln("Modern Thru Axles thread directly into frames/forks but early rear thru axles needed a nut. There are also different thread pitches generally m1 or m1.5.");
+		m.addToolTip("<b style=\"cursor: default\">Thru Axle Variations</b>", "<img src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Variations\"><p>There are different thread pitches, head taper types and even lengths depending on dropout thicknesses</p>", true);
+		m.ln("Total length of the thru axle can vary dramatically between manufacturers. A \"Standard\" 142x12mm Thru Axle can vary in length between 162mm and 171mm depending on the frame manufacturer. ");
+		m.ln("Modern thru axles thread directly into frames/forks but early rear thru axles needed an external nut. There are also different thread pitches generally m1 or m1.5.");
 
 		m.ln("There are two different types of attachment seat used at the interface where the skewer mates to the frame or fork which are traditional (flat) and conical");
 
@@ -94,8 +91,13 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("I took my bike to the nearest shop that was registered with Rohloff as a dealer and asked them if it was possible to get the new frame measured and order new adapters. ");
 		m.ln("They didn't understand my request at first and later turned out they had never dealt with A12 Rohloff hubs before. ");
 		m.ln("My contact at the shop got training from Rohloff on how to perform the task, later the measuring kit was sent to the shop and the procedure was done. ");
-		m.ln("Disappointingly Rohloff have a minimum dropout thickness rule which the new frame failed. ");
-		m.ln("I requested to order the adapter anyway without warranty and that I would take all responsibility.");
+		m.ln("Disappointingly Rohloff have a minimum dropout thickness rule which the new frame ");
+		m.addToolTip("<b style=\"cursor: default\">Failed</b>", "<img style=\"max-height:70vh;width:unset\" src=\"https://i.imgur.com/KllcNBP.jpg\" alt=\"Thru Axle Failure\"><p>In the Syntace V2 dropout thickness test the Venge gets a result of 49mm</p>", true);
+		m.ln(". The bike shop stated to me that the minimum thickness test is 51mm while the Venge got 49mm. ");
+		m.ln("Regardless I requested to order the adapter anyway without warranty and that I would take all responsibility. ");
+		m.ln("When writing this article a few months later I checked the ");
+		m.addLink("<b>Rohloff A12 Dropout Measurement Process</b>", "https://www.rohloff.de/fileadmin/user_upload/Rohloff-A12-_Dropout_Measurement_Process_en.pdf", true);
+		m.ln(" document and there is no mention of 51mm, the Syntace V2 test on page 45 states the minimum thickness is 47mm, so the frame should have passed.");
 		m.ln("</div><br>");
 
 
@@ -116,7 +118,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("The Venge is clearly tailored to electronic shifting and not too well suited to mechanical shifting. ");
 		m.ln("Looking online there is a headset for which supports mechanical shifting but my frame did not come with it. ");
 		m.ln("To work around this I designed a replacement spacer to allow a smoother cable transition into the headset. ");
-		m.addToolTip("<b style=\"cursor: default\">Early Prototype</b>", "<img src=\"https://cdn-0.sheldonbrown.com/harris/images/speedbild2.jpeg\" alt=\"Early Headset spacer\"><p>Early resvision of the headset spacer</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Early Prototype</b>", "<img src=\"https://i.imgur.com/7mzdUML.jpg\" alt=\"Early Headset spacer\"><p>Early revision of the headset spacer which relied on one of the original spacers</p>", true);
 		m.ln(" This needed a few revisions to match the unique shape. ");
 		
 		// headset
@@ -135,14 +137,16 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<h2>Rear Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost");
-		m.addModalImage("https://i.imgur.com/cp2ENTk.png", "https://i.imgur.com/cp2ENTk.png", "max-width:100%", "Screenshot from FreeCAD of both parts");
-		m.addModalImage("https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.addModalImage("https://i.imgur.com/Iy77F1b.png", "https://i.imgur.com/Iy77F1b.png", "max-width:100%", "Screenshot from FreeCAD of both parts");
+		m.addModalImage("https://media.istockphoto.com/vectors/missing-rubber-stamp-vector-vector-id1213374148?k=20&m=1213374148&s=612x612&w=0&h=A3_Ku27Jf_XRfsWCZYvwJWQGNR2hbHDh9ViLLaAdJ5w=", "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("One interesting feature of the Venge is that it can house a Di2 junction box in the back of the seatpost such as the EW-RS910. ");
 		m.addToolTip("<b style=\"cursor: default\">Di2 Junction Box</b>", "<img src=\"https://i.imgur.com/6OfI9ZR.jpg\" alt=\"Di2 Junction Box\"><p>Here is a Shmanio Di2 handlebar style junction box installed into a Venge seatpost</p>", true);
 		m.ln("These are originally designed to replace a road handlebar end cap but Specialized has retrofitted the design to fit inside the seatpost, this is a neat integrated design choice. ");
-		m.ln("I have looked at lights that fit into end caps (image?) but these do not produce much light and should be considered a complementary safety light. ");
+		m.ln("I have looked at lights that fit into ");
+		m.addToolTip("<b style=\"cursor: default\">End Caps</b>", "<img src=\"https://cdn.road.cc/sites/default/files/styles/main_width/public/images/Products/GUBLEDendcaps.jpg\" alt=\"End Cap Light\"><p>Most of these types of lights do not have an integrated rechargeable battery but need two or more AG10 or 2032 batteries</p>", true);
+		m.ln(" but these do not produce much light and should be considered a complementary safety light. ");
 		m.ln("Another option is a saddle mounted light, this is what I used in the original bike build, they are discrete and not very protruding. ");
 		m.ln("One issue is that the position of the light is so high that it can easily be covered by a coat or bag. ");
 		m.ln("This is not a big issue but I wanted to create a much neater and integrated design. ");
@@ -157,9 +161,9 @@ public class PageRohloffR24 extends BasePage {
 
 		m.ln("<h2>Front Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost");
-		m.addModalImage("https://images.amaincycling.com/images/large/bikes/specialized/s204800003.jpg", "https://images.amaincycling.com/images/large/bikes/specialized/s204800003.jpg", "max-width:100%", "Screenshot from FreeCAD of both parts");
-		m.addModalImage("https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_34880609_16852477_1620389282_1_0.jpg", "https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_34880609_16852477_1620389282_1_0.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.addModalImage("https://i.imgur.com/z1jfIV0.jpg", "https://i.imgur.com/ioC2KK4.jpg", "max-width:100%", "Neatly placed under the stem");
+		m.addModalImage("https://i.imgur.com/SnuhtDt.pngg", "https://i.imgur.com/SnuhtDt.png", "max-width:100%", "Screenshot from FreeCAD");
+		m.addModalImage("https://media.istockphoto.com/vectors/missing-rubber-stamp-vector-vector-id1213374148?k=20&m=1213374148&s=612x612&w=0&h=A3_Ku27Jf_XRfsWCZYvwJWQGNR2hbHDh9ViLLaAdJ5w=", "https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_34880609_16852477_1620389282_1_0.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The Venge has a cable clamp for tidying the cables under the stem. ");
@@ -175,8 +179,6 @@ public class PageRohloffR24 extends BasePage {
 				// My first reaction was to reinforce the area that broke but this just moved the failure point to another area until the hinge would not flex without a large amount of force.
 				// Inspecting the failures closely I noticed failure was caused by layer separation.
 				// The fix was to rotate the part 90 degrees towards the build plate so that the layers were not in the same direction as the hinge.
-
-		m.ln("<h2>Shimano Shifter with Rohbox Gebla</h2>");
 
 		m.ln("<h2>Brake Caliper Change</h2>");
 		m.ln("<p>");
@@ -298,8 +300,8 @@ public class PageRohloffR24 extends BasePage {
 
 		m.ln("<h3>SRAM Hood Tear</h3>");
 		m.ln("<div class=\"paragraph\">");
-		m.ln("After a few months of use the inner section of the hoods began to tear. ");
-		m.ln("This is caused by the shift lever making repeated contact with the rubber during shifting. ");
+		m.ln("After a few months of use the inner section of the hoods began to tear with the previous Yoeleo build. ");
+		m.ln("This is caused by the shift lever making repeated contact with the rubber during each gear change. ");
 		m.ln("On ");
 		m.addLink("<b>Weightweenies</b>", "https://weightweenies.starbike.com/forum/viewtopic.php?t=163553", true);
 		m.ln(" other people have had a similar problem ");
@@ -314,29 +316,34 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("</div>");
 
 		m.ln("<h3>Shimano Shifter With Gebla Investigation</h3>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/xVgxZyd.jpg", "https://i.imgur.com/xVgxZyd.jpg", "max-width:100%", "Proprietary bolt from Shimano, the safety pin can be easily pushed out");
+		m.addModalImage("https://i.imgur.com/004ETtI.png", "https://i.imgur.com/004ETtI.png", "max-width:100%", null);
+		m.addModalImage("https://i.imgur.com/cfva9uu.jpg", "https://i.imgur.com/cfva9uu.jpgg", "max-width:100%", "Right shifter with assembly removed");
+		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("Ordering a pair Shimano Dura Ace R9120 shifters I wanted to determine if it is possible to use them with the Gebla. ");
-		m.ln("I could not find any materials from Shimano or other places online on how disassemble/reapir these shiters. ");
-		m.ln("I needed to create a ");
-		m.addToolTip("<b style=\"cursor: default\">Custom Tool</b>", "<img src=\"http://bikerumor.com/wp-content/uploads/2020/09/2021-specialized-tarmac-s-works-sl7-aero-handlebar-cable-routing-04.jpg\" alt=\"Custom Tool\"><p>The</p>", true);
-		m.ln(" to remove the ");
-		m.addToolTip("<b style=\"cursor: default\">Bolt</b>", "<img src=\"http://bikerumor.com/wp-content/uploads/2020/09/2021-specialized-tarmac-s-works-sl7-aero-handlebar-cable-routing-04.jpg\" alt=\"Bolt\"><p>Custom Aluminium alloy bolt from Shimano, the left shifter bolt is left hand threaded</p>", true);
-		m.ln(" which holds the shifting assembly. ");
+		m.ln("I could not find any materials from Shimano or other places online on how disassemble/repair these shifters. ");
+		m.ln("I created a custom tool to interface with the four tooth profile of the bolt and adapted it to a 5mm hex. ");
+		m.ln("The bolt is soft and I probably make from an Aluminium alloy, one thing to note is the left shifter bolt is left hand threaded, right is right handed thread, the safety pin can be easily removed. ");
 		m.ln("The older ");
 		m.addLink("<b>ST-6700</b>", "https://youtu.be/wJj6dASBMN0?t=80", true);
-		m.ln(" shifter uses a common hex bolt, not sure why a proprietary bolt is needed other than to limit repairability. ");
+		m.ln(" shifter uses a common ");
+		m.addToolTip("<b style=\"cursor: default\">Hex Bolt</b>", "<img src=\"https://i.imgur.com/K5mGamy.jpg\" alt=\"68-4101R\"><p>Here the ST-6700 shifter uses a hex bolt holding the shifting assembly</p>", true);
+		m.ln(" not sure why a proprietary bolt is needed other than to limit user repairability or maybe for a marginal weight saving. ");
 		m.ln("The left shifter only needs a single pawl to be disabled and can be done easily with removal of the pawl spring. ");
 		m.ln("It is a similar story the right shifter, but two pawls need to be disabled. ");
 		m.ln("The first can be done in a similar fashion to the left shifter but the other pawl and spring is fixed in place by what looks like a dowel pin. ");
 		m.ln("No amount of force I used could budge it, I placed an obstruction to stop the pawl engaging but it would only work a few times before it would slip. ");
-		m.ln("There is destructive method, using a rotatory tool with a cutting wheel the pawl could be removed permanently. ");
+		m.ln("There is destructive method, using a rotary tool with a cutting wheel the pawl could be removed permanently. ");
 		m.ln("Shimano shifters use the larger lever for down shifting and braking while the smaller one up shifts. ");
 		m.ln("If the two pawls were disabled then the smaller shifter would not work, this is as intended. ");
 		m.ln("I could leave it free flowing, remove it or bond it to the larger lever. ");
-		m.ln("One bigger issue is that the cable pull of the Shimano is appoximately 2-3mm less than the SRAM, as a result it is likely that a single lever throw would only change a Maximum of one gear. ");
-		m.ln("The lever was never tested with the Gebla to verfy this is the case as I could not find a non-desctive way to get the desired result. ");
-		m.ln("With the SRAM a short throw can change one gear, continue the stroke to move a second. ");
+		m.ln("One bigger issue is that the cable pull of the Shimano is approximately 2-3mm less than the SRAM, as a result it is likely that a single lever throw would only change a maximum of one gear. ");
+		m.ln("The lever was never tested with the Gebla to verify this is the case as I could not find a non-destructive way to get the desired result. ");
+		m.ln("When using the SRAM shifter a short throw can change one gear, continue the stroke to move a second gear. ");
 		m.ln("I reassembled the shifters and returned them. ");
+		m.ln("I would have preferred to use a Shimano shifter as mineral oil is non-corrosive and lasts a lot longer. ");
 		m.ln("</div>");
 		////
 		m.ln("	</div>"); // card
