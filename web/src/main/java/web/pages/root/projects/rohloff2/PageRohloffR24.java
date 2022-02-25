@@ -23,8 +23,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
 
-		m.addBanner("Light Mounts",
-				"https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
+		m.addBanner("Light Mounts", "https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
@@ -32,15 +31,15 @@ public class PageRohloffR24 extends BasePage {
 
 		
 		m.ln("<h2>Frame</h2>");
-		m.ln("<p>");
-		m.ln("");
-		m.ln("");
-		m.ln("");
-		m.ln("");
-		m.ln("");
-		m.ln("");
-		m.ln("");
-		m.ln("</p><br>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("After working with the frame it is clear that it is intended for use with electronic shifting only. ");
+		m.ln("It officially supports mechanical shifting but the implementation is more of an afterthought and not well suited. ");
+		m.ln("The two main cable entry points of the frame, the headset and rear triangle exposed issues with tight cable bends. ");
+		m.ln("The second can be excused as the rear hydraulic line routing was not intended to fit an additional two extra gear cables. ");
+		m.ln("For the Venge the Axle plate cannot be placed under the stay, this is because routing the cable from the hydraulic brake hole it too much of an aggressive angle. ");
+		m.ln("Conversely the Yoeleo frame allows the axle plate to be in this position and have shifting work well as the cable hole is placed much closer to the centre of the stay. ");
+		m.ln("In the Venge the hydralic cable exit port is very close to the caliper. ");
+		m.ln("</div><br>");
 
 
 		m.ln("<h2>Bottom Bracket</h2>");
@@ -55,7 +54,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<div class=\"paragraph\">");
 		m.ln("To avoid these issues I looked into a bottom bracket conversion kit. ");
 		m.ln("There exists BB30 to BB386 converters such as the ");
-		m.addToolTip("<b style=\"cursor: default\">Praxis M30 THRU</b>", "<img src=\"https://praxiscycles.com/wp-content/uploads/DSCF3688-1024x576.jpg\" alt=\"68-4101R\"><p>Prxis 68-4101R converts BB30/PF30 bottom brackets to allow use of wide 30mm spindle cranks such as BB386</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Praxis M30 THRU</b>", "<img src=\"https://praxiscycles.com/wp-content/uploads/DSCF3688-1024x576.jpg\" alt=\"68-4101R\"><p>The Praxis 68-4101R bottom bracket allows the use of long 30mm spindle cranks such as BB386EVO into a BB30 or PF30 frames</p>", true);
 		m.ln("so I could use my existing FSA BB386 crank but the spindle is showing signs of wear which is in need of replacement. ");
 		m.ln("My own fault for not taking better care. ");
 		m.ln("Alloy 30mm spindles need to be cleaned regularly, the hard steel bearing makes direct contact to the softer aluminium spindle which can cause galling if not properly maintained. ");
@@ -71,17 +70,19 @@ public class PageRohloffR24 extends BasePage {
 		m.addToolTip("<b style=\"cursor: default\">Outbound Comparison</b>", "<img src=\"https://i.imgur.com/s0XZpoi.jpg\" alt=\"Outbound Comparison\"><p>BBB BBO-85 bottom bracket has wider cups than the ZTTO bottom bracket to accommodate for longer MTB spindle</p>", true);
 		m.ln("</div><br>");
 
-		m.ln("<h2>A12</h2>");
+		m.ln("<h2>Moving A12 Rohloff to New Frame</h2>");
 		//m.addModalImage("https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "max-width:30%", "The bearing ID is 28mm");
 
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The Rohloff hub was designed well before the thru axle standard.");
 		m.ln("If you look at a cutout or exploded diagram of the hub there is not enough free space for a 12mm diameter axle but does allow a Quick Release Skewer. ");
 		m.addToolTip("<b style=\"cursor: default\">Rohloff Exploded View</b>", "<img src=\"https://cdn-0.sheldonbrown.com/harris/images/speedbild2.jpeg\" alt=\"Rohloff Exploded View\"><p>The axle only has enough room for a 9mm quick release skewer</p>", true);
+		m.ln("The only hub with native thru axle support is from Kindernay. ");
 		m.ln("Rather than redesign the hub Rohloff opted to have adapters that match the frame dropouts to allow M7 bolts to secure the hub. ");
 		m.ln("One issue with this is that unlike Quick Release, there are many thru axle standards. ");
 
-		m.ln("<br><img class=\"common-static-image\" src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Standards\"><br>");
+		//m.ln("<br><img class=\"common-static-image\" src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Standards\"><br>");
+		m.addToolTip("<b style=\"cursor: default\">Thru Axle Variations</b>", "<img src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Variations\"><p>There are different thread pitches, head taper types and even lengths depending on dropput widths</p>", true);
 		m.ln("Total length of the Thru Axle can vary dramatically between manufacturers. A \"Standard\" 142x12mm Thru Axle can vary in length between 162mm and 171mm depending on the frame manufacturer. ");
 		m.ln("Modern Thru Axles thread directly into frames/forks but early rear thru axles needed a nut. There are also different thread pitches generally m1 or m1.5.");
 
@@ -101,14 +102,19 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<h2>Headset</h2>");
 		m.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/6fuyCVS.jpg", "https://i.imgur.com/QtGppm7.jpg", "max-width:100%", "Original spacers");
-		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding");
 		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Screenshot from FreeCAD");
+		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding");
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("When the cables were routed I noticed very high friction in the cable. ");
+		m.ln("I could change a single gear once then the return spring in the Gebla could not reset the racket. ");
+		m.ln("Fully removing the inner cable and slowly feeding it back in I noticed a sharp increase in friction when entering the headset. ");
+		m.ln("I determined this by removing the inner cable when the friction increased and measuring the length of cable that had been fed in. ");
+		m.ln("Then roughly gaging where this is in the cable route. ");
 		m.ln("I did a lot of investigating to the cause of the problem and discovered that cables entering the headset are at a very tight angle. ");
+		m.ln("Adding slack and adjusting the outer cables did not help with the issue. ");
 		m.ln("The Venge is clearly tailored to electronic shifting and not too well suited to mechanical shifting. ");
-		m.ln("Looking online there is a headset for which supports mechanical shifting but my frame did not come with it and the kit is expensive for a piece of plastic. ");
+		m.ln("Looking online there is a headset for which supports mechanical shifting but my frame did not come with it. ");
 		m.ln("To work around this I designed a replacement spacer to allow a smoother cable transition into the headset. ");
 		m.addToolTip("<b style=\"cursor: default\">Early Prototype</b>", "<img src=\"https://cdn-0.sheldonbrown.com/harris/images/speedbild2.jpeg\" alt=\"Early Headset spacer\"><p>Early resvision of the headset spacer</p>", true);
 		m.ln(" This needed a few revisions to match the unique shape. ");
@@ -150,14 +156,25 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("</div><br>");
 
 		m.ln("<h2>Front Light Mount</h2>");
-		m.ln("<p>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost");
+		m.addModalImage("https://images.amaincycling.com/images/large/bikes/specialized/s204800003.jpg", "https://images.amaincycling.com/images/large/bikes/specialized/s204800003.jpg", "max-width:100%", "Screenshot from FreeCAD of both parts");
+		m.addModalImage("https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_34880609_16852477_1620389282_1_0.jpg", "https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_34880609_16852477_1620389282_1_0.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.ln("</div>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("The Venge has a cable clamp for tidying the cables under the stem. ");
+		m.ln("There already exists an official mounting mechanism which attached to the front faceplate. ");
+		m.addToolTip("<b style=\"cursor: default\">Clamp and Faceplate Mount</b>", "<img src=\"http://bikerumor.com/wp-content/uploads/2020/09/2021-specialized-tarmac-s-works-sl7-aero-handlebar-cable-routing-04.jpg\" alt=\"Di2 Junction Box\"><p>This is not from a Venge frame but the newer SL7, they are very similar in regards to the stem/headset. This shows both the faceplate Garmim mount and cable tidy clamp under the stem.</p>", true);
+		m.ln("Looking at this it is possible to use this to mount a front light. ");
+		m.ln("This is good if have a cycle computer but I do not currently use one. ");
+		m.ln("Placing the light directly underneath the stem puts it in a more discrete position. ");
+		m.ln("</div><br>");
 		// front mount wip
 				// For the front the biggest hurdle was the living hinge for the light mount.
 				// "I tried many many different designs of hinge but they failed pretty quickly.
 				// My first reaction was to reinforce the area that broke but this just moved the failure point to another area until the hinge would not flex without a large amount of force.
 				// Inspecting the failures closely I noticed failure was caused by layer separation.
 				// The fix was to rotate the part 90 degrees towards the build plate so that the layers were not in the same direction as the hinge.
-		m.ln("</p><br>");
 
 		m.ln("<h2>Shimano Shifter with Rohbox Gebla</h2>");
 
@@ -171,7 +188,7 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("<h3>!Tried with Shimano!</h3>");
 
 		m.ln("<h3>Hydraulic Theory</h3>");
-		m.ln("<img class=\"common-static-image\" src=\"https://i.imgur.com/RzT8DP3.png\" alt=\"Hydraulic System	\">");
+		m.ln("<img class=\"common-static-image\" src=\"https://i.imgur.com/RzT8DP3.png\" alt=\"Hydraulic System\">");
 		m.ln("<p>");
 		m.ln("This is some background information on how basic hydraulics work in order to apply this knowledge to determine if it is possible to mix and match levers and calipers. ");
 		m.ln("In this example the surface area of B is 5 times greater than A. So an input force of 30 Newtons f<sub>1</sub> results in an output force 150 Newtons f<sub>2</sub> which is calculated: <span style=\"white-space:nowrap;\">30 &times; 5 = 150.</span>");
@@ -275,8 +292,52 @@ public class PageRohloffR24 extends BasePage {
 		m.ln("One thing to note is that with the same pad material there will not be an increase in braking power with a larger pad. ");
 		m.ln("This is because the force from pistons will not change and will simply be spread over a larger area. ");
 		m.ln("The advantage over using the larger BR-M555 is longer pad life and better heat management. ");
-		m.ln("The costs of either type ares similar but there are fewer choices available for the BR-M555 as the Shimano Deore C900 caliper they are made for is long defunct. ");
+		m.ln("The HydroR braking surface has an approximate area of 351mm<sup>2</sup> while the BR-M555 is 18.5% bigger at 416mm<sup>2</sup>. ");
+		m.ln("The costs of either type brake pad are similar but there are fewer choices available for the BR-M555 as the Shimano Deore C900 caliper they are made for has long been defunct. ");
 		m.ln("</p>");
+
+		m.ln("<h3>SRAM Hood Tear</h3>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("After a few months of use the inner section of the hoods began to tear. ");
+		m.ln("This is caused by the shift lever making repeated contact with the rubber during shifting. ");
+		m.ln("On ");
+		m.addLink("<b>Weightweenies</b>", "https://weightweenies.starbike.com/forum/viewtopic.php?t=163553", true);
+		m.ln(" other people have had a similar problem ");
+		m.ln(" typically only on the right shifter. ");
+		m.ln("This is because this lever controls the rear derailleur which has much more frequent use than the left shifter controlling the front derailleur. ");
+		m.ln("Explaining why this happened to these people right hand side first. ");
+		m.ln("For me both levers were affected because they are in constant use with the Gebla, right shifter to move to a harder gear and left to an easier. ");
+		m.addLink("<b>Bikerumor</b>", "https://bikerumor.com/hack-how-to-prevent-sram-doubletap-shifter-levers-from-sticking/", true);
+		m.ln(" published an article stating that some people were having issues of sticking shifters and even suggested cutting the hood to alleviate the problem. ");
+		m.ln("I adapted a similar approach with new hoods and carefully cut a hole so that the lever can move freely. ");
+		m.ln("This is poor design from SRAM, designed to fail. ");
+		m.ln("</div>");
+
+		m.ln("<h3>Shimano Shifter With Gebla Investigation</h3>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("Ordering a pair Shimano Dura Ace R9120 shifters I wanted to determine if it is possible to use them with the Gebla. ");
+		m.ln("I could not find any materials from Shimano or other places online on how disassemble/reapir these shiters. ");
+		m.ln("I needed to create a ");
+		m.addToolTip("<b style=\"cursor: default\">Custom Tool</b>", "<img src=\"http://bikerumor.com/wp-content/uploads/2020/09/2021-specialized-tarmac-s-works-sl7-aero-handlebar-cable-routing-04.jpg\" alt=\"Custom Tool\"><p>The</p>", true);
+		m.ln(" to remove the ");
+		m.addToolTip("<b style=\"cursor: default\">Bolt</b>", "<img src=\"http://bikerumor.com/wp-content/uploads/2020/09/2021-specialized-tarmac-s-works-sl7-aero-handlebar-cable-routing-04.jpg\" alt=\"Bolt\"><p>Custom Aluminium alloy bolt from Shimano, the left shifter bolt is left hand threaded</p>", true);
+		m.ln(" which holds the shifting assembly. ");
+		m.ln("The older ");
+		m.addLink("<b>ST-6700</b>", "https://youtu.be/wJj6dASBMN0?t=80", true);
+		m.ln(" shifter uses a common hex bolt, not sure why a proprietary bolt is needed other than to limit repairability. ");
+		m.ln("The left shifter only needs a single pawl to be disabled and can be done easily with removal of the pawl spring. ");
+		m.ln("It is a similar story the right shifter, but two pawls need to be disabled. ");
+		m.ln("The first can be done in a similar fashion to the left shifter but the other pawl and spring is fixed in place by what looks like a dowel pin. ");
+		m.ln("No amount of force I used could budge it, I placed an obstruction to stop the pawl engaging but it would only work a few times before it would slip. ");
+		m.ln("There is destructive method, using a rotatory tool with a cutting wheel the pawl could be removed permanently. ");
+		m.ln("Shimano shifters use the larger lever for down shifting and braking while the smaller one up shifts. ");
+		m.ln("If the two pawls were disabled then the smaller shifter would not work, this is as intended. ");
+		m.ln("I could leave it free flowing, remove it or bond it to the larger lever. ");
+		m.ln("One bigger issue is that the cable pull of the Shimano is appoximately 2-3mm less than the SRAM, as a result it is likely that a single lever throw would only change a Maximum of one gear. ");
+		m.ln("The lever was never tested with the Gebla to verfy this is the case as I could not find a non-desctive way to get the desired result. ");
+		m.ln("With the SRAM a short throw can change one gear, continue the stroke to move a second. ");
+		m.ln("I reassembled the shifters and returned them. ");
+		m.ln("</div>");
 		////
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content

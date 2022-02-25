@@ -8,7 +8,7 @@
 
 body {
 	margin: 0;
-	background-color: #f4f4f4;	
+	background-color: #f4f4f4;
 	overflow-x: hidden;
 	
 	--std-padding: 1rem;
@@ -47,6 +47,11 @@ hr {
 
 .hr-strong {
     border-top: 2px solid grey;
+}
+
+.paragraph {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .common-content {

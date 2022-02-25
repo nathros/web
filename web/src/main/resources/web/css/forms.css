@@ -305,7 +305,7 @@ input:focus + .input-icon-error:after {
 	background-image: linear-gradient(45deg, var(--load-colour-dark) 25%, var(--load-colour-light) 25%, var(--load-colour-light) 50%, var(--load-colour-dark) 50%, var(--load-colour-dark) 75%, var(--load-colour-light) 75%, var(--load-colour-light) 75%, var(--load-colour-light) 100%);
 	background-size: 2rem 2rem;
 	background-position: 2rem 2rem;
-	animation: barberpole 1s infinite linear, expand 15s;
+	animation: barberpole 1s infinite linear, expand 15s ease;
 	color: white;
 	text-shadow: 1px 1px 1px black;
 	text-align: center;
