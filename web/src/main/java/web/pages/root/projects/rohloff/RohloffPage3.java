@@ -117,6 +117,12 @@ public class RohloffPage3 extends BasePage {
 		m.ln("I used a m2 drill bit and joined the belt with m2.2 stainless steel self tapping screws. Any excess screw is later trimmed. I used a Contitech CTD belt.");
 		m.ln("</p>");
 
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/n1hDFTR.jpg", "https://i.imgur.com/p64gKrP.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/mUrGF5R.jpg", "https://i.imgur.com/OmmAvGy.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/SRaXTHt.jpg", "https://i.imgur.com/vPwfaqw.jpg", "max-width:100%", null, null);
+		m.ln("</div>");
+
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 

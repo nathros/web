@@ -4,6 +4,7 @@ import web.common.LocalStringBuffer;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
+import web.pages.PageMapping;
 import web.pages.resources.Resource;
 
 public class PageRohloffR2 extends BasePage {
@@ -29,7 +30,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("	<div class=\"card\">");
 
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/G4ZGHpt.jpg", "https://i.imgur.com/bfeAs7U.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/LbMY3Uh.jpg", "https://i.imgur.com/dZamJAm.jpg", "max-width:100%", null, null);
 		m.addModalImage("https://i.imgur.com/evSsONK.jpg", "https://i.imgur.com/m7JgAWQ.jpg", "max-width:100%", null, null);
 		m.ln("</div>");
 
@@ -37,12 +38,16 @@ public class PageRohloffR2 extends BasePage {
 		gallery.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/s2iDvez.jpg", "https://i.imgur.com/eKDeQKl.jpg", "max-width:100%", null, gallery);
 		m.addModalImage("https://i.imgur.com/Opx5SAL.jpg", "https://i.imgur.com/5wz8xRR.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/3kZGHHk.jpg", "https://i.imgur.com/SpIyRLF.jpg", "max-width:100%", null, gallery);
+		gallery.ln("</div>");
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/ORzM2iQ.jpg", "https://i.imgur.com/rVuhTRL.jpg", "max-width:100%", null, gallery);
 		m.addModalImage("https://i.imgur.com/J4WpPiJ.jpg", "https://i.imgur.com/UptS9l2.jpg", "max-width:100%", null, gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/jgbBi6f.jpg", "https://i.imgur.com/q2mmb7C.jpg", "max-width:100%", null, gallery);
 		m.addModalImage("https://i.imgur.com/SJAq8XY.jpg", "https://i.imgur.com/OovGYZd.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/ORzM2iQ.jpg", "https://i.imgur.com/rVuhTRL.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/3kZGHHk.jpg", "https://i.imgur.com/SpIyRLF.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/SZPU5cK.jpg", "https://i.imgur.com/OvHqyv2.jpg", "max-width:100%", null, gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/7FHIE3a.jpg", "https://i.imgur.com/JUp5Xri.jpg", "max-width:100%", "Most major components except the rear wheel as it had not been built", gallery);
@@ -55,11 +60,15 @@ public class PageRohloffR2 extends BasePage {
 		m.addModalImage("https://i.imgur.com/vTEa1Zs.jpg", "https://i.imgur.com/kKty5x2.jpg", "max-width:100%", "Finished belt, screws cut using rotary tool", gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/rtigsgh.jpg", "https://i.imgur.com/44O0fSd.jpg", "max-width:100%", "BB30 to BB86 converter with spacers for long spindle 91mm crankset", gallery);
+		m.addModalImage("https://i.imgur.com/rtigsgh.jpg", "https://i.imgur.com/44O0fSd.jpg", "max-width:100%", "BB30 to BB86 converter with spacers for long spindle 92mm crankset", gallery);
 		m.addModalImage("https://i.imgur.com/WXRyg31.jpg", "https://i.imgur.com/i1Zkx4K.jpg", "max-width:100%", "3D printed derailleur cable plug as it will not be used", gallery);
-		m.addModalImage("https://i.imgur.com/qv0Bx5B.jpg", "https://i.imgur.com/6DtSfHm.jpg", "max-width:100%", "9.05Kg is similar to the R6 build", gallery);
 		gallery.ln("</div>");
-		m.ln(m.getContentToggle("<b>Extended Gallery</b>", gallery.toString()));
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/BFmzydn.jpg", "https://i.imgur.com/v7w4C7D.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/mqM8oUe.jpg", "https://i.imgur.com/4RlqAos.jpg", "max-width:100%", "Handlebar tape has a reflective rainbow effect under the right light conditions", gallery);
+		m.addModalImage("https://i.imgur.com/qv0Bx5B.jpg", "https://i.imgur.com/6DtSfHm.jpg", "max-width:100%", "Just over 9kg, similar to the R6 build", gallery);
+		gallery.ln("</div>");
+		m.ln(m.getContentToggle("<b>Expand Extended Gallery</b>", gallery.toString()));
 
 		m.ln("<h2>Frame</h2>");
 		m.ln("<div class=\"paragraph\">");
@@ -86,8 +95,9 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("Cables had to be routed into the rear hydraulic brake exit port first then towards the bottom bracket and onward to the headset. ");
 		m.ln("The reason is because doing it the other way round made it impossible to fish three cables through the hydraulic exit hole. ");
 		m.ln("When I tried routing cables this way it did not catch the lip. ");
-		m.ln("The Gebla was originally placed under the chain stay in a similar fashion to the way it was on the previous build using the Yoeleo R6. ");
-		m.ln("Disappointedly this bend was too tight for shifting to work properly in a similar way to the headset issue. ");
+		m.ln("The Gebla was originally placed under the chain stay in a similar fashion to the way it was on the previous build using the Yoeleo R6 ");
+		m.addLink("see here", PageMapping.ROHLOFF_PG4 + "#img2", true);
+		m.ln(". Disappointedly this bend was too tight for shifting to work properly in a similar way to the headset issue. ");
 		m.ln("The exit hole is simply too close and angled ");
 		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/lxnP8Qm.jpg\" alt=\"Gear Exit\"><p>Cables exit inward and when the Gebla is mounted under the chain stay a very tight s-bend prevents shifting from working, also notice the cable tie to prevent the shift cables from clashing with the spokes</p>", true);
 		m.ln(" towards the wheel away from the Gebla. ");
@@ -143,7 +153,7 @@ public class PageRohloffR2 extends BasePage {
 		m.addToolTip("<b style=\"cursor: default\">heavier</b>", "<img src=\"https://i.imgur.com/Es4npYZ.jpg\" alt=\"Heavy\"><p>Left is the BB386Evo crank with 30mm alloy spindle used on the Yoeleo R6 build and right is the replacement crank with 24mm steal spindle which as just over a 100g penalty<p>", true);
 		m.ln("a tradeoff for a more durable item. Cranks with alloy spindles almost become a consumable item like a chain or cassette which is not ideal. ");
 		m.ln("With this in mind I got a BB30 to BB86 converter, the one I have allows the bearings to be replaced and I ordered some spare 6805 bearings and plastic top hats.");
-		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 91mm (86 + 5). ");
+		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 92mm (86 + 5). ");
 		m.ln("An issue is that the Venge frame has a 68mm, so when the BB30 to BB86 converter is installed the final width will be 86mm, 5mm of extra spindle length will need to be taken up somehow. ");
 		m.ln("I fabricated 2 spacers measuring 3.5mm for the drive side and 1.5mm non-drive to take up the slack.");
 		m.addToolTip("<b style=\"cursor: default\">BBB BBO-85</b>", "<img src=\"https://m.media-amazon.com/images/I/71DwILbI3OL._AC_SL1500_.jpg\" alt=\"BBB BBO-85\"><p>Later discovered the BBB BBO-85 bottom bracket which has a wider outbound bearing cups to support MTB cranks in road frames</p>", true);

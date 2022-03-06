@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.Table;
@@ -115,33 +116,31 @@ public class Markup {
 		ln("</form>"); // form
 	}
 
-	int toggleCount = 0;
-
 	public String getContentToggle(String title, String content) {
+		String id = UUID.randomUUID().toString(); // When deployed on AWS addCommentsSectionAsync() can clash if not random, 2 toggles with same ID
 		LocalStringBuffer buffer = new LocalStringBuffer(512);
 		buffer.ln("<div class=\"toggle-container\">");
-		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount + "\">".concat(title).concat("</label>"));
-		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\" onclick=\"toggleContentHeight(this)\">");
+		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + id + "\">".concat(title).concat("</label>"));
+		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + id + "\" onclick=\"toggleContentHeight(this)\">");
 		buffer.ln("	<div class=\"toggle-content\">");
 		buffer.ln(content);
 		buffer.ln("	</div>"); // toggle-content
 		buffer.ln("	<i class=\"toggle-arrow\"></i>");
 		buffer.ln("</div>"); // toggle-container
-		toggleCount++;
 		return buffer.toString();
 	}
 
 	public String getContentToggleArrow(String title, String content) {
+		String id = UUID.randomUUID().toString(); // When deployed on AWS addCommentsSectionAsync() can clash if not random, 2 toggles with same ID
 		LocalStringBuffer buffer = new LocalStringBuffer(512);
 		buffer.ln("<div class=\"toggle-container\">");
-		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + toggleCount + "\">".concat(title).concat("</label>"));
-		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + toggleCount + "\" onclick=\"toggleContentHeight(this)\">");
+		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + id + "\">".concat(title).concat("</label>"));
+		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + id + "\" onclick=\"toggleContentHeight(this)\">");
 		buffer.ln("	<div class=\"toggle-content\">");
 		buffer.ln(content);
 		buffer.ln("	</div>"); // toggle-content
 		buffer.ln("	<i class=\"toggle-cross\"></i>");
 		buffer.ln("</div>"); // toggle-container
-		toggleCount++;
 		return buffer.toString();
 	}
 
