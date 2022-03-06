@@ -48,20 +48,6 @@ public class RohloffPage3 extends BasePage {
 		m.ln("This will result in a belt length of 1269.9mm. To get number of teeth needed divide by teeth pitch and round up. 1269.9 / 8 = 159 teeth. https://www.bbman.com/belt-length-calculator/ ");
 		m.ln("</p>");
 
-		m.ln("<h3>Splice Design</h3>");
-		m.ln("<p>");
-		m.ln("Veer uses a V shaped split most likely done via CNC. My design is much simpler to cut as it is an L shape which has perpendicular edges. ");
-		m.ln("I don't think the V shape is mechanically stronger than L, both require cutting of the internal cords. ");
-		m.ln("The L design has half of them cut at the same tooth while V is gradual over several. ");
-		m.ln("However, some teeth at the tips of the V cut will only have a single cord of support while L will always have half of available. ");
-		m.ln("The split is set to span over 40 teeth, Veer has a similar amount.");
-		m.ln("My design is similar to ERO Joint http://www.ero-joint.com/en/poly-chainr-gt-carbontm-fastening-ero-jointr-ultimate-0 ");
-		m.ln("I tried several methods of cutting the belt. ");
-		m.ln("Trying with a rotary tool had issues, it is very easy to cause the rubber to melt resulting in a poor cut. ");
-		m.ln("At low RPM a much better cut can be made but the motor would stall often resulting in a rough jagged edge. ");
-		m.ln("It also takes a lot of time to complete the operation, the rouge edges could be sanded down but this is already a long procedure. ");
-		m.ln("I found the best method is the simplest, using a sharp knife (surgical blade) and carefully cut the belt to shape.");
-		m.ln("</p>");
 
 		m.ln("<h3>Sprocket Design</h3>");
 		m.ln("<div class=\"modal-container-root\">");
@@ -101,6 +87,28 @@ public class RohloffPage3 extends BasePage {
 		m.ln("</div><br>");
 		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/YjtUxJQ.png\" alt=\"Gear Exit\"><p>hift c</p>", true);
 		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"Gear Exit\"><p>Cnhe spokes</p>", true);
+
+
+		m.ln("<h3>Splice Design</h3>");
+		m.ln("<h3>Veer Belt</h3>");
+		m.addStaticImage("https://i.imgur.com/9jj0zAV.png");
+		m.ln("<h3>Custom v1</h3>");
+		m.addStaticImage("https://i.imgur.com/Qds7hw7.png");
+		m.ln("<h3>Custom v2</h3>");
+		m.addStaticImage("https://i.imgur.com/VkUOfBw.png");
+		m.ln("<p>");
+		m.ln("Veer uses a V shaped split most likely done via CNC. My design is much simpler to cut as it is an L shape which has perpendicular edges. ");
+		m.ln("I don't think the V shape is mechanically stronger than L, both require cutting of the internal cords. ");
+		m.ln("The L design has half of them cut at the same tooth while V is gradual over several. ");
+		m.ln("However, some teeth at the tips of the V cut will only have a single cord of support while L will always have half of available. ");
+		m.ln("The split is set to span over 40 teeth, Veer has a similar amount.");
+		m.ln("My design is similar to ERO Joint http://www.ero-joint.com/en/poly-chainr-gt-carbontm-fastening-ero-jointr-ultimate-0 ");
+		m.ln("I tried several methods of cutting the belt. ");
+		m.ln("Trying with a rotary tool had issues, it is very easy to cause the rubber to melt resulting in a poor cut. ");
+		m.ln("At low RPM a much better cut can be made but the motor would stall often resulting in a rough jagged edge. ");
+		m.ln("It also takes a lot of time to complete the operation, the rouge edges could be sanded down but this is already a long procedure. ");
+		m.ln("I found the best method is the simplest, using a sharp knife (surgical blade) and carefully cut the belt to shape.");
+		m.ln("</p>");
 
 		m.ln("<h3>Manufacturing</h3>");
 		m.ln("<p>");

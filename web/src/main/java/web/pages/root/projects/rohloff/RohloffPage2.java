@@ -21,15 +21,16 @@ public class RohloffPage2 extends BasePage {
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
-
 		m.addBanner("Specifications", Resource.IMG_BANNER_ROHLOFF);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 		RohloffUtils.addRohloffPageSelector(m, 2);
 		m.ln("<h2>Frame</h2>");
-		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_TN, Resource.IMG_ROHLOFF_MRD524, "max-width:50%", null, null);
-		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_SIZE_TN, Resource.IMG_ROHLOFF_MRD524_SIZE, "max-width:50%", null, null);
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/9ov3VLi.jpg", "https://i.imgur.com/dwXPA5E.jpg", "max-width:100%", null, null);
+		m.addModalImage("	https://i.imgur.com/FTWYSWA.png", "https://i.imgur.com/4guxLvk.pngg", "max-width:100%", null, null);
+		m.ln("</div>");
 		m.ln("<p>");
 		m.ln("I have reservations about press-fit bottom brackets, creaking and fit issues which can cause premature bearing failure and also be annoying. ");
 		m.ln("I understand that professional athletes who a high turnover of bikes might not report these issues but I intended my build to last a long time. ");

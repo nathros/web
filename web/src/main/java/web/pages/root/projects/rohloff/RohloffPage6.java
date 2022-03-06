@@ -30,9 +30,8 @@ public class RohloffPage6 extends BasePage {
 
 		m.ln("<h2>Headset Spacers Poor Fit</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/BXyJfyv.png", "https://i.imgur.com/BXyJfyv.png", "max-width:100%", null, null);
-		m.addModalImage("https://i.imgur.com/EdtST4y.jpg", "https://i.imgur.com/uwpZpKR.jpg", "max-width:100%", "Finished spacers and a prototype Rohloff belt sprocket", null);
-		m.addModalImage("https://i.imgur.com/Tkt74c0.jpg", "https://i.imgur.com/ZqUzScW.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/loo4YTe.jpg", "https://i.imgur.com/Dfg0j5S.jpg", "max-width:100%", "Original spacers do not mesh with a non-Wilier frame", null);
+		m.addModalImage("https://i.imgur.com/EjHOL29.jpg", "https://i.imgur.com/QPuTlLt.jpg", "max-width:100%", "Original spacers do not mesh with a non-Wilier frame", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The included headset spacers for the Wilier Triestina Alabarda integrated handlebar are designed for use with a Wilier frame and are a poor fit for my frame. ");
@@ -44,6 +43,11 @@ public class RohloffPage6 extends BasePage {
 		m.ln("Also the first revision of my Rohloff belt sprocket. ");
 		m.ln("The colour came out as grey rather than the desired black and as a result did not match the rest of the build. ");
 		m.ln("Nylon can be dyed so I used fabric dye with good success and I didn't like the idea of painting due to durability concerns such as flaking.");
+		m.ln("</div>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/JRXHPjd.png", "https://i.imgur.com/JRXHPjd.png", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/EdtST4y.jpg", "https://i.imgur.com/uwpZpKR.jpg", "max-width:100%", "Finished spacers and a prototype Rohloff belt sprocket", null);
+		m.addModalImage("https://i.imgur.com/Tkt74c0.jpg", "https://i.imgur.com/ZqUzScW.jpg", "max-width:100%", null, null);
 		m.ln("</div>");
 
 		////

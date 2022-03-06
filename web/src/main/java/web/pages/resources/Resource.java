@@ -58,10 +58,6 @@ public class Resource {
 	public static final String IMG_ROHLOFF_RFORCE_TI = "https://i.imgur.com/bOVrxJQ.jpg";
 	public static final String IMG_ROHLOFF_OKO_TN = "https://i.imgur.com/ScrdfYf.jpg";
 	public static final String IMG_ROHLOFF_OKO = "https://i.imgur.com/8MHWJB5.jpg";
-	public static final String IMG_ROHLOFF_MRD524_TN = "https://i.imgur.com/9ov3VLi.jpg";
-	public static final String IMG_ROHLOFF_MRD524 = "https://i.imgur.com/dwXPA5E.jpg";
-	public static final String IMG_ROHLOFF_MRD524_SIZE_TN = "https://i.imgur.com/FTWYSWA.png";
-	public static final String IMG_ROHLOFF_MRD524_SIZE = "https://i.imgur.com/4guxLvk.png";
 	public static final String IMG_ROHLOFF_HANDLEBAR = "https://i.imgur.com/w1lxLfq.jpg";
 	public static final String IMG_ROHLOFF_SPOKE = "https://i.imgur.com/Mjb6mp3.png";
 	public static final String IMG_ROHLOFF_SPOKE_STAT_1 = "https://i.imgur.com/Bqg9dbd.png";

@@ -19,7 +19,7 @@ public class PageRohloffR2 extends BasePage {
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
 		m.addHead(css, js, "Rohloff Frame Upgrade");
-
+//https://imgur.com/a/fbZOMGF
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
 
@@ -28,7 +28,22 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/G4ZGHpt.jpg", "https://i.imgur.com/bfeAs7U.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/evSsONK.jpg", "https://i.imgur.com/m7JgAWQ.jpg", "max-width:100%", null, null);
+		m.ln("</div>");
+
 		LocalStringBuffer gallery = new LocalStringBuffer(1024);
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/s2iDvez.jpg", "https://i.imgur.com/eKDeQKl.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/Opx5SAL.jpg", "https://i.imgur.com/5wz8xRR.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/J4WpPiJ.jpg", "https://i.imgur.com/UptS9l2.jpg", "max-width:100%", null, gallery);
+		gallery.ln("</div>");
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/SJAq8XY.jpg", "https://i.imgur.com/OovGYZd.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/ORzM2iQ.jpg", "https://i.imgur.com/rVuhTRL.jpg", "max-width:100%", null, gallery);
+		m.addModalImage("https://i.imgur.com/3kZGHHk.jpg", "https://i.imgur.com/SpIyRLF.jpg", "max-width:100%", null, gallery);
+		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/7FHIE3a.jpg", "https://i.imgur.com/JUp5Xri.jpg", "max-width:100%", "Most major components except the rear wheel as it had not been built", gallery);
 		m.addModalImage("https://i.imgur.com/pk268Zx.jpg", "https://i.imgur.com/B04t4xk.jpg", "max-width:100%", "Novatech D411CB Hub with Pillar Wing 20 spokes ready to be built", gallery);
@@ -42,7 +57,7 @@ public class PageRohloffR2 extends BasePage {
 		gallery.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/rtigsgh.jpg", "https://i.imgur.com/44O0fSd.jpg", "max-width:100%", "BB30 to BB86 converter with spacers for long spindle 91mm crankset", gallery);
 		m.addModalImage("https://i.imgur.com/WXRyg31.jpg", "https://i.imgur.com/i1Zkx4K.jpg", "max-width:100%", "3D printed derailleur cable plug as it will not be used", gallery);
-		//m.addModalImage("https://cdn.media.halfords.com/i/washford/188170/SRAM-X4-Rear-Derailleurs--Spares-Derailleur?fmt=auto&qlt=default&$sfcc_tile$&w=340", "https://i.imgur.com/kKty5x2.jpg", "max-width:100%", "Finished belt, screws cut using rotary tool", gallery);
+		m.addModalImage("https://i.imgur.com/qv0Bx5B.jpg", "https://i.imgur.com/6DtSfHm.jpg", "max-width:100%", "9.05Kg is similar to the R6 build", gallery);
 		gallery.ln("</div>");
 		m.ln(m.getContentToggle("<b>Extended Gallery</b>", gallery.toString()));
 
@@ -311,7 +326,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("It is even larger but not too dissimilar to the RX-4+ being 7% bigger. ");
 		m.ln("Contacting Hope they recommended against the X2 as the reservoir may be too small. ");
 		m.ln("Rather than risk getting the X2 and not being able to return a used caliper I got a new pair of the original flat mount calipers.");
-		m.ln("</p><br>");
+		m.ln("</p>");
 		
 		m.ln("<h3>Brake Pads</h3>");
 		m.ln("<div class=\"modal-container-root\">");
