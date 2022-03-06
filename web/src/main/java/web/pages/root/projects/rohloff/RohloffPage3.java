@@ -14,8 +14,8 @@ public class RohloffPage3 extends BasePage {
 	@Override
 	public String getResponse() {
 		String[] css = { Resource.CSS_COMMON, Resource.CSS_HEADER, Resource.CSS_CARD, Resource.CSS_TITLE_BANNER,
-				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS };
-		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV };
+				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_TOOLTIP };
+		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
 		m.addHead(css, js, "Rohloff 3");
 
@@ -64,7 +64,11 @@ public class RohloffPage3 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Sprocket Design</h3>");
-		m.ln("<p>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/S2TJ4Of.png", "https://i.imgur.com/S2TJ4Of.png", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/VMkWGij.jpg", "https://i.imgur.com/X1V5sJ4.jpg", "max-width:100%", null, null);
+		m.ln("</div>");
+		m.ln("<div class=\"paragraph\">");
 		m.ln("This was by far the most difficult problem to solve. ");
 		m.ln("If I wasn't set on the requirement to replace the traditional chain with something with better durability then this project could have been completed in less than half the time. ");
 		m.ln("Getting an off the shelf 3/32\" chainring, 8 speed chain and chain tensioner is inexpensive and a quick way to get working power transfer but I was determined for something different. ");
@@ -94,7 +98,9 @@ public class RohloffPage3 extends BasePage {
 		m.ln("100% negative offset for the rear and 100% positive for the front with a 2mm spacer for the front. ");
 		m.ln("This means with my design the sprockets are not reversible while with the Veer system they look to be only partially offset and can be reversed but still require the use of spacers. ");
 		m.ln("They were manufactured via CNC by the same company that made the flat-mount axle plate, front using black anodised aluminum and rear is 304 stainless steel.");
-		m.ln("</p>");
+		m.ln("</div><br>");
+		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/YjtUxJQ.png\" alt=\"Gear Exit\"><p>hift c</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"Gear Exit\"><p>Cnhe spokes</p>", true);
 
 		m.ln("<h3>Manufacturing</h3>");
 		m.ln("<p>");

@@ -45,8 +45,8 @@ public class RohloffPage7 extends BasePage {
 		m.ln("https://www.cyclingabout.com/rohloff-hubs-with-drop-handlebars/");
 		m.ln("</p>");
 
-		m.addModalImage("https://www.allcycling.co.uk/content/products/shiftbox-shiftbox-for-rohloff-that-allows-the-use-of-normal-shifters_117958.jpg", "https://www.allcycling.co.uk/content/products/shiftbox-shiftbox-for-rohloff-that-allows-the-use-of-normal-shifters_117958.jpg", "max-width:60%", "Gebla Rohbox");
-		
+		m.addModalImage("https://www.allcycling.co.uk/content/products/shiftbox-shiftbox-for-rohloff-that-allows-the-use-of-normal-shifters_117958.jpg", "https://www.allcycling.co.uk/content/products/shiftbox-shiftbox-for-rohloff-that-allows-the-use-of-normal-shifters_117958.jpg", "max-width:60%", "Gebla Rohbox", null);
+
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content
 

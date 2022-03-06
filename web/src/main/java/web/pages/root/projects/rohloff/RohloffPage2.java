@@ -28,8 +28,8 @@ public class RohloffPage2 extends BasePage {
 		m.ln("	<div class=\"card\">");
 		RohloffUtils.addRohloffPageSelector(m, 2);
 		m.ln("<h2>Frame</h2>");
-		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_TN, Resource.IMG_ROHLOFF_MRD524, "max-width:50%", null);
-		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_SIZE_TN, Resource.IMG_ROHLOFF_MRD524_SIZE, "max-width:50%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_TN, Resource.IMG_ROHLOFF_MRD524, "max-width:50%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_MRD524_SIZE_TN, Resource.IMG_ROHLOFF_MRD524_SIZE, "max-width:50%", null, null);
 		m.ln("<p>");
 		m.ln("I have reservations about press-fit bottom brackets, creaking and fit issues which can cause premature bearing failure and also be annoying. ");
 		m.ln("I understand that professional athletes who a high turnover of bikes might not report these issues but I intended my build to last a long time. ");
@@ -57,7 +57,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h2>Handlebar</h2>");
-		m.addModalImage(Resource.IMG_ROHLOFF_HANDLEBAR, Resource.IMG_ROHLOFF_HANDLEBAR, "max-width:50%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_HANDLEBAR, Resource.IMG_ROHLOFF_HANDLEBAR, "max-width:50%", null, null);
 		m.ln("<p>");
 		m.ln("WILIER TRIESTINA ALABARDA Integrated Handlebar 42-110");
 		m.ln("This was a good deal found on eBay, one issue is that it is tailored to Wilier frames. ");
@@ -65,7 +65,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h2>Pedals</h2>");
-		m.addModalImage(Resource.IMG_ROHLOFF_RFORCE_TI_TN, Resource.IMG_ROHLOFF_RFORCE_TI, "max-width:50%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_RFORCE_TI_TN, Resource.IMG_ROHLOFF_RFORCE_TI, "max-width:50%", null, null);
 		m.ln("<p>");
 		m.ln("Xpedo R-Force Ti (SPD)<br>");
 		m.ln("I chose a SPD based pedal as they have the most walkable shoes of all system. ");
@@ -119,7 +119,7 @@ public class RohloffPage2 extends BasePage {
 		
 
 		m.ln("<h3>Tubeless Sealant</h3>");
-		m.addModalImage(Resource.IMG_ROHLOFF_OKO_TN, Resource.IMG_ROHLOFF_OKO, "max-width:25%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_OKO_TN, Resource.IMG_ROHLOFF_OKO, "max-width:25%", null, null);
 		m.ln("<p>");
 		m.ln("OKO Magic Milk Hi-Fibre Tyre Sealant");
 		m.ln("Previously used Orange Endurance Seal with good success but it is expensive. ");
@@ -140,7 +140,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Front Hub</h3>");
-		m.addModalImage(Resource.IMG_ROHLOFF_BITEX_HUB, Resource.IMG_ROHLOFF_BITEX_HUB, "max-width:50%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_BITEX_HUB, Resource.IMG_ROHLOFF_BITEX_HUB, "max-width:50%", null, null);
 		m.ln("<a target=\"_blank\" href=\"http://www.bitexhubs.com/htm/pd_detail.php?no=BX306F\">link</a>");
 		m.ln("The Quick release endcaps have been swapped for 12mm thru-axle.");
 
@@ -165,7 +165,7 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Crank</h3>");
-		m.addModalImage(Resource.IMG_ROHLOFF_FSA_CRANK_TN, Resource.IMG_ROHLOFF_FSA_CRANK, "max-width:50%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_FSA_CRANK_TN, Resource.IMG_ROHLOFF_FSA_CRANK, "max-width:50%", null, null);
 		m.ln("<p>");
 		m.ln("FSA Team Carbon Crankset BB386 EVO 130BCD<br>");
 		m.ln("Originally I was set for 24mm Hollowtech II crank and bottom bracket. ");

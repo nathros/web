@@ -29,7 +29,7 @@ public class RohloffPage1 extends BasePage {
 		RohloffUtils.addRohloffPageSelector(m, 1);
 
 		m.ln("<br>");
-		m.addModalImage(Resource.IMG_ROHLOFF_FINAL_COMPLETE_TN, Resource.IMG_ROHLOFF_FINAL_COMPLETE, "max-width:60%", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_FINAL_COMPLETE_TN, Resource.IMG_ROHLOFF_FINAL_COMPLETE, "max-width:60%", null, null);
 		m.ln("Finished build");
 		m.ln("<h2>Design Goal</h2>");
 		m.ln("<p>");

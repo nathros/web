@@ -43,10 +43,6 @@ public class Resource {
 	public static final String IMG_BANNER_CONNECT4 = "https://i.imgur.com/DVdR2SS.jpg";
 	public static final String IMG_BANNER_ROHLOFF = "https://i.imgur.com/VKIHXq8.jpg";
 
-	// Thumbnails w:640
-	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL_TN = "https://i.imgur.com/1jUoTVG.jpg";
-	public static final String IMG_ROHLOFF_FLATMOUNT_FINAL = "https://i.imgur.com/agFrpUp.jpg";
-
 	// pg 1
 	public static final String IMG_ROHLOFF_FINAL_COMPLETE_TN = "https://i.imgur.com/8R4I2rP.jpg";
 	public static final String IMG_ROHLOFF_FINAL_COMPLETE = "https://i.imgur.com/VcIacQh.jpg";

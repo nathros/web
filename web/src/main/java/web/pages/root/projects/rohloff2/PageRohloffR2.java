@@ -1,5 +1,6 @@
 package web.pages.root.projects.rohloff2;
 
+import web.common.LocalStringBuffer;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
 import web.pages.BasePage;
@@ -22,54 +23,64 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
 
-		m.addBanner("Rohloff Frame Upgrade", "https://www.campagnolo.com/media/immagini/9593_z_campagnolo-super-record-chain-MY2019-banner.jpg");
+		m.addBanner("Rohloff Bike Upgrade", "https://i.imgur.com/eHJZWCG.jpg");
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
+
+		LocalStringBuffer gallery = new LocalStringBuffer(1024);
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/7FHIE3a.jpg", "https://i.imgur.com/JUp5Xri.jpg", "max-width:100%", "Most major components except the rear wheel as it had not been built", gallery);
+		m.addModalImage("https://i.imgur.com/pk268Zx.jpg", "https://i.imgur.com/B04t4xk.jpg", "max-width:100%", "Novatech D411CB Hub with Pillar Wing 20 spokes ready to be built", gallery);
+		m.addModalImage("https://i.imgur.com/F6QZfyr.jpg", "https://i.imgur.com/IJrPins.jpg", "max-width:100%", "Rohloff ready to be assembled with Pillar 20 spokes", gallery);
+		gallery.ln("</div>");
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/hB4SKzL.jpg", "https://i.imgur.com/dOXfFbf.jpg", "max-width:100%", "New belt being drilled, RPM must be low or the rubber will melt", gallery);
+		m.addModalImage("https://i.imgur.com/Txu58RT.jpg", "https://i.imgur.com/XyaOTAF.jpg", "max-width:100%", "Belt cut to length using scalpel and rejoined using M2.2 stainless steel screws", gallery);
+		m.addModalImage("https://i.imgur.com/vTEa1Zs.jpg", "https://i.imgur.com/kKty5x2.jpg", "max-width:100%", "Finished belt, screws cut using rotary tool", gallery);
+		gallery.ln("</div>");
+		gallery.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/rtigsgh.jpg", "https://i.imgur.com/44O0fSd.jpg", "max-width:100%", "BB30 to BB86 converter with spacers for long spindle 91mm crankset", gallery);
+		m.addModalImage("https://i.imgur.com/WXRyg31.jpg", "https://i.imgur.com/i1Zkx4K.jpg", "max-width:100%", "3D printed derailleur cable plug as it will not be used", gallery);
+		//m.addModalImage("https://cdn.media.halfords.com/i/washford/188170/SRAM-X4-Rear-Derailleurs--Spares-Derailleur?fmt=auto&qlt=default&$sfcc_tile$&w=340", "https://i.imgur.com/kKty5x2.jpg", "max-width:100%", "Finished belt, screws cut using rotary tool", gallery);
+		gallery.ln("</div>");
+		m.ln(m.getContentToggle("<b>Extended Gallery</b>", gallery.toString()));
 
 		m.ln("<h2>Frame</h2>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("After working with the frame it is clear that it is intended for use with electronic shifting only. ");
 		m.ln("It officially supports mechanical shifting but the implementation is more of an afterthought and not well suited. ");
-		m.ln("The two main cable entry points of the frame, the headset and rear triangle exposed issues with tight cable bends. ");
+		m.ln("The two main cable entry points of the frame, the headset and rear triangle exposed issues with tight cable bends in these areas preventing shifting. ");
 		m.ln("The second can be excused as the rear hydraulic line routing was not intended to fit an additional two extra gear cables. ");
 		m.ln("For the Venge the Axle plate cannot be placed under the stay, this is because routing the cable from the hydraulic brake hole it too much of an aggressive angle. ");
 		m.ln("Conversely the Yoeleo frame allows the axle plate to be in this position and have shifting work well as the cable hole is placed much closer to the centre of the stay. ");
 		m.ln("In the Venge the hydraulic cable exit port is situated very close to the caliper. ");
 		m.ln("</div><br>");
 
-
-		m.ln("<h2>Bottom Bracket</h2>");
-		m.ln("<p>");
-		m.ln("The Venge comes with a BB30 bottom bracket, there is an aluminium insert that houses the bearings. ");
-		m.ln("One issue with this standard is that the bearings are close together in the 68mm width shell. ");
-		m.ln("This exposes them to additional strain which can lead to a lower lifespan, other standards such as BB86 place the bearings further apart. ");
-		m.ln("BB30 has had numerous complaints throughout its history with issues such as creaking and the aforementioned short bearing life. ");
-		m.ln("This is typically caused by poor manufacturing tolerances from frame manufacturers resulting in bad fit or even misalignment causing premature bearing failure. ");
-		m.ln("</p>");
-
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/hUt9mPR.jpeg", "https://i.imgur.com/lwTW9ff.jpg", "max-width:100%", "This is an SL7 frame but observe the join along both chain stays", null);
+		m.addModalImage("https://i.imgur.com/h2k9sto.jpg", "https://i.imgur.com/T60sXRN.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/jJMWKW6.jpg", "https://i.imgur.com/WjGKAXJ.jpg", "max-width:100%", "I would liked to have had the Gebla under the chain stay", null);
+		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
-		m.ln("To avoid these issues I looked into a bottom bracket conversion kit. ");
-		m.ln("There exists BB30 to BB386 converters such as the ");
-		m.addToolTip("<b style=\"cursor: default\">Praxis M30 THRU</b>", "<img src=\"https://praxiscycles.com/wp-content/uploads/DSCF3688-1024x576.jpg\" alt=\"68-4101R\"><p>The Praxis 68-4101R bottom bracket allows the use of long 30mm spindle cranks such as BB386EVO into a BB30 or PF30 frames</p>", true);
-		m.ln("so I could use my existing FSA BB386 crank but the spindle is showing signs of wear which is in need of replacement. ");
-		m.ln("My own fault for not taking better care. ");
-		m.ln("Alloy 30mm spindles need to be cleaned regularly, the hard steel bearing makes direct contact to the softer aluminium spindle which can cause galling if not properly maintained. ");
-		m.ln("So I decided to move to a similar crank using MegaExo 24 which uses a steel 24mm spindle, which as far as I can tell is directly compatible with Shimano HollowTech II. ");
-		m.ln("One advantage of HollowTech II is that the spindle is steel and the bearings have a plastic cover so the spindle does not make direct contact. ");
-		m.ln("A disadvantage is that the crank will be a little heavier, a tradeoff for a more durable item. ");
-		m.ln("Cranks with alloy spindles almost become a consumable item like a chain or cassette which is not ideal. ");
-		m.ln("With this in mind I got a BB30 to BB86 converter, the one I have allows the bearings to be replaced and I ordered some spare 6805 bearings and plastic top hats.");
-		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 91mm (86 + 5). ");
-		m.ln("An issue is that the Venge frame has a 68mm, so when the BB30 to BB86 converter is installed the final width will be 86mm, 5mm of extra spindle length will need to be taken up somehow. ");
-		m.ln("I fabricated 2 spacers measuring 3.5mm for the drive side and 1.5mm non-drive to take up the slack.");
-		m.addToolTip("<b style=\"cursor: default\">BBB BBO-85</b>", "<img src=\"https://m.media-amazon.com/images/I/71DwILbI3OL._AC_SL1500_.jpg\" alt=\"BBB BBO-85\"><p>Later discovered the BBB BBO-85 bottom bracket which has a wider outbound bearing cups to support MTB cranks in road frames</p>", true);
-		m.addToolTip("<b style=\"cursor: default\">Outbound Comparison</b>", "<img src=\"https://i.imgur.com/s0XZpoi.jpg\" alt=\"Outbound Comparison\"><p>BBB BBO-85 bottom bracket has wider cups than the ZTTO bottom bracket to accommodate for longer MTB spindle</p>", true);
+		m.ln("I also had some issues routing cables through the chainstay because they would get caught on a lip. ");
+		m.ln("After many failed attempts to pass this I got a cheap USB endoscope to see what is the cause which will make it easier to be overcome rather than blindly guiding cables. ");
+		m.ln("Using the hook attachment I could move the cable past the obstacle. ");
+		m.ln("The frame is clearly manufactured in separate sections which are bonded together later, one such is part of the rear triangle the cause of my issue. ");
+		m.ln("I discovered an image of a pre-finished SL7 frame were you can see this bond and I assume the Venge is made in a very similar way. ");
+		m.ln("Cables had to be routed into the rear hydraulic brake exit port first then towards the bottom bracket and onward to the headset. ");
+		m.ln("The reason is because doing it the other way round made it impossible to fish three cables through the hydraulic exit hole. ");
+		m.ln("When I tried routing cables this way it did not catch the lip. ");
+		m.ln("The Gebla was originally placed under the chain stay in a similar fashion to the way it was on the previous build using the Yoeleo R6. ");
+		m.ln("Disappointedly this bend was too tight for shifting to work properly in a similar way to the headset issue. ");
+		m.ln("The exit hole is simply too close and angled ");
+		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/lxnP8Qm.jpg\" alt=\"Gear Exit\"><p>Cables exit inward and when the Gebla is mounted under the chain stay a very tight s-bend prevents shifting from working, also notice the cable tie to prevent the shift cables from clashing with the spokes</p>", true);
+		m.ln(" towards the wheel away from the Gebla. ");
+		m.ln("The next option was to route cables over the chain stay and move the Gebla shift box, this required new gear outers as they were now cut too short. ");
 		m.ln("</div><br>");
 
-		m.ln("<h2>Moving A12 Rohloff to New Frame</h2>");
-		//m.addModalImage("https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "https://dbyvw4eroffpi.cloudfront.net/product-media/KNP/1000/1000/Praxis-Works-M30-Bottom-Bracket-BB86-BB92.jpg", "max-width:30%", "The bearing ID is 28mm");
 
+		m.ln("<h2>Moving A12 Rohloff to New Frame</h2>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The Rohloff hub was designed well before the thru axle standard.");
 		m.ln("If you look at a cut out or exploded diagram of the hub there is not enough free space for a 12mm diameter axle but does allow a Quick Release Skewer. ");
@@ -77,17 +88,12 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("The only hub with native thru axle support is from Kindernay. ");
 		m.ln("Rather than redesign the hub Rohloff opted to have adapters that match the frame dropouts to allow M7 bolts to secure the hub. ");
 		m.ln("One issue with this is that unlike Quick Release, there are many thru axle standards. ");
-
-		//m.ln("<br><img class=\"common-static-image\" src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Standards\"><br>");
 		m.addToolTip("<b style=\"cursor: default\">Thru Axle Variations</b>", "<img src=\"https://wheelbuilder.com/product_images/uploaded_images/thruaxle-detail-update.jpg\" alt=\"Thru Axle Variations\"><p>There are different thread pitches, head taper types and even lengths depending on dropout thicknesses</p>", true);
 		m.ln("Total length of the thru axle can vary dramatically between manufacturers. A \"Standard\" 142x12mm Thru Axle can vary in length between 162mm and 171mm depending on the frame manufacturer. ");
-		m.ln("Modern thru axles thread directly into frames/forks but early rear thru axles needed an external nut. There are also different thread pitches generally m1 or m1.5.");
-
+		m.ln("There are also different thread pitches generally M1 or M1.5.");
 		m.ln("There are two different types of attachment seat used at the interface where the skewer mates to the frame or fork which are traditional (flat) and conical");
-
 		m.ln("These include different width, diameter, thread pitch and even the interface. ");
-		m.ln("My hub has adapters for the Yoeolo? RD25 which uses a Shimano type 142mm x 12mm thru axle.");
-		m.ln("The Venge frame is still 142 x 12mm but has a Syntace V2 interface so new adapters would be needed. ");
+		m.ln("My hub has adapters for the Yoeleo R6 which uses the Shimano e-thru axle while the Venge uses a Syntace V2 interface (according to Rolhoff dropout measurement process) so new adapters would be needed.");
 		m.ln("I took my bike to the nearest shop that was registered with Rohloff as a dealer and asked them if it was possible to get the new frame measured and order new adapters. ");
 		m.ln("They didn't understand my request at first and later turned out they had never dealt with A12 Rohloff hubs before. ");
 		m.ln("My contact at the shop got training from Rohloff on how to perform the task, later the measuring kit was sent to the shop and the procedure was done. ");
@@ -101,15 +107,44 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("</div><br>");
 
 
-		m.ln("<h2>Headset</h2>");
+		m.ln("<h2>Bottom Bracket</h2>");
+		m.ln("<p>");
+		m.ln("The Venge comes with a BB30 bottom bracket, there is an aluminium insert that houses the bearings. ");
+		m.ln("One issue with this standard is that the bearings are close together in the 68mm width shell. ");
+		m.ln("This exposes them to additional strain which can lead to a lower lifespan, other standards such as BB86 place the bearings further apart. ");
+		m.ln("BB30 has had numerous complaints throughout its history with issues such as creaking and the aforementioned short bearing life. ");
+		m.ln("This is typically caused by poor manufacturing tolerances from frame manufacturers resulting in bad fit or even misalignment causing premature bearing failure. ");
+		m.ln("</p>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("To avoid these issues I looked into a bottom bracket conversion kit. ");
+		m.ln("There exists BB30 to BB386 converters such as the ");
+		m.addToolTip("<b style=\"cursor: default\">Praxis M30 THRU</b>", "<img src=\"https://praxiscycles.com/wp-content/uploads/DSCF3688-1024x576.jpg\" alt=\"68-4101R\"><p>The Praxis 68-4101R bottom bracket allows the use of long 30mm spindle cranks such as BB386EVO into a BB30 or PF30 frames</p>", true);
+		m.ln("so I could use my existing FSA BB386 crank but the spindle is showing signs of wear which is in need of replacement. ");
+		m.ln("My own fault for not taking better care. ");
+		m.ln("Alloy 30mm spindles need to be cleaned regularly, the hard steel bearing makes direct contact to the softer aluminium spindle which can cause galling if not properly maintained. ");
+		m.ln("So I decided to move to a similar crank using MegaExo 24 which uses a steel 24mm spindle, which as far as I can tell is directly compatible with Shimano HollowTech II. ");
+		m.ln("One advantage of HollowTech II is that the spindle is steel and the bearings have a plastic cover so the spindle does not make direct contact. ");
+		m.ln("A disadvantage is that the crank will be a little ");
+		m.addToolTip("<b style=\"cursor: default\">heavier</b>", "<img src=\"https://i.imgur.com/Es4npYZ.jpg\" alt=\"Heavy\"><p>Left is the BB386Evo crank with 30mm alloy spindle used on the Yoeleo R6 build and right is the replacement crank with 24mm steal spindle which as just over a 100g penalty<p>", true);
+		m.ln("a tradeoff for a more durable item. Cranks with alloy spindles almost become a consumable item like a chain or cassette which is not ideal. ");
+		m.ln("With this in mind I got a BB30 to BB86 converter, the one I have allows the bearings to be replaced and I ordered some spare 6805 bearings and plastic top hats.");
+		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 91mm (86 + 5). ");
+		m.ln("An issue is that the Venge frame has a 68mm, so when the BB30 to BB86 converter is installed the final width will be 86mm, 5mm of extra spindle length will need to be taken up somehow. ");
+		m.ln("I fabricated 2 spacers measuring 3.5mm for the drive side and 1.5mm non-drive to take up the slack.");
+		m.addToolTip("<b style=\"cursor: default\">BBB BBO-85</b>", "<img src=\"https://m.media-amazon.com/images/I/71DwILbI3OL._AC_SL1500_.jpg\" alt=\"BBB BBO-85\"><p>Later discovered the BBB BBO-85 bottom bracket which has a wider outbound bearing cups to support MTB cranks in road frames</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Outbound Comparison</b>", "<img src=\"https://i.imgur.com/s0XZpoi.jpg\" alt=\"Outbound Comparison\"><p>BBB BBO-85 bottom bracket has wider cups than the ZTTO bottom bracket to accommodate for longer MTB spindle</p>", true);
+		m.ln("</div><br>");
+
+
+		m.ln("<h2>Headset Spacer</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/6fuyCVS.jpg", "https://i.imgur.com/QtGppm7.jpg", "max-width:100%", "Original spacers");
-		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Screenshot from FreeCAD");
-		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding");
+		m.addModalImage("https://i.imgur.com/6fuyCVS.jpg", "https://i.imgur.com/QtGppm7.jpg", "max-width:100%", "Original spacers", null);
+		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Screenshot from FreeCAD", null);
+		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("When the cables were routed I noticed very high friction in the cable. ");
-		m.ln("I could change a single gear once then the return spring in the Gebla could not reset the racket. ");
+		m.ln("I could change a single gear once then the return spring in the Gebla could not reset the ratchet. ");
 		m.ln("Fully removing the inner cable and slowly feeding it back in I noticed a sharp increase in friction when entering the headset. ");
 		m.ln("I determined this by removing the inner cable when the friction increased and measuring the length of cable that had been fed in. ");
 		m.ln("Then roughly gaging where this is in the cable route. ");
@@ -120,7 +155,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("To work around this I designed a replacement spacer to allow a smoother cable transition into the headset. ");
 		m.addToolTip("<b style=\"cursor: default\">Early Prototype</b>", "<img src=\"https://i.imgur.com/7mzdUML.jpg\" alt=\"Early Headset spacer\"><p>Early revision of the headset spacer which relied on one of the original spacers</p>", true);
 		m.ln(" This needed a few revisions to match the unique shape. ");
-		
+
 		// headset
 		// 
 		// When the cabled were routed I noticed very high friction in the cable.
@@ -136,9 +171,9 @@ public class PageRohloffR2 extends BasePage {
 
 		m.ln("<h2>Rear Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost");
-		m.addModalImage("https://i.imgur.com/Iy77F1b.png", "https://i.imgur.com/Iy77F1b.png", "max-width:100%", "Screenshot from FreeCAD of both parts");
-		m.addModalImage("https://media.istockphoto.com/vectors/missing-rubber-stamp-vector-vector-id1213374148?k=20&m=1213374148&s=612x612&w=0&h=A3_Ku27Jf_XRfsWCZYvwJWQGNR2hbHDh9ViLLaAdJ5w=", "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost", null);
+		m.addModalImage("https://i.imgur.com/Iy77F1b.png", "https://i.imgur.com/Iy77F1b.png", "max-width:100%", "Screenshot from FreeCAD of both parts", null);
+		m.addModalImage("https://i.imgur.com/aireSEc.jpg", "https://i.imgur.com/FJK1vV7.jpg", "max-width:100%", null, null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("One interesting feature of the Venge is that it can house a Di2 junction box in the back of the seatpost such as the EW-RS910. ");
@@ -161,9 +196,9 @@ public class PageRohloffR2 extends BasePage {
 
 		m.ln("<h2>Front Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/z1jfIV0.jpg", "https://i.imgur.com/ioC2KK4.jpg", "max-width:100%", "Neatly placed under the stem");
-		m.addModalImage("https://i.imgur.com/SnuhtDt.pngg", "https://i.imgur.com/SnuhtDt.png", "max-width:100%", "Screenshot from FreeCAD");
-		m.addModalImage("https://media.istockphoto.com/vectors/missing-rubber-stamp-vector-vector-id1213374148?k=20&m=1213374148&s=612x612&w=0&h=A3_Ku27Jf_XRfsWCZYvwJWQGNR2hbHDh9ViLLaAdJ5w=", "https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_34880609_16852477_1620389282_1_0.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.addModalImage("https://i.imgur.com/RVlIrQZ.jpg", "https://i.imgur.com/a6vj8T4.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/SnuhtDt.pngg", "https://i.imgur.com/SnuhtDt.png", "max-width:100%", "Screenshot from FreeCAD", null);
+		m.addModalImage("https://i.imgur.com/4lH8Ymp.jpg", "https://i.imgur.com/kXR5v0J.jpg", "max-width:100%", "Neatly placed under the stem", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The Venge has a cable clamp for tidying the cables under the stem. ");
@@ -187,7 +222,6 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("The levers use DOT fluid so I need to make sure I select DOT compatible calipers not ones designed for mineral oil. ");
 		m.ln("Do not mix and match these as the seals are only designed for one type of fluid and might corrode and fail catastrophically. ");
 		m.ln("</p>");
-		m.ln("<h3>!Tried with Shimano!</h3>");
 
 		m.ln("<h3>Hydraulic Theory</h3>");
 		m.ln("<img class=\"common-static-image\" src=\"https://i.imgur.com/RzT8DP3.png\" alt=\"Hydraulic System\">");
@@ -281,9 +315,9 @@ public class PageRohloffR2 extends BasePage {
 		
 		m.ln("<h3>Brake Pads</h3>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/LSdKX4s.jpg", "https://i.imgur.com/6k1MRVD.jpg", "max-width:100%", "(Top) Original SRAM brake pads, semi-metal and sintered BR-M555");
-		m.addModalImage("https://i.imgur.com/fUaohqb.png", "https://i.imgur.com/fUaohqb.png", "max-width:100%", null);
-		m.addModalImage("https://i.imgur.com/0El6Cls.jpg", "https://i.imgur.com/ex5DQX6.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top");
+		m.addModalImage("https://i.imgur.com/LSdKX4s.jpg", "https://i.imgur.com/6k1MRVD.jpg", "max-width:100%", "(Top) Original SRAM brake pads, semi-metal and sintered BR-M555", null);
+		m.addModalImage("https://i.imgur.com/fUaohqb.png", "https://i.imgur.com/fUaohqb.png", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/0El6Cls.jpg", "https://i.imgur.com/ex5DQX6.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top", null);
 		m.ln("</div>");
 
 		m.ln("<p>");
@@ -317,9 +351,9 @@ public class PageRohloffR2 extends BasePage {
 
 		m.ln("<h3>Shimano Shifter With Gebla Investigation</h3>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/xVgxZyd.jpg", "https://i.imgur.com/xVgxZyd.jpg", "max-width:100%", "Proprietary bolt from Shimano, the safety pin can be easily pushed out");
-		m.addModalImage("https://i.imgur.com/004ETtI.png", "https://i.imgur.com/004ETtI.png", "max-width:100%", null);
-		m.addModalImage("https://i.imgur.com/cfva9uu.jpg", "https://i.imgur.com/cfva9uu.jpgg", "max-width:100%", "Right shifter with assembly removed");
+		m.addModalImage("https://i.imgur.com/xVgxZyd.jpg", "https://i.imgur.com/xVgxZyd.jpg", "max-width:100%", "Proprietary bolt from Shimano, the safety pin can be easily pushed out", null);
+		m.addModalImage("https://i.imgur.com/004ETtI.png", "https://i.imgur.com/004ETtI.png", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/cfva9uu.jpg", "https://i.imgur.com/cfva9uu.jpgg", "max-width:100%", "Right shifter with assembly removed", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("Ordering a pair Shimano Dura Ace R9120 shifters I wanted to determine if it is possible to use them with the Gebla. ");
@@ -329,7 +363,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("The older ");
 		m.addLink("<b>ST-6700</b>", "https://youtu.be/wJj6dASBMN0?t=80", true);
 		m.ln(" shifter uses a common ");
-		m.addToolTip("<b style=\"cursor: default\">Hex Bolt</b>", "<img src=\"https://i.imgur.com/K5mGamy.jpg\" alt=\"68-4101R\"><p>Here the ST-6700 shifter uses a hex bolt holding the shifting assembly</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Hex Bolt</b>", "<img src=\"https://i.imgur.com/K5mGamy.jpg\" alt=\"68-4101R\"><p>Here the ST-6700 shifter uses a hex bolt for securing the shifting assembly</p>", true);
 		m.ln(" not sure why a proprietary bolt is needed other than to limit user repairability or maybe for a marginal weight saving. ");
 		m.ln("The left shifter only needs a single pawl to be disabled and can be done easily with removal of the pawl spring. ");
 		m.ln("It is a similar story the right shifter, but two pawls need to be disabled. ");

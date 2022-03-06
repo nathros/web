@@ -60,12 +60,16 @@ public class RohloffPage4 extends BasePage {
 		m.ln("	Rohloff supports a minimum rotor size of 160mm.");
 		m.ln("	I decided to replace the original SRAM calipers to the SRAM compatible Hope RX4.");
 		m.ln("	Rohloff supports a minimum rotor size of 160mm.");
-		m.addToolTip("<b style=\"cursor: default\">Torque arm</b>", "<img src=\"http://twentynineinches.com/wp-content/uploads/2010/02/fig_rohl_3.jpg\" alt=\"Torque arm\"><p>The torque arm is the horizontal bar with holes, quite big and unsightly</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Torque arm</b>", "<img src=\"http://twentynineinches.com/wp-content/uploads/2010/02/fig_rohl_3.jpg\" alt=\"Torque arm\"><p>The torque arm is the horizontal bar with holes under the chain stay, quite big and unsightly</p>", true);
 		m.ln("	One issue with this decision the RX4 is that is does not require an adapter and only supports 160mm rotors, essentially having a built in one.");
 		m.ln("	This means there is no room to fit a flat-mount monkeybone on top of the brake mount.");
 		m.ln("	Also I would assume if Cycle Monkey would ever release an adapter it would only be compatible with standard calipers flat-mount 140mm calipers.");
-
-		m.addModalImage(Resource.IMG_ROHLOFF_FLATMOUNT_FINAL_TN, Resource.IMG_ROHLOFF_FLATMOUNT_FINAL, "width:250px;height:188px", null);
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage("https://i.imgur.com/yC13FLJ.png", "https://i.imgur.com/yC13FLJ.png", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/PfvrsV6.jpg", "https://i.imgur.com/7PrmUSP.jpg", "max-width:100%", "SLA Prototypes (left), OEM2 axleplate (centre) and and final version (right)", null);
+		m.addModalImage("https://i.imgur.com/wuBMbsD.jpg", "https://i.imgur.com/AY3XA92.jpg", "max-width:100%", null, null);
+		m.ln("</div>");
+		// Tried to use OEM2 axle plate but could not find an easy way
 
 		m.ln("</p>");
 		m.ln("	</div>"); // card

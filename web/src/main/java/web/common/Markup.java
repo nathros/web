@@ -184,20 +184,20 @@ public class Markup {
 		return buffer.toString();
 	}
 
-	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle, String caption) {
-		//if (true )return;
-		ln("<div class=\"modal-container\" style=\"".concat(thumbnailStyle).concat("\">"));
-		ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" aria-label=\"Scroll\">");
-		ln("		<img class=\"modal-thumbnail\" src=\"".concat(thumbnailURL).concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\">"));
-		ln("	</a>"); // #img
-		ln("</div>"); // modal-container
+	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle, String caption,  LocalStringBuffer buff) {
+		if (buff == null) buff = p;
+		buff.ln("<div class=\"modal-container\" style=\"".concat(thumbnailStyle).concat("\">"));
+		buff.ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" aria-label=\"Scroll\">");
+		buff.ln("		<img class=\"modal-thumbnail\" src=\"".concat(thumbnailURL).concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\">"));
+		buff.ln("	</a>"); // #img
+		buff.ln("</div>"); // modal-container
 
-		ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\" aria-label=\"Scroll\">");
-		ln("	<div>");
-		ln("		<img src=\"".concat(imageURL).concat("\" alt=\"\">"));
-		if (null != caption) ln("		<p>".concat(caption).concat("</p>"));
-		ln("	</div>"); // flex container
-		ln("</a>"); // modal-image
+		buff.ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\" aria-label=\"Scroll\">");
+		buff.ln("	<div>");
+		buff.ln("		<img src=\"".concat(imageURL).concat("\" alt=\"\">"));
+		if (null != caption) buff.ln("		<p>".concat(caption).concat("</p>"));
+		buff.ln("	</div>"); // flex container
+		buff.ln("</a>"); // modal-image
 		modalCount++;
 	}
 
