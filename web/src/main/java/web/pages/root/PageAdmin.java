@@ -1,12 +1,14 @@
 package web.pages.root;
 
 import java.io.IOException;
-
-import web.Tools;
+import java.util.List;
 import web.common.Debug;
 import web.common.LocalStringBuffer;
 import web.common.NavbarItem;
 import web.common.RequestInfo;
+import web.database.Database;
+import web.database.LogNode;
+import web.database.LogRoot;
 import web.pages.BasePage;
 import web.pages.resources.Resource;
 
@@ -31,9 +33,8 @@ public class PageAdmin extends BasePage {
 
 		m.addBanner("Admin", Resource.IMG_BANNER_ADMIN);
 
-		final String email = requestInfo.getQueryParam("email");
-		
-		
+		//final String email = requestInfo.getQueryParam("email");
+
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
@@ -54,9 +55,9 @@ public class PageAdmin extends BasePage {
 			e.printStackTrace();
 		}
 		m.ln(m.getContentToggle("<b>Current Request</b>", ErrorMsg.toString()));
-		
-		
-		m.ln("<form>");
+
+
+		/*m.ln("<form>");
 		m.ln("	<input type=\"hidden\" name=\"email\" value=\"test\">");
 		if (email != "") {
 			m.ln("	<textarea style=\"width:100%\" rows=\"32\">");
@@ -65,7 +66,22 @@ public class PageAdmin extends BasePage {
 			m.ln("	<br>");
 		}
 		m.ln("	<input type=\"submit\" value=\"Send Test Email\">");
-		m.ln("</form>");
+		m.ln("</form>");*/
+
+		m.ln("<hr>");
+		List<LogRoot> list = Database.getLog();
+		if (list != null) {
+			for (LogRoot i : list) {
+				m.ln("<b>" + i.address + "</b>");
+				m.ln("<div style=\"font-family:monospace\">");
+				for (LogNode log: i.entries) {
+					m.ln(log.date);
+					m.ln(log.path);
+					m.ln("<br>");
+				}
+				m.ln("</div><hr>");
+			}
+		}
 
 		m.ln("	</div>"); // card
 		m.ln("</div>"); // common-content

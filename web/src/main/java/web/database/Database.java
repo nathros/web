@@ -1,17 +1,26 @@
 package web.database;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.ItemUtils;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.document.spec.GetItemSpec;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ScanRequest;
+import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -20,11 +29,16 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class Database {
 	public static DynamoDB dynamoDB = init();
+	public static AmazonDynamoDB client;
 	public final static String DB_USER = "usr";
 	public final static String DB_COMMENT = "cmt";
 	public final static String DB_TABLE_COMMENTS = "comments";
 	public final static String DB_TABLE_COMMENTS_KEY_NAME = "page";
 
+	public final static String DB_TABLE_LOG = "log";
+	public final static String DB_TABLE_LOG_KEY_NAME = "address";
+
+	public final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 	private final static ObjectMapper mapper = new ObjectMapper();
 	private final static ObjectWriter ow = mapper.writer();
 
@@ -39,10 +53,10 @@ public class Database {
 		}
 
 		if (!error) { // Use local profile if
-			AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.EU_WEST_1).withCredentials(profile).build();
+			client = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.EU_WEST_1).withCredentials(profile).build();
 			return new DynamoDB(client);
 		} else { // If not try default
-			AmazonDynamoDBAsync client = AmazonDynamoDBAsyncClientBuilder.defaultClient();
+			client = AmazonDynamoDBAsyncClientBuilder.defaultClient();
 			return new DynamoDB(client);
 		}
 	}
@@ -68,13 +82,13 @@ public class Database {
 		CommentRoot base = null;
 		try {
 			if (outcome == null) {
-				base = Database.getEmptyCommentRoot(page);
+				base = CommentRoot.getNewEmptyCommentRoot(page);
 			} else {
 				base = itemToObject(outcome, CommentRoot.class);
 			}
 		} catch (Exception e) {
 			return false;
-		} 
+		}
 		if (base != null) {
 			String[] split = tree.split(",");
 			try {
@@ -181,10 +195,57 @@ public class Database {
 		table.putItem(itm);
 	}
 
-	public static CommentRoot getEmptyCommentRoot(String page) {
-		CommentRoot root = new CommentRoot();
-		root.root = new CommentNode();
-		root.page = page;
-		return root;
+	public static boolean addNewLog(String address, String path) {
+		if ((null == address) || (null == path)) return false;
+		Table table = Database.dynamoDB.getTable(Database.DB_TABLE_LOG);
+		GetItemSpec spec = new GetItemSpec().withPrimaryKey(Database.DB_TABLE_LOG_KEY_NAME, address);
+		Item outcome = table.getItem(spec);
+		LogRoot root = null;
+		try {
+			if (outcome == null) {
+				root = LogRoot.getNewEmptyLogRoot(address);
+			} else {
+				root = itemToObject(outcome, LogRoot.class);
+			}
+		} catch (Exception e) {
+			return false;
+		}
+
+		try {
+			root.AddEntry(path);
+			Item item = objectToItem(root);
+			table.putItem(item);
+		} catch (JsonProcessingException e) {
+			return false;
+		}
+
+		return true;
+	}
+
+	public static List<LogRoot> getLog() {
+		Date lastMonth = new Date(System.currentTimeMillis() + (60 * 60 * 24 * 30 * 1000));
+		String filter = Database.sdf.format(lastMonth);
+
+		Map<String, String> names = new HashMap<String, String>();
+		Map<String, AttributeValue> values = new HashMap<String, AttributeValue>();
+		names.put("#DYNOBASE_lastRequest", "lastRequest");
+		values.put(":lastRequest", new AttributeValue().withS(filter));
+
+		ScanRequest scanRequest = new ScanRequest().withTableName(Database.DB_TABLE_LOG)
+				.withExpressionAttributeNames(names)
+				.withExpressionAttributeValues(values)
+				.withFilterExpression("#DYNOBASE_lastRequest > :" + "lastRequest");
+		ScanResult result = client.scan(scanRequest);
+
+		List<Item> itemList = ItemUtils.toItemList(result.getItems());
+		List<LogRoot> returnRoots = new ArrayList<LogRoot>();
+		for (Item i: itemList) {
+			try {
+				returnRoots.add(itemToObject(i, LogRoot.class));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return returnRoots;
 	}
 }

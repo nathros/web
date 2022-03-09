@@ -419,7 +419,7 @@ public class Markup {
 			Item outcome = table.getItem(spec);
 			CommentRoot rootNode;
 			if (outcome == null) {
-				rootNode = Database.getEmptyCommentRoot(path);
+				rootNode = CommentRoot.getNewEmptyCommentRoot(path);
 			} else {
 				rootNode = Database.itemToObject(outcome, CommentRoot.class);
 			}

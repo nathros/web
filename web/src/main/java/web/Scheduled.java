@@ -5,6 +5,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import web.common.RequestInfo;
+import web.database.Database;
 
 public class Scheduled {
 	static boolean sendEmail = false;
@@ -35,8 +36,6 @@ public class Scheduled {
 
 	public static void log(RequestInfo request) {
 		if (Config.logToDynamoDB) {
-			Analytics analytics = new Analytics();
-
 			ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
 			executorService.schedule(new Runnable() {
@@ -44,7 +43,7 @@ public class Scheduled {
 				public void run() {
 					long startLog = System.currentTimeMillis();
 					System.out.print("Started log request...");
-					analytics.logRequestRequest(request);
+					Database.addNewLog(request.getUserIP(), request.getPath());
 					System.out.println("...finished in " + (System.currentTimeMillis() - startLog) + "ms");
 				}
 			}, 10, TimeUnit.MILLISECONDS);

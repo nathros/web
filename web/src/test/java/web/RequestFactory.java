@@ -90,7 +90,14 @@ public class RequestFactory {
 				if (index != -1) {
 					cookies.put("cookie", i.substring(index + 8));
 					map.put("headers", cookies);
-					break;
+					continue;
+				}
+
+				index = i.indexOf("Host: ");
+				if (index != -1) {
+					String ip = i.substring(index + 6, i.length());
+					map.put("sourceIP", ip);
+					continue;
 				}
 			}
 		}
