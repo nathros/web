@@ -28,9 +28,9 @@ public class PageHome extends BasePage {
 		//// https://i.imgur.com/pwDNLvY.jpg
 		// https://ma-hub.imgix.net/wp-images/2019/11/17203220/final-cut-pro-missing-file.jpg
 		// https://www.mtbr.com/threads/bontrager-race-lite-serial-number.316277/
-		m.ln("<div class=\"common-content\" style=\"margin-top:-20.5rem\">");
+		m.ln("<div class=\"common-content\" style=\"margin-top:-20.5625rem\">");
 		m.ln("	<div class=\"card card-home\">");
-		m.ln("		<div style=\"display: flex;flex-direction: column;justify-content: center;height:16.5rem\">");
+		m.ln("		<div style=\"display: flex;flex-direction: column;justify-content: center;height:16.5625rem\">");
 		m.ln("			<h1 style=\"text-align:center\">Technology With A Difference</h1>");
 		m.ln("			<h4 style=\"text-align:center\">Enabling tight software and hardware integration</h4>");
 		//m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");

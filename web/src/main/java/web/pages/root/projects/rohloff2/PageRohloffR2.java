@@ -68,7 +68,9 @@ public class PageRohloffR2 extends BasePage {
 		m.addModalImage("https://i.imgur.com/mqM8oUe.jpg", "https://i.imgur.com/4RlqAos.jpg", "max-width:100%", "Handlebar tape has a reflective rainbow effect under the right light conditions", gallery);
 		m.addModalImage("https://i.imgur.com/qv0Bx5B.jpg", "https://i.imgur.com/6DtSfHm.jpg", "max-width:100%", "Just over 9kg, similar to the R6 build", gallery);
 		gallery.ln("</div>");
-		m.ln(m.getContentToggle("<b>Expand Extended Gallery</b>", gallery.toString()));
+		m.ln("<hr>");
+		m.ln(m.getContentTogglePulse("<b>Expand Extended Gallery</b>", gallery.toString()));
+		m.ln("<hr>");
 
 		m.ln("<h2>Frame</h2>");
 		m.ln("<div class=\"paragraph\">");

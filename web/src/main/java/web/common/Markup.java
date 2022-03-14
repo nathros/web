@@ -130,7 +130,7 @@ public class Markup {
 		return buffer.toString();
 	}
 
-	public String getContentToggleArrow(String title, String content) {
+	public String getContentTogglePlus(String title, String content) {
 		String id = UUID.randomUUID().toString(); // When deployed on AWS addCommentsSectionAsync() can clash if not random, 2 toggles with same ID
 		LocalStringBuffer buffer = new LocalStringBuffer(512);
 		buffer.ln("<div class=\"toggle-container\">");
@@ -140,6 +140,23 @@ public class Markup {
 		buffer.ln(content);
 		buffer.ln("	</div>"); // toggle-content
 		buffer.ln("	<i class=\"toggle-cross\"></i>");
+		buffer.ln("</div>"); // toggle-container
+		return buffer.toString();
+	}
+
+	public String getContentTogglePulse(String title, String content) {
+		String id = UUID.randomUUID().toString(); // When deployed on AWS addCommentsSectionAsync() can clash if not random, 2 toggles with same ID
+		LocalStringBuffer buffer = new LocalStringBuffer(512);
+		buffer.ln("<div class=\"toggle-container\">");
+		buffer.ln("	<label class=\"toggle-label\" for=\"toggle-item-" + id + "\">".concat(title).concat("</label>"));
+		buffer.ln("	<input class=\"toggle-input\" checked type=\"checkbox\" id=\"toggle-item-" + id + "\" onclick=\"toggleContentHeight(this)\">");
+		buffer.ln("	<div class=\"toggle-content\">");
+		buffer.ln(content);
+		buffer.ln("	</div>"); // toggle-content
+		buffer.ln("	<div class=\"toggle-arrow\" style=\"z-index:10\"></div>");
+		buffer.ln("	<div class=\"toggle-arrow\" style=\"z-index:5\">");
+		buffer.ln("		<div class=\"toggle-circle\"></div>");
+		buffer.ln("	</div>");
 		buffer.ln("</div>"); // toggle-container
 		return buffer.toString();
 	}
@@ -393,10 +410,10 @@ public class Markup {
 
 		tmp.ln("<div id=\"comments-placeholder" + nest + "\" style=\"display:none;height:0.5rem\">&nbsp</div>");
 		if (node.user == null) {
-			buf.ln(getContentToggleArrow("<b>Leave a Comment</b>", tmp.toString()));
+			buf.ln(getContentTogglePlus("<b>Leave a Comment</b>", tmp.toString()));
 			buf.ln("<hr class=\"hr-strong\">");
 		} else {
-			buf.ln(getContentToggleArrow("<i>Reply</i><span class=\"inline-icon-reply\"></span>", tmp.toString()));
+			buf.ln(getContentTogglePlus("<i>Reply</i><span class=\"inline-icon-reply\"></span>", tmp.toString()));
 			buf.ln("<hr>");
 		}
 

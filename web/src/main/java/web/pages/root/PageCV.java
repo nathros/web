@@ -87,7 +87,7 @@ public class PageCV extends BasePage {
 		job.ln("<i class=\"superscript\">Technologies used</i>");
 		job.ln("</div>");
 		
-		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
+		m.ln(m.getContentTogglePulse("<b>Expand Details</b>", job.toString()));
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
 		job.buffer.setLength(0);
@@ -211,6 +211,7 @@ public class PageCV extends BasePage {
 		m.ln("		Analog Devices (AD7176, AD7768) High Speed High Resolution 24bit ADC plus many more...</div>");
 
 		m.ln("	<div class=\"skills-subject-sub\">Hardware:</div>");
+		m.ln("	<div class=\"skills-detail\">PCB bring-up and SMD soldering, 0201 passives, QFP, QFN and SOIC packages</div>");
 		m.ln("	<div class=\"skills-detail\">Stepper motors (micro-fluidic movement), IR & RPM Sensors, Pololu 3pi</div>");
 
 		m.ln("	<div class=\"skills-subject\">Software</div>");

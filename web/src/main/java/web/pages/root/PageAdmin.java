@@ -2,6 +2,7 @@ package web.pages.root;
 
 import java.io.IOException;
 import java.util.List;
+
 import web.common.Debug;
 import web.common.LocalStringBuffer;
 import web.common.NavbarItem;
@@ -72,14 +73,17 @@ public class PageAdmin extends BasePage {
 		List<LogRoot> list = Database.getLog();
 		if (list != null) {
 			for (LogRoot i : list) {
-				m.ln("<b>" + i.address + "</b>");
-				m.ln("<div style=\"font-family:monospace\">");
+				LocalStringBuffer lb = new LocalStringBuffer(1024);
+				lb.ln("<div style=\"font-family:monospace\">");
 				for (LogNode log: i.entries) {
-					m.ln(log.date);
-					m.ln(log.path);
-					m.ln("<br>");
+					lb.ln(log.date);
+					lb.ln(log.path);
+					lb.ln("<br>");
 				}
-				m.ln("</div><hr>");
+				lb.ln("</div>");
+				String padding = "";
+				for (int len = i.address.length(); len < 15; len++) padding += "&nbsp;";
+				m.ln(m.getContentToggle("<b style=\"font-family:monospace;font-size:1rem\">" + i.address + padding + " (" + i.entries.size() + ") " + i.lastRequest + "</b>", lb.toString()));
 			}
 		}
 

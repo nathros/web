@@ -89,3 +89,28 @@
 .toggle-container input[type="checkbox"]:checked ~ .toggle-cross {
 	transform: rotate(-45deg);
 }
+
+.toggle-circle {
+	width: 20px;
+	height: 20px;
+	top: -5px;
+	left: -5px;
+	background-color: rgba(200, 200, 200, 1);
+	position: absolute;
+	border-radius: 100%;
+	animation: bubble 3s infinite;
+}
+
+@keyframes bubble {
+	0% {
+		transform: scale3d(.4, .4, .4);
+		opacity: 0;
+	}
+	75% {
+		transform: scale3d(1.5, 1.5, 1.5);
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 0;
+	}
+}
