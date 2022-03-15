@@ -52,9 +52,8 @@ public class PageMapping {
 
 	public static final String ROHLOFF2_PG1 = STAGE + "/projects/rohloff-upgrade";
 
-	public static final String FILESERVER1_PG0 = STAGE + "/projects/fileserver";
-	public static final String FILESERVER1_PG1 = STAGE + "/projects/fileserver-1";
-	public static final String FILESERVER1_PG2 = STAGE + "/projects/fileserver-2";
+	public static final String FILESERVER1_PG = STAGE + "/projects/fileserver";
+
 	public static final String CONNECT4 = STAGE + "/projects/connect4";
 
 	public static Map<String, String> map = createMap(); // All pages
@@ -87,7 +86,7 @@ public class PageMapping {
 
 		m.put(ROHLOFF2_PG1, PageRohloffR2.class.getName());
 
-		m.put(FILESERVER1_PG0, FileServerPage1.class.getName());
+		m.put(FILESERVER1_PG, FileServerPage1.class.getName());
 		//m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
 		//m.put(FILESERVER1_PG2, FileServerPage1.class.getName());
 
@@ -127,7 +126,7 @@ public class PageMapping {
 
 		m.put(ROHLOFF2_PG1, PageRohloffR2.class.getName());
 
-		m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
+		m.put(FILESERVER1_PG, FileServerPage1.class.getName());
 
 		m.put(CONNECT4, Connect4Page.class.getName());
 		return m;

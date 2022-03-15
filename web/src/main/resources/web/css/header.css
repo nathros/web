@@ -116,6 +116,19 @@ only screen and (max-width: 768px) {
 	display: block;
 }
 
+.navbar-git {
+	float: right;
+	margin-top: -0.25rem;
+	height: 2rem;
+	width: 2rem;
+	filter: invert(76%) sepia(6%) saturate(146%) hue-rotate(71deg) brightness(87%) contrast(85%); /* var(--navbar-font-idle-colour) */
+}
+
+.navbar-dropdown-content a:hover .navbar-git {
+	filter: brightness(0%) invert(100%);
+	transition: 0.1s;
+}
+
 /** Search **/
 .navbar-search{
 	width: fit-content;

@@ -69,6 +69,7 @@ public class Resource {
 
 	public static final String IMG_FAVICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/favico.png";
 	public static final String IMG_SNAKEICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/snake.svg";
+	public static final String IMG_GITICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/github.svg";
 	public static final String IMG_EXPANDICO = "https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/common/box-arrow-up-right.svg";
 	/* https://www.svgrepo.com/vectors/search/ */
 

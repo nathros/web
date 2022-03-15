@@ -35,7 +35,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("</div>");
 
 		LocalStringBuffer gallery = new LocalStringBuffer(1024);
-		gallery.ln("<div class=\"modal-container-root\">");
+		gallery.ln("<div class=\"modal-container-root\" style=\"padding-top:0.5rem\">");
 		m.addModalImage("https://i.imgur.com/s2iDvez.jpg", "https://i.imgur.com/eKDeQKl.jpg", "max-width:100%", null, gallery);
 		m.addModalImage("https://i.imgur.com/Opx5SAL.jpg", "https://i.imgur.com/5wz8xRR.jpg", "max-width:100%", null, gallery);
 		m.addModalImage("https://i.imgur.com/3kZGHHk.jpg", "https://i.imgur.com/SpIyRLF.jpg", "max-width:100%", null, gallery);

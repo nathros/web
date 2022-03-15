@@ -85,7 +85,14 @@ public class TestPage {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ServerSocket socket = new ServerSocket(8081);
+		ServerSocket socket;
+		try {
+			socket = new ServerSocket(8081);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+
 		while (!stopServer) {
 			final Socket connection = socket.accept();
 			Runnable task = new Runnable() {

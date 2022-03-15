@@ -87,7 +87,7 @@ public class PageCV extends BasePage {
 		job.ln("<i class=\"superscript\">Technologies used</i>");
 		job.ln("</div>");
 		
-		m.ln(m.getContentTogglePulse("<b>Expand Details</b>", job.toString()));
+		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
 		job.buffer.setLength(0);

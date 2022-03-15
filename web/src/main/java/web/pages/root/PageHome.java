@@ -114,7 +114,7 @@ public class PageHome extends BasePage {
 		
 		m.ln("				<div id=\"container-tab-4\" class=\"tab-animated\">");
 		m.ln("		<img class=\"\" src=\"".concat("https://i.imgur.com/bq6Nm5v.jpg").concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\"><br>"));
-		m.addLinkButton("See machine", PageMapping.FILESERVER1_PG1, false);
+		m.addLinkButton("See machine", PageMapping.FILESERVER1_PG, false);
 		m.ln("				</div>"); // container-tab-2
 		
 		m.ln("				<div id=\"container-tab-5\" class=\"tab-animated\">");
