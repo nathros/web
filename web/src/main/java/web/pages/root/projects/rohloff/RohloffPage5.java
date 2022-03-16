@@ -17,11 +17,10 @@ public class RohloffPage5 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_TOOLTIP };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
-		m.addHead(css, js, "Wheel Build");
+		m.addHead(css, js, "Rohloff - Wheel Build");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
-
 		m.addBanner("Flat-mount Adapter", Resource.IMG_BANNER_ROHLOFF);
 
 		m.ln("<div class=\"common-content\">");

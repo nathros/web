@@ -17,11 +17,10 @@ public class RohloffPage7 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV };
 
-		m.addHead(css, js, "STI Shifting");
+		m.addHead(css, js, "Rohloff - STI Shifting");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
-
 		m.addBanner("STI Shifting", Resource.IMG_BANNER_ROHLOFF);
 
 		m.ln("<div class=\"common-content\">");

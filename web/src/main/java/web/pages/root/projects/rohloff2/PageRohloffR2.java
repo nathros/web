@@ -20,7 +20,7 @@ public class PageRohloffR2 extends BasePage {
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
 		m.addHead(css, js, "Rohloff Frame Upgrade");
-//https://imgur.com/a/fbZOMGF
+
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
 

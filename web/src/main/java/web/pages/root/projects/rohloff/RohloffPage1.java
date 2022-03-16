@@ -17,7 +17,7 @@ public class RohloffPage1 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV };
 
-		m.addHead(css, js, "Rohloff 1");
+		m.addHead(css, js, "Rohloff - Background");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);

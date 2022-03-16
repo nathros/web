@@ -1,6 +1,6 @@
 package web.database;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class LogNode {
 	public String path;
@@ -8,8 +8,8 @@ public class LogNode {
 
 	public LogNode(String path) {
 		this.path = path;
-		Date now = new Date(System.currentTimeMillis());
-		this.date = Database.sdf.format(now);
+		LocalDateTime now = LocalDateTime.now();
+		this.date = Database.dtf.format(now);
 	}
 
 	public LogNode() {}

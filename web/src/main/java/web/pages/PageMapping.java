@@ -87,8 +87,6 @@ public class PageMapping {
 		m.put(ROHLOFF2_PG1, PageRohloffR2.class.getName());
 
 		m.put(FILESERVER1_PG, FileServerPage1.class.getName());
-		//m.put(FILESERVER1_PG1, FileServerPage1.class.getName());
-		//m.put(FILESERVER1_PG2, FileServerPage1.class.getName());
 
 		m.put(CONNECT4, Connect4Page.class.getName());
 

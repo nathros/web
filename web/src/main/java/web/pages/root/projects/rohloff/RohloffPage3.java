@@ -17,7 +17,7 @@ public class RohloffPage3 extends BasePage {
 				Resource.CSS_MODAL_IMAGE, Resource.CSS_BUTTON, Resource.CSS_FOOTER, Resource.CSS_TOGGLE_DIV, Resource.CSS_FORMS, Resource.CSS_TOOLTIP };
 		String[] js = { Resource.JS_SNAKE_HOOK, Resource.JS_MODAL_IMAGE, Resource.JS_HEADER, Resource.JS_FORMS, Resource.JS_TOGGLE_DIV, Resource.JS_TOOLTIP };
 
-		m.addHead(css, js, "Rohloff 3");
+		m.addHead(css, js, "Rohloff - Belt Transmission");
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
@@ -72,10 +72,14 @@ public class RohloffPage3 extends BasePage {
 		m.ln("I was originally going to get the Veer Split Belt Pro but delay after delay and when released they didn't support Rohloff lead me to design my own. ");
 		m.ln("I investigated existing belt drive systems such as Gates Carbon Drive, Continental used to have a competing system called CBD but was recalled and discontinued due to safety concerns. ");
 		m.ln("Next I researched different tooth profiles, belt construction with their applications. ");
-		m.ln("The best for my application is a GT2 profile belt, 8mm pitch, 12mm width with fibreglass or carbon fibre cords. ");
+		m.ln("The best for my application is a GT2 profile belt, 8mm pitch, 12mm width with carbon fibre cords. ");
+		m.ln("Fibreglass cords may stretch under heavy loads and cause skipping. ");
 		m.ln("No commercially available industry standard bicycle sprockets exist, excluding proprietary systems such as Gates Carbon Drive. ");
 		m.ln("I asked Gates for drawings of tooth profiles, they are not fixed and change with the number of teeth on a sprocket because the belt deforms as it bends. ");
+		m.addToolTip("<b style=\"cursor: default\">30 Teeth</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"30\"><p>Tooth profile for 30 teeth sprocket</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">80 Teeth</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"30\"><p>Tooth profile for 80 teeth sprocket, TODO</p>", true); //TODO get 80t
 		m.ln("The drawings the sent back were useful but were in inches. ");
+		m.addToolTip("<b style=\"cursor: default\">Profile CAD</b>", "<img src=\"https://i.imgur.com/YjtUxJQ.png\" alt=\"FreeCAD\"><p>30T profile recreated in FreeCAD based on drawing from Gates converted to mm</p>", true);
 		m.ln("I know Gates is an American company but I didn't expect mechanical engineers from over there to use such units. ");
 		m.ln("For belt tensioning I used the Veer belt tensioner from their original single speed conversion. ");
 		m.ln("The pulley axle had to be shortened because it is designed to fit for a cassette hub body, with my Rohloff wheel the axle clashed with the spokes. ");
@@ -83,39 +87,42 @@ public class RohloffPage3 extends BasePage {
 		m.ln("Veer offers 64 or 72 teeth while mine has 80. The Rohloff has a wide 58mm chainline, when measuring the chainline of my the crank I determined both sprockets need to be slammed. ");
 		m.ln("100% negative offset for the rear and 100% positive for the front with a 2mm spacer for the front. ");
 		m.ln("This means with my design the sprockets are not reversible while with the Veer system they look to be only partially offset and can be reversed but still require the use of spacers. ");
-		m.ln("They were manufactured via CNC by the same company that made the flat-mount axle plate, front using black anodised aluminum and rear is 304 stainless steel.");
+		m.ln("They were manufactured via CNC by the same company that made the flat-mount axle plate, front using black anodised 6061 aluminium and rear is 304 stainless steel.");
 		m.ln("</div><br>");
-		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/YjtUxJQ.png\" alt=\"Gear Exit\"><p>hift c</p>", true);
-		m.addToolTip("<b style=\"cursor: default\">inwards</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"Gear Exit\"><p>Cnhe spokes</p>", true);
 
 
 		m.ln("<h3>Splice Design</h3>");
 		m.ln("<h3>Veer Belt</h3>");
 		m.addStaticImage("https://i.imgur.com/9jj0zAV.png");
-		m.ln("<h3>Custom v1</h3>");
+		m.ln("<h3>Custom v1 (L)</h3>");
 		m.addStaticImage("https://i.imgur.com/Qds7hw7.png");
-		m.ln("<h3>Custom v2</h3>");
+		m.ln("<h3>Custom v2 (Z)</h3>");
 		m.addStaticImage("https://i.imgur.com/VkUOfBw.png");
-		m.ln("<p>");
-		m.ln("Veer uses a V shaped split most likely done via CNC. My design is much simpler to cut as it is an L shape which has perpendicular edges. ");
-		m.ln("I don't think the V shape is mechanically stronger than L, both require cutting of the internal cords. ");
-		m.ln("The L design has half of them cut at the same tooth while V is gradual over several. ");
-		m.ln("However, some teeth at the tips of the V cut will only have a single cord of support while L will always have half of available. ");
-		m.ln("The split is set to span over 40 teeth, Veer has a similar amount.");
-		m.ln("My design is similar to ERO Joint http://www.ero-joint.com/en/poly-chainr-gt-carbontm-fastening-ero-jointr-ultimate-0 ");
-		m.ln("I tried several methods of cutting the belt. ");
-		m.ln("Trying with a rotary tool had issues, it is very easy to cause the rubber to melt resulting in a poor cut. ");
-		m.ln("At low RPM a much better cut can be made but the motor would stall often resulting in a rough jagged edge. ");
-		m.ln("It also takes a lot of time to complete the operation, the rouge edges could be sanded down but this is already a long procedure. ");
-		m.ln("I found the best method is the simplest, using a sharp knife (surgical blade) and carefully cut the belt to shape.");
-		m.ln("</p>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("Veer uses a V shaped split most likely done via CNC. My initial design is much simpler to cut as it is an L shape which comprises of a few perpendicular lines. ");
+		m.ln("Both systems make the belt weaker as a result of cutting the internal cords, but to mitigate this the cut is done over many teeth, 40 for my design. ");
+		m.ln("The L shape design has a ");
+		m.addToolTip("<b style=\"cursor: default\">weak point</b>", "<img src=\"https://i.imgur.com/GiNnB18.png\" alt=\"weak point\"><p>There are two weak points at either side of the join in the L shaped design</p>", true);
+		m.ln("at the transition period of the split because only half of the belt is supported. ");
+		m.ln("This became apparent as this belt quickly failed in this spot see image below. ");
+		m.ln("A revision was made to a Z or slashed design, this alleviates this stress point by easing the transition of the join. ");
+		m.ln("There are other split belt designs such as the ");
+		m.addLink("ERO Joint", "http://www.ero-joint.com/en/poly-chainr-gt-carbontm-fastening-ero-jointr-ultimate-0", true);
+		m.ln(". I tried several methods of cutting the belt. ");
+		m.ln("First with a rotary tool had issues, running at a medium or high speed the rubber would melt resulting in a poor cut. ");
+		m.ln("At low speed the cut was initially much better, but the motor would stall often resulting in a rough jagged edge. ");
+		m.ln("Later I found the best method is the simplest, using a N&deg;11 surgical blade to make long connecting cuts. ");
+		m.ln("The cut lines were carefully drawn on paper, cut out and then adhered to the belt using a glue stick.");
+		m.ln("</div>");
 
 		m.ln("<h3>Manufacturing</h3>");
-		m.ln("<p>");
-		m.ln("Drilling needs to be done at a low RPM, I used the slowest mode of my rotary tool. ");
-		m.ln("You have to press slowly and gently as not not cause too much heat or the rubber will melt. ");
-		m.ln("I used a m2 drill bit and joined the belt with m2.2 stainless steel self tapping screws. Any excess screw is later trimmed. I used a Contitech CTD belt.");
-		m.ln("</p>");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("Drilling needs to be done at a low RPM, I used the slowest mode of my rotary tool. Even that was still too fast to prevent melting of the rubber. ");
+		m.ln("The technique I used is to press quite quickly and only for a few seconds then retract the tool.");
+		m.ln("If you see bubbles on the teeth then you know it has went past the melting point. Good I had some surplus sections of belt to test drilling and cutting. ");
+		m.ln("I used a m2 drill bit and joined the belt with m2.2 stainless steel self tapping screws. Any excess screw is later trimmed. ");
+		m.ln("A Contitech CTD belt is used for the v1 design which failed beacuse of the stress point and non-ideal fibreglass cords, the v2 used a belt from Gates.");
+		m.ln("</div>");
 
 		m.ln("<div class=\"modal-container-root\">");
 		m.addModalImage("https://i.imgur.com/n1hDFTR.jpg", "https://i.imgur.com/p64gKrP.jpg", "max-width:100%", null, null);

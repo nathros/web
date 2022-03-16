@@ -1,10 +1,12 @@
 package web.database;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import com.amazonaws.auth.AWSCredentials;
@@ -38,7 +40,7 @@ public class Database {
 	public final static String DB_TABLE_LOG = "log";
 	public final static String DB_TABLE_LOG_KEY_NAME = "address";
 
-	public final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+	public final static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS", Locale.ENGLISH);
 	private final static ObjectMapper mapper = new ObjectMapper();
 	private final static ObjectWriter ow = mapper.writer();
 
@@ -222,19 +224,22 @@ public class Database {
 		return true;
 	}
 
-	public static List<LogRoot> getLog() {
-		Date lastMonth = new Date(System.currentTimeMillis() + (60 * 60 * 24 * 30 * 1000));
-		String filter = Database.sdf.format(lastMonth);
+	public static List<LogRoot> getLog(LocalDate start, LocalDate end) {
+		LocalDateTime startDateTime = start.atTime(0, 0);
+		LocalDateTime endDateTime = end.atTime(0, 0);
+		String filterStart = Database.dtf.format(startDateTime);
+		String filterEnd = Database.dtf.format(endDateTime);
 
 		Map<String, String> names = new HashMap<String, String>();
 		Map<String, AttributeValue> values = new HashMap<String, AttributeValue>();
-		names.put("#DYNOBASE_lastRequest", "lastRequest");
-		values.put(":lastRequest", new AttributeValue().withS(filter));
+		names.put("#DYNOBASE_range", "lastRequest");
+		values.put(":start", new AttributeValue().withS(filterStart));
+		values.put(":end", new AttributeValue().withS(filterEnd));
 
 		ScanRequest scanRequest = new ScanRequest().withTableName(Database.DB_TABLE_LOG)
 				.withExpressionAttributeNames(names)
 				.withExpressionAttributeValues(values)
-				.withFilterExpression("#DYNOBASE_lastRequest > :" + "lastRequest");
+				.withFilterExpression("#DYNOBASE_range BETWEEN :start AND :end");
 		ScanResult result = client.scan(scanRequest);
 
 		List<Item> itemList = ItemUtils.toItemList(result.getItems());
