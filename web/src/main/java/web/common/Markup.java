@@ -198,7 +198,7 @@ public class Markup {
 		return buffer.toString();
 	}
 
-	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle, String caption,  LocalStringBuffer buff) {
+	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle, String caption, LocalStringBuffer buff) {
 		if (buff == null) buff = p;
 		buff.ln("<div class=\"modal-container\" style=\"".concat(thumbnailStyle).concat("\">"));
 		buff.ln("	<a href=\"#img" + modalCount + "\" onclick=\"disableBodyScroll();\" aria-label=\"Scroll\">");
@@ -235,6 +235,10 @@ public class Markup {
 
 	public void addLinkButton(String text, String href, boolean newTab) {
 		l("<a class=\"btn btn-blue ripple\" href=\"".concat(href).concat("\"").concat(newTab ? " target=\"_blank\">" : ">").concat(text).concat("</a>"));
+	}
+
+	public void addLinkButtonStyle(String text, String href, String extraStyle, boolean newTab) {
+		l("<a class=\"btn btn-blue ripple\" style=\"".concat(extraStyle).concat("\" href=\"".concat(href).concat("\"").concat(newTab ? " target=\"_blank\">" : ">").concat(text).concat("</a>")));
 	}
 
 	public void addLink(String text, String href, boolean newTab) {

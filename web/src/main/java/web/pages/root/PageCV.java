@@ -39,24 +39,31 @@ public class PageCV extends BasePage {
 		m.ln("				<i class=\"superscript\">Slipstream Engineering Design Ltd: <a href=\"https://www.slipstream-design.co.uk/\" target=\"_blank\">https://www.slipstream-design.co.uk/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for RF systems in commercial and military applications</h4>");
 
-		job.ln("<p>Zynq UltraScale+ RFSoC ZCU111/ZCU102<br>");
-		job.ln("Custom PetaLinux software platform using Yocto, custom bootloader for dual parallel QSPI.");
-		job.ln("Linux application code to manage system and communicate to FPGA via custom AXI peripheral.");
-		job.ln("Read RF IQ data from PS-PL DMA DDR4 over Ethernet for data processsing.");
-		job.ln("High speed fibre optic SFP communication.");
+		job.ln("<p class=\"timeline-content-subheading\">Zynq UltraScale+ RFSoC Custom Transmit Receive Module</p>");
+		job.ln("<ul>");
+		job.ln("	<li>Modified PetaLinux software platform using Yocto, device tree and driver changes with custom bootloader for dual parallel QSPI</li>");
+		job.ln("	<li>Linux application code to manage system and communicate to FPGA via custom AXI peripheral</li>");
+		job.ln("	<li>SG DMA transfer of RF IQ data streams from PS-PL DMA DDR4 to high speed fibre optic SFP communication</li>");
+		job.ln("	<li>Multi-tile and multi-board synchronisation</li>");
+		job.ln("	<li>GUI for RF and system engineers to easily control device</li>");
+		job.ln("</ul>");
 
-		job.ln("<p>100W High Power RF Amplifier<br>");
-		job.ln("FreeRTOS 10 to manage high speed high speed 3.75Mbps DMA UART customer command interface and background functions.");
-		job.ln("STM32 HAL library used for configuring and using perfierals.");
-		job.ln("C# GUI developed for use by RF/electrical engineers to test and control board over USB interface");
-		job.ln("System level tests done using NI TestStand.</p>");
+		job.ln("<p class=\"timeline-content-subheading\">100W High Power RF Amplifier<br>");
+		job.ln("<ul>");
+		job.ln("	<li>FreeRTOS 10 to manage high speed high speed 3.75Mbps DMA UART customer command interface and background functions</li>");
+		job.ln("	<li>STM32 HAL library used for configuring and using perfierals</li>");
+		job.ln("	<li>C# GUI developed for use by RF/electrical engineers to test and control board over USB interface</li>");
+		job.ln("	<li>System level tests done using NI TestStand</li>");
+		job.ln("</ul>");
 
-		job.ln("<p>CERN White Rabbit - &lt;100 picosecond synchronisation over SFP fibre optics<br>");
-		job.ln("Custom implemtation based on Simple PCIe FMC carrier (SPEC).");
-		job.ln("The system allows synchronisation between many end nodes by using an extended IEEE1588 Precision Time Protocol over fibre optics.");
-		job.ln("A Xilinx Spartan 6 FPGA with open source White Rabbit PTP Core is the core of this design.");
-		job.ln("Software using LM32 softcore adpted from SPEC design");
-		job.ln("User configurable clock synthesiser phase synchronised with 1pps.</p>");
+		job.ln("<p class=\"timeline-content-subheading\">CERN White Rabbit &#8211; &lt;100 picosecond synchronisation over SFP fibre optics</p>");
+		job.ln("<ul>");
+		job.ln("<li>Custom implementation based on Simple PCIe FMC carrier (SPEC)</li>");
+		job.ln("<li>The system allows synchronisation between many end nodes by using an extended IEEE1588 Precision Time Protocol over fibre optics</li>");
+		job.ln("<li>A Xilinx Spartan 6 FPGA with open source White Rabbit PTP Core is the core of this design</li>");
+		job.ln("<li>Software using LM32 softcore adapted from SPEC design</li>");
+		job.ln("<li>User configurable clock synthesiser phase synchronised with 1pps</li>");
+		job.ln("</ul>");
 
 		job.ln("<div class=\"logo-group\">");
 		job.ln(m.getLittleLogoWithTooltip("xilinx", "Xilinx Zynq UltraScale+ RFSoC & Spartan-6"));
@@ -100,14 +107,18 @@ public class PageCV extends BasePage {
 		m.ln("				<i class=\"superscript\">QuantuMDx Group Ltd: <a href=\"https://quantumdx.com\" target=\"_blank\">https://quantumdx.com/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for portable PCR and QPCR medical diagnostics device</h4>");
 		
-		job.ln("<p>Low Level Controller - Fluid heating and shuttling, cassette handling plus other controls<br>");
-		job.ln("Atmel SAMV71 ATSAMV71Q21 ARM Cortex M-7 Atmel Studio 7 with FreeRTOS V10.0.1, FFF(fake function framework) testing.");
-		job.ln("Lots of peripherals, driven by SPI and I2C etc, C# PC control before port to C with FreeRTOS</p>");
-		job.ln("<p>Heater Board - QPCR/PCR Temperature Zone Managamen<br>");
+		job.ln("<p class=\"timeline-content-subheading\">Low Level Controller - Fluid heating and shuttling, cassette handling plus other controls</p>");
+		job.ln("<ul>");
+		job.ln("	<li>Atmel SAMV71 ATSAMV71Q21 ARM Cortex M-7 Atmel Studio 7 with FreeRTOS V10.0.1, FFF(fake function framework) testing</li>");
+		job.ln("	<li>Lots of peripherals, driven by SPI and I2C etc, C# PC control before port to C with FreeRTOS</li>");
+		job.ln("</ul>");
 
-		job.ln("Cypress PSoC 61 CY8C6136BZI-F14 Cortex-M4 PsoC Creator, FFF(fake function framework)");
-		job.ln("PWM and ADCs for controlling heater zones with &#177;0.5&deg; accuracy");
-		job.ln("Developed interactive terminal interface over UART for use by electronic engineers.</p>");
+		job.ln("<p class=\"timeline-content-subheading\">Heater Board - QPCR/PCR Temperature Zone Management</p>");
+		job.ln("<ul>");
+		job.ln("	<li>Cypress PSoC 61 CY8C6136BZI-F14 Cortex-M4 PsoC Creator, FFF(fake function framework)</li>");
+		job.ln("	<li>PWM and ADCs for controlling heater zones with &#177;0.5&deg; accuracy</li>");
+		job.ln("	<li>Developed interactive terminal interface over UART for use by electronic engineers</li>");
+		job.ln("</ul>");
 
 		job.ln("<p>Worked on a variety of embedded platforms writing C/C++ for embedded applications");
 		job.ln("ranging from small 8-bit AVR bare metal to 32-bit ARM with FreeRTOS and embedded Linux.");
@@ -217,7 +228,7 @@ public class PageCV extends BasePage {
 		m.ln("	<div class=\"skills-subject\">Software</div>");
 
 		m.ln("	<div class=\"skills-subject-sub\">Libraries:</div>");
-		m.ln("	<div class=\"skills-detail\">Mosquito MQTT, Google Web Toolkit (GWT)</div>");
+		m.ln("	<div class=\"skills-detail\">STM32 HAL, Microchip ASF, Mosquito MQTT, Google Web Toolkit (GWT)</div>");
 
 		m.ln("	<div class=\"skills-subject-sub\">Platform:</div>");
 		m.ln("	<div class=\"skills-detail\">Yocto, Buildroot, Jenkins</div>");

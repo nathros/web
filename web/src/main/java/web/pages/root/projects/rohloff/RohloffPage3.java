@@ -21,7 +21,6 @@ public class RohloffPage3 extends BasePage {
 
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
-
 		m.addBanner("Belt Transmission", Resource.IMG_BANNER_ROHLOFF);
 
 		m.ln("<div class=\"common-content\">");

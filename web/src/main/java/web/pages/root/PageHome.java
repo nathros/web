@@ -23,9 +23,7 @@ public class PageHome extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Home, requestInfo);
 		m.addBannerHomeAnimated(Resource.IMG_BANNER_1);
-		//m.addBannerHomeAnimated("");
 
-		//// https://i.imgur.com/pwDNLvY.jpg
 		// https://ma-hub.imgix.net/wp-images/2019/11/17203220/final-cut-pro-missing-file.jpg
 		// https://www.mtbr.com/threads/bontrager-race-lite-serial-number.316277/
 		m.ln("<div class=\"common-content\" style=\"margin-top:-20.5625rem\">");
@@ -36,9 +34,9 @@ public class PageHome extends BasePage {
 		//m.ln("		<p style=\"text-align:justify\">Welcome to a journey of an engineer</p>");
 		m.ln("		</div>");
 		m.ln("	</div>"); // card
-		
+
 		m.ln("<br><br>");
-		
+
 		m.ln("		<div class=\"tab-container\">");
 		m.ln("			<input type=\"radio\" id=\"tab-1\" name=\"tab-group1\" checked>");
 		m.ln("			<input type=\"radio\" id=\"tab-2\" name=\"tab-group1\">");
@@ -66,8 +64,8 @@ public class PageHome extends BasePage {
 		m.ln("	</div>");
 		m.ln("		</div>"); // container-tab-1
 
-		
-		
+
+
 		m.ln("		<div id=\"container-tab-2\" class=\"tab-animated\">");
 		m.ln("		<div class=\"horizontal-section-container-right\" style=\"\">");
 		m.ln("		<div class=\"horizontal-section-text-right horizontal-section-clear\">");
@@ -78,7 +76,7 @@ public class PageHome extends BasePage {
 		m.ln("			<div class=\"common-container-centre\">");
 		m.addLinkButton("Request Quote", PageMapping.QUOTE_3D_PG, true);
 		m.ln("			</div>");
-		
+
 		m.ln("		</div>");
 		m.ln("		<img class=\"horizontal-section-image\" src=\"https://cdn-3d.niceshops.com/upload/image/product/large/default/creality-cr-6-se-1-pc-333178-en.jpg\" alt=\"\">");
 		m.ln("	</div>");
@@ -105,18 +103,27 @@ public class PageHome extends BasePage {
 		m.ln("				</ul>");
 		m.ln("			</div>"); // tab
 		m.ln("			<div class=\"tab-content-container\">"); // replace container
-		
+
 		m.ln("				<div id=\"container-tab-3\" class=\"tab-animated\">");
-		
-		m.ln("		<img class=\"\" src=\"".concat("https://i.pinimg.com/originals/74/88/0b/74880bc293ef939e31366692f104a925.jpg").concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\"><br>"));
-		m.addLinkButton("See build", PageMapping.ROHLOFF_PG1, false);
+
+		m.ln("<h3>Design Goal</h3>");
+		m.ln("<p>");
+		m.ln("To produce a low maintenance high performance road bike.I currently have a Shimano 105 5800 equipped road bike and do a lot of riding. One issue I am having is the high level of maintenance a derailleur system requires. If this neglected then degradation can occur quickly leading to costly repairs. For example, if you let a chain become worn then it will destroy the cassettes and chainrings leading to poor shifting and skipping under load and in worst case failure. A new chain will skip and the whole drivetrain will need to be replaced. The chain needs to be kept reasonably clean and lubed to slow down wear. Dry chains will corrode easily while the dirt in lubed chains will act like grit or mild sandpaper, neither is good for longevity.");
+		m.ln("</p>");
+		m.ln("<div class=\"modal-container-root\">");
+		m.addModalImage(Resource.IMG_ROHLOFF_FINAL_COMPLETE_TN, Resource.IMG_ROHLOFF_FINAL_COMPLETE, "max-width:30%;margin-left:auto;margin-right:auto;", null, null);
+		m.addModalImage("https://i.pinimg.com/originals/74/88/0b/74880bc293ef939e31366692f104a925.jpg", "https://i.pinimg.com/originals/74/88/0b/74880bc293ef939e31366692f104a925.jpg", "max-width:30%;margin-left:auto;margin-right:auto;", null, null);
+		m.ln("</div>");
+		m.ln("<br>");
+		m.addLinkButtonStyle("See build", PageMapping.ROHLOFF_PG1, "margin-right:1rem", false);
+		m.addLinkButtonStyle("See upgrade", PageMapping.ROHLOFF2_PG1, "", false);
 		m.ln("				</div>"); // container-tab-1
-		
+
 		m.ln("				<div id=\"container-tab-4\" class=\"tab-animated\">");
 		m.ln("		<img class=\"\" src=\"".concat("https://i.imgur.com/bq6Nm5v.jpg").concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\"><br>"));
 		m.addLinkButton("See machine", PageMapping.FILESERVER1_PG, false);
 		m.ln("				</div>"); // container-tab-2
-		
+
 		m.ln("				<div id=\"container-tab-5\" class=\"tab-animated\">");
 		m.addLinkButton("Open contact form", PageMapping.CONTACT_PG, false);
 		m.ln("				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>"); // container-tab-2
@@ -126,7 +133,7 @@ public class PageHome extends BasePage {
 
 		m.ln("<a class=\"btn btn-blue ripple\" style=\"text-align: center;display:block;\" onclick=\"scrollToTop();\">Top</a>");
 
-		
+
 		m.ln("</div>"); // common-content
 
 		m.addFooter(requestInfo);

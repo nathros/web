@@ -46,7 +46,11 @@ public class RohloffPage1 extends BasePage {
 		
 		m.ln(" Exotic systems are even rarer than shaft bikes. String bicycles are interesting www.stringbike.com and CeramicSpeed have an interesting concept in development named Driven: https://www.ceramicspeed.com/en/driven/ ");
 		m.ln("I have settled on a Rohloff hub as it is the best and well regarded internal hub available renowned for its durability. The efficiency is not that far behind a derailleur, see");
-		m.ln("internal hubs and derailleur efficiency: http://www.ihpva.org/HParchive/PDF/hp52-2001.pdf internal hub efficiency comparison: https://www.cyclingabout.com/speed-difference-testing-gearbox-systems/ Single speed is not suitable for my use case and the exotic systems have their own unique issues which is why I rejected these options.");
+		m.ln("internal hubs and derailleur efficiency: ");
+		m.addLink("PDF", "http://www.ihpva.org/HParchive/PDF/hp52-2001.pdf", true);
+		m.ln(" internal hub efficiency comparison from ");
+		m.addLink("CyclingAbout", "https://www.cyclingabout.com/speed-difference-testing-gearbox-systems/", true);
+		m.ln(". Single speed is not suitable for my use case and the exotic systems have their own unique issues which is why I rejected these options.");
 		m.ln("Also, a derailleur system will quickly become less efficient as the lubricant deteriorates and drivetrain becomes dirty. Depending on the user and conditions a belt driven hub could be more efficient on average in terms of less time spent maintaining the system.");
 		m.ln("</p>");
 
