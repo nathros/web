@@ -46,11 +46,11 @@ public class RohloffPage2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<p>");
-		m.ln("This Miracle RD525 is odd that the seat tube and head tube are not parallel, seat tube is almost vertical. ");
+		m.ln("This Yoeleo R6 is odd that the seat tube and head tube are not parallel, seat tube is almost vertical. ");
 		m.ln("Still the frame has been reported to be comfortable: ");
 		m.addLink("https://www.youtube.com/watch?v=CmT62op0GQw", "https://www.youtube.com/watch?v=CmT62op0GQw", true);
 		m.ln("Some people are weary of using Chinese carbon, understandably you can purchase some very cheap low quality and potentially dangerous components if you do not do your research. ");
-		m.ln("From mine I have concluded that Hongfu/Dengfu (http://www.hongfu-bikes.com, http://www.dengfubikes.com), Workswell (http://www.workswellbikes.com) and Miracle (http://www.miraclebikes.com) are reputable companies. ");
+		m.ln("From mine I have concluded that Hongfu/Dengfu (http://www.hongfu-bikes.com, http://www.dengfubikes.com), Workswell (http://www.workswellbikes.com), Miracle (http://www.miraclebikes.com) and Yoeleo are reputable companies. ");
 		m.ln("In fact aerospace engineer Hambini shows that Hongfu/Dengfu has better tolerances than some Cannondale and Specialized frames https://www.youtube.com/watch?v=zryhuHkbb-o. ");
 		m.ln("You also need to know that warranty and support from Chinese companies will not match the big name manufactures. ");
 		m.ln("Either way, where do you think the renowned companies get their components manufactured? ");

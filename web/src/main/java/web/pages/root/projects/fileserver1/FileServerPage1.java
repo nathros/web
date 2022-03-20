@@ -27,7 +27,7 @@ public class FileServerPage1 extends BasePage {
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
-		////
+		//// https://www.truenas.com/community/threads/freenas-9-3-webgui-datagrids-dont-render-on-chrome-after-v67.69360/
 		m.addModalImage("https://i.imgur.com/h7fRzRG.jpg", "https://i.imgur.com/bq6Nm5v.jpg", "max-width:60%", null, null);
 		m.ln("<br><a class=\"btn btn-blue ripple\">Page is work in progress</a>");
 		////

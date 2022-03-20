@@ -171,9 +171,9 @@ public class PageCV extends BasePage {
 		job.ln("<p>Port and migration of self hosted monolithic system into more extensible microservice architecture for AWS. ");
 		job.ln("This included change from OpenSUSE operating system to dynamic scaling EC2 instances and change from Postgres database to NoSQL DynamoDB. ");
 		job.ln("Helped move from Ant build system to the more flexible Gradle</p>");
-		job.ln("<p>Full stack web develpment, helping extend interactive frontend in GWT (Google Web Toolkit) both client and server side.</p>");
+		job.ln("<p>Full stack web development, helping extend interactive frontend in GWT (Google Web Toolkit) both client and server side.</p>");
 		job.ln("<p>Realtime processing Tibco messages from Elexon, multiple destinations of data inlcluding database for historical access and directly to realtime traders GWT client.</p>");
-		job.ln("<p>Verification and validation of newly deployed systems, fall back and redundancy is critical for 99.9% uptime. ");
+		job.ln("<p>Verification and validation of newly deployed systems, fall back and redundancy is critical for 99.9% up time. ");
 		job.ln("Operating directly with big parties such as National Grid and Elexon while upholding governmental industry regulations. Some projects had requirements for out of hours support.</p>");
 
 		job.ln("<div class=\"logo-group\">");

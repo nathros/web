@@ -30,7 +30,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("	<div class=\"card\">");
 
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/LbMY3Uh.jpg", "https://i.imgur.com/dZamJAm.jpg", "max-width:100%", null, null);
+		m.addModalImage("https://i.imgur.com/LbMY3Uh.jpg", "https://i.imgur.com/dZamJAm.jpg", "max-width:100%", null, null); // Finished on 6/3/22
 		m.addModalImage("https://i.imgur.com/evSsONK.jpg", "https://i.imgur.com/m7JgAWQ.jpg", "max-width:100%", null, null);
 		m.ln("</div>");
 

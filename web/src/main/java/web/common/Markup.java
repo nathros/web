@@ -1,6 +1,7 @@
 package web.common;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -185,8 +186,6 @@ public class Markup {
 		ln("</div>"); // title-banner-home
 	}
 
-	int modalCount = 0;
-
 	public String getLittleLogoWithTooltip(String logoClass, String tooltipText) {
 		LocalStringBuffer buffer = new LocalStringBuffer(512);
 		buffer.ln("<div class=\"" + logoClass + "-logo logo-little logo-tooltip\">");
@@ -198,6 +197,8 @@ public class Markup {
 		return buffer.toString();
 	}
 
+	int modalCount = 0;
+	List<ModalImage> modalList = new ArrayList<ModalImage>();
 	public void addModalImage(String thumbnailURL, String imageURL, String thumbnailStyle, String caption, LocalStringBuffer buff) {
 		if (buff == null) buff = p;
 		buff.ln("<div class=\"modal-container\" style=\"".concat(thumbnailStyle).concat("\">"));
@@ -205,14 +206,17 @@ public class Markup {
 		buff.ln("		<img class=\"modal-thumbnail\" src=\"".concat(thumbnailURL).concat("\" style=\"").concat("max-width:100%;").concat("\" alt=\"\">"));
 		buff.ln("	</a>"); // #img
 		buff.ln("</div>"); // modal-container
-
-		buff.ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + modalCount + "\" aria-label=\"Scroll\">");
-		buff.ln("	<div>");
-		buff.ln("		<img src=\"".concat(imageURL).concat("\" alt=\"\">"));
-		if (null != caption) buff.ln("		<p>".concat(caption).concat("</p>"));
-		buff.ln("	</div>"); // flex container
-		buff.ln("</a>"); // modal-image
+		modalList.add(new ModalImage(modalCount, caption, imageURL));
 		modalCount++;
+	}
+
+	private void AddModalImageComplete(ModalImage image) {
+		ln("<a href=\"javascript:enableBodyScroll();\" class=\"modal-image\" id=\"img" + image.count + "\" aria-label=\"Scroll\">");
+		ln("	<div>");
+		ln("		<img src=\"".concat(image.url).concat("\" alt=\"\">"));
+		if (null != image.caption) ln("		<p>".concat(image.caption).concat("</p>"));
+		ln("	</div>"); // flex container
+		ln("</a>"); // modal-image
 	}
 
 	public void addStaticImage(String thumbnailURL) {
@@ -277,6 +281,7 @@ public class Markup {
 	}
 
 	public void addFooter(RequestInfo request) {
+		for (ModalImage i: modalList) { AddModalImageComplete(i); }
 		ln("<footer>");
 		ln("<img src=\"" + Resource.IMG_SNAKEICO + "\" onclick=\"startSnake()\" alt=\"Snake..\">");
 		ln("<p>Snake...</p>");
@@ -501,6 +506,18 @@ public class Markup {
 			} else {
 				name = email = "";
 			}
+		}
+	}
+
+	private class ModalImage {
+		int count;
+		String caption;
+		String url;
+
+		public ModalImage(int count, String caption, String url) {
+			this.count = count;
+			this.caption = caption;
+			this.url = url;
 		}
 	}
 }

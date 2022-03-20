@@ -35,7 +35,7 @@ public class RohloffPage6 extends BasePage {
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The included headset spacers for the Wilier Triestina Alabarda integrated handlebar are designed for use with a Wilier frame and are a poor fit for my frame. ");
 		m.ln("I got a good deal on the handlebar and was fond of its appearance so instead of selling it and searching for a replacement I decided to remedy the situation. ");
-		m.ln("The main culprit is the base spacer and it does not match the profile of the top of the head tube on Miracle frame. ");
+		m.ln("The main culprit is the base spacer and it does not match the profile of the top of the head tube on Yoeleo R6 frame. ");
 		m.ln("I took measurements of the existing spacers and frame and designed a set of replacement spacers in FreeCAD. ");
 		m.ln("These were manufactured by 3DHubs https://www.3dhubs.com/ via SLS 3D printing and carbon filled nylon material in black. ");
 		m.ln("In the same production run I also added cable hole covers (only 1 was included with the frame) and derailleur hole cover as I would not be using it and don't want water entering the frame. ");

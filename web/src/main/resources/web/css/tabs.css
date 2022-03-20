@@ -37,7 +37,7 @@
 	animation-name: shadowIn;
 }
 
-@keyframes shadowIn{
+@keyframes shadowIn {
 	0% {}
 	100% {
 		color: black;
@@ -149,7 +149,7 @@
 	animation-name: fadeIn;
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
 	0% {
 		opacity:0
 	}

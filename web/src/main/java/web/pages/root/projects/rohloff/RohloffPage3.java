@@ -75,8 +75,8 @@ public class RohloffPage3 extends BasePage {
 		m.ln("Fibreglass cords may stretch under heavy loads and cause skipping. ");
 		m.ln("No commercially available industry standard bicycle sprockets exist, excluding proprietary systems such as Gates Carbon Drive. ");
 		m.ln("I asked Gates for drawings of tooth profiles, they are not fixed and change with the number of teeth on a sprocket because the belt deforms as it bends. ");
-		m.addToolTip("<b style=\"cursor: default\">30 Teeth</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"30\"><p>Tooth profile for 30 teeth sprocket</p>", true);
-		m.addToolTip("<b style=\"cursor: default\">80 Teeth</b>", "<img src=\"https://i.imgur.com/tdCfRuK.png\" alt=\"30\"><p>Tooth profile for 80 teeth sprocket, TODO</p>", true); //TODO get 80t
+		m.addToolTip("<b style=\"cursor: default\">30 Teeth</b>", "<img src=\"https://i.imgur.com/WxOHCF4.png\" alt=\"30\"><p>Tooth profile for 30 teeth sprocket</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">80 Teeth</b>", "<img src=\"https://i.imgur.com/y9T7JAQ.png\" alt=\"30\"><p>Tooth profile for 80 teeth sprocket</p>", true);
 		m.ln("The drawings the sent back were useful but were in inches. ");
 		m.addToolTip("<b style=\"cursor: default\">Profile CAD</b>", "<img src=\"https://i.imgur.com/YjtUxJQ.png\" alt=\"FreeCAD\"><p>30T profile recreated in FreeCAD based on drawing from Gates converted to mm</p>", true);
 		m.ln("I know Gates is an American company but I didn't expect mechanical engineers from over there to use such units. ");
@@ -103,24 +103,43 @@ public class RohloffPage3 extends BasePage {
 		m.ln("The L shape design has a ");
 		m.addToolTip("<b style=\"cursor: default\">weak point</b>", "<img src=\"https://i.imgur.com/GiNnB18.png\" alt=\"weak point\"><p>There are two weak points at either side of the join in the L shaped design</p>", true);
 		m.ln("at the transition period of the split because only half of the belt is supported. ");
-		m.ln("This became apparent as this belt quickly failed in this spot see image below. ");
+		m.ln("This became apparent as this belt quickly failed in this area after short testing. ");
 		m.ln("A revision was made to a Z or slashed design, this alleviates this stress point by easing the transition of the join. ");
-		m.ln("There are other split belt designs such as the ");
+		m.ln("There are other commercially available split belt designs such as the ");
 		m.addLink("ERO Joint", "http://www.ero-joint.com/en/poly-chainr-gt-carbontm-fastening-ero-jointr-ultimate-0", true);
-		m.ln(". I tried several methods of cutting the belt. ");
-		m.ln("First with a rotary tool had issues, running at a medium or high speed the rubber would melt resulting in a poor cut. ");
-		m.ln("At low speed the cut was initially much better, but the motor would stall often resulting in a rough jagged edge. ");
-		m.ln("Later I found the best method is the simplest, using a N&deg;11 surgical blade to make long connecting cuts. ");
-		m.ln("The cut lines were carefully drawn on paper, cut out and then adhered to the belt using a glue stick.");
+		m.ln(".");
+		m.ln("</div>");
+
+		m.ln("<h3>Veer Belt Cords</h3>");
+		m.addStaticImage("https://i.imgur.com/leTy9Ry.png");
+		m.ln("<h3>Custom v1 (L) Belt Cords</h3>");
+		m.addStaticImage("https://i.imgur.com/PhtuVX5.png");
+		m.ln("<h3>Custom v2 (Z) Belt Cords</h3>");
+		m.addStaticImage("https://i.imgur.com/ELozwdR.png");
+		m.ln("<div class=\"paragraph\">");
+		m.ln("The blue lines are the cords within a belt and red line shows where a splice is made, in white indicate how many cords are supporting the belt in a corresponding section. ");
+		m.ln("One issue with any split belt design is that the cords must be cut which does weaken the belt. ");
+		m.ln("12mm width GT2 belts have 12 cords, in my first design there are 2 weak sections were only 5 or 6 cords are supporting the belt. ");
+		m.ln("Any heavy or shock loads on this area have a high risk of failure as seen at the bottom of this page. ");
+		m.ln("Depending on the accuracy of the splice directly between two cords giving you 6 cords for each side or may damage one reducing the effective count. ");
+		m.ln("The second version fixes this issue and only an effective single is lost across the splice, this section is also supported by the screws rejoining the belt. ");
+		m.ln("One thing of note is that the Veer belt has two cuts along the same section resulting in two cords being cut reducing the effective count to ten over the split. ");
+		m.ln("Also at the base of the V there is the potential to only have nine cords supporting this section, a reduction of 25% of total cords. ");
+		m.ln("The Veer design is symmetric which mine is not, so the Veer design may be able to better handle skewed forces that are not parallel to the cords. ");
 		m.ln("</div>");
 
 		m.ln("<h3>Manufacturing</h3>");
 		m.ln("<div class=\"paragraph\">");
+		m.ln("I tried several methods of cutting the belt. ");
+		m.ln("First with a rotary tool had issues, running at a medium or high speed the rubber would melt resulting in a poor cut. ");
+		m.ln("At low speed the cut was initially much better, but the motor would stall often resulting in a rough jagged edge. ");
+		m.ln("Later I found the best method is the simplest, using a N&deg;11 surgical blade to make long connecting cuts. ");
+		m.ln("The cut lines were carefully drawn on paper, cut out and then adhered to the belt using a glue stick.");
 		m.ln("Drilling needs to be done at a low RPM, I used the slowest mode of my rotary tool. Even that was still too fast to prevent melting of the rubber. ");
 		m.ln("The technique I used is to press quite quickly and only for a few seconds then retract the tool.");
 		m.ln("If you see bubbles on the teeth then you know it has went past the melting point. Good I had some surplus sections of belt to test drilling and cutting. ");
 		m.ln("I used a m2 drill bit and joined the belt with m2.2 stainless steel self tapping screws. Any excess screw is later trimmed. ");
-		m.ln("A Contitech CTD belt is used for the v1 design which failed beacuse of the stress point and non-ideal fibreglass cords, the v2 used a belt from Gates.");
+		m.ln("A Contitech CTD belt is used for the v1 design which failed because of the stress point and non-ideal fibreglass cords, the v2 used a belt from Gates.");
 		m.ln("</div>");
 
 		m.ln("<div class=\"modal-container-root\">");
