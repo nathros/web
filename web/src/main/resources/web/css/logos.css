@@ -292,3 +292,42 @@
 	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/bash.svg");
 }
 
+.lxd-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/lxd.svg");
+}
+
+.aes67-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/aes67.png");
+}
+
+.react-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/react.svg");
+}
+
+.typescript-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/typescript.svg");
+}
+
+.graphql-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/graphql.svg");
+}
+
+.javascript-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/javascript.svg");
+}
+
+.nodejs-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/node.js.svg");
+}
+
+.npm-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/npm.svg");
+}
+
+.yarn-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/yarn.svg");
+}
+
+.boost-logo::before {
+	background-image: url("https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/logos/boost.svg");
+}

@@ -32,9 +32,63 @@ public class PageCV extends BasePage {
 
 		m.ln("	<div class=\"timeline-container\">");
 
-		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020 - Present\">");
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"October 2022 - Present\">");
 		m.ln("			<div class=\"timeline-item-content\">");
-		m.ln("				<h2>August 2020 - Present</h2>");
+		m.ln("				<h2>October 2022 - Present</h2>");
+		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/calrec.svg\" alt=\"Calrec Audio Ltd\">");
+		m.ln("				<i class=\"superscript\">Calrec Audio Ltd: <a href=\"https://calrec.com/\" target=\"_blank\">https://calrec.com/</a></i>");
+		m.ln("				<h4>Senior embedded C++ software developer for audio control systems for use in broadcast industry</h4>");
+
+		job.ln("<p class=\"timeline-content-subheading\">AoIP (Audio over IP)</p>");
+		job.ln("<ul>");
+		job.ln("	<li>System programming</li>");
+		job.ln("	<li>Audio streaming AES67</li>");
+		job.ln("	<li>Networking topology and high availability systems</li>");
+		job.ln("</ul>");
+
+		job.ln("<p class=\"timeline-content-subheading\">Stream Configuration Web UI </p>");
+		job.ln("<ul>");
+		job.ln("	<li>React - Java - AKKA</li>");
+		job.ln("</ul>");
+
+		job.ln("<div class=\"logo-group\">");
+		job.ln(m.getLittleLogoWithTooltip("yocto", "Yocto"));
+		job.ln(m.getLittleLogoWithTooltip("aws", "Amazon Web Services"));
+		job.ln(m.getLittleLogoWithTooltip("cpp", "C++ 17"));
+		job.ln(m.getLittleLogoWithTooltip("boost", "Boost C++ Library"));
+		job.ln(m.getLittleLogoWithTooltip("device-tree", "Linux Device Tree"));
+		job.ln(m.getLittleLogoWithTooltip("u-boot", "U-Boot"));
+		job.ln(m.getLittleLogoWithTooltip("bash", "Bash Scripting"));
+		job.ln(m.getLittleLogoWithTooltip("lxd", "Linux Containers"));
+		job.ln(m.getLittleLogoWithTooltip("aes67", "Audio over IP"));
+		job.ln(m.getLittleLogoWithTooltip("git", "git"));
+		//job.ln(m.getLittleLogoWithTooltip("svn", "SVN"));
+		job.ln(m.getLittleLogoWithTooltip("jira", "Atlassian Jira"));
+		job.ln(m.getLittleLogoWithTooltip("jenkins", "Jenkins"));
+
+		job.ln(m.getLittleLogoWithTooltip("react", "React 18.2.0"));
+		job.ln(m.getLittleLogoWithTooltip("typescript", "Typescript 4.7.2"));
+		job.ln(m.getLittleLogoWithTooltip("javascript", "JavaScript"));
+		job.ln(m.getLittleLogoWithTooltip("graphql", "GraphQL"));
+		job.ln(m.getLittleLogoWithTooltip("java", "Java 17"));
+		job.ln(m.getLittleLogoWithTooltip("gradle", "Gradle 7.5"));
+		job.ln(m.getLittleLogoWithTooltip("nodejs", "Node.js 16.15.1"));
+		job.ln(m.getLittleLogoWithTooltip("npm", "Npm 8.19.2"));
+		job.ln(m.getLittleLogoWithTooltip("yarn", "Yarn 1.22.19"));
+
+
+		job.ln("<i class=\"superscript\">Technologies used</i>");
+		job.ln("</div>");
+
+		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
+		m.ln("			</div>"); // timeline-item-content
+		m.ln("		</div>"); // timeline-item
+		job.buffer.setLength(0);
+
+		// ================================================================================================================= //
+		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2020 - October 2022\">");
+		m.ln("			<div class=\"timeline-item-content\">");
+		m.ln("				<h2>August 2020 - October 2022</h2>");
 		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/slipstream.webp\" style=\"height:2rem;margin-left:-2.5px\" alt=\"Slipstream Engineering Design Ltd\">");
 		m.ln("				<i class=\"superscript\">Slipstream Engineering Design Ltd: <a href=\"https://www.slipstream-design.co.uk/\" target=\"_blank\">https://www.slipstream-design.co.uk/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for RF systems in commercial and military applications</h4>");
@@ -93,12 +147,12 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("solid-works", "Solid Works"));
 		job.ln("<i class=\"superscript\">Technologies used</i>");
 		job.ln("</div>");
-		
+
 		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
 		job.buffer.setLength(0);
-		
+
 		// ================================================================================================================= //
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"December 2017 - August 2020\">");
 		m.ln("			<div class=\"timeline-item-content\">");
@@ -106,7 +160,7 @@ public class PageCV extends BasePage {
 		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/quantumdx.svg\" alt=\"QuantuMDx Group Ltd\">");
 		m.ln("				<i class=\"superscript\">QuantuMDx Group Ltd: <a href=\"https://quantumdx.com\" target=\"_blank\">https://quantumdx.com/</a></i>");
 		m.ln("				<h4>Embedded C/C++ software developer for portable PCR and QPCR medical diagnostics device</h4>");
-		
+
 		job.ln("<p class=\"timeline-content-subheading\">Low Level Controller - Fluid heating and shuttling, cassette handling plus other controls</p>");
 		job.ln("<ul>");
 		job.ln("	<li>Atmel SAMV71 ATSAMV71Q21 ARM Cortex M-7 Atmel Studio 7 with FreeRTOS V10.0.1, FFF(fake function framework) testing</li>");
@@ -124,7 +178,7 @@ public class PageCV extends BasePage {
 		job.ln("ranging from small 8-bit AVR bare metal to 32-bit ARM with FreeRTOS and embedded Linux.");
 		job.ln("Frequently liaison with electronic engineers, providing software support, schematic design");
 		job.ln("feedback and tight integration between both teams.</p>");
-		
+
 		job.ln("<p>Adept writing firmware for assay sequencing, controlling heaters, fluid movement and");
 		job.ln("cassette clamping among others. Final marketable device, work is still in progress. Software");
 		job.ln("written to comply in accordance with IEC 62304.</p>");
@@ -152,7 +206,7 @@ public class PageCV extends BasePage {
 		job.ln(m.getLittleLogoWithTooltip("q-pulse", "Q-Pulse QMS"));
 		job.ln("<i class=\"superscript\">Technologies used</i>");
 		job.ln("</div>");
-		
+
 		m.ln(m.getContentToggle("<b>Expand Details</b>", job.toString()));
 		m.ln("			</div>"); // timeline-item-content
 		m.ln("		</div>"); // timeline-item
@@ -162,7 +216,7 @@ public class PageCV extends BasePage {
 		m.ln("		<div class=\"timeline-item\" data-date-is=\"August 2015 - December 2017\">");
 		m.ln("			<div class=\"timeline-item-content\">");
 		m.ln("				<h2>August 2015 - December 2017</h2>");
-		
+
 		m.ln("				<img src=\"https://raw.githubusercontent.com/nathros/nathros.github.io/master/images/cv/enappsys.png\" alt=\"EnAppSys\">");
 		m.ln("				<i class=\"superscript\">EnAppSys Ltd: <a href=\"https://www.enappsys.com/\" target=\"_blank\">https://www.enappsys.com/</a></i>");
 		m.ln("				<h4>Java software developer providing energy market analytics for energy traders</h4>");

@@ -24,49 +24,49 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("<body>");
 		m.addNavbar(NavbarItem.Projects, requestInfo);
 
-		m.addBanner("Rohloff Bike Upgrade", "https://i.imgur.com/eHJZWCG.jpg");
+		m.addBanner("Rohloff Bike Upgrade", Resource.IMG_BANNER_ROHLOFF_2);
 
 		m.ln("<div class=\"common-content\">");
 		m.ln("	<div class=\"card\">");
 
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/LbMY3Uh.jpg", "https://i.imgur.com/dZamJAm.jpg", "max-width:100%", null, null); // Finished on 6/3/22
-		m.addModalImage("https://i.imgur.com/evSsONK.jpg", "https://i.imgur.com/m7JgAWQ.jpg", "max-width:100%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_SIDE_TN, Resource.IMG_ROHLOFF_2_B_SIDE, "max-width:100%", null, null); // Finished on 6/3/22
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_CRANK_TN, Resource.IMG_ROHLOFF_2_B_CRANK, "max-width:100%", null, null);
 		m.ln("</div>");
 
 		LocalStringBuffer gallery = new LocalStringBuffer(1024);
 		gallery.ln("<div class=\"modal-container-root\" style=\"padding-top:0.5rem\">");
-		m.addModalImage("https://i.imgur.com/s2iDvez.jpg", "https://i.imgur.com/eKDeQKl.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/Opx5SAL.jpg", "https://i.imgur.com/5wz8xRR.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/3kZGHHk.jpg", "https://i.imgur.com/SpIyRLF.jpg", "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_F_HUB_TN, Resource.IMG_ROHLOFF_2_B_F_HUB, "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_SEAT_TN, Resource.IMG_ROHLOFF_2_B_SEAT, "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_FRONT_TN, Resource.IMG_ROHLOFF_2_B_FRONT, "max-width:100%", null, gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/ORzM2iQ.jpg", "https://i.imgur.com/rVuhTRL.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/J4WpPiJ.jpg", "https://i.imgur.com/UptS9l2.jpg", "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_REAR_W_TN, Resource.IMG_ROHLOFF_2_B_REAR_W, "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_HANDLE_TN, Resource.IMG_ROHLOFF_2_B_HANDLE, "max-width:100%", null, gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/jgbBi6f.jpg", "https://i.imgur.com/q2mmb7C.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/SJAq8XY.jpg", "https://i.imgur.com/OovGYZd.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/SZPU5cK.jpg", "https://i.imgur.com/OvHqyv2.jpg", "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_CRANK2_TN, Resource.IMG_ROHLOFF_2_B_CRANK2, "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_WHEEL_D_TN, Resource.IMG_ROHLOFF_2_B_WHEEL_D, "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_REAR_DOWN_TN, Resource.IMG_ROHLOFF_2_B_REAR_DOWN, "max-width:100%", null, gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/7FHIE3a.jpg", "https://i.imgur.com/JUp5Xri.jpg", "max-width:100%", "Most major components except the rear wheel as it had not been built", gallery);
-		m.addModalImage("https://i.imgur.com/pk268Zx.jpg", "https://i.imgur.com/B04t4xk.jpg", "max-width:100%", "Novatech D411CB Hub with Pillar Wing 20 spokes ready to be built", gallery);
-		m.addModalImage("https://i.imgur.com/F6QZfyr.jpg", "https://i.imgur.com/IJrPins.jpg", "max-width:100%", "Rohloff ready to be assembled with Pillar 20 spokes", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_PARTS_TN, Resource.IMG_ROHLOFF_2_B_PARTS, "max-width:100%", "Most major components except the rear wheel as it had not been built", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_WHEEL_F_TN, Resource.IMG_ROHLOFF_2_B_WHEEL_F, "max-width:100%", "Novatech D411CB Hub with Pillar Wing 20 spokes ready to be built", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_WHEEL_R_TN, Resource.IMG_ROHLOFF_2_B_WHEEL_R, "max-width:100%", "Rohloff ready to be assembled with Pillar 20 spokes", gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/hB4SKzL.jpg", "https://i.imgur.com/dOXfFbf.jpg", "max-width:100%", "New belt being drilled, RPM must be low or the rubber will melt", gallery);
-		m.addModalImage("https://i.imgur.com/Txu58RT.jpg", "https://i.imgur.com/XyaOTAF.jpg", "max-width:100%", "Belt cut to length using scalpel and rejoined using M2.2 stainless steel screws", gallery);
-		m.addModalImage("https://i.imgur.com/vTEa1Zs.jpg", "https://i.imgur.com/kKty5x2.jpg", "max-width:100%", "Finished belt, screws cut using rotary tool", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_BELT_DRILL_TN, Resource.IMG_ROHLOFF_2_B_BELT_DRILL, "max-width:100%", "New belt being drilled, RPM must be low or the rubber will melt", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_BELT_SCREW_TN, Resource.IMG_ROHLOFF_2_B_BELT_SCREW, "max-width:100%", "Belt cut to length using scalpel and rejoined using M2.2 stainless steel screws", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_BELT_FIN_TN, Resource.IMG_ROHLOFF_2_B_BELT_FIN, "max-width:100%", "Finished belt, screws cut using rotary tool", gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/rtigsgh.jpg", "https://i.imgur.com/44O0fSd.jpg", "max-width:100%", "BB30 to BB86 converter with spacers for long spindle 92mm crankset", gallery);
-		m.addModalImage("https://i.imgur.com/WXRyg31.jpg", "https://i.imgur.com/i1Zkx4K.jpg", "max-width:100%", "3D printed derailleur cable plug as it will not be used", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_BB_TN, Resource.IMG_ROHLOFF_2_B_BB, "max-width:100%", "BB30 to BB86 converter with spacers for long spindle 92mm crankset", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_R_TRI_TN, Resource.IMG_ROHLOFF_2_B_R_TRI, "max-width:100%", "3D printed derailleur cable plug as it will not be used", gallery);
 		gallery.ln("</div>");
 		gallery.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/BFmzydn.jpg", "https://i.imgur.com/v7w4C7D.jpg", "max-width:100%", null, gallery);
-		m.addModalImage("https://i.imgur.com/mqM8oUe.jpg", "https://i.imgur.com/4RlqAos.jpg", "max-width:100%", "Handlebar tape has a reflective rainbow effect under the right light conditions", gallery);
-		m.addModalImage("https://i.imgur.com/qv0Bx5B.jpg", "https://i.imgur.com/6DtSfHm.jpg", "max-width:100%", "Just over 9kg, similar to the R6 build", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_CHAINSTAY_TN, Resource.IMG_ROHLOFF_2_B_CHAINSTAY, "max-width:100%", null, gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_TAPE_TN, Resource.IMG_ROHLOFF_2_B_TAPE, "max-width:100%", "Handlebar tape has a reflective rainbow effect under the right light conditions", gallery);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_B_BUILD_WEIGHT_TN, Resource.IMG_ROHLOFF_2_B_BUILD_WEIGHT, "max-width:100%", "Just over 9kg, similar to the R6 build", gallery);
 		gallery.ln("</div>");
 		m.ln("<hr>");
 		m.ln(m.getContentTogglePulse("<b>Expand Extended Gallery</b>", gallery.toString()));
@@ -84,9 +84,9 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("</div><br>");
 
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/hUt9mPR.jpeg", "https://i.imgur.com/lwTW9ff.jpg", "max-width:100%", "This is an SL7 frame but observe the join along both chain stays", null);
-		m.addModalImage("https://i.imgur.com/h2k9sto.jpg", "https://i.imgur.com/T60sXRN.jpg", "max-width:100%", null, null);
-		m.addModalImage("https://i.imgur.com/jJMWKW6.jpg", "https://i.imgur.com/WjGKAXJ.jpg", "max-width:100%", "I would liked to have had the Gebla under the chain stay", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_BARE_FRAME_TN, Resource.IMG_ROHLOFF_2_BARE_FRAME, "max-width:100%", "This is an SL7 frame but observe the join along both chain stays", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_INSIDE_TN, Resource.IMG_ROHLOFF_2_INSIDE, "max-width:100%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_ROHBOX_TN, Resource.IMG_ROHLOFF_2_ROHBOX, "max-width:100%", "I would liked to have had the Gebla under the chain stay", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("I also had some issues routing cables through the chainstay because they would get caught on a lip. ");
@@ -152,22 +152,22 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("So I decided to move to a similar crank using MegaExo 24 which uses a steel 24mm spindle, which as far as I can tell is directly compatible with Shimano HollowTech II. ");
 		m.ln("One advantage of HollowTech II is that the spindle is steel and the bearings have a plastic cover so the spindle does not make direct contact. ");
 		m.ln("A disadvantage is that the crank will be a little ");
-		m.addToolTip("<b style=\"cursor: default\">heavier</b>", "<img src=\"https://i.imgur.com/Es4npYZ.jpg\" alt=\"Heavy\"><p>Left is the BB386Evo crank with 30mm alloy spindle used on the Yoeleo R6 build and right is the replacement crank with 24mm steal spindle which as just over a 100g penalty<p>", true);
+		m.addToolTip("<b style=\"cursor: default\">heavier</b>", "<img src=\"" + Resource.IMG_ROHLOFF_2_COMPARE_CRANK +"\" alt=\"Heavy\"><p>Left is the BB386Evo crank with 30mm alloy spindle used on the Yoeleo R6 build and right is the replacement crank with 24mm steal spindle which as just over a 100g penalty<p>", true);
 		m.ln("a tradeoff for a more durable item. Cranks with alloy spindles almost become a consumable item like a chain or cassette which is not ideal. ");
 		m.ln("With this in mind I got a BB30 to BB86 converter, the one I have allows the bearings to be replaced and I ordered some spare 6805 bearings and plastic top hats.");
 		m.ln("The replacement FSA crankset is made for MTB so it has an effective spindle length of 92mm (86 + 5). ");
 		m.ln("An issue is that the Venge frame has a 68mm, so when the BB30 to BB86 converter is installed the final width will be 86mm, 5mm of extra spindle length will need to be taken up somehow. ");
 		m.ln("I fabricated 2 spacers measuring 3.5mm for the drive side and 1.5mm non-drive to take up the slack.");
 		m.addToolTip("<b style=\"cursor: default\">BBB BBO-85</b>", "<img src=\"https://m.media-amazon.com/images/I/71DwILbI3OL._AC_SL1500_.jpg\" alt=\"BBB BBO-85\"><p>Later discovered the BBB BBO-85 bottom bracket which has a wider outbound bearing cups to support MTB cranks in road frames</p>", true);
-		m.addToolTip("<b style=\"cursor: default\">Outbound Comparison</b>", "<img src=\"https://i.imgur.com/s0XZpoi.jpg\" alt=\"Outbound Comparison\"><p>BBB BBO-85 bottom bracket has wider cups than the ZTTO bottom bracket to accommodate for longer MTB spindle</p>", true);
+		m.addToolTip("<b style=\"cursor: default\">Outbound Comparison</b>", "<img src=\"https://i.imgur.com/bb.jpg\" alt=\"Outbound Comparison\"><p>BBB BBO-85 bottom bracket has wider cups than the ZTTO bottom bracket to accommodate for longer MTB spindle</p>", true);
 		m.ln("</div><br>");
 
 
 		m.ln("<h2>Headset Spacer</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/6fuyCVS.jpg", "https://i.imgur.com/QtGppm7.jpg", "max-width:100%", "Original spacers", null);
-		m.addModalImage("https://i.imgur.com/543AWrh.png", "https://i.imgur.com/543AWrh.png", "max-width:100%", "Screenshot from FreeCAD", null);
-		m.addModalImage("https://i.imgur.com/BeGrHIV.jpg", "https://i.imgur.com/T7BTLxX.jpg", "max-width:100%", "3D printed spacer after sanding", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_SPACER_TN, Resource.IMG_ROHLOFF_2_SPACER, "max-width:100%", "Original spacers", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_SPACER_R_TN, Resource.IMG_ROHLOFF_2_SPACER_R_TN, "max-width:100%", "Screenshot from FreeCAD", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_SPACER_PRINT_TN, Resource.IMG_ROHLOFF_2_SPACER_PRINT, "max-width:100%", "3D printed spacer after sanding", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("When the cables were routed I noticed very high friction in the cable. ");
@@ -184,7 +184,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln(" This needed a few revisions to match the unique shape. ");
 
 		// headset
-		// 
+		//
 		// When the cabled were routed I noticed very high friction in the cable.
 		// I could change a single gear one on the Rohloff then the return spring was not strong enough to reset the ratchet mechanism of the Rohbox Gebla allow a second change.
 		//So it was unusable/
@@ -198,9 +198,9 @@ public class PageRohloffR2 extends BasePage {
 
 		m.ln("<h2>Rear Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/xsZy6sy.jpg", "https://i.imgur.com/88V59iq.jpg", "max-width:100%", "Two part mount installed into seatpost", null);
-		m.addModalImage("https://i.imgur.com/Iy77F1b.png", "https://i.imgur.com/Iy77F1b.png", "max-width:100%", "Screenshot from FreeCAD of both parts", null);
-		m.addModalImage("https://i.imgur.com/aireSEc.jpg", "https://i.imgur.com/FJK1vV7.jpg", "max-width:100%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_REAR_LIGHT_TN, Resource.IMG_ROHLOFF_2_REAR_LIGHT_TN, "max-width:100%", "Two part mount installed into seatpost", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_REAR_LIGHT_RENDER, Resource.IMG_ROHLOFF_2_REAR_LIGHT_RENDER, "max-width:100%", "Screenshot from FreeCAD of both parts", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_REAR_LIGHT_S_TN, Resource.IMG_ROHLOFF_2_REAR_LIGHT_S, "max-width:100%", null, null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("One interesting feature of the Venge is that it can house a Di2 junction box in the back of the seatpost such as the EW-RS910. ");
@@ -223,9 +223,9 @@ public class PageRohloffR2 extends BasePage {
 
 		m.ln("<h2>Front Light Mount</h2>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/RVlIrQZ.jpg", "https://i.imgur.com/a6vj8T4.jpg", "max-width:100%", null, null);
-		m.addModalImage("https://i.imgur.com/SnuhtDt.pngg", "https://i.imgur.com/SnuhtDt.png", "max-width:100%", "Screenshot from FreeCAD", null);
-		m.addModalImage("https://i.imgur.com/4lH8Ymp.jpg", "https://i.imgur.com/kXR5v0J.jpg", "max-width:100%", "Neatly placed under the stem", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_FRONT_MOUNT_TN, Resource.IMG_ROHLOFF_2_FRONT_MOUNT, "max-width:100%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_FRONT_MOUNT_RENDER, Resource.IMG_ROHLOFF_2_FRONT_MOUNT_RENDER, "max-width:100%", "Screenshot from FreeCAD", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_FRONT_LIGHT_TN, Resource.IMG_ROHLOFF_2_FRONT_LIGHT, "max-width:100%", "Neatly placed under the stem", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("The Venge has a cable clamp for tidying the cables under the stem. ");
@@ -251,26 +251,26 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("</p>");
 
 		m.ln("<h3>Hydraulic Theory</h3>");
-		m.ln("<img class=\"common-static-image\" src=\"https://i.imgur.com/RzT8DP3.png\" alt=\"Hydraulic System\">");
+		m.ln("<img class=\"common-static-image\" src=\"" + Resource.IMG_ROHLOFF_2_HYDRO+ "\" alt=\"Hydraulic System\">");
 		m.ln("<p>");
 		m.ln("This is some background information on how basic hydraulics work in order to apply this knowledge to determine if it is possible to mix and match levers and calipers. ");
 		m.ln("In this example the surface area of B is 5 times greater than A. So an input force of 30 Newtons f<sub>1</sub> results in an output force 150 Newtons f<sub>2</sub> which is calculated: <span style=\"white-space:nowrap;\">30 &times; 5 = 150.</span>");
 		m.ln("This comes at a cost, if A moves down 25cm then B only moves 5cm. So you have traded a force amplification for a reduction in travel. ");
-		
+
 		m.ln("</p>");
 
 		m.ln("<h3>Lever and Caliper Compatibility</h3>");
 
 		m.ln("<div class=\"list-container\">");
 		m.ln("<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/HZNhVso.jpeg\" alt=\"SRAM HydroR\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_SRAM_H + "\" alt=\"SRAM HydroR\">");
 		m.ln("		<b>SRAM Red HydroR</b>");
 		m.ln("		<span>Release date: 2014</span>");
 		m.ln("		<span>Mechanical only <i>(Rohbox compatible)</i></span>");
 		m.ln("		<span>Reservoir and master cylinder size unknown</span>");
 		m.ln("</div>");
 		m.ln("<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/Z2MGmvF.jpeg\" alt=\"SRAM AXS\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_SRAM_F + "\" alt=\"SRAM AXS\">");
 		m.ln("		<b>SRAM Red AXS</b>");
 		m.ln("		<span>Release date: April 2019</span>");
 		m.ln("		<span>Electronic only <i>(Rohbox incompatible)</i></span>");
@@ -289,21 +289,21 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("<div class=\"list-container\">");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/yGx0clq.jpeg\" alt=\"RAM HydroR\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_SRAM_CAL_RED + "\" alt=\"RAM HydroR\">");
 		m.ln("		<b>SRAM HydroR</b>");
 		m.ln("		<span>2 x 18mm diameter pistons</span>");
 		m.ln("		<span style=\"border-bottom: 5px solid rgba(0,128,255,0.5);white-space: nowrap;\">2&#960;9<sup>2</sup> = <b>508.9mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
-		
+
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/r4Uk49Z.jpeg\" alt=\"SRAM AXS HRD\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_SRAM_CAL_RED_AXS + "\" alt=\"SRAM AXS HRD\">");
 		m.ln("		<b>SRAM AXS HRD</b>");
 		m.ln("		<span>2 x 21mm pistons</span>");
 		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,128,0,0.5);white-space: nowrap;\">2&#960;10.5<sup>2</sup> = <b>692.7mm<sup>2</sup></b></span>");
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/QPpAPN9.jpeg\" alt=\"Hope SRAM RX-4\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_HOPE_RX4 + "\" alt=\"Hope SRAM RX-4\">");
 		m.ln("		<b>Hope SRAM RX-4</b>");
 		m.ln("		<span>2 x 11mm pistons</span>");
 		m.ln("		<span>2 x 14mm pistons</span>");
@@ -311,7 +311,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/1EvlDGn.jpeg\" alt=\"Hope SRAM RX-4+\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_HOPE_RX4_PLUS + "\" alt=\"Hope SRAM RX-4+\">");
 		m.ln("		<b>Hope SRAM RX-4+</b>");
 		m.ln("		<span>2 x 14mm pistons</span>");
 		m.ln("		<span>2 x 16mm pistons</span>");
@@ -319,7 +319,7 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("	</div>");
 
 		m.ln("	<div class=\"list-group\">");
-		m.ln("		<img src=\"https://i.imgur.com/t12nsPc.jpeg\" alt=\"Hope X2 Flat Mount\">");
+		m.ln("		<img src=\"" + Resource.IMG_ROHLOFF_2_HOPE_X2 + "\" alt=\"Hope X2 Flat Mount\">");
 		m.ln("		<b>Hope X2 Flat Mount</b>");
 		m.ln("		<span>2 x 22mm pistons</span>");
 		m.ln("		<span style=\"border-bottom: 5px solid rgba(255,255,255,0);white-space: nowrap;\">2&#960;11<sup>2</sup> = <b>760.3mm<sup>2</sup></b></span>");
@@ -339,12 +339,12 @@ public class PageRohloffR2 extends BasePage {
 		m.ln("Contacting Hope they recommended against the X2 as the reservoir may be too small. ");
 		m.ln("Rather than risk getting the X2 and not being able to return a used caliper I got a new pair of the original flat mount calipers.");
 		m.ln("</p>");
-		
+
 		m.ln("<h3>Brake Pads</h3>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/LSdKX4s.jpg", "https://i.imgur.com/6k1MRVD.jpg", "max-width:100%", "(Top) Original SRAM brake pads, semi-metal and sintered BR-M555", null);
-		m.addModalImage("https://i.imgur.com/fUaohqb.png", "https://i.imgur.com/fUaohqb.png", "max-width:100%", null, null);
-		m.addModalImage("https://i.imgur.com/0El6Cls.jpg", "https://i.imgur.com/ex5DQX6.jpg", "max-width:100%", "Pads when the axle hole are aligned at the top", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_PADS_TN, Resource.IMG_ROHLOFF_2_PADS, "max-width:100%", "(Top) Original SRAM brake pads, semi-metal and sintered BR-M555", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_PADS_DIM, Resource.IMG_ROHLOFF_2_PADS_DIM, "max-width:100%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_PADS_ALIGN_TN, Resource.IMG_ROHLOFF_2_PADS_ALIGN, "max-width:100%", "Pads when the axle hole are aligned at the top", null);
 		m.ln("</div>");
 
 		m.ln("<p>");
@@ -378,9 +378,9 @@ public class PageRohloffR2 extends BasePage {
 
 		m.ln("<h3>Shimano Shifter With Gebla Investigation</h3>");
 		m.ln("<div class=\"modal-container-root\">");
-		m.addModalImage("https://i.imgur.com/xVgxZyd.jpg", "https://i.imgur.com/xVgxZyd.jpg", "max-width:100%", "Proprietary bolt from Shimano, the safety pin can be easily pushed out", null);
-		m.addModalImage("https://i.imgur.com/004ETtI.png", "https://i.imgur.com/004ETtI.png", "max-width:100%", null, null);
-		m.addModalImage("https://i.imgur.com/cfva9uu.jpg", "https://i.imgur.com/cfva9uu.jpgg", "max-width:100%", "Right shifter with assembly removed", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_SHIFTER_MOD, Resource.IMG_ROHLOFF_2_SHIFTER_MOD, "max-width:100%", "Proprietary bolt from Shimano, the safety pin can be easily pushed out", null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_SHIFTER_TOOL, Resource.IMG_ROHLOFF_2_SHIFTER_TOOL, "max-width:100%", null, null);
+		m.addModalImage(Resource.IMG_ROHLOFF_2_SHIFTER_INSIDE, Resource.IMG_ROHLOFF_2_SHIFTER_INSIDE, "max-width:100%", "Right shifter with assembly removed", null);
 		m.ln("</div>");
 		m.ln("<div class=\"paragraph\">");
 		m.ln("Ordering a pair Shimano Dura Ace R9120 shifters I wanted to determine if it is possible to use them with the Gebla. ");

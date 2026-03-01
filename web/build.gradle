@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 plugins {
 	id 'java-library'
-	id 'com.github.johnrengelman.shadow' version '5.0.0'
+	id 'com.gradleup.shadow' version '8.3.9'
 	id 'com.palantir.git-version' version '0.12.3'
 }
 
@@ -72,7 +72,7 @@ shadowJar {
 
 	//minimize()
 	archiveBaseName = jarName
-	classifier = null
+	// classifier = null
 	archiveVersion = null
 
 	doLast { // Move jar file to root of build dir

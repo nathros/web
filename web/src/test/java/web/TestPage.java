@@ -15,6 +15,7 @@ public class TestPage {
 	private static final Executor threadPool = Executors.newFixedThreadPool(3);
 	public static boolean stopServer = false;
 	public static int requestNumber = 0;
+	private static int port = 8081;
 
 	private static void handleRequest(Socket socket, String[] args) {
 		BufferedReader in;
@@ -85,11 +86,13 @@ public class TestPage {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ServerSocket socket;
+		ServerSocket socket = null;
 		try {
-			socket = new ServerSocket(8081);
+			socket = new ServerSocket(port);
+			System.out.println("Started at http://localhost:" + port);
 		} catch (Exception e) {
 			e.printStackTrace();
+			socket.close();
 			return;
 		}
 
